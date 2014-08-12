@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMService.ViewBean" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMService.ViewBean" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfUserView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserView" nillable="true" type="tns:UserView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserView" nillable="true" type="tns:ArrayOfUserView" />
+  <xs:complexType name="UserView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractView">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="organization" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserView" nillable="true" type="tns:UserView" />
+  <xs:complexType name="AbstractView">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AbstractView" nillable="true" type="tns:AbstractView" />
+  <xs:complexType name="ArrayOfGroupView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GroupView" nillable="true" type="tns:GroupView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGroupView" nillable="true" type="tns:ArrayOfGroupView" />
+  <xs:complexType name="GroupView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractView">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GroupView" nillable="true" type="tns:GroupView" />
+  <xs:complexType name="ArrayOfTypeView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TypeView" nillable="true" type="tns:TypeView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTypeView" nillable="true" type="tns:ArrayOfTypeView" />
+  <xs:complexType name="TypeView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractView">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TypeView" nillable="true" type="tns:TypeView" />
+  <xs:complexType name="ArrayOfRightView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RightView" nillable="true" type="tns:RightView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRightView" nillable="true" type="tns:ArrayOfRightView" />
+  <xs:complexType name="RightView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractView">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="right" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RightView" nillable="true" type="tns:RightView" />
+  <xs:complexType name="ObjectViewTree">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractView">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="children" nillable="true" type="tns:ArrayOfObjectViewTree" />
+          <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="parent" nillable="true" type="tns:ObjectViewTree" />
+          <xs:element minOccurs="0" name="type" nillable="true" type="tns:TypeView" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObjectViewTree" nillable="true" type="tns:ObjectViewTree" />
+  <xs:complexType name="ArrayOfObjectViewTree">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ObjectViewTree" nillable="true" type="tns:ObjectViewTree" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfObjectViewTree" nillable="true" type="tns:ArrayOfObjectViewTree" />
+  <xs:complexType name="UserAclView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractView">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="groupsrights" nillable="true" type="tns:ArrayOfRightView" />
+          <xs:element minOccurs="0" name="inheritrights" nillable="true" type="tns:ArrayOfRightView" />
+          <xs:element minOccurs="0" name="obj" nillable="true" type="tns:ObjectViewTree" />
+          <xs:element minOccurs="0" name="rights" nillable="true" type="tns:ArrayOfRightView" />
+          <xs:element minOccurs="0" name="user" nillable="true" type="tns:UserView" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserAclView" nillable="true" type="tns:UserAclView" />
+  <xs:complexType name="GroupAclView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractView">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="group" nillable="true" type="tns:GroupView" />
+          <xs:element minOccurs="0" name="inheritrights" nillable="true" type="tns:ArrayOfRightView" />
+          <xs:element minOccurs="0" name="obj" nillable="true" type="tns:ObjectViewTree" />
+          <xs:element minOccurs="0" name="rights" nillable="true" type="tns:ArrayOfRightView" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GroupAclView" nillable="true" type="tns:GroupAclView" />
+</xs:schema>

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BillingService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.4.1/Billing/BillingService.svc?xsd=xsd0" namespace="http://escience.ifmo.ru/easis/eventing" />
+      <xsd:import schemaLocation="http://192.168.4.1/Billing/BillingService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.4.1/Billing/BillingService.svc?xsd=xsd2" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.4.1/Billing/BillingService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://192.168.4.1/Billing/BillingService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Easis.BillingLibs" />
+      <xsd:import schemaLocation="http://192.168.4.1/Billing/BillingService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/MongoDB.Bson" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBillingService_Notify_InputMessage">
+    <wsdl:part xmlns:q1="http://escience.ifmo.ru/easis/eventing" name="parameters" element="q1:Notify" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_Notify_OutputMessage">
+    <wsdl:part xmlns:q2="http://escience.ifmo.ru/easis/eventing" name="parameters" element="q2:NotifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_Calculate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Calculate" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_Calculate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_CalculateList_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateList" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_CalculateList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_CheckPossibility_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPossibility" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_CheckPossibility_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPossibilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_CheckPossibilityList_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPossibilityList" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_CheckPossibilityList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPossibilityListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_CalculateAndWithdraw_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateAndWithdraw" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_CalculateAndWithdraw_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateAndWithdrawResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_CalculateAndWithdrawWf_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateAndWithdrawWf" />
+  </wsdl:message>
+  <wsdl:message name="IBillingService_CalculateAndWithdrawWf_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateAndWithdrawWfResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountingService_GetUserQuotingInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserQuotingInfo" />
+  </wsdl:message>
+  <wsdl:message name="IAccountingService_GetUserQuotingInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserQuotingInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountingService_GetHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHistory" />
+  </wsdl:message>
+  <wsdl:message name="IAccountingService_GetHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountingService_Withdraw_InputMessage">
+    <wsdl:part name="parameters" element="tns:Withdraw" />
+  </wsdl:message>
+  <wsdl:message name="IAccountingService_Withdraw_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WithdrawResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountingService_Deposite_InputMessage">
+    <wsdl:part name="parameters" element="tns:Deposite" />
+  </wsdl:message>
+  <wsdl:message name="IAccountingService_Deposite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DepositeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountingService_Reserve_InputMessage">
+    <wsdl:part name="parameters" element="tns:Reserve" />
+  </wsdl:message>
+  <wsdl:message name="IAccountingService_Reserve_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReserveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountingService_Dereserve_InputMessage">
+    <wsdl:part name="parameters" element="tns:Dereserve" />
+  </wsdl:message>
+  <wsdl:message name="IAccountingService_Dereserve_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DereserveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITarrifingService_SetRate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetRate" />
+  </wsdl:message>
+  <wsdl:message name="ITarrifingService_SetRate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetRateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBillingService">
+    <wsdl:operation name="Notify">
+      <wsdl:input wsaw:Action="http://escience.ifmo.ru/easis/eventing/Notify" message="tns:IBillingService_Notify_InputMessage" />
+      <wsdl:output wsaw:Action="http://escience.ifmo.ru/easis/eventing/INotifiable/NotifyResponse" message="tns:IBillingService_Notify_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Calculate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/Calculate" message="tns:IBillingService_Calculate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/CalculateResponse" message="tns:IBillingService_Calculate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/CalculateList" message="tns:IBillingService_CalculateList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/CalculateListResponse" message="tns:IBillingService_CalculateList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPossibility">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/CheckPossibility" message="tns:IBillingService_CheckPossibility_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/CheckPossibilityResponse" message="tns:IBillingService_CheckPossibility_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPossibilityList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/CheckPossibilityList" message="tns:IBillingService_CheckPossibilityList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/CheckPossibilityListResponse" message="tns:IBillingService_CheckPossibilityList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateAndWithdraw">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/CalculateAndWithdraw" message="tns:IBillingService_CalculateAndWithdraw_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/CalculateAndWithdrawResponse" message="tns:IBillingService_CalculateAndWithdraw_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateAndWithdrawWf">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBillingService/CalculateAndWithdrawWf" message="tns:IBillingService_CalculateAndWithdrawWf_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBillingService/CalculateAndWithdrawWfResponse" message="tns:IBillingService_CalculateAndWithdrawWf_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IAccountingService">
+    <wsdl:operation name="GetUserQuotingInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountingService/GetUserQuotingInfo" message="tns:IAccountingService_GetUserQuotingInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountingService/GetUserQuotingInfoResponse" message="tns:IAccountingService_GetUserQuotingInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountingService/GetHistory" message="tns:IAccountingService_GetHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountingService/GetHistoryResponse" message="tns:IAccountingService_GetHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Withdraw">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountingService/Withdraw" message="tns:IAccountingService_Withdraw_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountingService/WithdrawResponse" message="tns:IAccountingService_Withdraw_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Deposite">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountingService/Deposite" message="tns:IAccountingService_Deposite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountingService/DepositeResponse" message="tns:IAccountingService_Deposite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Reserve">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountingService/Reserve" message="tns:IAccountingService_Reserve_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountingService/ReserveResponse" message="tns:IAccountingService_Reserve_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Dereserve">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountingService/Dereserve" message="tns:IAccountingService_Dereserve_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountingService/DereserveResponse" message="tns:IAccountingService_Dereserve_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ITarrifingService">
+    <wsdl:operation name="SetRate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITarrifingService/SetRate" message="tns:ITarrifingService_SetRate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITarrifingService/SetRateResponse" message="tns:ITarrifingService_SetRate_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IBillingService" type="tns:IBillingService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Notify">
+      <soap:operation soapAction="http://escience.ifmo.ru/easis/eventing/Notify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Calculate">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/Calculate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateList">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/CalculateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPossibility">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/CheckPossibility" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPossibilityList">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/CheckPossibilityList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateAndWithdraw">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/CalculateAndWithdraw" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateAndWithdrawWf">
+      <soap:operation soapAction="http://tempuri.org/IBillingService/CalculateAndWithdrawWf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IAccountingService" type="tns:IAccountingService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserQuotingInfo">
+      <soap:operation soapAction="http://tempuri.org/IAccountingService/GetUserQuotingInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHistory">
+      <soap:operation soapAction="http://tempuri.org/IAccountingService/GetHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Withdraw">
+      <soap:operation soapAction="http://tempuri.org/IAccountingService/Withdraw" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Deposite">
+      <soap:operation soapAction="http://tempuri.org/IAccountingService/Deposite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Reserve">
+      <soap:operation soapAction="http://tempuri.org/IAccountingService/Reserve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Dereserve">
+      <soap:operation soapAction="http://tempuri.org/IAccountingService/Dereserve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ITarrifingService" type="tns:ITarrifingService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetRate">
+      <soap:operation soapAction="http://tempuri.org/ITarrifingService/SetRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BillingService">
+    <wsdl:port name="BasicHttpBinding_IBillingService" binding="tns:BasicHttpBinding_IBillingService">
+      <soap:address location="http://192.168.4.1/Billing/BillingService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IAccountingService" binding="tns:BasicHttpBinding_IAccountingService">
+      <soap:address location="http://192.168.4.1/Billing/BillingService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ITarrifingService" binding="tns:BasicHttpBinding_ITarrifingService">
+      <soap:address location="http://192.168.4.1/Billing/BillingService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

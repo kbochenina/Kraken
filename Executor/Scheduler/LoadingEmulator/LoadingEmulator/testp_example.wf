@@ -1,0 +1,10 @@
+﻿#input
+
+#output
+
+#easyflow
+step s1 runs testp(
+in0=1,
+in1=2,
+timeToWait=40
+)

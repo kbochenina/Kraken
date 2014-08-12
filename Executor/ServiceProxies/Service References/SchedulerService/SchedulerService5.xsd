@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Scheduler" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Scheduler" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:58524/SchedulerService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Common" />
+  <xs:import schemaLocation="http://localhost:58524/SchedulerService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/TimeMeter" />
+  <xs:import schemaLocation="http://localhost:58524/SchedulerService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="TaskScheduler.Workflow">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActiveTasks" nillable="true" type="tns:ArrayOfTaskScheduler.ActiveTask" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Optimize" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="Resources" nillable="true" type="q1:ArrayOfResource" />
+      <xs:element minOccurs="0" name="Tasks" nillable="true" type="tns:ArrayOfTaskScheduler.Task" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskScheduler.Workflow" nillable="true" type="tns:TaskScheduler.Workflow" />
+  <xs:complexType name="ArrayOfTaskScheduler.ActiveTask">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskScheduler.ActiveTask" nillable="true" type="tns:TaskScheduler.ActiveTask" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaskScheduler.ActiveTask" nillable="true" type="tns:ArrayOfTaskScheduler.ActiveTask" />
+  <xs:complexType name="TaskScheduler.ActiveTask">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TaskScheduler.Task">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="Destination" nillable="true" type="q2:LaunchDestination" />
+          <xs:element minOccurs="0" name="EstimatedLaunchTime" type="xs:double" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TimeMeter" minOccurs="0" name="Estimation" nillable="true" type="q3:EstimationResult" />
+          <xs:element minOccurs="0" name="IsUrgent" type="xs:boolean" />
+          <xs:element minOccurs="0" name="State" type="tns:TaskScheduler.TaskState" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TaskScheduler.ActiveTask" nillable="true" type="tns:TaskScheduler.ActiveTask" />
+  <xs:complexType name="TaskScheduler.Task">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TaskScheduler.BaseTask">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="SuitableDestinations" nillable="true" type="q4:ArrayOfLaunchDestination" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TaskScheduler.Task" nillable="true" type="tns:TaskScheduler.Task" />
+  <xs:complexType name="TaskScheduler.BaseTask">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Parameters" nillable="true" type="q5:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="WFid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:unsignedLong" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskScheduler.BaseTask" nillable="true" type="tns:TaskScheduler.BaseTask" />
+  <xs:simpleType name="TaskScheduler.TaskState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LAUNCHED" />
+      <xs:enumeration value="SCHEDULED" />
+      <xs:enumeration value="ABORTED" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TaskScheduler.TaskState" nillable="true" type="tns:TaskScheduler.TaskState" />
+  <xs:complexType name="ArrayOfTaskScheduler.Task">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskScheduler.Task" nillable="true" type="tns:TaskScheduler.Task" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaskScheduler.Task" nillable="true" type="tns:ArrayOfTaskScheduler.Task" />
+  <xs:complexType name="TaskScheduler.LaunchPlan">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EstimatedExecutionTime" type="xs:double" />
+      <xs:element minOccurs="0" name="Plan" nillable="true" type="tns:ArrayOfTaskScheduler.ActiveTask" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskScheduler.LaunchPlan" nillable="true" type="tns:TaskScheduler.LaunchPlan" />
+  <xs:complexType name="ArrayOfTaskScheduler.NodeAvailabilityTime">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskScheduler.NodeAvailabilityTime" nillable="true" type="tns:TaskScheduler.NodeAvailabilityTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaskScheduler.NodeAvailabilityTime" nillable="true" type="tns:ArrayOfTaskScheduler.NodeAvailabilityTime" />
+  <xs:complexType name="TaskScheduler.NodeAvailabilityTime">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="TaskScheduler.NodeAvailabilityTime" nillable="true" type="tns:TaskScheduler.NodeAvailabilityTime" />
+  <xs:complexType name="TaskScheduler.UrgentWorkflow">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TaskScheduler.Workflow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MaxExecutionTime" type="xs:double" />
+          <xs:element minOccurs="0" name="MinExecutionTime" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TaskScheduler.UrgentWorkflow" nillable="true" type="tns:TaskScheduler.UrgentWorkflow" />
+</xs:schema>

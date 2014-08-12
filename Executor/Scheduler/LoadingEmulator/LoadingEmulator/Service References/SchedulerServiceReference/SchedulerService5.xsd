@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Scheduler.Estimated" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Scheduler.Estimated" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.4.2/SchedulerService/SchedulerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Scheduler" />
+  <xs:import schemaLocation="http://192.168.4.2/SchedulerService/SchedulerService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Common" />
+  <xs:import schemaLocation="http://192.168.4.2/SchedulerService/SchedulerService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/TimeMeter" />
+  <xs:complexType name="EstimatedUrgentWorkflow">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EstimatedWorkflow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MaxExecutionTime" type="xs:double" />
+          <xs:element minOccurs="0" name="MinExecutionTime" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EstimatedUrgentWorkflow" nillable="true" type="tns:EstimatedUrgentWorkflow" />
+  <xs:complexType name="EstimatedWorkflow">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActiveTasks" nillable="true" type="tns:ArrayOfActiveEstimatedTask" />
+      <xs:element minOccurs="0" name="Dependencies" nillable="true" type="tns:ArrayOfTasksDepenendency" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Optimize" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Tasks" nillable="true" type="tns:ArrayOfEstimatedTask" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EstimatedWorkflow" nillable="true" type="tns:EstimatedWorkflow" />
+  <xs:complexType name="ArrayOfActiveEstimatedTask">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ActiveEstimatedTask" nillable="true" type="tns:ActiveEstimatedTask" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfActiveEstimatedTask" nillable="true" type="tns:ArrayOfActiveEstimatedTask" />
+  <xs:complexType name="ActiveEstimatedTask">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Scheduler" base="q1:TaskScheduler.BaseTask">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Estimation" nillable="true" type="tns:ActiveEstimation" />
+          <xs:element minOccurs="0" name="IsUrgent" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MonopolizeResource" type="xs:boolean" />
+          <xs:element minOccurs="0" name="State" type="q1:TaskScheduler.TaskState" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActiveEstimatedTask" nillable="true" type="tns:ActiveEstimatedTask" />
+  <xs:complexType name="ActiveEstimation">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResourceEstimation">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="Destination" nillable="true" type="q2:LaunchDestination" />
+          <xs:element minOccurs="0" name="LaunchTime" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActiveEstimation" nillable="true" type="tns:ActiveEstimation" />
+  <xs:complexType name="ResourceEstimation">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="Resource" nillable="true" type="q3:Resource" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TimeMeter" minOccurs="0" name="Result" nillable="true" type="q4:EstimationResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResourceEstimation" nillable="true" type="tns:ResourceEstimation" />
+  <xs:complexType name="ArrayOfTasksDepenendency">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TasksDepenendency" nillable="true" type="tns:TasksDepenendency" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTasksDepenendency" nillable="true" type="tns:ArrayOfTasksDepenendency" />
+  <xs:complexType name="TasksDepenendency">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConsumerId" type="xs:unsignedLong" />
+      <xs:element minOccurs="0" name="ProviderId" type="xs:unsignedLong" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TasksDepenendency" nillable="true" type="tns:TasksDepenendency" />
+  <xs:complexType name="ArrayOfEstimatedTask">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EstimatedTask" nillable="true" type="tns:EstimatedTask" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEstimatedTask" nillable="true" type="tns:ArrayOfEstimatedTask" />
+  <xs:complexType name="EstimatedTask">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Scheduler" base="q5:TaskScheduler.BaseTask">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Estimations" nillable="true" type="tns:ArrayOfResourceEstimation" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EstimatedTask" nillable="true" type="tns:EstimatedTask" />
+  <xs:complexType name="ArrayOfResourceEstimation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResourceEstimation" nillable="true" type="tns:ResourceEstimation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResourceEstimation" nillable="true" type="tns:ArrayOfResourceEstimation" />
+  <xs:complexType name="UrgentPlan">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:LaunchPlan">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UrgentPlan" nillable="true" type="tns:UrgentPlan" />
+  <xs:complexType name="LaunchPlan">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EstimatedExecutionTime" type="xs:double" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Scheduler" minOccurs="0" name="NodesTimings" nillable="true" type="q6:ArrayOfTaskScheduler.NodeAvailabilityTime" />
+      <xs:element minOccurs="0" name="Plan" nillable="true" type="tns:ArrayOfActiveEstimatedTask" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LaunchPlan" nillable="true" type="tns:LaunchPlan" />
+</xs:schema>

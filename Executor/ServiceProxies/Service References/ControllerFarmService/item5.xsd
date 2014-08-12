@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CommonDataTypes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CommonDataTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8701/ControllerFarmService/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="TaskStatInfo">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProcessInfoCollection" nillable="true" type="q1:ArrayOfKeyValueOfstringArrayOfProcessStatInfo7FRmZwMG" />
+      <xs:element minOccurs="0" name="ResourceName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskStatInfo" nillable="true" type="tns:TaskStatInfo" />
+</xs:schema>

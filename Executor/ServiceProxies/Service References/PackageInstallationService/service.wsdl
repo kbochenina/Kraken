@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PackageInstallationServiceImpl" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/PackageInstallationService" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPackageInstallationService_GetPackagesInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackagesInfo" />
+  </wsdl:message>
+  <wsdl:message name="IPackageInstallationService_GetPackagesInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackagesInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackageInstallationService_InstallPackageToNode_InputMessage">
+    <wsdl:part name="parameters" element="tns:InstallPackageToNode" />
+  </wsdl:message>
+  <wsdl:message name="IPackageInstallationService_InstallPackageToNode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InstallPackageToNodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResultForTicketService_ReportResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReportResult" />
+  </wsdl:message>
+  <wsdl:message name="IResultForTicketService_ReportResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReportResultResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPackageInstallationService">
+    <wsdl:operation name="GetPackagesInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackageInstallationService/GetPackagesInfo" message="tns:IPackageInstallationService_GetPackagesInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackageInstallationService/GetPackagesInfoResponse" message="tns:IPackageInstallationService_GetPackagesInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InstallPackageToNode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackageInstallationService/InstallPackageToNode" message="tns:IPackageInstallationService_InstallPackageToNode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackageInstallationService/InstallPackageToNodeResponse" message="tns:IPackageInstallationService_InstallPackageToNode_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IResultForTicketService">
+    <wsdl:operation name="ReportResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResultForTicketService/ReportResult" message="tns:IResultForTicketService_ReportResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResultForTicketService/ReportResultResponse" message="tns:IResultForTicketService_ReportResult_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="stdInstaller" type="tns:IPackageInstallationService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPackagesInfo">
+      <soap:operation soapAction="http://tempuri.org/IPackageInstallationService/GetPackagesInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InstallPackageToNode">
+      <soap:operation soapAction="http://tempuri.org/IPackageInstallationService/InstallPackageToNode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="resultForTicket" type="tns:IResultForTicketService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReportResult">
+      <soap:operation soapAction="http://tempuri.org/IResultForTicketService/ReportResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PackageInstallationServiceImpl">
+    <wsdl:port name="stdInstaller" binding="tns:stdInstaller">
+      <soap:address location="http://localhost:8755/PackageInstallationService/" />
+    </wsdl:port>
+    <wsdl:port name="resultForTicket" binding="tns:resultForTicket">
+      <soap:address location="http://localhost:8755/PackageInstallationService/ResultForTicket" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

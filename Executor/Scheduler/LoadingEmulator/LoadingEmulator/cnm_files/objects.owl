@@ -1,0 +1,1605 @@
+<!DOCTYPE rdf:RDF [
+<!ENTITY base "http://www.w3.org/2002/07/owl#" >
+<!ENTITY dc "http://purl.org/dc/elements/1.1/#" >
+<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+<!ENTITY ont "http://www.co-ode.org/ontologies/ont.owl#" >
+<!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+<!ENTITY daml "http://www.daml.org/2001/03/daml+oil#" >
+<!ENTITY escience "http://escience.ifmo.ru#" >
+]>
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#" xml:base="http://www.w3.org/2002/07/owl#" xmlns:dc="http://purl.org/dc/elements/1.1/#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:ont="http://www.co-ode.org/ontologies/ont.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:daml="http://www.daml.org/2001/03/daml+oil#" xmlns:escience="http://escience.ifmo.ru#">
+  <owl:Class rdf:about="&escience;Content" />
+  <owl:ObjectProperty rdf:about="&escience;Name">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="&escience;Parameter">
+    <owl:inverseOf rdf:resource="&escience;hasParameter" />
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="&escience;hasParameter">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+    <owl:inverseOf rdf:resource="&escience;Parameter" />
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="&escience;Property">
+    <owl:inverseOf rdf:resource="&escience;hasProperty" />
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="&escience;Type">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="&escience;Parameter" />
+  <owl:ObjectProperty rdf:about="&escience;Parameter">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&escience;hasProperty">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="&escience;Object">
+    <owl:inverseOf rdf:resource="&escience;hasObject" />
+  </owl:Class>
+  <owl:Class rdf:about="&escience;Content" />
+  <owl:ObjectProperty rdf:about="&escience;hasObject">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+    <owl:inverseOf rdf:resource="&escience;Object" />
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&escience;Content">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&escience;String1">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&escience;String2">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="&escience;Model">
+    <owl:inverseOf rdf:resource="&escience;hasModel" />
+  </owl:Class>
+  <owl:Class rdf:about="&escience;Object" />
+  <owl:ObjectProperty rdf:about="&escience;hasModel">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+    <owl:inverseOf rdf:resource="&escience;Model" />
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&escience;Object">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="&escience;Scenario">
+    <owl:inverseOf rdf:resource="&escience;hasScenario" />
+  </owl:Class>
+  <owl:Class rdf:about="&escience;Model" />
+  <owl:ObjectProperty rdf:about="&escience;hasScenario">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+    <owl:inverseOf rdf:resource="&escience;Scenario" />
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&escience;Model">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="&escience;Implementation">
+    <owl:inverseOf rdf:resource="&escience;hasImplementation" />
+  </owl:Class>
+  <owl:Class rdf:about="&escience;Scenario" />
+  <owl:ObjectProperty rdf:about="&escience;hasImplementation">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+    <owl:inverseOf rdf:resource="&escience;Implementation" />
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&escience;Scenario">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="&escience;ImplementedPackage">
+    <owl:inverseOf rdf:resource="&escience;hasImplementedPackage" />
+  </owl:Class>
+  <owl:Class rdf:about="&escience;Implementation" />
+  <owl:ObjectProperty rdf:about="&escience;hasImplementedPackage">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&escience;Implementation">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="&escience;ImplementedPackageParameter">
+    <owl:inverseOf rdf:resource="&escience;hasImplementedPackageParameter" />
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="&escience;Include">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="&escience;ImplementedPackage" />
+  <owl:ObjectProperty rdf:about="&escience;hasImplementedPackageParameter">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&escience;ImplPackage">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&escience;RealInputName">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&escience;RealInputType">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&escience;RealOutputName">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&escience;Value">
+    <rdf:type rdf:resource="&base;ObjectProperty" />
+  </owl:ObjectProperty>
+  <owl:NamedIndividual rdf:about="&escience;22747185">
+    <rdf:type rdf:resource="&escience;Content" />
+    <rdfs:label>Content</rdfs:label>
+    <escience:hasParameter rdf:resource="&escience;39644247" />
+    <escience:hasParameter rdf:resource="&escience;1896404" />
+    <escience:hasParameter rdf:resource="&escience;64904770" />
+    <escience:hasParameter rdf:resource="&escience;37005666" />
+    <escience:hasParameter rdf:resource="&escience;60389724" />
+    <escience:hasParameter rdf:resource="&escience;32687874" />
+    <escience:hasParameter rdf:resource="&escience;9674765" />
+    <escience:hasParameter rdf:resource="&escience;9217373" />
+    <escience:hasParameter rdf:resource="&escience;28300091" />
+    <escience:hasParameter rdf:resource="&escience;18719642" />
+    <escience:hasParameter rdf:resource="&escience;19405393" />
+    <escience:hasParameter rdf:resource="&escience;24300386" />
+    <escience:hasParameter rdf:resource="&escience;1403701" />
+    <escience:hasParameter rdf:resource="&escience;13170908" />
+    <escience:hasParameter rdf:resource="&escience;40768079" />
+    <escience:hasObject rdf:resource="&escience;52789936" />
+    <escience:hasObject rdf:resource="&escience;21430171" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;39644247">
+    <rdf:type rdf:resource="&escience;Parameter" />
+    <rdfs:label>Приводный_ветер</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;1896404">
+    <rdf:type rdf:resource="&escience;Parameter" />
+    <rdfs:label>Батиметрия</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;64904770">
+    <rdf:type rdf:resource="&escience;Parameter" />
+    <rdfs:label>Окончание</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;37005666">
+    <rdf:type rdf:resource="&escience;Parameter" />
+    <rdfs:label>Ветер_на_высоте</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;60389724">
+    <rdf:type rdf:resource="&escience;Parameter" />
+    <rdfs:label>Морское_волнение</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;32687874">
+    <rdf:type rdf:resource="&escience;Parameter" />
+    <rdfs:label>Результат</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;9674765">
+    <rdf:type rdf:resource="&escience;Parameter" />
+    <rdfs:label>Старт</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;9217373">
+    <rdf:type rdf:resource="&escience;Parameter" />
+    <rdfs:label>Параметризированный_спектр</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;28300091">
+    <rdf:type rdf:resource="&escience;Parameter" />
+    <rdfs:label>Выход_swan</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;18719642">
+    <rdf:type rdf:resource="&escience;Parameter" />
+    <rdfs:label>Курс</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;19405393">
+    <rdf:type rdf:resource="&escience;Parameter" />
+    <rdfs:label>Трение</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;24300386">
+    <rdf:type rdf:resource="&escience;Parameter" />
+    <rdfs:label>Спектр_волнения</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;1403701">
+    <rdf:type rdf:resource="&escience;Parameter" />
+    <rdfs:label>Сетка</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;13170908">
+    <rdf:type rdf:resource="&escience;Parameter" />
+    <rdfs:label>Модель_судна</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;40768079">
+    <rdf:type rdf:resource="&escience;Parameter" />
+    <rdfs:label>Течение</rdfs:label>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;52789936">
+    <rdf:type rdf:resource="&escience;Object" />
+    <rdfs:label>Судно</rdfs:label>
+    <escience:Content rdf:resource="&escience;22747185" />
+    <escience:hasProperty rdf:resource="&escience;40016520" />
+    <escience:hasProperty rdf:resource="&escience;40985096" />
+    <escience:hasModel rdf:resource="&escience;8467784" />
+    <escience:hasModel rdf:resource="&escience;21731450" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;21430171">
+    <rdf:type rdf:resource="&escience;Object" />
+    <rdfs:label>Море</rdfs:label>
+    <escience:Content rdf:resource="&escience;22747185" />
+    <escience:hasProperty rdf:resource="&escience;35575518" />
+    <escience:hasProperty rdf:resource="&escience;44441920" />
+    <escience:hasModel rdf:resource="&escience;35890075" />
+    <escience:hasModel rdf:resource="&escience;55432618" />
+    <escience:hasModel rdf:resource="&escience;47417808" />
+    <escience:hasModel rdf:resource="&escience;42448822" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;35575518">
+    <rdf:type rdf:resource="&escience;Property" />
+    <rdfs:label>Батиметрия</rdfs:label>
+    <escience:Parameter rdf:resource="&escience;1896404" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;44441920">
+    <rdf:type rdf:resource="&escience;Property" />
+    <rdfs:label>Сетка</rdfs:label>
+    <escience:Parameter rdf:resource="&escience;1403701" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;35890075">
+    <rdf:type rdf:resource="&escience;Model" />
+    <rdfs:label>Приводный_ветер</rdfs:label>
+    <escience:Object rdf:resource="&escience;21430171" />
+    <escience:hasScenario rdf:resource="&escience;10361584" />
+    <escience:hasScenario rdf:resource="&escience;9031246" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;10361584">
+    <rdf:type rdf:resource="&escience;Scenario" />
+    <rdfs:label>Из_ветра_на_высоте</rdfs:label>
+    <escience:Model rdf:resource="&escience;35890075" />
+    <escience:hasImplementation rdf:resource="&escience;14224551" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;14224551">
+    <rdf:type rdf:resource="&escience;Implementation" />
+    <rdfs:label>Из_slw</rdfs:label>
+    <escience:Scenario rdf:resource="&escience;10361584" />
+    <escience:hasImplementedPackage rdf:resource="&escience;17182930" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;17182930">
+    <rdf:type rdf:resource="&escience;ImplementedPackage" />
+    <rdfs:label>slw</rdfs:label>
+    <escience:Implementation rdf:resource="&escience;14224551" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;59377258" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;60596623" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;54412235" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;59377258">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Из_ветра_на_высоте-Из_slw-slw-output</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;17182930" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealOutputName>output</rdfs:RealOutputName>
+    <escience:Parameter rdf:resource="&escience;39644247" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;60596623">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Из_ветра_на_высоте-Из_slw-slw-friction</rdfs:label>
+    <rdfs:Include>True</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;17182930" />
+    <rdfs:Type>double</rdfs:Type>
+    <rdfs:RealInputName>friction</rdfs:RealInputName>
+    <rdfs:RealInputType>double</rdfs:RealInputType>
+    <escience:Parameter rdf:resource="&escience;19405393" />
+    <rdfs:Value>2</rdfs:Value>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;54412235">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Из_ветра_на_высоте-Из_slw-slw-hirlam_input</rdfs:label>
+    <rdfs:Include>True</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;17182930" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>hirlam_input</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+    <escience:Parameter rdf:resource="&escience;37005666" />
+    <rdfs:Value>wind.zip</rdfs:Value>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;9031246">
+    <rdf:type rdf:resource="&escience;Scenario" />
+    <rdfs:label>Из_приводного_ветра</rdfs:label>
+    <escience:Model rdf:resource="&escience;35890075" />
+    <escience:hasImplementation rdf:resource="&escience;8756786" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;8756786">
+    <rdf:type rdf:resource="&escience;Implementation" />
+    <rdfs:label>Из_slw</rdfs:label>
+    <escience:Scenario rdf:resource="&escience;9031246" />
+    <escience:hasImplementedPackage rdf:resource="&escience;47047352" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;47047352">
+    <rdf:type rdf:resource="&escience;ImplementedPackage" />
+    <rdfs:label>slw</rdfs:label>
+    <escience:Implementation rdf:resource="&escience;8756786" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;41024904" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;12647668" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;52936756" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;41024904">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Из_приводного_ветра-Из_slw-slw-friction</rdfs:label>
+    <rdfs:Include>True</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;47047352" />
+    <rdfs:Type>double</rdfs:Type>
+    <rdfs:RealInputName>friction</rdfs:RealInputName>
+    <rdfs:RealInputType>double</rdfs:RealInputType>
+    <escience:Parameter rdf:resource="&escience;19405393" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;12647668">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Из_приводного_ветра-Из_slw-slw-output</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;47047352" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealOutputName>output</rdfs:RealOutputName>
+    <escience:Parameter rdf:resource="&escience;39644247" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;52936756">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Из_приводного_ветра-Из_slw-slw-hirlam_input</rdfs:label>
+    <rdfs:Include>True</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;47047352" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>hirlam_input</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+    <escience:Parameter rdf:resource="&escience;37005666" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;55432618">
+    <rdf:type rdf:resource="&escience;Model" />
+    <rdfs:label>Уровень_течения</rdfs:label>
+    <escience:Object rdf:resource="&escience;21430171" />
+    <escience:hasScenario rdf:resource="&escience;49062687" />
+    <escience:hasScenario rdf:resource="&escience;51891994" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;49062687">
+    <rdf:type rdf:resource="&escience;Scenario" />
+    <rdfs:label>С_усвоением</rdfs:label>
+    <escience:Model rdf:resource="&escience;55432618" />
+    <escience:hasImplementation rdf:resource="&escience;51308548" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;51308548">
+    <rdf:type rdf:resource="&escience;Implementation" />
+    <rdfs:label>Из_bsm</rdfs:label>
+    <escience:Scenario rdf:resource="&escience;49062687" />
+    <escience:hasImplementedPackage rdf:resource="&escience;18688433" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;18688433">
+    <rdf:type rdf:resource="&escience;ImplementedPackage" />
+    <rdfs:label>bsm</rdfs:label>
+    <escience:Implementation rdf:resource="&escience;51308548" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;16128423" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;15762897" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;44491453" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;41091047" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;19592686" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;43966172" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;53045345" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;66834455" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;38295999" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;61656961" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;31530031" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;22318978" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;61791322" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;45637888" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;27248999" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;42572646" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;40942847" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;4031642" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;20669257" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;22788356" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;43967213" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;53154701" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;11207957" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;35984797" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;20307302" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;16128423">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-inAssFields</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inAssFields</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;15762897">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-deleteDirs</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>deleteDirs</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;44491453">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-useBSH</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>useBSH</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;41091047">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-inGcrPrg</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inGcrPrg</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;19592686">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-zipResultOperation</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>int</rdfs:Type>
+    <rdfs:RealInputName>zipResultOperation</rdfs:RealInputName>
+    <rdfs:RealInputType>int</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;43966172">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-controlPoints</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>controlPoints</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;53045345">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-useExternalProject</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>useExternalProject</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;66834455">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-useMask</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>useMask</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;38295999">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-inHirlamMaskFile</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inHirlamMaskFile</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;61656961">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-useOldProject</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>useOldProject</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;31530031">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-inVcrPrg</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inVcrPrg</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;22318978">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-inLpeDB</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inLpeDB</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;61791322">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-useAssimilation</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>useAssimilation</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;45637888">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-inHirlam</rdfs:label>
+    <rdfs:Include>True</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inHirlam</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+    <escience:Parameter rdf:resource="&escience;39644247" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;27248999">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-points</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>filegroup</rdfs:Type>
+    <rdfs:RealOutputName>points</rdfs:RealOutputName>
+    <escience:Parameter rdf:resource="&escience;40768079" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;42572646">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-inProject</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inProject</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;40942847">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-inOldCcdZip</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inOldCcdZip</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;4031642">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-inBSMConfig</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inBSMConfig</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;20669257">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-inMeasurement</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inMeasurement</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;22788356">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-inSwanCardinal</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inSwanCardinal</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;43967213">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-startCalcDate</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>string</rdfs:Type>
+    <rdfs:RealInputName>startCalcDate</rdfs:RealInputName>
+    <rdfs:RealInputType>string</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;53154701">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-inHirlamMask</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inHirlamMask</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;11207957">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-useSWAN</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>useSWAN</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;35984797">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-inBSH</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inBSH</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;20307302">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>С_усвоением-Из_bsm-bsm-inRcrPrg</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;18688433" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inRcrPrg</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;51891994">
+    <rdf:type rdf:resource="&escience;Scenario" />
+    <rdfs:label>Без_усвоения</rdfs:label>
+    <escience:Model rdf:resource="&escience;55432618" />
+    <escience:hasImplementation rdf:resource="&escience;12841482" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;12841482">
+    <rdf:type rdf:resource="&escience;Implementation" />
+    <rdfs:label>Из_bsm</rdfs:label>
+    <escience:Scenario rdf:resource="&escience;51891994" />
+    <escience:hasImplementedPackage rdf:resource="&escience;6178415" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;6178415">
+    <rdf:type rdf:resource="&escience;ImplementedPackage" />
+    <rdfs:label>bsm</rdfs:label>
+    <escience:Implementation rdf:resource="&escience;12841482" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;44753833" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;1532034" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;26645866" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;46352571" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;35181814" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;3102979" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;57377396" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;51937729" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;17643661" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;40645086" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;39875688" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;26197698" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;66403757" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;60181588" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;10833542" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;63780092" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;53132184" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;8843683" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;56171533" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;59539888" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;10563981" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;35476236" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;34017343" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;15051295" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;36882124" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;44753833">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-useBSH</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>useBSH</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;1532034">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-startCalcDate</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>string</rdfs:Type>
+    <rdfs:RealInputName>startCalcDate</rdfs:RealInputName>
+    <rdfs:RealInputType>string</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;26645866">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-controlPoints</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>controlPoints</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;46352571">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-inAssFields</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inAssFields</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;35181814">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-useMask</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>useMask</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;3102979">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-inHirlam</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inHirlam</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;57377396">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-inHirlamMaskFile</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inHirlamMaskFile</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;51937729">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-useAssimilation</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>useAssimilation</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;17643661">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-inRcrPrg</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inRcrPrg</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;40645086">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-zipResultOperation</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>int</rdfs:Type>
+    <rdfs:RealInputName>zipResultOperation</rdfs:RealInputName>
+    <rdfs:RealInputType>int</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;39875688">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-useOldProject</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>useOldProject</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;26197698">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-inBSMConfig</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inBSMConfig</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;66403757">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-inVcrPrg</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inVcrPrg</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;60181588">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-inLpeDB</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inLpeDB</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;10833542">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-inMeasurement</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inMeasurement</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;63780092">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-deleteDirs</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>deleteDirs</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;53132184">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-inHirlamMask</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inHirlamMask</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;8843683">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-inOldCcdZip</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inOldCcdZip</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;56171533">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-points</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>filegroup</rdfs:Type>
+    <rdfs:RealOutputName>points</rdfs:RealOutputName>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;59539888">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-useSWAN</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>useSWAN</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;10563981">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-inProject</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inProject</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;35476236">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-useExternalProject</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>useExternalProject</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;34017343">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-inBSH</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inBSH</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;15051295">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-inGcrPrg</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inGcrPrg</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;36882124">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Без_усвоения-Из_bsm-bsm-inSwanCardinal</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;6178415" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inSwanCardinal</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;47417808">
+    <rdf:type rdf:resource="&escience;Model" />
+    <rdfs:label>Параметризация_спектра</rdfs:label>
+    <escience:Object rdf:resource="&escience;21430171" />
+    <escience:hasScenario rdf:resource="&escience;12813915" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;12813915">
+    <rdf:type rdf:resource="&escience;Scenario" />
+    <rdfs:label>Спектр_Jonswap</rdfs:label>
+    <escience:Model rdf:resource="&escience;47417808" />
+    <escience:hasImplementation rdf:resource="&escience;3283847" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;3283847">
+    <rdf:type rdf:resource="&escience;Implementation" />
+    <rdfs:label>Из_spectrum</rdfs:label>
+    <escience:Scenario rdf:resource="&escience;12813915" />
+    <escience:hasImplementedPackage rdf:resource="&escience;9259669" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;9259669">
+    <rdf:type rdf:resource="&escience;ImplementedPackage" />
+    <rdfs:label>bsm</rdfs:label>
+    <escience:Implementation rdf:resource="&escience;3283847" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;32741165" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;15270305" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;59878185" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;46085159" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;7103588" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;7679313" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;1021510" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;40149700" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;54969014" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;384170" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;40337948" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;7626155" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;62548833" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;58067694" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;57310188" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;44880924" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;14876582" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;18537308" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;260343" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;27336023" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;51710149" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;60856628" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;14603899" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;57014428" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;13826047" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;32741165">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-inProject</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inProject</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;15270305">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-inLpeDB</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inLpeDB</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;59878185">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-inBSMConfig</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inBSMConfig</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;46085159">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-inRcrPrg</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inRcrPrg</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;7103588">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-inHirlam</rdfs:label>
+    <rdfs:Include>True</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inHirlam</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+    <escience:Parameter rdf:resource="&escience;39644247" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;7679313">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-startCalcDate</rdfs:label>
+    <rdfs:Include>True</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>string</rdfs:Type>
+    <rdfs:RealInputName>startCalcDate</rdfs:RealInputName>
+    <rdfs:RealInputType>string</rdfs:RealInputType>
+    <escience:Parameter rdf:resource="&escience;9674765" />
+    <rdfs:Value>24.08.2012 17:05</rdfs:Value>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;1021510">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-inHirlamMask</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inHirlamMask</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;40149700">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-deleteDirs</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>deleteDirs</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;54969014">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-zipResultOperation</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>int</rdfs:Type>
+    <rdfs:RealInputName>zipResultOperation</rdfs:RealInputName>
+    <rdfs:RealInputType>int</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;384170">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-inBSH</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inBSH</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;40337948">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-inOldCcdZip</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inOldCcdZip</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;7626155">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-useOldProject</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>useOldProject</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;62548833">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-useAssimilation</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>useAssimilation</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;58067694">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-useExternalProject</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>useExternalProject</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;57310188">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-useBSH</rdfs:label>
+    <rdfs:Include>True</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>useBSH</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;44880924">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-useSWAN</rdfs:label>
+    <rdfs:Include>True</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>useSWAN</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;14876582">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-controlPoints</rdfs:label>
+    <rdfs:Include>True</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>controlPoints</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+    <escience:Parameter rdf:resource="&escience;24300386" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;18537308">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-useMask</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>bool</rdfs:Type>
+    <rdfs:RealInputName>useMask</rdfs:RealInputName>
+    <rdfs:RealInputType>bool</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;260343">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-inMeasurement</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inMeasurement</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;27336023">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-inVcrPrg</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inVcrPrg</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;51710149">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-inGcrPrg</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inGcrPrg</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;60856628">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-inHirlamMaskFile</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inHirlamMaskFile</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;14603899">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-points</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>filegroup</rdfs:Type>
+    <rdfs:RealOutputName>points</rdfs:RealOutputName>
+    <escience:Parameter rdf:resource="&escience;9217373" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;57014428">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-inSwanCardinal</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inSwanCardinal</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;13826047">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>Спектр_Jonswap-Из_spectrum-bsm-inAssFields</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;9259669" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inAssFields</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;42448822">
+    <rdf:type rdf:resource="&escience;Model" />
+    <rdfs:label>Морское_волнение</rdfs:label>
+    <escience:Object rdf:resource="&escience;21430171" />
+    <escience:hasScenario rdf:resource="&escience;27941305" />
+    <escience:hasScenario rdf:resource="&escience;31747684" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;27941305">
+    <rdf:type rdf:resource="&escience;Scenario" />
+    <rdfs:label>У_поверхности</rdfs:label>
+    <escience:Model rdf:resource="&escience;42448822" />
+    <escience:hasImplementation rdf:resource="&escience;48155946" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;48155946">
+    <rdf:type rdf:resource="&escience;Implementation" />
+    <rdfs:label>Из_swan</rdfs:label>
+    <escience:Scenario rdf:resource="&escience;27941305" />
+    <escience:hasImplementedPackage rdf:resource="&escience;23209618" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;23209618">
+    <rdf:type rdf:resource="&escience;ImplementedPackage" />
+    <rdfs:label>swan</rdfs:label>
+    <escience:Implementation rdf:resource="&escience;48155946" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;21090850" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;67055602" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;61516355" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;16766399" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;15641527" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;21090850">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>У_поверхности-Из_swan-swan-inConfig</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;23209618" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inConfig</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;67055602">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>У_поверхности-Из_swan-swan-startCalcDate</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;23209618" />
+    <rdfs:Type>datetime</rdfs:Type>
+    <rdfs:RealInputName>startCalcDate</rdfs:RealInputName>
+    <rdfs:RealInputType>datetime</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;61516355">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>У_поверхности-Из_swan-swan-endCalcDate</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;23209618" />
+    <rdfs:Type>datetime</rdfs:Type>
+    <rdfs:RealInputName>endCalcDate</rdfs:RealInputName>
+    <rdfs:RealInputType>datetime</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;16766399">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>У_поверхности-Из_swan-swan-inHirlam</rdfs:label>
+    <rdfs:Include>True</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;23209618" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inHirlam</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+    <escience:Parameter rdf:resource="&escience;39644247" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;15641527">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>У_поверхности-Из_swan-swan-outHirlam</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;23209618" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealOutputName>outHirlam</rdfs:RealOutputName>
+    <escience:Parameter rdf:resource="&escience;24300386" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;31747684">
+    <rdf:type rdf:resource="&escience;Scenario" />
+    <rdfs:label>На_глубине</rdfs:label>
+    <escience:Model rdf:resource="&escience;42448822" />
+    <escience:hasImplementation rdf:resource="&escience;45172518" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;45172518">
+    <rdf:type rdf:resource="&escience;Implementation" />
+    <rdfs:label>Из_swan_и_testp</rdfs:label>
+    <escience:Scenario rdf:resource="&escience;31747684" />
+    <escience:hasImplementedPackage rdf:resource="&escience;45493959" />
+    <escience:hasImplementedPackage rdf:resource="&escience;52592886" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;45493959">
+    <rdf:type rdf:resource="&escience;ImplementedPackage" />
+    <rdfs:label>swan</rdfs:label>
+    <escience:Implementation rdf:resource="&escience;45172518" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;12136375" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;66359888" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;55575315" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;64045800" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;13922657" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;12136375">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>На_глубине-Из_swan-swan-endCalcDate</rdfs:label>
+    <rdfs:Include>True</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;45493959" />
+    <rdfs:Type>datetime</rdfs:Type>
+    <rdfs:RealInputName>endCalcDate</rdfs:RealInputName>
+    <rdfs:RealInputType>datetime</rdfs:RealInputType>
+    <escience:Parameter rdf:resource="&escience;64904770" />
+    <rdfs:Value>24.08.2012 17:25</rdfs:Value>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;66359888">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>На_глубине-Из_swan-swan-outHirlam</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;45493959" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealOutputName>outHirlam</rdfs:RealOutputName>
+    <escience:Parameter rdf:resource="&escience;28300091" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;55575315">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>На_глубине-Из_swan-swan-inHirlam</rdfs:label>
+    <rdfs:Include>True</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;45493959" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inHirlam</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+    <escience:Parameter rdf:resource="&escience;39644247" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;64045800">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>На_глубине-Из_swan-swan-startCalcDate</rdfs:label>
+    <rdfs:Include>True</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;45493959" />
+    <rdfs:Type>datetime</rdfs:Type>
+    <rdfs:RealInputName>startCalcDate</rdfs:RealInputName>
+    <rdfs:RealInputType>datetime</rdfs:RealInputType>
+    <escience:Parameter rdf:resource="&escience;9674765" />
+    <rdfs:Value>24.08.2012 17:05</rdfs:Value>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;13922657">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>На_глубине-Из_swan-swan-inConfig</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;45493959" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inConfig</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;52592886">
+    <rdf:type rdf:resource="&escience;ImplementedPackage" />
+    <rdfs:label>testp</rdfs:label>
+    <escience:Implementation rdf:resource="&escience;45172518" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;19326282" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;15993699" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;1616885" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;35555223" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;42310922" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;13461881" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;4211379" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;39541617" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;58229141" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;7153256" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;12894426" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;19326282">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>На_глубине-Из_swan-testp-in0</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;52592886" />
+    <rdfs:Type>int</rdfs:Type>
+    <rdfs:RealInputName>in0</rdfs:RealInputName>
+    <rdfs:RealInputType>int</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;15993699">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>На_глубине-Из_swan-testp-arpm_file</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;52592886" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealOutputName>arpm_file</rdfs:RealOutputName>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;1616885">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>На_глубине-Из_swan-testp-op41</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;52592886" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealOutputName>op41</rdfs:RealOutputName>
+    <escience:Parameter rdf:resource="&escience;24300386" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;35555223">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>На_глубине-Из_swan-testp-inf0</rdfs:label>
+    <rdfs:Include>True</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;52592886" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inf0</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+    <escience:Parameter rdf:resource="&escience;39644247" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;42310922">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>На_глубине-Из_swan-testp-compiled_out</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;52592886" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealOutputName>compiled_out</rdfs:RealOutputName>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;13461881">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>На_глубине-Из_swan-testp-out</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;52592886" />
+    <rdfs:Type>int</rdfs:Type>
+    <rdfs:RealOutputName>out</rdfs:RealOutputName>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;4211379">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>На_глубине-Из_swan-testp-output_num</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;52592886" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealOutputName>output_num</rdfs:RealOutputName>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;39541617">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>На_глубине-Из_swan-testp-in1</rdfs:label>
+    <rdfs:Include>True</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;52592886" />
+    <rdfs:Type>int</rdfs:Type>
+    <rdfs:RealInputName>in1</rdfs:RealInputName>
+    <rdfs:RealInputType>int</rdfs:RealInputType>
+    <rdfs:Value>555</rdfs:Value>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;58229141">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>На_глубине-Из_swan-testp-operation</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;52592886" />
+    <rdfs:Type>enum, plus</rdfs:Type>
+    <rdfs:RealInputName>operation</rdfs:RealInputName>
+    <rdfs:RealInputType>enum, plus</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;7153256">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>На_глубине-Из_swan-testp-inf1</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;52592886" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>inf1</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+    <escience:Parameter rdf:resource="&escience;28300091" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;12894426">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>На_глубине-Из_swan-testp-arpm_success</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;52592886" />
+    <rdfs:Type>string</rdfs:Type>
+    <rdfs:RealOutputName>arpm_success</rdfs:RealOutputName>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;40016520">
+    <rdf:type rdf:resource="&escience;Property" />
+    <rdfs:label>Модель_судна</rdfs:label>
+    <escience:Parameter rdf:resource="&escience;13170908" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;40985096">
+    <rdf:type rdf:resource="&escience;Property" />
+    <rdfs:label>Курс</rdfs:label>
+    <escience:Parameter rdf:resource="&escience;18719642" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;8467784">
+    <rdf:type rdf:resource="&escience;Model" />
+    <rdfs:label>Рекомендации</rdfs:label>
+    <escience:Object rdf:resource="&escience;52789936" />
+    <escience:hasScenario rdf:resource="&escience;16702089" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;16702089">
+    <rdf:type rdf:resource="&escience;Scenario" />
+    <rdfs:label>Анализ_ситуации</rdfs:label>
+    <escience:Model rdf:resource="&escience;8467784" />
+    <escience:hasImplementation rdf:resource="&escience;8888949" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;8888949">
+    <rdf:type rdf:resource="&escience;Implementation" />
+    <rdfs:label>Из_sdss</rdfs:label>
+    <escience:Scenario rdf:resource="&escience;16702089" />
+    <escience:hasImplementedPackage rdf:resource="&escience;60924509" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;60924509">
+    <rdf:type rdf:resource="&escience;ImplementedPackage" />
+    <rdfs:label>sdss</rdfs:label>
+    <escience:Implementation rdf:resource="&escience;8888949" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;21731450">
+    <rdf:type rdf:resource="&escience;Model" />
+    <rdfs:label>Качка_судна</rdfs:label>
+    <escience:Object rdf:resource="&escience;52789936" />
+    <escience:hasScenario rdf:resource="&escience;100908" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;100908">
+    <rdf:type rdf:resource="&escience;Scenario" />
+    <rdfs:label>Поведение_судна</rdfs:label>
+    <escience:Model rdf:resource="&escience;21731450" />
+    <escience:hasImplementation rdf:resource="&escience;10595389" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;10595389">
+    <rdf:type rdf:resource="&escience;Implementation" />
+    <rdfs:label>Из_sxds</rdfs:label>
+    <escience:Scenario rdf:resource="&escience;100908" />
+    <escience:hasImplementedPackage rdf:resource="&escience;38774045" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;38774045">
+    <rdf:type rdf:resource="&escience;ImplementedPackage" />
+    <rdfs:label>sxds</rdfs:label>
+    <escience:Implementation rdf:resource="&escience;10595389" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;44742950" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;389337" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;40880414" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;64585095" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;3439756" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;25630160" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;6812249" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;44197595" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;10235885" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;1026128" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;40634671" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;38782041" />
+    <escience:hasImplementedPackageParameter rdf:resource="&escience;45582471" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;44742950">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>sxds-rand_seed_file</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;38774045" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>rand_seed_file</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;389337">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>sxds-force</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;38774045" />
+    <rdfs:Type>double</rdfs:Type>
+    <rdfs:RealInputName>force</rdfs:RealInputName>
+    <rdfs:RealInputType>double</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;40880414">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>sxds-gamma</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;38774045" />
+    <rdfs:Type>double</rdfs:Type>
+    <rdfs:RealInputName>gamma</rdfs:RealInputName>
+    <rdfs:RealInputType>double</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;64585095">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>sxds-narrow</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;38774045" />
+    <rdfs:Type>double</rdfs:Type>
+    <rdfs:RealInputName>narrow</rdfs:RealInputName>
+    <rdfs:RealInputType>double</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;3439756">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>sxds-omega</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;38774045" />
+    <rdfs:Type>double</rdfs:Type>
+    <rdfs:RealInputName>omega</rdfs:RealInputName>
+    <rdfs:RealInputType>double</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;25630160">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>sxds-output_file</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;38774045" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealOutputName>output_file</rdfs:RealOutputName>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;6812249">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>sxds-experiment</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;38774045" />
+    <rdfs:Type>enum, broaching, propulsion</rdfs:Type>
+    <rdfs:RealInputName>experiment</rdfs:RealInputName>
+    <rdfs:RealInputType>enum, broaching, propulsion</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;44197595">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>sxds-velocity</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;38774045" />
+    <rdfs:Type>double</rdfs:Type>
+    <rdfs:RealInputName>velocity</rdfs:RealInputName>
+    <rdfs:RealInputType>double</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;10235885">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>sxds-period</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;38774045" />
+    <rdfs:Type>double</rdfs:Type>
+    <rdfs:RealInputName>period</rdfs:RealInputName>
+    <rdfs:RealInputType>double</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;1026128">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>sxds-force_file</rdfs:label>
+    <rdfs:Include>True</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;38774045" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>force_file</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+    <escience:Parameter rdf:resource="&escience;9217373" />
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;40634671">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>sxds-ship</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;38774045" />
+    <rdfs:Type>enum, cutter, tugboat</rdfs:Type>
+    <rdfs:RealInputName>ship</rdfs:RealInputName>
+    <rdfs:RealInputType>enum, cutter, tugboat</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;38782041">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>sxds-prop_table</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;38774045" />
+    <rdfs:Type>file</rdfs:Type>
+    <rdfs:RealInputName>prop_table</rdfs:RealInputName>
+    <rdfs:RealInputType>file</rdfs:RealInputType>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&escience;45582471">
+    <rdf:type rdf:resource="&escience;ImplementedPackageParameter" />
+    <rdfs:label>sxds-rand_seed</rdfs:label>
+    <rdfs:Include>False</rdfs:Include>
+    <escience:ImplPackage rdf:resource="&escience;38774045" />
+    <rdfs:Type>int</rdfs:Type>
+    <rdfs:RealInputName>rand_seed</rdfs:RealInputName>
+    <rdfs:RealInputType>int</rdfs:RealInputType>
+  </owl:NamedIndividual>
+</rdf:RDF>

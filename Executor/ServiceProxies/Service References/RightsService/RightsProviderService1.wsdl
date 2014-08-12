@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:i0="http://clavire.org/contracts/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RightsProviderService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://clavire.org/contracts/" location="http://stend_win/Rights/RightsProviderService.svc?wsdl=wsdl0" />
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://stend_win/Rights/RightsProviderService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://stend_win/Rights/RightsProviderService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://stend_win/Rights/RightsProviderService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRightsProviderSerivce_CanAccessResource_InputMessage">
+    <wsdl:part name="parameters" element="tns:CanAccessResource" />
+  </wsdl:message>
+  <wsdl:message name="IRightsProviderSerivce_CanAccessResource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CanAccessResourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRightsProviderSerivce_GetUserResources_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResources" />
+  </wsdl:message>
+  <wsdl:message name="IRightsProviderSerivce_GetUserResources_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResourcesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRightsProviderSerivce_GetUserResourcesFromList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResourcesFromList" />
+  </wsdl:message>
+  <wsdl:message name="IRightsProviderSerivce_GetUserResourcesFromList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResourcesFromListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRightsProviderSerivce_CanExecutePackage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CanExecutePackage" />
+  </wsdl:message>
+  <wsdl:message name="IRightsProviderSerivce_CanExecutePackage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CanExecutePackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRightsProviderSerivce_GetUserPackages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPackages" />
+  </wsdl:message>
+  <wsdl:message name="IRightsProviderSerivce_GetUserPackages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPackagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_AllowResources_InputMessage">
+    <wsdl:part name="parameters" element="tns:AllowResources" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_AllowResources_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AllowResourcesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_DenyResources_InputMessage">
+    <wsdl:part name="parameters" element="tns:DenyResources" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_DenyResources_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DenyResourcesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_AllowPackages_InputMessage">
+    <wsdl:part name="parameters" element="tns:AllowPackages" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_AllowPackages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AllowPackagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_DenyPackages_InputMessage">
+    <wsdl:part name="parameters" element="tns:DenyPackages" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_DenyPackages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DenyPackagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_DisableUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DisableUser" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_DisableUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisableUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_EnableUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnableUser" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_EnableUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EnableUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_DisableUsersTemporaryExcept_InputMessage">
+    <wsdl:part name="parameters" element="tns:DisableUsersTemporaryExcept" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_DisableUsersTemporaryExcept_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisableUsersTemporaryExceptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_StopDisablingUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopDisablingUsers" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_StopDisablingUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopDisablingUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_EnablePackageChecking_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnablePackageChecking" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_EnablePackageChecking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EnablePackageCheckingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_DisablePackageChecking_InputMessage">
+    <wsdl:part name="parameters" element="tns:DisablePackageChecking" />
+  </wsdl:message>
+  <wsdl:message name="IRightsManagerService_DisablePackageChecking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisablePackageCheckingResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRightsProviderSerivce">
+    <wsdl:operation name="CanAccessResource">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRightsProviderSerivce/CanAccessResource" message="tns:IRightsProviderSerivce_CanAccessResource_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRightsProviderSerivce/CanAccessResourceResponse" message="tns:IRightsProviderSerivce_CanAccessResource_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserResources">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRightsProviderSerivce/GetUserResources" message="tns:IRightsProviderSerivce_GetUserResources_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRightsProviderSerivce/GetUserResourcesResponse" message="tns:IRightsProviderSerivce_GetUserResources_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserResourcesFromList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRightsProviderSerivce/GetUserResourcesFromList" message="tns:IRightsProviderSerivce_GetUserResourcesFromList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRightsProviderSerivce/GetUserResourcesFromListResponse" message="tns:IRightsProviderSerivce_GetUserResourcesFromList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CanExecutePackage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRightsProviderSerivce/CanExecutePackage" message="tns:IRightsProviderSerivce_CanExecutePackage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRightsProviderSerivce/CanExecutePackageResponse" message="tns:IRightsProviderSerivce_CanExecutePackage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPackages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRightsProviderSerivce/GetUserPackages" message="tns:IRightsProviderSerivce_GetUserPackages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRightsProviderSerivce/GetUserPackagesResponse" message="tns:IRightsProviderSerivce_GetUserPackages_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IRightsManagerService">
+    <wsdl:operation name="AllowResources">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRightsManagerService/AllowResources" message="tns:IRightsManagerService_AllowResources_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRightsManagerService/AllowResourcesResponse" message="tns:IRightsManagerService_AllowResources_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DenyResources">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRightsManagerService/DenyResources" message="tns:IRightsManagerService_DenyResources_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRightsManagerService/DenyResourcesResponse" message="tns:IRightsManagerService_DenyResources_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AllowPackages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRightsManagerService/AllowPackages" message="tns:IRightsManagerService_AllowPackages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRightsManagerService/AllowPackagesResponse" message="tns:IRightsManagerService_AllowPackages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DenyPackages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRightsManagerService/DenyPackages" message="tns:IRightsManagerService_DenyPackages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRightsManagerService/DenyPackagesResponse" message="tns:IRightsManagerService_DenyPackages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DisableUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRightsManagerService/DisableUser" message="tns:IRightsManagerService_DisableUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRightsManagerService/DisableUserResponse" message="tns:IRightsManagerService_DisableUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EnableUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRightsManagerService/EnableUser" message="tns:IRightsManagerService_EnableUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRightsManagerService/EnableUserResponse" message="tns:IRightsManagerService_EnableUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DisableUsersTemporaryExcept">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRightsManagerService/DisableUsersTemporaryExcept" message="tns:IRightsManagerService_DisableUsersTemporaryExcept_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRightsManagerService/DisableUsersTemporaryExceptResponse" message="tns:IRightsManagerService_DisableUsersTemporaryExcept_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopDisablingUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRightsManagerService/StopDisablingUsers" message="tns:IRightsManagerService_StopDisablingUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRightsManagerService/StopDisablingUsersResponse" message="tns:IRightsManagerService_StopDisablingUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EnablePackageChecking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRightsManagerService/EnablePackageChecking" message="tns:IRightsManagerService_EnablePackageChecking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRightsManagerService/EnablePackageCheckingResponse" message="tns:IRightsManagerService_EnablePackageChecking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DisablePackageChecking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRightsManagerService/DisablePackageChecking" message="tns:IRightsManagerService_DisablePackageChecking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRightsManagerService/DisablePackageCheckingResponse" message="tns:IRightsManagerService_DisablePackageChecking_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IRightsProviderSerivce" type="tns:IRightsProviderSerivce">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CanAccessResource">
+      <soap:operation soapAction="http://tempuri.org/IRightsProviderSerivce/CanAccessResource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserResources">
+      <soap:operation soapAction="http://tempuri.org/IRightsProviderSerivce/GetUserResources" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserResourcesFromList">
+      <soap:operation soapAction="http://tempuri.org/IRightsProviderSerivce/GetUserResourcesFromList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanExecutePackage">
+      <soap:operation soapAction="http://tempuri.org/IRightsProviderSerivce/CanExecutePackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPackages">
+      <soap:operation soapAction="http://tempuri.org/IRightsProviderSerivce/GetUserPackages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IRightsManagerService" type="tns:IRightsManagerService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AllowResources">
+      <soap:operation soapAction="http://tempuri.org/IRightsManagerService/AllowResources" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DenyResources">
+      <soap:operation soapAction="http://tempuri.org/IRightsManagerService/DenyResources" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllowPackages">
+      <soap:operation soapAction="http://tempuri.org/IRightsManagerService/AllowPackages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DenyPackages">
+      <soap:operation soapAction="http://tempuri.org/IRightsManagerService/DenyPackages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisableUser">
+      <soap:operation soapAction="http://tempuri.org/IRightsManagerService/DisableUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnableUser">
+      <soap:operation soapAction="http://tempuri.org/IRightsManagerService/EnableUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisableUsersTemporaryExcept">
+      <soap:operation soapAction="http://tempuri.org/IRightsManagerService/DisableUsersTemporaryExcept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopDisablingUsers">
+      <soap:operation soapAction="http://tempuri.org/IRightsManagerService/StopDisablingUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnablePackageChecking">
+      <soap:operation soapAction="http://tempuri.org/IRightsManagerService/EnablePackageChecking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisablePackageChecking">
+      <soap:operation soapAction="http://tempuri.org/IRightsManagerService/DisablePackageChecking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ITestable" type="i0:ITestable">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckHealth">
+      <soap:operation soapAction="http://clavire.org/contracts/ITestable/CheckHealth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RightsProviderService">
+    <wsdl:port name="BasicHttpBinding_IRightsProviderSerivce" binding="tns:BasicHttpBinding_IRightsProviderSerivce">
+      <soap:address location="http://stend_win/Rights/RightsProviderService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IRightsManagerService" binding="tns:BasicHttpBinding_IRightsManagerService">
+      <soap:address location="http://stend_win/Rights/RightsProviderService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ITestable" binding="tns:BasicHttpBinding_ITestable">
+      <soap:address location="http://stend_win/Rights/RightsProviderService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

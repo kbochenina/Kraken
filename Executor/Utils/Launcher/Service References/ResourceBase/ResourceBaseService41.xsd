@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MITP" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MITP" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:61095/ResourceBaseService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:61095/ResourceBaseService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfResource">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Resource" nillable="true" type="tns:Resource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResource" nillable="true" type="tns:ArrayOfResource" />
+  <xs:complexType name="Resource">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Controller" nillable="true" type="tns:ControllerDescription" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="HardwareParams" nillable="true" type="q1:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NodeDefaults" nillable="true" type="tns:ResourceNode" />
+      <xs:element name="Nodes" nillable="true" type="tns:ArrayOfResourceNode" />
+      <xs:element minOccurs="0" name="ResourceDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResourceName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SupportedArchitectures" nillable="true" type="q2:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Resource" nillable="true" type="tns:Resource" />
+  <xs:complexType name="ControllerDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FarmId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ControllerDescription" nillable="true" type="tns:ControllerDescription" />
+  <xs:complexType name="ResourceNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CoresCount" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="Credentials" type="tns:NodeCredentials" />
+      <xs:element minOccurs="0" name="DataFolders" nillable="true" type="tns:NodeDataFolders" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="HardwareParams" nillable="true" type="q3:ArrayOfKeyValueOfstringstring" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="OtherSoftware" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Packages" nillable="true" type="tns:ArrayOfPackageOnNode" />
+      <xs:element minOccurs="0" name="ResourceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Services" nillable="true" type="tns:NodeServices" />
+      <xs:element minOccurs="0" name="TasksSubmissionLimit" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="NodeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NodeAddress" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SupportedArchitectures" nillable="true" type="q5:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResourceNode" nillable="true" type="tns:ResourceNode" />
+  <xs:complexType name="NodeCredentials">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Username" nillable="true" type="xs:string" />
+      <xs:element name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CertFile" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NodeCredentials" nillable="true" type="tns:NodeCredentials" />
+  <xs:complexType name="NodeDataFolders">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExchangeUrlFromSystem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExchangeUrlFromResource" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CopyLocal" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LocalFolder" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NodeDataFolders" nillable="true" type="tns:NodeDataFolders" />
+  <xs:complexType name="ArrayOfPackageOnNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PackageOnNode" nillable="true" type="tns:PackageOnNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPackageOnNode" nillable="true" type="tns:ArrayOfPackageOnNode" />
+  <xs:complexType name="PackageOnNode">
+    <xs:sequence>
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Cleanup" nillable="true" type="q6:ArrayOfstring" />
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CopyOnStartup" nillable="true" type="q7:ArrayOfstring" />
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="EnvVars" nillable="true" type="q8:ArrayOfKeyValueOfstringstring" />
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Params" nillable="true" type="q9:ArrayOfKeyValueOfstringstring" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="Version" nillable="true" type="xs:string" />
+      <xs:element name="AppPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LocalDir" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PackageOnNode" nillable="true" type="tns:PackageOnNode" />
+  <xs:complexType name="NodeServices">
+    <xs:sequence>
+      <xs:element name="ExecutionUrl" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NodeServices" nillable="true" type="tns:NodeServices" />
+  <xs:complexType name="ArrayOfResourceNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResourceNode" nillable="true" type="tns:ResourceNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResourceNode" nillable="true" type="tns:ArrayOfResourceNode" />
+</xs:schema>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://escience.ifmo.ru/nano/services/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://escience.ifmo.ru/nano/services/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://escience.ifmo.ru/nano/services/Imports">
+      <xsd:import schemaLocation="http://localhost:8740/Statistics?xsd=xsd0" namespace="http://escience.ifmo.ru/nano/services/" />
+      <xsd:import schemaLocation="http://localhost:8740/Statistics?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8740/Statistics?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CommonDataTypes.RExService.Service.Entity.Info" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IStatisticsService_GetAllTaskInfoStartedWith_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTaskInfoStartedWith" />
+  </wsdl:message>
+  <wsdl:message name="IStatisticsService_GetAllTaskInfoStartedWith_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTaskInfoStartedWithResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStatisticsService_GetAllResourceInfoStartedWith_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllResourceInfoStartedWith" />
+  </wsdl:message>
+  <wsdl:message name="IStatisticsService_GetAllResourceInfoStartedWith_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllResourceInfoStartedWithResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IStatisticsService">
+    <wsdl:operation name="GetAllTaskInfoStartedWith">
+      <wsdl:input wsaw:Action="http://escience.ifmo.ru/nano/services/IStatisticsService/GetAllTaskInfoStartedWith" message="tns:IStatisticsService_GetAllTaskInfoStartedWith_InputMessage" />
+      <wsdl:output wsaw:Action="http://escience.ifmo.ru/nano/services/IStatisticsService/GetAllTaskInfoStartedWithResponse" message="tns:IStatisticsService_GetAllTaskInfoStartedWith_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllResourceInfoStartedWith">
+      <wsdl:input wsaw:Action="http://escience.ifmo.ru/nano/services/IStatisticsService/GetAllResourceInfoStartedWith" message="tns:IStatisticsService_GetAllResourceInfoStartedWith_InputMessage" />
+      <wsdl:output wsaw:Action="http://escience.ifmo.ru/nano/services/IStatisticsService/GetAllResourceInfoStartedWithResponse" message="tns:IStatisticsService_GetAllResourceInfoStartedWith_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

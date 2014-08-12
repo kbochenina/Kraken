@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="29a0ec76-903e-4e27-8c37-397387d4e715" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8750/StatisticCacheService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="StatisticCacheService.xsd" MetadataType="Schema" ID="1e16a210-0ba6-4e79-9447-4a4a23ed9bf1" SourceId="1" SourceUrl="http://localhost:8750/StatisticCacheService?xsd=xsd1" />
+    <MetadataFile FileName="StatisticCacheService.disco" MetadataType="Disco" ID="e5a53d6b-a5fc-4fd9-87a5-118969665259" SourceId="1" SourceUrl="http://localhost:8750/StatisticCacheService?disco" />
+    <MetadataFile FileName="StatisticCacheService.wsdl" MetadataType="Wsdl" ID="506c3b91-fa29-4b47-a6d5-305a79e53ded" SourceId="1" SourceUrl="http://localhost:8750/StatisticCacheService?wsdl=wsdl0" />
+    <MetadataFile FileName="StatisticCacheService1.wsdl" MetadataType="Wsdl" ID="a2ac63ea-372a-4c26-9f4a-55060e15446b" SourceId="1" SourceUrl="http://localhost:8750/StatisticCacheService?wsdl=wsdl1" />
+    <MetadataFile FileName="StatisticCacheService6.xsd" MetadataType="Schema" ID="c3bba00f-56e3-4f59-a11a-6b703e0b0072" SourceId="1" SourceUrl="http://localhost:8750/StatisticCacheService?xsd=xsd6" />
+    <MetadataFile FileName="StatisticCacheService4.xsd" MetadataType="Schema" ID="97b1d9f9-0c74-4648-8084-68041566cb2e" SourceId="1" SourceUrl="http://localhost:8750/StatisticCacheService?xsd=xsd4" />
+    <MetadataFile FileName="StatisticCacheService1.xsd" MetadataType="Schema" ID="3ef4607f-b96e-46f6-baee-47022d4c5997" SourceId="1" SourceUrl="http://localhost:8750/StatisticCacheService?xsd=xsd2" />
+    <MetadataFile FileName="StatisticCacheService5.xsd" MetadataType="Schema" ID="39ec1304-6712-4e45-9fba-2848c76246ee" SourceId="1" SourceUrl="http://localhost:8750/StatisticCacheService?xsd=xsd5" />
+    <MetadataFile FileName="StatisticCacheService2.xsd" MetadataType="Schema" ID="353a6659-e859-4bda-8bd5-b7e1c29f0e8a" SourceId="1" SourceUrl="http://localhost:8750/StatisticCacheService?xsd=xsd3" />
+    <MetadataFile FileName="StatisticalGlobalCacheServiceImpl.wsdl" MetadataType="Wsdl" ID="96dd2d55-001d-410e-958a-0f5c992d9390" SourceId="1" SourceUrl="http://localhost:8750/StatisticCacheService?wsdl" />
+    <MetadataFile FileName="StatisticCacheService3.xsd" MetadataType="Schema" ID="e5305e3f-92fd-4dad-9819-a92fd5a7c8f1" SourceId="1" SourceUrl="http://localhost:8750/StatisticCacheService?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

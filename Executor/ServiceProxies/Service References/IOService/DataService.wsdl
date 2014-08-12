@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns="urn:ru:ifmo:nanoio:apiws:baseWS" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:ru:ifmo:nanoio:apiws:baseWS" targetNamespace="urn:ru:ifmo:nanoio:apiws:baseWS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema xmlns="urn:ru:ifmo:nanoio:apiws:baseWS" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:ru:ifmo:nanoio:apiws:baseWS">
+      <s:simpleType name="AttributeKey">
+        <s:restriction base="s:string">
+          <s:minLength value="1" />
+          <s:maxLength value="1024" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="AttributeValue">
+        <s:restriction base="s:string">
+          <s:minLength value="1" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="Attribute">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Key" type="tns:AttributeKey" />
+          <s:element minOccurs="1" maxOccurs="1" name="Value" type="tns:AttributeValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AtomIntAttribute">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AtomId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Value" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="DataID">
+        <s:restriction base="s:string">
+          <s:minLength value="1" />
+          <s:maxLength value="1024" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="TaskID">
+        <s:restriction base="s:string">
+          <s:minLength value="1" />
+          <s:maxLength value="1024" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="CalcMethod">
+        <s:restriction base="s:string">
+          <s:minLength value="1" />
+          <s:maxLength value="1024" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="CalcPackage">
+        <s:restriction base="s:string">
+          <s:minLength value="1" />
+          <s:maxLength value="1024" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="MethodParamKey">
+        <s:restriction base="s:string">
+          <s:minLength value="1" />
+          <s:maxLength value="1024" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="MethodParamValue">
+        <s:restriction base="s:string">
+          <s:minLength value="1" />
+          <s:maxLength value="1024" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="MethodParam">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Key" type="tns:MethodParamKey" />
+          <s:element minOccurs="1" maxOccurs="1" name="Value" type="tns:MethodParamValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Package">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="packageId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="methodIds" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="basisIds" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Atom">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" default="6" name="element" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="x" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="y" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="z" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MetaData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DataID" type="tns:DataID" />
+          <s:element minOccurs="1" maxOccurs="1" name="TaskID" type="tns:TaskID" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedAt" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Format" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Author" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Label" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Source" type="s:anyURI" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Attributes" type="tns:Attribute" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DataCharacteristics">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DataID" type="tns:DataID" />
+          <s:element minOccurs="1" maxOccurs="1" default="3" name="Dimension" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountAtoms" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountDistinctAtoms" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountBasisFunctions" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountBasisFunctionMonoms" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinXValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxXValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinYValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxYValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinZValue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxZValue" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AtomsTable" type="tns:AtomIntAttribute" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExitCode" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DataContent">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DataID" type="tns:DataID" />
+          <s:element minOccurs="1" maxOccurs="1" name="CalcPackage" type="tns:CalcPackage" />
+          <s:element minOccurs="1" maxOccurs="1" name="CalcMethod" type="tns:CalcMethod" />
+          <s:element minOccurs="1" maxOccurs="1" name="Content" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="postDataRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DataID" type="tns:DataID" />
+            <s:element minOccurs="1" maxOccurs="1" name="TaskID" type="tns:TaskID" />
+            <s:element minOccurs="0" maxOccurs="unbounded" name="Param" type="tns:MethodParam" />
+            <s:element minOccurs="0" maxOccurs="unbounded" name="Atoms" type="tns:Atom" />
+            <s:element minOccurs="0" maxOccurs="1" name="url" type="s:anyURI" />
+            <s:element minOccurs="1" maxOccurs="1" name="Content" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="CalcPackage" type="tns:CalcPackage" />
+            <s:element minOccurs="1" maxOccurs="1" name="Author" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Label" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="unbounded" name="MetadataAttributes" type="tns:Attribute" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="postDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DataId" type="tns:DataID" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDataRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DataId" type="tns:DataID" />
+            <s:element minOccurs="1" maxOccurs="1" name="package" type="tns:CalcPackage" />
+            <s:element minOccurs="1" maxOccurs="1" name="method" type="tns:CalcMethod" />
+            <s:element minOccurs="0" maxOccurs="unbounded" name="additionalParams" type="tns:MethodParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDataContentRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DataId" type="tns:DataID" />
+            <s:element minOccurs="1" maxOccurs="1" name="package" type="tns:CalcPackage" />
+            <s:element minOccurs="1" maxOccurs="1" name="method" type="tns:CalcMethod" />
+            <s:element minOccurs="0" maxOccurs="unbounded" name="additionalParams" type="tns:MethodParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DataID" type="tns:DataID" />
+            <s:element minOccurs="1" maxOccurs="1" name="CalcPackage" type="tns:CalcPackage" />
+            <s:element minOccurs="1" maxOccurs="1" name="CalcMethod" type="tns:CalcMethod" />
+            <s:element minOccurs="0" maxOccurs="unbounded" name="Param" type="tns:MethodParam" />
+            <s:element minOccurs="0" maxOccurs="unbounded" name="Atoms" type="tns:Atom" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDataContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="content" type="tns:DataContent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="forwardDataRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DataId" type="tns:DataID" />
+            <s:element minOccurs="1" maxOccurs="1" name="url" type="s:anyURI" />
+            <s:element minOccurs="1" maxOccurs="1" name="package" type="tns:CalcPackage" />
+            <s:element minOccurs="1" maxOccurs="1" name="method" type="tns:CalcMethod" />
+            <s:element minOccurs="0" maxOccurs="unbounded" name="additionalParams" type="tns:MethodParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="forwardDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DataId" type="tns:DataID" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMetaDataRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DataId" type="tns:DataID" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMetaDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="metadata" type="tns:MetaData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listPackagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="unbounded" name="packages" type="tns:Package" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDataCharacteristicsRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DataId" type="tns:DataID" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDataCharacteristicsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="response" type="tns:DataCharacteristics" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listDataIdsByTaskIdRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TaskId" type="tns:TaskID" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listDataIdsByTaskIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="metadata" type="tns:MetaData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDataLengthRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DataId" type="tns:DataID" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDataLengthResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Length" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataNotFoundException" type="s:string" />
+      <s:element name="IllegalCalcPackageException" type="s:string" />
+      <s:element name="IllegalCalcPackageMethodException" type="s:string" />
+      <s:element name="UnsupportedBasisAtomException" type="s:string" />
+      <s:element name="InternalErrorException" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="postDataRequest">
+    <wsdl:part name="request" element="tns:postDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="postDataResponse">
+    <wsdl:part name="response" element="tns:postDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDataRequest">
+    <wsdl:part name="request" element="tns:getDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="getDataResponse">
+    <wsdl:part name="response" element="tns:getDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDataContentRequest">
+    <wsdl:part name="request" element="tns:getDataContentRequest" />
+  </wsdl:message>
+  <wsdl:message name="getDataContentResponse">
+    <wsdl:part name="response" element="tns:getDataContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="forwardDataRequest">
+    <wsdl:part name="request" element="tns:forwardDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="forwardDataResponse">
+    <wsdl:part name="response" element="tns:forwardDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMetaDataRequest">
+    <wsdl:part name="request" element="tns:getMetaDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="getMetaDataResponse">
+    <wsdl:part name="response" element="tns:getMetaDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="listPackagesRequest" />
+  <wsdl:message name="listPackagesResponse">
+    <wsdl:part name="response" element="tns:listPackagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDataCharacteristicsRequest">
+    <wsdl:part name="request" element="tns:getDataCharacteristicsRequest" />
+  </wsdl:message>
+  <wsdl:message name="getDataCharacteristicsResponse">
+    <wsdl:part name="response" element="tns:getDataCharacteristicsResponse" />
+  </wsdl:message>
+  <wsdl:message name="listDataIdsByTaskIdRequest">
+    <wsdl:part name="request" element="tns:listDataIdsByTaskIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="listDataIdsByTaskIdResponse">
+    <wsdl:part name="request" element="tns:listDataIdsByTaskIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDataLengthRequest">
+    <wsdl:part name="request" element="tns:getDataLengthRequest" />
+  </wsdl:message>
+  <wsdl:message name="getDataLengthResponse">
+    <wsdl:part name="response" element="tns:getDataLengthResponse" />
+  </wsdl:message>
+  <wsdl:message name="InternalErrorException">
+    <wsdl:part name="msg" element="tns:InternalErrorException" />
+  </wsdl:message>
+  <wsdl:message name="DataNotFoundException">
+    <wsdl:part name="msg" element="tns:DataNotFoundException" />
+  </wsdl:message>
+  <wsdl:message name="IllegalCalcPackageException">
+    <wsdl:part name="msg" element="tns:IllegalCalcPackageException" />
+  </wsdl:message>
+  <wsdl:message name="IllegalCalcPackageMethodException">
+    <wsdl:part name="msg" element="tns:IllegalCalcPackageMethodException" />
+  </wsdl:message>
+  <wsdl:message name="UnsupportedBasisAtomException">
+    <wsdl:part name="msg" element="tns:UnsupportedBasisAtomException" />
+  </wsdl:message>
+  <wsdl:portType name="NanoIOSystemAPIInterface">
+    <wsdl:operation name="postData">
+      <wsdl:input message="tns:postDataRequest" />
+      <wsdl:output message="tns:postDataResponse" />
+      <wsdl:fault name="IllegalCalcPackageException" message="tns:IllegalCalcPackageException" />
+      <wsdl:fault name="InternalErrorException" message="tns:InternalErrorException" />
+    </wsdl:operation>
+    <wsdl:operation name="getData">
+      <wsdl:input message="tns:getDataRequest" />
+      <wsdl:output message="tns:getDataResponse" />
+      <wsdl:fault name="InternalErrorException" message="tns:InternalErrorException" />
+      <wsdl:fault name="DataNotFoundException" message="tns:DataNotFoundException" />
+      <wsdl:fault name="IllegalCalcPackageException" message="tns:IllegalCalcPackageException" />
+      <wsdl:fault name="IllegalCalcPackageMethodException" message="tns:IllegalCalcPackageMethodException" />
+      <wsdl:fault name="UnsupportedBasisAtomException" message="tns:UnsupportedBasisAtomException" />
+    </wsdl:operation>
+    <wsdl:operation name="getDataContent">
+      <wsdl:input message="tns:getDataContentRequest" />
+      <wsdl:output message="tns:getDataContentResponse" />
+      <wsdl:fault name="InternalErrorException" message="tns:InternalErrorException" />
+      <wsdl:fault name="DataNotFoundException" message="tns:DataNotFoundException" />
+      <wsdl:fault name="IllegalCalcPackageException" message="tns:IllegalCalcPackageException" />
+      <wsdl:fault name="IllegalCalcPackageMethodException" message="tns:IllegalCalcPackageMethodException" />
+      <wsdl:fault name="UnsupportedBasisAtomException" message="tns:UnsupportedBasisAtomException" />
+    </wsdl:operation>
+    <wsdl:operation name="forwardData">
+      <wsdl:input message="tns:forwardDataRequest" />
+      <wsdl:output message="tns:forwardDataResponse" />
+      <wsdl:fault name="InternalErrorException" message="tns:InternalErrorException" />
+      <wsdl:fault name="DataNotFoundException" message="tns:DataNotFoundException" />
+      <wsdl:fault name="IllegalCalcPackageException" message="tns:IllegalCalcPackageException" />
+      <wsdl:fault name="IllegalCalcPackageMethodException" message="tns:IllegalCalcPackageMethodException" />
+      <wsdl:fault name="UnsupportedBasisAtomException" message="tns:UnsupportedBasisAtomException" />
+    </wsdl:operation>
+    <wsdl:operation name="getMetaData">
+      <wsdl:input message="tns:getMetaDataRequest" />
+      <wsdl:output message="tns:getMetaDataResponse" />
+      <wsdl:fault name="InternalErrorException" message="tns:InternalErrorException" />
+      <wsdl:fault name="DataNotFoundException" message="tns:DataNotFoundException" />
+      <wsdl:fault name="IllegalCalcPackageException" message="tns:IllegalCalcPackageException" />
+      <wsdl:fault name="IllegalCalcPackageMethodException" message="tns:IllegalCalcPackageMethodException" />
+    </wsdl:operation>
+    <wsdl:operation name="listPackages">
+      <wsdl:input message="tns:listPackagesRequest" />
+      <wsdl:output message="tns:listPackagesResponse" />
+      <wsdl:fault name="InternalErrorException" message="tns:InternalErrorException" />
+    </wsdl:operation>
+    <wsdl:operation name="getDataCharacteristics">
+      <wsdl:input message="tns:getDataCharacteristicsRequest" />
+      <wsdl:output message="tns:getDataCharacteristicsResponse" />
+      <wsdl:fault name="InternalErrorException" message="tns:InternalErrorException" />
+      <wsdl:fault name="DataNotFoundException" message="tns:DataNotFoundException" />
+      <wsdl:fault name="IllegalCalcPackageException" message="tns:IllegalCalcPackageException" />
+      <wsdl:fault name="IllegalCalcPackageMethodException" message="tns:IllegalCalcPackageMethodException" />
+    </wsdl:operation>
+    <wsdl:operation name="listDataIdsByTaskId">
+      <wsdl:input message="tns:listDataIdsByTaskIdRequest" />
+      <wsdl:output message="tns:listDataIdsByTaskIdResponse" />
+      <wsdl:fault name="InternalErrorException" message="tns:InternalErrorException" />
+    </wsdl:operation>
+    <wsdl:operation name="getDataLength">
+      <wsdl:input message="tns:getDataLengthRequest" />
+      <wsdl:output message="tns:getDataLengthResponse" />
+      <wsdl:fault name="InternalErrorException" message="tns:InternalErrorException" />
+      <wsdl:fault name="DataNotFoundException" message="tns:DataNotFoundException" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NanoIOSystemAPIBinding" type="tns:NanoIOSystemAPIInterface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="postData">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InternalErrorException">
+        <soap:fault use="literal" name="InternalErrorException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="IllegalCalcPackageException">
+        <soap:fault use="literal" name="IllegalCalcPackageException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getData">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InternalErrorException">
+        <soap:fault use="literal" name="InternalErrorException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DataNotFoundException">
+        <soap:fault use="literal" name="DataNotFoundException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="IllegalCalcPackageException">
+        <soap:fault use="literal" name="IllegalCalcPackageException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="IllegalCalcPackageMethodException">
+        <soap:fault use="literal" name="IllegalCalcPackageMethodException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnsupportedBasisAtomException">
+        <soap:fault use="literal" name="UnsupportedBasisAtomException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDataContent">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InternalErrorException">
+        <soap:fault use="literal" name="InternalErrorException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DataNotFoundException">
+        <soap:fault use="literal" name="DataNotFoundException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="IllegalCalcPackageException">
+        <soap:fault use="literal" name="IllegalCalcPackageException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="IllegalCalcPackageMethodException">
+        <soap:fault use="literal" name="IllegalCalcPackageMethodException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnsupportedBasisAtomException">
+        <soap:fault use="literal" name="UnsupportedBasisAtomException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="forwardData">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InternalErrorException">
+        <soap:fault use="literal" name="InternalErrorException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DataNotFoundException">
+        <soap:fault use="literal" name="DataNotFoundException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="IllegalCalcPackageException">
+        <soap:fault use="literal" name="IllegalCalcPackageException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="IllegalCalcPackageMethodException">
+        <soap:fault use="literal" name="IllegalCalcPackageMethodException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnsupportedBasisAtomException">
+        <soap:fault use="literal" name="UnsupportedBasisAtomException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMetaData">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InternalErrorException">
+        <soap:fault use="literal" name="InternalErrorException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DataNotFoundException">
+        <soap:fault use="literal" name="DataNotFoundException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="IllegalCalcPackageException">
+        <soap:fault use="literal" name="IllegalCalcPackageException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="IllegalCalcPackageMethodException">
+        <soap:fault use="literal" name="IllegalCalcPackageMethodException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listPackages">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InternalErrorException">
+        <soap:fault use="literal" name="InternalErrorException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDataCharacteristics">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InternalErrorException">
+        <soap:fault use="literal" name="InternalErrorException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DataNotFoundException">
+        <soap:fault use="literal" name="DataNotFoundException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="IllegalCalcPackageException">
+        <soap:fault use="literal" name="IllegalCalcPackageException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="IllegalCalcPackageMethodException">
+        <soap:fault use="literal" name="IllegalCalcPackageMethodException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listDataIdsByTaskId">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InternalErrorException">
+        <soap:fault use="literal" name="InternalErrorException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDataLength">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InternalErrorException">
+        <soap:fault use="literal" name="InternalErrorException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DataNotFoundException">
+        <soap:fault use="literal" name="DataNotFoundException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NanoIOSystemAPIService">
+    <wsdl:port name="NanoIOSystemAPI" binding="tns:NanoIOSystemAPIBinding">
+      <soap:address location="http://srv08:8083/DataService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

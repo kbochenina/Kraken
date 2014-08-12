@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MITP.NodeStateInfo">
+    <Position X="0.75" Y="4.25" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAgAABAQABAAAACAAAAAAAAAAAAAAAQAAAAAAEAAAAA=</HashCode>
+      <FileName>NodeState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MITP.NodeStateResponse">
+    <Position X="0.75" Y="7.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEQAAAABAAAAAE=</HashCode>
+      <FileName>NodeState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="State" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MITP.TaskStateInfo">
+    <Position X="8.25" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAIAAAAAAAAAAAAAAAAAAABAAADAAAAAA=</HashCode>
+      <FileName>IControllerFarmService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="State" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MITP.ResourceCache">
+    <Position X="0.75" Y="0.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAoAAIYAAAAAAAwRgAQABAAIIAAAAAQAACBACAAg=</HashCode>
+      <FileName>ResourceCache.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Resource" />
+      <Property Name="Controller" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="NodeStateInfo" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MITP.TaskCache">
+    <Position X="7.5" Y="0.5" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Context" Type="MITP.TaskRunContext" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.75" Y="3.661" />
+        <Point X="7.75" Y="5.375" />
+        <Point X="6.5" Y="5.375" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.296" Y="0.091" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="StateInfo" Type="MITP.TaskStateInfo" FixedToPoint="true">
+      <Path>
+        <Point X="9.625" Y="3.661" />
+        <Point X="9.625" Y="4.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAKAAAoBAAIAAQQBgAQAAAAKIAAAAAAAADAAAAIA=</HashCode>
+      <FileName>TaskCache.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Context" />
+      <Property Name="StateInfo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MITP.TaskRunContext">
+    <Position X="4" Y="4.5" Width="2.5" />
+    <Members>
+      <Property Name="Incarnation" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAIQEABAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IControllerFarmService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Controller" />
+      <Property Name="Resource" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ControllerFarmService.ResourceBaseService.Resource" Collapsed="true">
+    <Position X="4.25" Y="2.5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAgoAAACAQAAFACAAQIAAAAAggABAAAEAAAggQIAABg=</HashCode>
+      <FileName>Service References\ResourceBaseService\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="MITP.IStatelessResourceController" Collapsed="true">
+    <Position X="4.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAACAAAAAAAABAAAAAAAAAI=</HashCode>
+      <FileName>Controllers\IStatelessResourceController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="MITP.TaskState">
+    <Position X="8.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier />
+  </Enum>
+  <Enum Name="MITP.NodeState">
+    <Position X="4.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIABAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NodeState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0cb9bc1f-d812-4f7f-bc78-ef75d061cfa0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:58524/SchedulerService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SchedulerService.xsd" MetadataType="Schema" ID="21f5e0dd-827d-4498-8ac4-1ab9053a5f2b" SourceId="1" SourceUrl="http://localhost:58524/SchedulerService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SchedulerService1.xsd" MetadataType="Schema" ID="61f509f3-be6e-4d3d-82e1-0238b6ec529a" SourceId="1" SourceUrl="http://localhost:58524/SchedulerService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SchedulerService.disco" MetadataType="Disco" ID="abf37891-41ac-4f8a-a3a5-dfb0e742b70c" SourceId="1" SourceUrl="http://localhost:58524/SchedulerService.svc?disco" />
+    <MetadataFile FileName="SchedulerService2.xsd" MetadataType="Schema" ID="d19acaa5-0beb-4090-a7a0-9645c3c1adf2" SourceId="1" SourceUrl="http://localhost:58524/SchedulerService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SchedulerService.wsdl" MetadataType="Wsdl" ID="0b28bf1b-dd97-4ece-85cd-02a7be8518b5" SourceId="1" SourceUrl="http://localhost:58524/SchedulerService.svc?wsdl" />
+    <MetadataFile FileName="SchedulerService3.xsd" MetadataType="Schema" ID="83f2e2f9-8701-4927-853c-6c3eea99dada" SourceId="1" SourceUrl="http://localhost:58524/SchedulerService.svc?xsd=xsd5" />
+    <MetadataFile FileName="SchedulerService4.xsd" MetadataType="Schema" ID="713934cb-2859-4ffe-be02-66dd08b6ee34" SourceId="1" SourceUrl="http://localhost:58524/SchedulerService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SchedulerService5.xsd" MetadataType="Schema" ID="eb90d191-51a9-4401-b8e1-df223cce4f4a" SourceId="1" SourceUrl="http://localhost:58524/SchedulerService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SchedulerService6.xsd" MetadataType="Schema" ID="17aa3309-18fa-4163-9ccd-619f0710231a" SourceId="1" SourceUrl="http://localhost:58524/SchedulerService.svc?xsd=xsd6" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

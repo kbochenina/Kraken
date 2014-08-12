@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://escience.ifmo.ru/easis/eventing" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.4.1/Billing/BillingService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="Notify">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://escience.ifmo.ru/easis/eventing" minOccurs="0" name="notification" nillable="true" type="q1:Notification" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="Notification">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://escience.ifmo.ru/easis/eventing" minOccurs="0" name="Event" nillable="true" type="q2:EventReport" />
+      <xs:element xmlns:q3="http://escience.ifmo.ru/easis/eventing" minOccurs="0" name="SubscriptionId" nillable="true" type="q3:SubscriptionId" />
+      <xs:element minOccurs="0" name="Tag" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q4="http://escience.ifmo.ru/easis/eventing" name="Notification" nillable="true" type="q4:Notification" />
+  <xs:complexType name="EventReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SchemeUri" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Timestamp" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Topic" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q5="http://escience.ifmo.ru/easis/eventing" name="EventReport" nillable="true" type="q5:EventReport" />
+  <xs:complexType name="SubscriptionId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Value" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q6="http://escience.ifmo.ru/easis/eventing" name="SubscriptionId" nillable="true" type="q6:SubscriptionId" />
+  <xs:element name="NotifyResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

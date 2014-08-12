@@ -1,0 +1,1851 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EasyFlow</name>
+    </assembly>
+    <members>
+        <member name="T:Easis.Wfs.EasyFlow.Model.RunObjectName">
+            <summary>
+            Класс, хранящий составное имя объекта.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.CompoundName`1">
+            <summary>
+            Class for holding compound names.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.ParsedObject">
+            <summary>
+            Абстрактный класс, реализующий интерфейс IParsedObject.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.IParsedObject">
+            <summary>
+            Interface for parsed object.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.IParsedObject.TextBehind">
+            <summary>
+            Gets or sets script text behind this object.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.IParsedObject.TextRange">
+            <summary>
+            Gets or sets text range in script for this object.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.IParsedObject.IsInvalid">
+            <summary>
+            Gets or sets whether there were errors during parsing this object.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.IParsedObject.IsComplete">
+            <summary>
+            Gets or sets whether.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.IParsedObject.Scope">
+            <summary>
+            Область, которой принадлежит объект.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.IParsedObject.ErrorMessage">
+            <summary>
+            Сообщение об ошибке в случае её наличия.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ParsedObject.#ctor">
+            <summary>
+            Конструктор по умолчанию.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ParsedObject.TextBehind">
+            <summary>
+            Кусок текста скрипта, соответствующий данному объекту.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ParsedObject.TextRange">
+            <summary>
+            Область текста скрипта, которой соответствует данный объект.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ParsedObject.IsInvalid">
+            <summary>
+            Обнаружена ли ошибка в данном объекте во время разбора (по умолчанию = true).
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ParsedObject.IsComplete">
+            <summary>
+            Является ли объект полностью построенным (по умолчанию = false).
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ParsedObject.Scope">
+            <summary>
+            Возвращает или устанавливает область, которой принадлежит объект.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.CompoundName`1.CheckPart(`0)">
+            <summary>
+            Проверяет, является ли добавляемая часть имени корректной.
+            </summary>
+            <param name="part">Часть имени.</param>
+            <returns>Корректна / не корректна.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.CompoundName`1.CanAdd">
+            <summary>
+            Проверяет, можно ли добавить к имени ещё одну часть.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.CompoundName`1.AddPart(`0)">
+            <summary>
+            Добавляет часть имени.
+            </summary>
+            <param name="part">Часть имени</param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.CompoundName`1.#ctor">
+            <summary>
+            Конструктор по умолчанию.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.CompoundName`1.#ctor(System.String)">
+            <summary>
+            Конструктор со строковым представлением локатора.
+            </summary>
+            <param name="str">Строковое представление.</param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.CompoundName`1.#ctor(Easis.Wfs.EasyFlow.Model.CompoundName{`0})">
+            <summary>
+            Копирующий конструктор.
+            </summary>
+            <param name="name">Локатор-источник.</param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.CompoundName`1.AddParts(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Добавляет несколько частей к имени.
+            </summary>
+            <param name="parts">Перечисление с частями имени.</param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.CompoundName`1.Clear">
+            <summary>
+            Очищает объект.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.CompoundName`1.Parse(System.String)">
+            <summary>
+            Парсит части имени по переданной строке. Старые части очищаются.
+            </summary>
+            <param name="str">Составное имя.</param>                
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.CompoundName`1.Split(System.String)">
+            <summary>
+            Бьёт строку согласно определённым правилам.
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.CompoundName`1.MakePart(System.String)">
+            <summary>
+            Возвращает по переданной части имени его объектное представление.
+            </summary>
+            <param name="part">Часть имени.</param>
+            <returns>Объектное представление.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.CompoundName`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.CompoundName`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+            <filterpriority>1</filterpriority>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.CompoundName`1.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.CompoundName`1.MaxPartsNumber">
+            <summary>
+            Максимальное количество частей, после которого возникает ошибка.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.CompoundName`1.Delimeter">
+            <summary>
+            Разделитель элементов имени.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.CompoundName`1.NameParts">
+            <summary>
+            Возвращает коллекцию только для чтения, хранящую части имени.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.ForBlock">
+            <summary>
+            Блок для конструкции For.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.BlockBase">
+            <summary>
+            Base class for flow block.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.BlockBase.#ctor">
+            <summary>
+            Конструктор без параметров.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.BlockBase.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.BlockBase.Id">
+            <summary>
+            Gets wf-unique id.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.BlockBase.Flow">
+            <summary>
+            Gets block's parent flow.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.BlockBase.Triggers">
+            <summary>
+            Gets triggers dictionary.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.BlockBase.IsDisabled">
+            <summary>
+            Gets whether the block is disabled.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.IValueGetterEcx.GetValue(Easis.Wfs.EasyFlow.Model.CompoundVarIdentifier,Easis.Wfs.EasyFlow.Model.IEvaluationContext)">
+            <summary>
+            Интерфейс получения значения.
+            Соглашение следующее. В метод приходит compound "A.B", где A - это this.
+            throws InvalidOperationException
+            </summary>
+            <param name="identifier"></param>
+            <param name="evaluationContext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ParsedCollection`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ParsedCollection`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ParsedCollection`1.TextBehind">
+            <summary>
+            Кусок текста скрипта, соответствующий данному объекту.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ParsedCollection`1.TextRange">
+            <summary>
+            Область текста скрипта, которой соответствует данный объект.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ParsedCollection`1.IsInvalid">
+            <summary>
+            Обнаружена ли ошибка в данном объекте во время разбора.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ParsedCollection`1.IsComplete">
+            <summary>
+            Является ли объект полностью построенным.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ParsedCollection`1.Scope">
+            <summary>
+            Область, которой принадлежит объект.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ParsedCollection`1.ErrorMessage">
+            <summary>
+            Сообщение об ошибке в случае её наличия.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.Collections.ExpressionCollection">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.Collections.ExpressionCollection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.Collections.ExpressionCollection.#ctor(System.Collections.Generic.IEnumerable{Easis.Wfs.EasyFlow.Model.Expression})">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.StringValue">
+            <summary>
+            Класс, хранящий строковое значение.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.ValueBase">
+            <summary>
+            Base class for typed values.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.IValueSetterEcx">
+            <summary>
+            Интерфейс присваивания
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ValueBase.#ctor">
+            <summary>
+            Конструктор по умолчанию.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ValueBase.CanCastTo(Easis.Wfs.EasyFlow.Model.DataType)">
+            <summary>
+            Returns whether this value can be cast to the passed data type.
+            </summary>
+            <param name="dataType">Data type to check.</param>
+            <returns>Can / can't.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ValueBase.CastTo(Easis.Wfs.EasyFlow.Model.DataType)">
+            <summary>
+            Приводит данное значение к переданному типу.
+            </summary>
+            <param name="dataType">Тип, к которому осуществляется приведение.</param>
+            <returns>Приведённое значение.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ValueBase.Equals(Easis.Wfs.EasyFlow.Model.ValueBase)">
+            <summary>
+              Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+              true if the current object is equal to the <paramref name = "other" /> parameter; otherwise, false.
+            </returns>
+            <param name = "other">An object to compare with this object.</param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ValueBase.Equals(System.Object)">
+            <summary>
+              Determines whether the specified <see cref = "T:System.Object" /> is equal to the current <see cref = "T:System.Object" />.
+            </summary>
+            <returns>
+              true if the specified <see cref = "T:System.Object" /> is equal to the current <see cref = "T:System.Object" />; otherwise, false.
+            </returns>
+            <param name = "obj">The <see cref = "T:System.Object" /> to compare with the current <see cref = "T:System.Object" />. </param>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ValueBase.GetHashCode">
+            <summary>
+              Serves as a hash function for a particular type.
+            </summary>
+            <returns>
+              A hash code for the current <see cref = "T:System.Object" />.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ValueBase.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ValueBase.Value">
+            <summary>
+            Gets value.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ValueBase.DataType">
+            <summary>
+            Gets value data type.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ValueBase.IsNull">
+            <summary>
+            Возвращает, установлено ли значение.
+            </summary>        
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.StringValue.#ctor">
+            <summary>
+            Конструктор по умолчанию.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.StringValue.CanCastTo(Easis.Wfs.EasyFlow.Model.DataType)">
+            <summary>
+            Возвращает, может ли данное значение быть приведено к переданному типу.
+            </summary>
+            <param name="dataType">Тип.</param>
+            <returns>Может / не может.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.StringValue.CastTo(Easis.Wfs.EasyFlow.Model.DataType)">
+            <summary>
+            Приводит данное значение к переданному типу.
+            </summary>
+            <param name="dataType">Тип, к которому осуществляется приведение.</param>
+            <returns>Приведённое значение.</returns>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.LiteralExpression">
+            <summary>
+             Class representing literal expression.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.Expression">
+            <summary>
+            Класс узла дерева выражения.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.IEvaluatable">
+            <summary>
+            Интерфейс вычислимых в ValueBase объектов.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.IEvaluatable.Evaluate(Easis.Wfs.EasyFlow.Model.IEvaluationContext)">
+            <summary>
+            Вычисляет значение данного объекта с использованием переданного контекста.
+            </summary>
+            <param name="ctx">Контекст вычисления.</param>
+            <returns>Результат вычисления.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.Expression.Evaluate(Easis.Wfs.EasyFlow.Model.IEvaluationContext)">
+            <summary>
+            Вычисляет значение данного объекта с использованием переданного контекста.
+            </summary>
+            <param name="ctx">Контекст вычисления.</param>
+            <returns>Результат вычисления.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.LiteralExpression.#ctor(Easis.Wfs.EasyFlow.Model.ValueBase)">
+            <summary>
+             
+            </summary>
+            <param name="value"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.LiteralExpression.Value">
+            <summary>
+            Gets or sets literal value.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.IValueSetter">
+            <summary>
+            Interface for object supporting setting values.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.IValueSetter.SetValue(Easis.Wfs.EasyFlow.Model.CompoundVarIdentifier,Easis.Wfs.EasyFlow.Model.ValueBase)">
+            <summary>
+             Sets value accorfing to the passed identifier. 
+            </summary>
+            <param name="identifier">Identifier.</param>
+            <param name="value">Value to be set.</param>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.StepBlock">
+            <summary>
+            Блок с запуском пакета.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.StepBlock.#ctor">
+            <summary>
+            Конструктор без параметров.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.StepBlock.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.StepBlock.RunParameters">
+            <summary>
+            Gets package run parameters.        
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.StepBlock.ExecParameters">
+            <summary>
+            Gets execution parameters.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.StepBlock.PostCodeSection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.StepBlock.Name">
+            <summary>
+            Имя шага.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.StepBlock.RunObjectName">
+            <summary>
+            Имя объекта запуска.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.StepBlock.PreSection">
+            <summary>
+            Секция кода перед запуском (null -- отсутствует).
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.StepBlock.PostSection">
+            <summary>
+            Секция кода после запуска (null -- отсутствует).
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.BoolValue.#ctor">
+            <summary>
+            Конструктор по умолчанию.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.BoolValue.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.CompoundVarIdentifier">
+            <summary>
+            Класс для описания доступа к переменной (someVar[indexer].SomeProperty["someString"])
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.CompoundVarIdentifier.SubIdentifier(System.Int32)">
+            <summary>
+            Возврящает новый сложный идентификатор, состоящий из частей, начиная с index'ной (включительно) текущего.
+            0-based index
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.TextPosition">
+            <summary>
+            Позиция в тексте.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.TextPosition.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="row">Строка.</param>
+            <param name="column">Колонка.</param>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.TextPosition.Row">
+            <summary>
+            Строка.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.TextPosition.Column">
+            <summary>
+            Колонка (символ в строке, считая с единицы).
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.BlockCollection">
+            <summary>
+            Класс для хранения коллекции блоков.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.BlockCollection.GetById(System.Int64)">
+            <summary>
+            Возвращает блок по переданному идентификатору.
+            </summary>
+            <param name="id">Искомый идентификатор.</param>
+            <returns>Блок или null, если блока с таким Id нет в коллекции.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.BlockCollection.AdoptItem(Easis.Wfs.EasyFlow.Model.BlockBase)">
+            <summary>
+            Присваивает полям блока значения для обозначения принадлежности к 
+            Workflow, который хранит данную коллекцию.
+            </summary>
+            <param name="item">Блок.</param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.BlockCollection.DeadoptItem(Easis.Wfs.EasyFlow.Model.BlockBase)">
+            <summary>
+            Метод, обратный методу <see cref="!:Adopt"/>.
+            </summary>
+            <param name="item">Блок.</param>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Parsing.ParserMessageType">
+            <summary>
+            Перечисление типов сообщений парсера.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Parsing.ParserMessageType.Info">
+            <summary>
+            Информация.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Parsing.ParserMessageType.Hint">
+            <summary>
+            Подсказка.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Parsing.ParserMessageType.Warning">
+            <summary>
+            Опасность.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Parsing.ParserMessageType.Error">
+            <summary>
+            Ошибка.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Parsing.ParserMessage">
+            <summary>
+            Сообщение парсера.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Parsing.ParserMessage.#ctor(System.String,Easis.Wfs.EasyFlow.Model.ScopeType,Easis.Wfs.EasyFlow.Parsing.ParserMessageType,Easis.Wfs.EasyFlow.Model.IParsedObject)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="message">Текст сообщения.</param>
+            <param name="messageType">Тип сообщения.</param>
+            <param name="position">Положение в тексте срипта.</param>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Parsing.ParserMessage.ScopeType">
+            <summary>
+            Область кода, где возникло сообщение.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Parsing.ParserMessage.MessageObject">
+            <summary>
+            Объект, в котором произошло сообщение.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Parsing.ParserMessage.Message">
+            <summary>
+            Текстовое сообщение.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Parsing.ParserMessage.MessageType">
+            <summary>
+            Тип сообщения.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Parsing.EasyFlowParser">
+            <summary>
+            Парсер языка EasyFlow.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Parsing.EasyFlowParser.Recover(Antlr.Runtime.IIntStream,Antlr.Runtime.RecognitionException)">
+            <summary>
+              Перегрузка функции восстановления после ошибки (ANTLR).
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Parsing.EasyFlowParser.ReportError(Antlr.Runtime.RecognitionException)">
+            <summary>
+              Перегрузка функции сообщения об ошибке (ANTLR).
+            </summary>
+            <param name = "e"></param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Parsing.EasyFlowParser.RecoverFromMismatchedSet(Antlr.Runtime.IIntStream,Antlr.Runtime.RecognitionException,Antlr.Runtime.BitSet)">
+            <summary>
+              Перегрузка функции восстановления после неверного токена (ANTLR).
+            </summary>
+            <param name = "input"></param>
+            <param name = "e"></param>
+            <param name = "follow"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Parsing.EasyFlowParser.Init">
+            <summary>
+            Инициализирует парсер.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Parsing.EasyFlowParser.Finali">
+            <summary>
+              Заканчивает работу парсера.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Parsing.EasyFlowParser.GetStart(Antlr.Runtime.IToken)">
+            <summary>
+              Возвращает начальную позицию токена.
+            </summary>
+            <param name = "token">Токен.</param>
+            <returns>Координаты позиции в тексте.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Parsing.EasyFlowParser.GetEnd(Antlr.Runtime.IToken)">
+            <summary>
+              Возвращает конечную позицию токена.
+            </summary>
+            <param name = "token">Токен.</param>
+            <returns>Координаты позиции в тексте.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Parsing.EasyFlowParser.AddBlock(Easis.Wfs.EasyFlow.Model.BlockBase)">
+            <summary>
+              Добавляет блок к текущему
+            </summary>
+            <param name = "block"></param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Parsing.EasyFlowParser.FinishObj(Easis.Wfs.EasyFlow.Model.IParsedObject,Antlr.Runtime.ParserRuleReturnScope,System.Boolean)">
+            <summary>
+            Заканчивает заполнение объекта.
+            </summary>
+            <param name="parsedObj">Распарсенный объект.</param>
+            <param name="scope">Область правила.</param>
+            <param name="complete">Заполнение объекта успешно завершено?</param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Parsing.EasyFlowParser.FinishObj(Easis.Wfs.EasyFlow.Model.IParsedObject,Antlr.Runtime.IToken,System.Boolean,System.Boolean)">
+            <summary>
+            Заканчивает заполнение объекта.
+            </summary>
+            <param name="parsedObj">Объект.</param>
+            <param name="token">Токен, которому соответствует объект.</param>
+            <param name="invalid">Ошибка?</param>
+            <param name="complete">Закончен?</param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Parsing.EasyFlowParser.CheckAddIdentifierDef(Easis.Wfs.EasyFlow.Model.Identifier)">
+            <summary>
+            Проверяет корректность определяющего появления идентификатора.
+            </summary>
+            <param name="identifier"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Parsing.EasyFlowParser.Settings">
+            <summary>
+            Настройки разбора.
+            </summary>
+        </member>
+        <member name="E:Easis.Wfs.EasyFlow.Parsing.EasyFlowParser.MessageEmited">
+            <summary>
+              Событие, происходящее при генерации сообщения парсером.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Parsing.EasyFlowParser.CurrentContext">
+            <summary>
+              Текущий контекст парсера.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.FileRequirement">
+            <summary>
+            Требование файла для WF.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.FileRequirement.Name">
+            <summary>
+            Возвращает идентификатор требуемого файла.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Parsing.ScriptParser">
+            <summary>
+            Парсер языка EasyFlow;
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Parsing.ScriptParser.#ctor">
+            <summary>
+            Конструктор с настройками по умолчанию.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Parsing.ScriptParser.#ctor(Easis.Wfs.EasyFlow.Parsing.ParserSettings)">
+            <summary>
+            Конструктор с настройками.
+            </summary>
+            <param name="settings">Настройки парсинга.</param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Parsing.ScriptParser.Parse(System.IO.Stream)">
+            <summary>
+            Парсит входной поток.
+            </summary>
+            <param name="inStream">Входной поток.</param>
+            <returns>Результат разбора.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Parsing.ScriptParser.Parse(System.String)">
+            <summary>
+            Парсит входную строку.
+            </summary>
+            <param name="scriptText">Входная строка.</param>
+            <returns>Результат разбора.</returns>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Parsing.ScriptParser.Settings">
+            <summary>
+            Настройки парсера.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.SimpleVarIdentifier">
+            <summary>
+            Класс, хранящий доступ к простой переменной (по имени или по имени и индексатору)
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.SimpleVarIdentifier.#ctor(System.String,Easis.Wfs.EasyFlow.Model.Indexer)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="name">Имя переменной.</param>
+            <param name="indexer">Индексатор переменной.</param>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.SimpleVarIdentifier.Name">
+            <summary>
+            Имя переменной.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.SimpleVarIdentifier.Indexer">
+            <summary>
+            Индексатор (null, если нет).
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.SimpleVarIdentifier.HasIndexer">
+            <summary>
+            Имеется ли индексатор.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.ScriptModel">
+            <summary>
+            Класс, представляющий собой внутреннее представление скрипта EasyFlow.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ScriptModel.#ctor">
+            <summary>
+            Конструктор по умолчанию.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ScriptModel.#ctor(Easis.Wfs.EasyFlow.Model.Flow)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="mainFlow">Тело главного потока (flow {}).</param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ScriptModel.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ScriptModel.MainFlow">
+            <summary>
+            Возвращает или устанавливает тело главного потока (flow {}).
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.Expressions.HashValue.CanCastTo(Easis.Wfs.EasyFlow.Model.DataType)">
+            <summary>
+            Возвращает, может ли данное значение быть приведено к переданному типу.
+            </summary>
+            <param name="dataType">Тип.</param>
+            <returns>Может / не может.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.Expressions.HashValue.CastTo(Easis.Wfs.EasyFlow.Model.DataType)">
+            <summary>
+            Приводит данное значение к переданному типу.
+            </summary>
+            <param name="dataType">Тип, к которому осуществляется приведение.</param>
+            <returns>Приведённое значение.</returns>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.ArithmeticOperatorExpression">
+            <summary>
+            Класс узла дерева выражений для арифметического оператора.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.BinaryOpeartorExpression">
+            <summary>
+            Класс узла дерева выражений для бинарного оператора.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.BinaryOpeartorExpression.#ctor(Easis.Wfs.EasyFlow.Model.Expression,Easis.Wfs.EasyFlow.Model.Expression)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="left">Левый операнд.</param>
+            <param name="right">Правый операнд.</param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.BinaryOpeartorExpression.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.BinaryOpeartorExpression.Left">
+            <summary>
+            Левый операнд.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.BinaryOpeartorExpression.Right">
+            <summary>
+            Правый операнд.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Utils.ListIndexedProperty`1">
+            <summary>
+            Класс для создания индексированных свойств для доступа read-only ко внутренным
+            объектам типа List
+            </summary>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Utils.CollectionIndexedProperty`2">
+            <summary>
+            Предок для индексированных свойств, основанных на коллекциях
+            </summary>
+            <typeparam name="TKey">Тип ключа</typeparam>
+            <typeparam name="TValue">Тип значения</typeparam>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Utils.IndexedProperty`2">
+            <summary>
+            Класс для создания индексированных свойств для доступа read-only ко внутренным
+            объектам по ключу
+            </summary>
+            <typeparam name="TKey">Тип ключа</typeparam>
+            <typeparam name="TValue">Тип значения</typeparam>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Utils.IndexedProperty`2.Item(`0)">
+            <summary>
+            Свойство-индексатор по ключу
+            </summary>
+            <param name="index">Ключ</param>
+            <returns>Значение</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Utils.CollectionIndexedProperty`2.ConatainsKey(`0)">
+            <summary>
+            Указывает, существует ли элемент с данным ключом
+            </summary>
+            <param name="key"></param>
+            <returns>Существование</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Utils.CollectionIndexedProperty`2.Contains(`1)">
+            <summary>
+            Указывает, существует ли элемент с данным значением
+            </summary>
+            <param name="value">Значение</param>
+            <returns>Существование</returns>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Utils.CollectionIndexedProperty`2.Count">
+            <summary>
+            Количество элементов
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Utils.ListIndexedProperty`1.Contains(`0)">
+            <summary>
+            Указывает, существует ли элемент с данным значением
+            </summary>
+            <param name="value">Значение</param>
+            <returns>Существование</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Utils.ListIndexedProperty`1.ConatainsKey(System.Int32)">
+            <summary>
+            Указывает, существует ли элемент с данным ключом
+            </summary>
+            <param name="key"></param>
+            <returns>Существование</returns>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Utils.ListIndexedProperty`1.Count">
+            <summary>
+            Количество элементов
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Utils.ListIndexedProperty`1.Item(System.Int32)">
+            <summary>
+            Возвращает элемент списка по индексу
+            </summary>
+            <param name="index">Индекс</param>
+            <returns></returns>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Parsing.ParseResult">
+            <summary>
+            Результат разбора скрипта.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Parsing.ParserMessageEventArgs">
+            <summary>
+              Аргументы событий, связанных с выдачей парсером сообщений.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ListValue.CanCastTo(Easis.Wfs.EasyFlow.Model.DataType)">
+            <summary>
+            Возвращает, может ли данное значение быть приведено к переданному типу.
+            </summary>
+            <param name="dataType">Тип.</param>
+            <returns>Может / не может.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ListValue.CastTo(Easis.Wfs.EasyFlow.Model.DataType)">
+            <summary>
+            Приводит данное значение к переданному типу.
+            </summary>
+            <param name="dataType">Тип, к которому осуществляется приведение.</param>
+            <returns>Приведённое значение.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ListValue.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.ParsedOwnedCollection`2">
+            <summary>
+            Класс, реализующий коллекцию, которая связана с каким-либо объектом. При добавлении в коллекцию
+            нового элемента происходит его адаптация.
+            </summary>
+            <typeparam name="TOwner">Тип объекта, ассоциированного с коллекцией.</typeparam>
+            <typeparam name="TItem">Тип элементов коллекции.</typeparam>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ParsedOwnedCollection`2.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ParsedOwnedCollection`2.#ctor(`0,System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ParsedOwnedCollection`2.TextBehind">
+            <summary>
+            Кусок текста скрипта, соответствующий данному объекту.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ParsedOwnedCollection`2.TextRange">
+            <summary>
+            Область текста скрипта, которой соответствует данный объект.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ParsedOwnedCollection`2.IsInvalid">
+            <summary>
+            Обнаружена ли ошибка в данном объекте во время разбора.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ParsedOwnedCollection`2.IsComplete">
+            <summary>
+            Является ли объект полностью построенным.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ParsedOwnedCollection`2.Scope">
+            <summary>
+            Область, которой принадлежит объект.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ParsedOwnedCollection`2.ErrorMessage">
+            <summary>
+            Сообщение об ошибке в случае её наличия.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.ScopeCollection">
+            <summary>
+            Коллекция областей видимости.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ScopeCollection.#ctor(Easis.Wfs.EasyFlow.Model.Scope)">
+            <summary>
+            Конструктор с родителем.
+            </summary>
+            <param name="parent">Родитель коллекции.</param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ScopeCollection.#ctor(Easis.Wfs.EasyFlow.Model.Scope,System.Collections.Generic.IEnumerable{Easis.Wfs.EasyFlow.Model.Scope})">
+            <summary>
+            Копирующий конструктор с родителем.
+            </summary>
+            <param name="parent">Родитель коллекции.</param>
+            <param name="itemCollection">Элементы коллекции.</param>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.ParserException">
+            <summary>
+            Базовый класс для ошибок работы парсера.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.ParserException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.SystemException"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.ParserException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.SystemException"/> class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error. </param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.ParserException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.SystemException"/> class with a specified error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception. </param><param name="innerException">The exception that is the cause of the current exception. If the <paramref name="innerException"/> parameter is not a null reference (Nothing in Visual Basic), the current exception is raised in a catch block that handles the inner exception. </param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.ParserException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.SystemException"/> class with serialized data.
+            </summary>
+            <param name="info">The object that holds the serialized object data. </param><param name="context">The contextual information about the source or destination. </param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Parsing.ParserContext.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Parsing.ParserContext.Name">
+            <summary>
+            Возвращает имя контекста.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.TriggerEventDef">
+            <summary>
+            Событие триггера.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.TriggerEventDef.#ctor(System.String,Easis.Wfs.EasyFlow.Model.BlockBase,System.Boolean)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="name">Имя события.</param>
+            <param name="source">Блок-источник события.</param>
+            <param name="isExplicit"></param>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.TriggerEventDef.Name">
+            <summary>
+            Возвращает имя события.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.TriggerEventDef.Source">
+            <summary>
+            Возвращает источник события.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.TriggerEventDef.IsExplicit">
+            <summary>
+            Gets whether the event was defined explicitly.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.StructureValue">
+            <summary>
+            Value of Structure type.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.StructureValue.HasField(System.String)">
+            <summary>
+            Проверяет, имеется ли в структуре поле с переданным именем.
+            </summary>
+            <param name="name">Имя искомого поля.</param>
+            <returns>Имеется / не имеется.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.StructureValue.CanCastTo(Easis.Wfs.EasyFlow.Model.DataType)">
+            <summary>
+            Возвращает, может ли данное значение быть приведено к переданному типу.
+            </summary>
+            <param name="dataType">Тип.</param>
+            <returns>Может / не может.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.StructureValue.CastTo(Easis.Wfs.EasyFlow.Model.DataType)">
+            <summary>
+            Приводит данное значение к переданному типу.
+            </summary>
+            <param name="dataType">Тип, к которому осуществляется приведение.</param>
+            <returns>Приведённое значение.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.StructureValue.Equals(Easis.Wfs.EasyFlow.Model.StructureValue)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.</param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.StructureValue.Equals(System.Object)">
+            <summary>
+              Determines whether the specified <see cref = "T:System.Object" /> is equal to the current <see cref = "T:System.Object" />.
+            </summary>
+            <returns>
+              true if the specified <see cref = "T:System.Object" /> is equal to the current <see cref = "T:System.Object" />; otherwise, false.
+            </returns>
+            <param name = "obj">The <see cref = "T:System.Object" /> to compare with the current <see cref = "T:System.Object" />. </param>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.StructureValue.GetHashCode">
+            <summary>
+              Serves as a hash function for a particular type.
+            </summary>
+            <returns>
+              A hash code for the current <see cref = "T:System.Object" />.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.StructureValue.Item(System.String)">
+            <summary>
+            Возвращает или устанавливает поле структуры.
+            При установке: если его нет - создает.
+            </summary>
+            <param name="name">Имя поля.</param>
+            <returns>Значение поля.</returns>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.IValueGetter">
+            <summary>
+            Interface for objects supporting getting values.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.IValueGetter.GetValue(Easis.Wfs.EasyFlow.Model.CompoundVarIdentifier)">
+            <summary>
+            Gets value according to the passed identifier.
+            </summary>
+            <param name="identifier">Identifier.</param>
+            <returns>Return value.</returns>        
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.ScopeType">
+            <summary>
+            Перечисление областей кода.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.Undefined">
+            <summary>
+              Неопределённая область.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.Script">
+            <summary>
+             Весь скрипт.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.Flow">
+            <summary>
+              Главное тело потока (flow {}).
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.TransHeader">
+            <summary>
+              Заголовок трансформации (trans(...) -> (..)).
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.TransBody">
+            <summary>
+              Тело трансформации.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.Step">
+            <summary>
+              Описание шага (всё целиком).
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.StepHeader">
+            <summary>
+              Заголовок описания шага.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.StepBeforeSection">
+            <summary>
+              Секция перед запуском пакета.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.StepAfterSection">
+            <summary>
+              Секция после запуска пакета.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.ImperativeSection">
+            <summary>
+              Секция императивного кода (не декларативного).
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.StepRunClause">
+            <summary>
+             Директива запуска (run);
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.StepEventList">
+            <summary>
+              Список событий в заголовке описания шага (step S1 on ...)
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.StepAfterList">
+            <summary>
+              Перечисление шагов после директивы AFTER.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.RunObjectName">
+            <summary>
+              Имя объекта запуска (Semp.SomeMethod).
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.RunParameters">
+            <summary>
+              Перечисление параметров запуска.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.Require">
+            <summary>
+              Директива require.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.ResourceLocator">
+            <summary>
+              Локатор ресурса (любого).
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.Expression">
+            <summary>
+              Выражение.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.FilePointer">
+            <summary>
+              Указатель на файл.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.ScopeType.VarIdentifier">
+            <summary>
+              Доступ к переменной.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ConstValue.CanCastTo(Easis.Wfs.EasyFlow.Model.DataType)">
+            <summary>
+            Returns whether this value can be cast to the passed data type.
+            </summary>
+            <param name="dataType">Data type to check.</param>
+            <returns>Can / can't.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ConstValue.CastTo(Easis.Wfs.EasyFlow.Model.DataType)">
+            <summary>
+            Приводит данное значение к переданному типу.
+            </summary>
+            <param name="dataType">Тип, к которому осуществляется приведение.</param>
+            <returns>Приведённое значение.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ConstValue.GetValue(Easis.Wfs.EasyFlow.Model.CompoundVarIdentifier,Easis.Wfs.EasyFlow.Model.IEvaluationContext)">
+            <summary>
+            Интерфейс получения значения.
+             Соглашение следующее. В метод приходит compound "A.B", где A - это this.
+             throws InvalidOperationException
+            </summary>
+            <param name="identifier"/><param name="evaluationContext"/>
+            <returns/>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.ConstValue.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.ConstValue.Value">
+            <summary>
+            Gets value.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Utils.DynamicallyIndexedProperty`2">
+            <summary>
+            Динамически индексируемое свойство
+            </summary>
+            <typeparam name="TKey">Тип ключа</typeparam>
+            <typeparam name="TValue">Тип значения</typeparam>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Utils.DynamicallyIndexedProperty`2._selectDelegate">
+            <summary>
+            Делегат выбра элементов по ключу
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Utils.DynamicallyIndexedProperty`2.#ctor(Easis.Wfs.EasyFlow.Utils.SelectDelegate{`0,`1})">
+            <summary>
+            Конструктор с делегатом выбора по ключу
+            </summary>
+            <param name="selectDelegate">Делегат выбора по ключу</param>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.Scope">
+            <summary>
+            Область видимости кода.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.Scope.#ctor(Easis.Wfs.EasyFlow.Model.ScopeType)">
+            <summary>
+            Конструктор по умолчанию.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.Scope.IsInScope(Easis.Wfs.EasyFlow.Model.ScopeType,System.Boolean)">
+            <summary>
+            Определяет, находится ли данная область внутри области указанного типа.
+            </summary>
+            <param name="scopeType">Искомая область.</param>
+            <param name="isInclusive">Включать ли в поиск саму область (this).</param>
+            <returns>Находится / не находится.</returns>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.Scope.ScopeType">
+            <summary>
+            Возвращает тип области.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.Scope.RootScope">
+            <summary>
+            Возвращает корневой элемент для данной области.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.Scope.IsRoot">
+            <summary>
+            Возвращает, является ли данная область корневой.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.Scope.Parent">
+            <summary>
+            Родительская область видимости (может быть null, если это корень).
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.Scope.Children">
+            <summary>
+            Коллекция дочерних областей видимости.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.IntValue">
+            <summary>
+            Класс, хранящий целое значение.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.IntValue.#ctor">
+            <summary>
+            Конструктор по умолчанию.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.IntValue.CanCastTo(Easis.Wfs.EasyFlow.Model.DataType)">
+            <summary>
+            Возвращает, может ли данное значение быть приведено к переданному типу.
+            </summary>
+            <param name="dataType">Тип.</param>
+            <returns>Может / не может.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.IntValue.CastTo(Easis.Wfs.EasyFlow.Model.DataType)">
+            <summary>
+            Приводит данное значение к переданному типу.
+            </summary>
+            <param name="dataType">Тип, к которому осуществляется приведение.</param>
+            <returns>Приведённое значение.</returns>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.IntValue.AsInt">
+            <summary>
+            Возвращает значение в виде целого.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.DataType">
+            <summary>
+            EasyFlow data type enum.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.DataType.String">
+            <summary>
+             String type.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.DataType.Int">
+            <summary>
+            Int type.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.DataType.Double">
+            <summary>
+            Double type.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.DataType.File">
+            <summary>
+            File type.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.DataType.List">
+            <summary>
+            List type.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.DataType.Hash">
+            <summary>
+            Hash type.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.DataType.Structure">
+            <summary>
+            Structure type.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.DataType.Bool">
+            <summary>
+            Boolean type.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.Expressions.ConstHolder.#cctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.EasyFlowException">
+            <summary>
+            Базовый класс для исключений при работе с языком EasyFlow.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.EasyFlowException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Exception"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.EasyFlowException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Exception"/> class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error. </param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.EasyFlowException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Exception"/> class with a specified error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception. </param><param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified. </param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.EasyFlowException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Exception"/> class with serialized data.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown. </param><param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination. </param><exception cref="T:System.ArgumentNullException">The <paramref name="info"/> parameter is null. </exception><exception cref="T:System.Runtime.Serialization.SerializationException">The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0). </exception>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.Indexer">
+            <summary>
+            Класс, хранящий индексатор.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.Indexer.#ctor(Easis.Wfs.EasyFlow.Model.Expression)">
+            <summary>
+            Конструктор с индексом.
+            </summary>
+            <param name="index">Индекс.</param>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.Indexer.Index">
+            <summary>
+            Значение индекса.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.FileDescriptor">
+            <summary>
+            Указатель на файл.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.FileDescriptor.NStorageId">
+            <summary>
+            Old storage id (java based)
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.FileDescriptor.StorageId">
+            <summary>
+            New storage id.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.DoubleValue">
+            <summary>
+            Дробное значение.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.DoubleValue.#ctor">
+            <summary>
+            Конструктор по умолчанию.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.DoubleValue.#ctor(System.Single)">
+            <summary>
+            Конструктор с float.
+            </summary>
+            <param name="val">Значение float.</param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.DoubleValue.#ctor(System.Double)">
+            <summary>
+            Конструктор с double.
+            </summary>
+            <param name="val">Значение double.</param>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.DoubleValue.CanCastTo(Easis.Wfs.EasyFlow.Model.DataType)">
+            <summary>
+            Возвращает, может ли данное значение быть приведено к переданному типу.
+            </summary>
+            <param name="dataType">Тип.</param>
+            <returns>Может / не может.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.DoubleValue.CastTo(Easis.Wfs.EasyFlow.Model.DataType)">
+            <summary>
+            Приводит данное значение к переданному типу.
+            </summary>
+            <param name="dataType">Тип, к которому осуществляется приведение.</param>
+            <returns>Приведённое значение.</returns>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.DoubleValue.AsDouble">
+            <summary>
+            Возвращает значение в виде Double.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.FileValue.CanCastTo(Easis.Wfs.EasyFlow.Model.DataType)">
+            <summary>
+            Возвращает, может ли данное значение быть приведено к переданному типу.
+            </summary>
+            <param name="dataType">Тип.</param>
+            <returns>Может / не может.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.FileValue.CastTo(Easis.Wfs.EasyFlow.Model.DataType)">
+            <summary>
+            Приводит данное значение к переданному типу.
+            </summary>
+            <param name="dataType">Тип, к которому осуществляется приведение.</param>
+            <returns>Приведённое значение.</returns>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.FileValue.#ctor">
+            <summary>
+            Конструктор по умолчанию.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.CodeSection">
+            <summary>
+            Класс для хранения секции кода для обработки перед и после запусков, а также в телах IF и FOR.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Easis.Wfs.EasyFlow.Utils.DictionaryIndexedProperty`2" -->
+        <member name="M:Easis.Wfs.EasyFlow.Utils.DictionaryIndexedProperty`2.#ctor(System.Collections.Generic.Dictionary{`0,`1},System.Boolean)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="dict">Словарь, к которому требуется предоставить доступ</param>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Utils.DictionaryIndexedProperty`2.Item(`0)">
+            <summary>
+            Индексированное свойство
+            </summary>
+            <param name="index">Ключ словаря</param>
+            <returns>Значение по ключу</returns>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Utils.DictionaryIndexedProperty`2.Values">
+            <summary>
+            Коллекция значений
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Utils.DictionaryIndexedProperty`2.Keys">
+            <summary>
+            Коллекция ключей
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Parsing.ParserSettings">
+            <summary>
+            Настройки работы парсера.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Parsing.ParserSettings.#ctor">
+            <summary>
+            Конструктор по умолчанию.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Parsing.ParserSettings.CollectTextInformation">
+            <summary>
+              Возвращает или устанавливает, нужно ли собирать информацию о тексте скрипта,
+              которую можно в дальнейшем использовать для текстового редактора.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Parsing.ParserSettings.LogRuleTraces">
+            <summary>
+              Выводить ли детальную трассировку по правилам грамматики.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Parsing.ParserSettings.IsContinousParsingEnabled">
+            <summary>
+              Использовать ли режим непрерывного парсинга.
+            </summary>
+        </member>
+        <member name="E:Easis.Wfs.EasyFlow.Parsing.ParserSettings.PropertyChanged">
+            <summary>
+            Событие при изменении одной из настроек.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.Flow">
+            <summary>
+            Класс, содержащий представление WF
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.Flow.#ctor">
+            <summary>
+            Конструктор без параметров.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.Flow.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.Flow.Id">
+            <summary>
+            Gets Wf guid.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.Flow.Attributes">
+            <summary>
+             Gets flow attributes.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.Flow.Blocks">
+            <summary>
+            Возвращает редактируемую коллекцию блоков WF.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.IdentifierType.Undefined">
+            <summary>
+            Неопределённый.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.IdentifierType.StepName">
+            <summary>
+            Имя шага.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.IdentifierType.VarName">
+            <summary>
+            Имя переменной.
+            </summary>
+        </member>
+        <member name="F:Easis.Wfs.EasyFlow.Model.IdentifierType.FilePointerName">
+            <summary>
+            Имя указателя на файл.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.Identifier">
+            <summary>
+            Класс, представляющий собой идентификатор.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.Identifier.#ctor(System.String,Easis.Wfs.EasyFlow.Model.IdentifierType)">
+            <summary>
+            Конструктор с именем.
+            </summary>
+            <param name="name">Имя идентификатора.</param>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.Identifier.Name">
+            <summary>
+            Имя идентификатора.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.Identifier.IdentifierType">
+            <summary>
+            Тип идентификатора.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.TriggerActionDef">
+            <summary>
+            Класс с описанием действия триггера.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.TriggerActionDef.#ctor(System.String)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="name">Имя действия.</param>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.TriggerActionDef.Name">
+            <summary>
+            Имя действия.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.NamedParameter">
+            <summary>
+             Named parameter class.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.NamedParameter.#ctor(System.String,Easis.Wfs.EasyFlow.Model.Expression)">
+            <summary>
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.NamedParameter.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.NamedParameter.IsOntoParam">
+            <summary>
+            Gets or sets whether the parameter is ontological.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.NamedParameter.IsSweepParam">
+            <summary>
+            Gets or sets whether the parameter is sweeped.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.NamedParameter.Name">
+            <summary>
+            Gets or sets parameter name.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.NamedParameter.Value">
+            <summary>
+            Gets or sets parameter value.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.TextRange">
+            <summary>
+            Структура для хранения данных об участке текста.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.TextRange.#ctor(Easis.Wfs.EasyFlow.Model.TextPosition,Easis.Wfs.EasyFlow.Model.TextPosition)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="start">Начало участка.</param>
+            <param name="end">Конец участка.</param>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.TextRange.Start">
+            <summary>
+            Возвращает или устанавливает начало участка.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.TextRange.End">
+            <summary>
+            Возвращает или устанавливает конец участка.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.NamedParameterCollection">
+            <summary>
+            Коллекция именованных параметров.
+            </summary>
+        </member>
+        <member name="T:Easis.Wfs.EasyFlow.Model.Trigger">
+            <summary>
+            Класс, представляющий собой триггер.
+            </summary>
+        </member>
+        <member name="M:Easis.Wfs.EasyFlow.Model.Trigger.Fires(System.Collections.Generic.IEnumerable{Easis.Wfs.EasyFlow.Model.TriggerEventDef})">
+            <summary>
+            Проверяет, срабатывают ли все условия для запуска триггеров.
+            </summary>
+            <param name="events">Произошедшие события.</param>
+            <returns>Да / нет.</returns>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.Trigger.ActionDef">
+            <summary>
+            Возвращает действие триггера.
+            </summary>
+        </member>
+        <member name="P:Easis.Wfs.EasyFlow.Model.Trigger.EventExpression">
+            <summary>
+            Возвращает или устанавливает совокупность событий для запуска триггера.
+            </summary>
+        </member>
+    </members>
+</doc>

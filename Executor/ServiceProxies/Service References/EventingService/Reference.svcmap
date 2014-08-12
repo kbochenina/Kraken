@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9b9c5c0a-f12a-45dd-97a7-b4b9e20720ef" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.4.1/Eventing/EventingBrokerService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="EventingBrokerService3.xsd" MetadataType="Schema" ID="1e4a9be2-db11-4d86-8505-226f0ac44d11" SourceId="1" SourceUrl="http://192.168.4.1/Eventing/EventingBrokerService.svc?xsd=xsd0" />
+    <MetadataFile FileName="EventingBrokerService31.xsd" MetadataType="Schema" ID="f561bd5b-efa6-4e24-bb43-26ed3b530c76" SourceId="1" SourceUrl="http://192.168.4.1/Eventing/EventingBrokerService.svc?xsd=xsd1" />
+    <MetadataFile FileName="EventingBrokerService32.xsd" MetadataType="Schema" ID="c7fd0a5b-72bf-4506-8072-4c4c390551d4" SourceId="1" SourceUrl="http://192.168.4.1/Eventing/EventingBrokerService.svc?xsd=xsd2" />
+    <MetadataFile FileName="EventingBrokerService1.disco" MetadataType="Disco" ID="d4fa5e4e-ef40-4f5e-a583-75df53660131" SourceId="1" SourceUrl="http://192.168.4.1/Eventing/EventingBrokerService.svc?disco" />
+    <MetadataFile FileName="EventingBrokerService1.wsdl" MetadataType="Wsdl" ID="65da53ed-b305-4c39-87a0-be7ad371c791" SourceId="1" SourceUrl="http://192.168.4.1/Eventing/EventingBrokerService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="EventingBrokerService11.wsdl" MetadataType="Wsdl" ID="9981108e-bcdd-40ea-8b06-cb7c555bacfb" SourceId="1" SourceUrl="http://192.168.4.1/Eventing/EventingBrokerService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

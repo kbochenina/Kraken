@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9e2338f5-6c5f-4eaa-a9c9-c7c8772e46ce" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.4.1/Billing/BillingService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BillingService.xsd" MetadataType="Schema" ID="8a24eb71-73e2-42eb-8569-e02e0dafd36d" SourceId="1" SourceUrl="http://192.168.4.1/Billing/BillingService.svc?xsd=xsd3" />
+    <MetadataFile FileName="BillingService1.xsd" MetadataType="Schema" ID="623d90d6-3a04-452c-87f7-50ceeea964df" SourceId="1" SourceUrl="http://192.168.4.1/Billing/BillingService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BillingService2.xsd" MetadataType="Schema" ID="c8ca6684-989a-48fe-9b23-213885f57ed3" SourceId="1" SourceUrl="http://192.168.4.1/Billing/BillingService.svc?xsd=xsd5" />
+    <MetadataFile FileName="BillingService3.xsd" MetadataType="Schema" ID="9f3716bf-b758-4805-a9d3-44815e466828" SourceId="1" SourceUrl="http://192.168.4.1/Billing/BillingService.svc?xsd=xsd4" />
+    <MetadataFile FileName="BillingService4.xsd" MetadataType="Schema" ID="f3349c2d-fbc1-4015-874b-42ba7350ea7a" SourceId="1" SourceUrl="http://192.168.4.1/Billing/BillingService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BillingService.disco" MetadataType="Disco" ID="7a8142f4-a8ff-40d6-966a-4ea5bb22aaae" SourceId="1" SourceUrl="http://192.168.4.1/Billing/BillingService.svc?disco" />
+    <MetadataFile FileName="BillingService5.xsd" MetadataType="Schema" ID="2d09ec1b-b836-4453-8c43-4814800b5d72" SourceId="1" SourceUrl="http://192.168.4.1/Billing/BillingService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BillingService.wsdl" MetadataType="Wsdl" ID="c206f58b-ebeb-4e07-9be6-cc6ddd49ccea" SourceId="1" SourceUrl="http://192.168.4.1/Billing/BillingService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

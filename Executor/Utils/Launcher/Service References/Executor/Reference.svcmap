@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f7240441-f1e4-4da9-b077-35019b0a2fb6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:61096/ExecutionBrokerService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ExecutionBrokerService5.xsd" MetadataType="Schema" ID="888e5b82-a78f-4986-aa8a-8e29f146aca7" SourceId="1" SourceUrl="http://localhost:61096/ExecutionBrokerService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ExecutionBrokerService51.xsd" MetadataType="Schema" ID="0bf0dd6a-bfea-491a-bca2-b8bcd1988971" SourceId="1" SourceUrl="http://localhost:61096/ExecutionBrokerService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ExecutionBrokerService52.xsd" MetadataType="Schema" ID="40444dea-e5ca-45d7-8ab0-a8909986ea6a" SourceId="1" SourceUrl="http://localhost:61096/ExecutionBrokerService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ExecutionBrokerService2.wsdl" MetadataType="Wsdl" ID="66f51dab-120e-4c11-8a7d-0626385920b3" SourceId="1" SourceUrl="http://localhost:61096/ExecutionBrokerService.svc?wsdl" />
+    <MetadataFile FileName="ExecutionBrokerService53.xsd" MetadataType="Schema" ID="f725bf25-1663-41ce-a148-12dc9d3816a1" SourceId="1" SourceUrl="http://localhost:61096/ExecutionBrokerService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ExecutionBrokerService54.xsd" MetadataType="Schema" ID="e078cb45-16e4-415f-979c-b3a9a79a7304" SourceId="1" SourceUrl="http://localhost:61096/ExecutionBrokerService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ExecutionBrokerService1.disco" MetadataType="Disco" ID="dc7eb5a1-39d2-4c3c-b497-c999839a57bb" SourceId="1" SourceUrl="http://localhost:61096/ExecutionBrokerService.svc?disco" />
+    <MetadataFile FileName="ExecutionBrokerService21.wsdl" MetadataType="Wsdl" ID="91a4f40a-6a63-45d2-8089-1f9220816818" SourceId="1" SourceUrl="http://localhost:61096/ExecutionBrokerService.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="\\192.168.4.11\Share\ResourceBase" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Share on 4.11" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="False">
+    <file relUrl="Web.config" publishTime="01/16/2013 17:25:44" />
+    <file relUrl="bin/Resources/GridNNN.js" publishTime="06/25/2012 13:21:22" />
+    <file relUrl="bin/NLog.xml" publishTime="07/18/2011 00:26:56" />
+    <file relUrl="bin/Common.pdb" publishTime="01/16/2013 17:18:41" />
+    <file relUrl="bin/Resources/Hadoop.js" publishTime="06/25/2012 13:44:33" />
+    <file relUrl="bin/Newtonsoft.Json.xml" publishTime="12/14/2012 17:21:08" />
+    <file relUrl="bin/ResourceBase.dll" publishTime="01/16/2013 17:18:42" />
+    <file relUrl="bin/NetLibrary.xml" publishTime="12/14/2012 17:22:59" />
+    <file relUrl="bin/Resources/WinPC.js" publishTime="06/21/2012 14:11:02" />
+    <file relUrl="bin/NetLibrary.pdb" publishTime="12/14/2012 17:22:59" />
+    <file relUrl="bin/NLog.dll" publishTime="12/14/2012 17:21:08" />
+    <file relUrl="bin/Resources/MGSU.js" publishTime="09/13/2012 12:35:38" />
+    <file relUrl="bin/ResourceBaseService.pdb" publishTime="01/16/2013 17:18:42" />
+    <file relUrl="bin/NLog.pdb" publishTime="07/18/2011 00:26:56" />
+    <file relUrl="bin/Newtonsoft.Json.dll" publishTime="12/14/2012 17:21:08" />
+    <file relUrl="bin/ResourceBase.pdb" publishTime="01/16/2013 17:18:42" />
+    <file relUrl="bin/Common.dll" publishTime="01/16/2013 17:18:41" />
+    <file relUrl="bin/NetLibrary.dll" publishTime="12/14/2012 17:22:59" />
+    <file relUrl="bin/ResourceBaseService.dll" publishTime="01/16/2013 17:18:42" />
+    <file relUrl="bin/Resources/Virtual.js" publishTime="05/12/2012 11:52:42" />
+    <file relUrl="ResourceBaseService.svc" publishTime="05/12/2012 11:52:50" />
+  </publishProfile>
+  <publishProfile publishUrl="\\192.168.4.12\Share\ResourceBaseService" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Share on 4.12" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="False">
+    <file relUrl="Web.config" publishTime="12/19/2012 19:03:47" />
+    <file relUrl="bin/Resources/GridNNN.js" publishTime="06/25/2012 13:21:22" />
+    <file relUrl="bin/NLog.xml" publishTime="07/18/2011 00:26:56" />
+    <file relUrl="bin/Common.pdb" publishTime="12/19/2012 18:57:44" />
+    <file relUrl="bin/Resources/Hadoop.js" publishTime="06/25/2012 13:44:33" />
+    <file relUrl="bin/Newtonsoft.Json.xml" publishTime="12/14/2012 17:21:08" />
+    <file relUrl="bin/ResourceBase.dll" publishTime="12/19/2012 18:57:44" />
+    <file relUrl="bin/NetLibrary.xml" publishTime="12/14/2012 17:22:59" />
+    <file relUrl="bin/Resources/WinPC.js" publishTime="06/21/2012 14:11:02" />
+    <file relUrl="bin/NetLibrary.pdb" publishTime="12/14/2012 17:22:59" />
+    <file relUrl="bin/NLog.dll" publishTime="12/14/2012 17:21:08" />
+    <file relUrl="bin/Resources/MGSU.js" publishTime="09/13/2012 12:35:38" />
+    <file relUrl="bin/ResourceBaseService.pdb" publishTime="12/19/2012 18:57:44" />
+    <file relUrl="bin/NLog.pdb" publishTime="07/18/2011 00:26:56" />
+    <file relUrl="bin/Newtonsoft.Json.dll" publishTime="12/14/2012 17:21:08" />
+    <file relUrl="bin/ResourceBase.pdb" publishTime="12/19/2012 18:57:44" />
+    <file relUrl="bin/Common.dll" publishTime="12/19/2012 18:57:44" />
+    <file relUrl="bin/NetLibrary.dll" publishTime="12/14/2012 17:22:59" />
+    <file relUrl="bin/ResourceBaseService.dll" publishTime="12/19/2012 18:57:44" />
+    <file relUrl="bin/Resources/Virtual.js" publishTime="05/12/2012 11:52:42" />
+    <file relUrl="ResourceBaseService.svc" publishTime="05/12/2012 11:52:50" />
+  </publishProfile>
+  <publishProfile publishUrl="\\192.168.4.2\Share\ResourceBase" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Share on 4.2 (demo)" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Web.config" publishTime="09/23/2013 11:32:59" />
+    <file relUrl="bin/Resources/GridNNN.js" publishTime="07/08/2013 15:18:30" />
+    <file relUrl="bin/NLog.xml" publishTime="07/18/2011 00:26:56" />
+    <file relUrl="bin/Common.pdb" publishTime="09/23/2013 11:32:29" />
+    <file relUrl="bin/Resources/Hadoop.js" publishTime="07/08/2013 15:18:30" />
+    <file relUrl="bin/Newtonsoft.Json.xml" publishTime="12/14/2012 17:21:10" />
+    <file relUrl="bin/ResourceBase.dll" publishTime="09/23/2013 11:32:30" />
+    <file relUrl="bin/NetLibrary.xml" publishTime="03/28/2013 16:40:14" />
+    <file relUrl="bin/Resources/WinPC.js" publishTime="07/08/2013 15:18:30" />
+    <file relUrl="bin/NetLibrary.pdb" publishTime="03/28/2013 16:40:14" />
+    <file relUrl="bin/NLog.dll" publishTime="12/14/2012 17:21:10" />
+    <file relUrl="bin/Resources/MGSU.js" publishTime="07/08/2013 15:18:30" />
+    <file relUrl="bin/ResourceBaseService.pdb" publishTime="09/23/2013 11:32:30" />
+    <file relUrl="bin/NLog.pdb" publishTime="07/18/2011 00:26:56" />
+    <file relUrl="bin/Newtonsoft.Json.dll" publishTime="12/14/2012 17:21:10" />
+    <file relUrl="bin/ResourceBase.pdb" publishTime="09/23/2013 11:32:30" />
+    <file relUrl="bin/Common.dll" publishTime="09/23/2013 11:32:29" />
+    <file relUrl="bin/NetLibrary.dll" publishTime="03/28/2013 16:40:14" />
+    <file relUrl="bin/ResourceBaseService.dll" publishTime="09/23/2013 11:32:30" />
+    <file relUrl="bin/Resources/Virtual.js" publishTime="07/08/2013 15:18:30" />
+    <file relUrl="ResourceBaseService.svc" publishTime="07/08/2013 15:18:30" />
+  </publishProfile>
+  <publishProfile publishUrl="\\192.168.4.1\Share\ResourceBase" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Share on 4.1 (dev)" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="False">
+    <file relUrl="Web.config" publishTime="01/19/2013 14:55:15" />
+    <file relUrl="bin/Resources/GridNNN.js" publishTime="06/25/2012 13:21:22" />
+    <file relUrl="bin/NLog.xml" publishTime="07/18/2011 00:26:56" />
+    <file relUrl="bin/Common.pdb" publishTime="01/19/2013 14:54:44" />
+    <file relUrl="ResourceBaseService.svc" publishTime="05/12/2012 11:52:50" />
+    <file relUrl="bin/Resources/Hadoop.js" publishTime="06/25/2012 13:44:33" />
+    <file relUrl="bin/Newtonsoft.Json.xml" publishTime="12/14/2012 17:21:08" />
+    <file relUrl="bin/ResourceBase.dll" publishTime="01/19/2013 14:54:45" />
+    <file relUrl="bin/Resources/WinPC.js" publishTime="06/21/2012 14:11:02" />
+    <file relUrl="bin/NetLibrary.pdb" publishTime="12/14/2012 17:22:59" />
+    <file relUrl="bin/NLog.dll" publishTime="12/14/2012 17:21:08" />
+    <file relUrl="bin/Resources/MGSU.js" publishTime="09/13/2012 12:35:38" />
+    <file relUrl="bin/ResourceBaseService.pdb" publishTime="01/19/2013 14:54:45" />
+    <file relUrl="bin/NLog.pdb" publishTime="07/18/2011 00:26:56" />
+    <file relUrl="bin/Newtonsoft.Json.dll" publishTime="12/14/2012 17:21:08" />
+    <file relUrl="bin/ResourceBase.pdb" publishTime="01/19/2013 14:54:45" />
+    <file relUrl="bin/Common.dll" publishTime="01/19/2013 14:54:44" />
+    <file relUrl="bin/NetLibrary.dll" publishTime="12/14/2012 17:22:59" />
+    <file relUrl="bin/ResourceBaseService.dll" publishTime="01/19/2013 14:54:45" />
+    <file relUrl="bin/Resources/Virtual.js" publishTime="05/12/2012 11:52:42" />
+    <file relUrl="bin/NetLibrary.xml" publishTime="12/14/2012 17:22:59" />
+  </publishProfile>
+</publishData>

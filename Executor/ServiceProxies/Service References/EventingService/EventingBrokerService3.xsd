@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://escience.ifmo.ru/easis/eventing" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.4.1/Eventing/EventingBrokerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Eventing" />
+  <xs:import schemaLocation="http://192.168.4.1/Eventing/EventingBrokerService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="FireEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://escience.ifmo.ru/easis/eventing" minOccurs="0" name="evt" nillable="true" type="q1:EventReport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="EventReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SchemeUri" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Timestamp" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Topic" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q2="http://escience.ifmo.ru/easis/eventing" name="EventReport" nillable="true" type="q2:EventReport" />
+  <xs:element name="FireEventResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Subscribe">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://escience.ifmo.ru/easis/eventing" minOccurs="0" name="subscriptionRequest" nillable="true" type="q3:SubscriptionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SubscriptionRequest">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Eventing" minOccurs="0" name="DeliveryMode" type="q4:DeliveryModeEnum" />
+      <xs:element minOccurs="0" name="Duration" type="ser:duration" />
+      <xs:element xmlns:q5="http://escience.ifmo.ru/easis/eventing" minOccurs="0" name="EndTo" nillable="true" type="q5:EndPoint" />
+      <xs:element xmlns:q6="http://escience.ifmo.ru/easis/eventing" minOccurs="0" name="Filters" nillable="true" type="q6:ArrayOfSubscriptionFilter" />
+      <xs:element xmlns:q7="http://escience.ifmo.ru/easis/eventing" minOccurs="0" name="NotifyTo" nillable="true" type="q7:EndPoint" />
+      <xs:element minOccurs="0" name="UniqName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isPermanent" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q8="http://escience.ifmo.ru/easis/eventing" name="SubscriptionRequest" nillable="true" type="q8:SubscriptionRequest" />
+  <xs:complexType name="EndPoint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tag" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q9="http://escience.ifmo.ru/easis/eventing" name="EndPoint" nillable="true" type="q9:EndPoint" />
+  <xs:complexType name="ArrayOfSubscriptionFilter">
+    <xs:sequence>
+      <xs:element xmlns:q10="http://escience.ifmo.ru/easis/eventing" minOccurs="0" maxOccurs="unbounded" name="SubscriptionFilter" nillable="true" type="q10:SubscriptionFilter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q11="http://escience.ifmo.ru/easis/eventing" name="ArrayOfSubscriptionFilter" nillable="true" type="q11:ArrayOfSubscriptionFilter" />
+  <xs:complexType name="SubscriptionFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dialect" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q12="http://escience.ifmo.ru/easis/eventing" name="SubscriptionFilter" nillable="true" type="q12:SubscriptionFilter" />
+  <xs:element name="SubscribeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://escience.ifmo.ru/easis/eventing" minOccurs="0" name="SubscribeResult" nillable="true" type="q13:SubscriptionId" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SubscriptionId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Value" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q14="http://escience.ifmo.ru/easis/eventing" name="SubscriptionId" nillable="true" type="q14:SubscriptionId" />
+  <xs:element name="Unsubscribe">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://escience.ifmo.ru/easis/eventing" minOccurs="0" name="subscriptionId" nillable="true" type="q15:SubscriptionId" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnsubscribeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActiveSubscriptions">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActiveSubscriptionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://escience.ifmo.ru/easis/eventing" minOccurs="0" name="GetActiveSubscriptionsResult" nillable="true" type="q16:ArrayOfSubscription" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfSubscription">
+    <xs:sequence>
+      <xs:element xmlns:q17="http://escience.ifmo.ru/easis/eventing" minOccurs="0" maxOccurs="unbounded" name="Subscription" nillable="true" type="q17:Subscription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q18="http://escience.ifmo.ru/easis/eventing" name="ArrayOfSubscription" nillable="true" type="q18:ArrayOfSubscription" />
+  <xs:complexType name="Subscription">
+    <xs:sequence>
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Eventing" minOccurs="0" name="DeliveryMode" type="q19:DeliveryModeEnum" />
+      <xs:element xmlns:q20="http://escience.ifmo.ru/easis/eventing" minOccurs="0" name="EndTo" nillable="true" type="q20:EndPoint" />
+      <xs:element minOccurs="0" name="Expires" type="xs:dateTime" />
+      <xs:element xmlns:q21="http://escience.ifmo.ru/easis/eventing" minOccurs="0" name="Filters" nillable="true" type="q21:ArrayOfSubscriptionFilter" />
+      <xs:element xmlns:q22="http://escience.ifmo.ru/easis/eventing" minOccurs="0" name="Id" nillable="true" type="q22:SubscriptionId" />
+      <xs:element xmlns:q23="http://escience.ifmo.ru/easis/eventing" minOccurs="0" name="NotifyTo" nillable="true" type="q23:EndPoint" />
+      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Eventing" minOccurs="0" name="Status" type="q24:SubscriptionStatusEnum" />
+      <xs:element minOccurs="0" name="UniqName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isSystem" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q25="http://escience.ifmo.ru/easis/eventing" name="Subscription" nillable="true" type="q25:Subscription" />
+</xs:schema>

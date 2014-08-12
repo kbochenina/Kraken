@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="78f47a8f-05b5-4d45-bd83-493d417dd4aa" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="Common" />
+      <ReferencedAssembly AssemblyName="CommonDataTypes" />
+      <ReferencedAssembly AssemblyName="Easis.PackageBase" />
+      <ReferencedAssembly AssemblyName="IronRuby" />
+      <ReferencedAssembly AssemblyName="IronRuby.Libraries" />
+      <ReferencedAssembly AssemblyName="IronRuby.Libraries.Yaml" />
+      <ReferencedAssembly AssemblyName="Microsoft.CSharp" />
+      <ReferencedAssembly AssemblyName="Microsoft.Dynamic" />
+      <ReferencedAssembly AssemblyName="Microsoft.Scripting" />
+      <ReferencedAssembly AssemblyName="Microsoft.Scripting.Metadata" />
+      <ReferencedAssembly AssemblyName="MongoDB.Bson" />
+      <ReferencedAssembly AssemblyName="mscorlib" />
+      <ReferencedAssembly AssemblyName="NetLibrary" />
+      <ReferencedAssembly AssemblyName="PackageBase.Serializer" />
+      <ReferencedAssembly AssemblyName="Scheduler.TimeMeter" />
+      <ReferencedAssembly AssemblyName="SchedulerCommon" />
+      <ReferencedAssembly AssemblyName="System" />
+      <ReferencedAssembly AssemblyName="System.Core" />
+      <ReferencedAssembly AssemblyName="System.Data" />
+      <ReferencedAssembly AssemblyName="System.Data.DataSetExtensions" />
+      <ReferencedAssembly AssemblyName="System.Runtime.Serialization" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel.Channels" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel.Web" />
+      <ReferencedAssembly AssemblyName="System.Web" />
+      <ReferencedAssembly AssemblyName="System.Web.Services" />
+      <ReferencedAssembly AssemblyName="System.Xml" />
+      <ReferencedAssembly AssemblyName="System.Xml.Linq" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:61095/ResourceBaseService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ResourceBaseService.xsd" MetadataType="Schema" ID="03b0898f-e087-40da-aefd-1b5c00c47e98" SourceId="1" SourceUrl="http://localhost:61095/ResourceBaseService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ResourceBaseService.wsdl" MetadataType="Wsdl" ID="86e5f8eb-cc86-4515-a724-417e3783ec67" SourceId="1" SourceUrl="http://localhost:61095/ResourceBaseService.svc?wsdl" />
+    <MetadataFile FileName="ResourceBaseService1.xsd" MetadataType="Schema" ID="7f937860-d9cb-4db4-a14b-325bc46d810a" SourceId="1" SourceUrl="http://localhost:61095/ResourceBaseService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ResourceBaseService2.xsd" MetadataType="Schema" ID="b519d44e-6739-4034-939b-dda88d2f73c6" SourceId="1" SourceUrl="http://localhost:61095/ResourceBaseService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ResourceBaseService1.wsdl" MetadataType="Wsdl" ID="1b30462c-200c-4ea5-a2b3-3cef1a5e7ad3" SourceId="1" SourceUrl="http://localhost:61095/ResourceBaseService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ResourceBaseService3.xsd" MetadataType="Schema" ID="5c65f365-c263-4d46-88c3-eb19466fdf54" SourceId="1" SourceUrl="http://localhost:61095/ResourceBaseService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ResourceBaseService.disco" MetadataType="Disco" ID="c523bac5-d921-4df4-870a-aa61a5669f65" SourceId="1" SourceUrl="http://localhost:61095/ResourceBaseService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b48cc019-bd73-4600-8edd-57f548f24c69" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="Common" />
+      <ReferencedAssembly AssemblyName="CommonDataTypes" />
+      <ReferencedAssembly AssemblyName="Easis.PackageBase" />
+      <ReferencedAssembly AssemblyName="IronRuby" />
+      <ReferencedAssembly AssemblyName="IronRuby.Libraries" />
+      <ReferencedAssembly AssemblyName="IronRuby.Libraries.Yaml" />
+      <ReferencedAssembly AssemblyName="Microsoft.CSharp" />
+      <ReferencedAssembly AssemblyName="Microsoft.Dynamic" />
+      <ReferencedAssembly AssemblyName="Microsoft.Scripting" />
+      <ReferencedAssembly AssemblyName="Microsoft.Scripting.Metadata" />
+      <ReferencedAssembly AssemblyName="MongoDB.Bson" />
+      <ReferencedAssembly AssemblyName="mscorlib" />
+      <ReferencedAssembly AssemblyName="NetLibrary" />
+      <ReferencedAssembly AssemblyName="PackageBase.Serializer" />
+      <ReferencedAssembly AssemblyName="Scheduler.TimeMeter" />
+      <ReferencedAssembly AssemblyName="SchedulerCommon" />
+      <ReferencedAssembly AssemblyName="System" />
+      <ReferencedAssembly AssemblyName="System.Core" />
+      <ReferencedAssembly AssemblyName="System.Data" />
+      <ReferencedAssembly AssemblyName="System.Data.DataSetExtensions" />
+      <ReferencedAssembly AssemblyName="System.Runtime.Serialization" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel.Channels" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel.Web" />
+      <ReferencedAssembly AssemblyName="System.Web" />
+      <ReferencedAssembly AssemblyName="System.Web.Services" />
+      <ReferencedAssembly AssemblyName="System.Xml" />
+      <ReferencedAssembly AssemblyName="System.Xml.Linq" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8755/PackageInstallationService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="734399b5-c2f9-4095-ab9a-ba4552a06f7a" SourceId="1" SourceUrl="http://localhost:8755/PackageInstallationService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="cb006367-a128-4658-befa-731179c49c02" SourceId="1" SourceUrl="http://localhost:8755/PackageInstallationService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="787b556a-cc05-43a3-bff6-dc5e4b0b80b1" SourceId="1" SourceUrl="http://localhost:8755/PackageInstallationService/mex" />
+    <MetadataFile FileName="PackageInstallationService.xsd" MetadataType="Schema" ID="e2901b36-b669-4bad-8ed7-8d8e8760b43f" SourceId="1" SourceUrl="http://localhost:8755/PackageInstallationService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="2fed13a9-96a4-4e60-a1c8-40b4dcf389d3" SourceId="1" SourceUrl="http://localhost:8755/PackageInstallationService/mex" />
+    <MetadataFile FileName="System.xsd" MetadataType="Schema" ID="60f9e5fa-6ea1-4e36-b06f-624e2913bb36" SourceId="1" SourceUrl="http://localhost:8755/PackageInstallationService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

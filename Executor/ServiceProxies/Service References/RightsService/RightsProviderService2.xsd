@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Easis.Testing" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Easis.Testing" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="HealthState">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MessageList" nillable="true" type="tns:ArrayOfHealthMessage" />
+      <xs:element minOccurs="0" name="State" type="tns:TotalState" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HealthState" nillable="true" type="tns:HealthState" />
+  <xs:complexType name="ArrayOfHealthMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HealthMessage" nillable="true" type="tns:HealthMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHealthMessage" nillable="true" type="tns:ArrayOfHealthMessage" />
+  <xs:complexType name="HealthMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MessageImportance" type="tns:Importance" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" type="tns:SubState" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HealthMessage" nillable="true" type="tns:HealthMessage" />
+  <xs:simpleType name="Importance">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Critical" />
+      <xs:enumeration value="Ignorable" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Importance" nillable="true" type="tns:Importance" />
+  <xs:simpleType name="SubState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Failure" />
+      <xs:enumeration value="Ok" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SubState" nillable="true" type="tns:SubState" />
+  <xs:simpleType name="TotalState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Failure" />
+      <xs:enumeration value="Warning" />
+      <xs:enumeration value="Ok" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TotalState" nillable="true" type="tns:TotalState" />
+</xs:schema>

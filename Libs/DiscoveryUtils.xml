@@ -1,0 +1,314 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DiscoveryUtils</name>
+    </assembly>
+    <members>
+        <member name="T:DiscoveryUtils.IDiscoveryAgent">
+            <summary>
+             Interface for generating clients for contracts
+            </summary>
+        </member>
+        <member name="M:DiscoveryUtils.IDiscoveryAgent.GetClient``1">
+            <summary>
+            The method searches and creates client of service with specified contract and default binding.
+            </summary>
+            <typeparam name="T">The contract (interface)</typeparam>
+            <returns>Client of specified contract or null if there are no such services</returns>
+        </member>
+        <member name="T:DiscoveryUtils.ConfigurationAgent">
+            <summary>
+             ConfiguraionAgent generates clients on bases information from configuration file
+            </summary>
+        </member>
+        <member name="M:DiscoveryUtils.ConfigurationAgent.#ctor(System.Collections.Generic.Dictionary{System.String,System.Tuple{System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress}})">
+            <summary>
+             Constructor for predefined services information
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:DiscoveryUtils.ConfigurationAgent.#ctor">
+            <summary>
+             Default constructor
+            </summary>
+        </member>
+        <member name="M:DiscoveryUtils.ConfigurationAgent.Init">
+            <summary>
+            Init dictionary of services from config. Have some hacks
+            </summary>
+        </member>
+        <member name="M:DiscoveryUtils.ConfigurationAgent.GetClient``1">
+            <summary>
+            Generate client for target contract
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:DiscoveryUtils.DiscoveryAgent">
+            <summary>
+            Singleton. Can work with some number of discovery proxys. 
+            Searches and creates clients with given service contract.
+            </summary>
+        </member>
+        <member name="T:DiscoveryUtils.IDiscoveryRegistrator">
+            <summary>
+             Interface for registration services (in discoveryProxy or another stuctures)
+            </summary>
+        </member>
+        <member name="M:DiscoveryUtils.IDiscoveryRegistrator.Register``1(System.String,System.ServiceModel.Channels.Binding,DiscoveryUtils.ServiceModelEnum)">
+            <summary>
+            Register target service with target URI to Discovery
+            </summary>
+            <typeparam name="T">Contract of service</typeparam>
+            <param name="uri">URI of service</param>
+            <param name="binding"></param>
+            <param name="model"></param>
+        </member>
+        <member name="M:DiscoveryUtils.IDiscoveryRegistrator.Register(System.String,System.String,System.String,System.String,DiscoveryUtils.ServiceModelEnum)">
+            <summary>
+            Register service.
+            </summary>
+            <param name="name"></param>
+            <param name="ns"></param>
+            <param name="uri"></param>
+            <param name="binding"></param>
+            <param name="model"></param>
+        </member>
+        <member name="M:DiscoveryUtils.IDiscoveryRegistrator.Unregister(System.String,System.String,System.String)">
+            <summary>
+            Unregister target URI from Discovery
+            </summary>
+            <param name="contractNameSpace"></param>
+            <param name="contractName"></param>
+            /// <param name="uri"></param>
+        </member>
+        <member name="F:DiscoveryUtils.DiscoveryAgent._bindingProvider">
+            <summary>
+            Current provider for Binding
+            </summary>
+        </member>
+        <member name="M:DiscoveryUtils.DiscoveryAgent.#ctor">
+            <summary>
+            Protected constructor initialize factory without Discovery clients
+            </summary>
+        </member>
+        <member name="M:DiscoveryUtils.DiscoveryAgent.GetClient``1">
+            <summary>
+            The method searches and creates client of service with specified contract and default binding.
+            </summary>
+            <typeparam name="T">The contract (interface)</typeparam>
+            <returns>Client of specified contract or null if there are no such services</returns>
+        </member>
+        <member name="M:DiscoveryUtils.DiscoveryAgent.GetBinding(System.ServiceModel.Discovery.EndpointDiscoveryMetadata,System.Type)">
+            <summary>
+            Creates Binding for target endpoint according to metadata and/or BindingProvider
+            </summary>
+            <param name="endpoint"></param>
+            <param name="contract"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscoveryUtils.DiscoveryAgent.GetClientForEndpoint``1(System.ServiceModel.EndpointAddress,System.ServiceModel.Channels.Binding)">
+            <summary>
+            Retuns client of specified service with specified contract.
+            </summary>
+            <typeparam name="T">Target contract</typeparam>
+            <param name="endPoint">Address of service</param>
+            <param name="binding">Binding for endpoint</param>
+            <returns>Client</returns>
+        </member>
+        <member name="M:DiscoveryUtils.DiscoveryAgent.GetEndpoints(System.String,System.String)">
+            <summary>
+            The method returns list of endpoints with specified services contracts
+            </summary>
+            <param name="contractName">Name of contract</param>
+            <param name="nameSpace">Namespace</param>
+            <returns>List of endpoints</returns>
+        </member>
+        <member name="M:DiscoveryUtils.DiscoveryAgent.GetEndpoints``1">
+            <summary>
+            The method returns list of endpoints with specified services contracts
+            </summary>
+            <typeparam name="T">Service contract</typeparam>
+            <returns>List of endpoints</returns>
+        </member>
+        <member name="M:DiscoveryUtils.DiscoveryAgent.GetEndpoints">
+            <summary>
+            The method returns list of endpoints of all available services
+            </summary>
+            <returns>List of available services</returns>
+        </member>
+        <member name="M:DiscoveryUtils.DiscoveryAgent.GetEndpointsByCriteria(System.ServiceModel.Discovery.FindCriteria)">
+            <summary>
+            The method return list of endpoints by some criteria
+            </summary>
+            <param name="criteria"> Criteria for searching</param>
+            <returns>List of endpoints fits to criteria</returns>
+        </member>
+        <member name="M:DiscoveryUtils.DiscoveryAgent.Register``1(System.String,System.ServiceModel.Channels.Binding,DiscoveryUtils.ServiceModelEnum)">
+            <summary>
+            Register target service with target URI to Discovery
+            </summary>
+            <typeparam name="T">Contract of service</typeparam>
+            <param name="uri">URI of service</param>
+            <param name="binding"></param>
+            <param name="model"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:DiscoveryUtils.DiscoveryAgent.Register(System.String,System.String,System.String,System.String,DiscoveryUtils.ServiceModelEnum)" -->
+        <member name="M:DiscoveryUtils.DiscoveryAgent.Register(System.String,System.String,System.Xml.Linq.XElement,DiscoveryUtils.ServiceModelEnum)">
+            <summary>
+            Common method - helper
+            </summary>
+            <param name="contract"></param>
+            <param name="uri"></param>
+            <param name="binding"></param>
+            <param name="model"></param>
+        </member>
+        <member name="M:DiscoveryUtils.DiscoveryAgent.Unregister(System.String,System.String,System.String)">
+            <summary>
+            Unregister target URI from Discovery
+            </summary>
+            <param name="contractNameSpace"></param>
+            <param name="contractName"></param>
+            /// <param name="uri"></param>
+        </member>
+        <member name="M:DiscoveryUtils.DiscoveryAgent.GetBindingFromConfiguration(System.String)">
+            <summary>
+            Reads bindings parameters from configuration.
+            </summary>
+            <param name="configElementName">Name on target BindingElement in configuraion</param>
+            <returns>Binding from configuration</returns>
+        </member>
+        <member name="M:DiscoveryUtils.DiscoveryAgent.GetBindingFromXml(System.Xml.Linq.XElement)">
+            <summary>
+            Generate Binding from Xml representation
+            </summary>
+            <param name="bindingXml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscoveryUtils.DiscoveryAgent.SerializeBindingToXml(System.ServiceModel.Channels.Binding)">
+            <summary>
+            Represent Binding as XmlRecord
+            </summary>
+            <param name="binding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiscoveryUtils.DiscoveryAgent.GetCollectionElement(System.ServiceModel.Channels.Binding)">
+            <summary>
+            Get BindingCollectionElement by binding
+            </summary>
+            <param name="binding"></param>
+            <returns></returns>
+        </member>
+        <member name="P:DiscoveryUtils.DiscoveryAgent.Instance">
+            <summary>
+             Get instance of DiscoveryAgent
+            </summary>
+        </member>
+        <member name="P:DiscoveryUtils.DiscoveryAgent.DiscoveryAddress">
+            <summary>
+             Set or get Adress of DiscoveryProxy. Migth be set in appSettings "DefaultDiscoveryProxyAddress"
+            </summary>
+        </member>
+        <member name="P:DiscoveryUtils.DiscoveryAgent.BindingProvider">
+            <summary>
+             Current BindingProvider 
+            </summary>
+        </member>
+        <member name="T:DiscoveryUtils.StandartBindingProvider">
+            <summary>
+            Simple implementation of IBindingProvider for WSHTTPBinding
+            </summary>
+        </member>
+        <member name="T:DiscoveryUtils.IBindingProvider">
+            <summary>
+            Provider for Binding dependent on contact
+            </summary>
+        </member>
+        <member name="M:DiscoveryUtils.IBindingProvider.GetBinding(System.Type)">
+            <summary>
+             Return binding needed for services with specified contract
+            </summary>
+            <param name="type">Contract</param>
+            <returns>Binding</returns>
+        </member>
+        <member name="P:DiscoveryUtils.IBindingProvider.DiscoveryBinding">
+            <summary>
+             Binding for discoveryProxy.
+            </summary>
+        </member>
+        <member name="T:DiscoveryUtils.XBindingProvider">
+            <summary>
+            Simple implementation of IBindingProvider for BasicHTTPBinding
+            </summary>
+        </member>
+        <member name="T:DiscoveryUtils.ConfigBindingProvider">
+            <summary>
+            Provides binding from config
+            </summary>
+        </member>
+        <member name="T:DiscoveryUtils.ServiceModelEnum">
+            <summary>
+             Enum for determination of service type
+            </summary>
+        </member>
+        <member name="F:DiscoveryUtils.ServiceModelEnum.Soap">
+            <summary>
+             For SOAP (totally WCF services)
+            </summary>
+        </member>
+        <member name="F:DiscoveryUtils.ServiceModelEnum.Rest">
+            <summary>
+             For Rest services and common pages
+            </summary>
+        </member>
+        <member name="T:DiscoveryUtils.MetaDataBehavior">
+            <summary>
+             Behavior publishes additional information about Binding  for DiscoveryProxy
+            </summary>
+        </member>
+        <member name="M:DiscoveryUtils.MetaDataBehavior.Validate(System.ServiceModel.Description.ServiceDescription,System.ServiceModel.ServiceHostBase)">
+            <summary>
+            Not used
+            </summary>
+            <param name="serviceDescription"></param>
+            <param name="serviceHostBase"></param>
+        </member>
+        <member name="M:DiscoveryUtils.MetaDataBehavior.AddBindingParameters(System.ServiceModel.Description.ServiceDescription,System.ServiceModel.ServiceHostBase,System.Collections.ObjectModel.Collection{System.ServiceModel.Description.ServiceEndpoint},System.ServiceModel.Channels.BindingParameterCollection)">
+            <summary>
+            Not used
+            </summary>
+            <param name="serviceDescription"></param>
+            <param name="serviceHostBase"></param>
+            <param name="endpoints"></param>
+            <param name="bindingParameters"></param>
+        </member>
+        <member name="M:DiscoveryUtils.MetaDataBehavior.ApplyDispatchBehavior(System.ServiceModel.Description.ServiceDescription,System.ServiceModel.ServiceHostBase)">
+            <summary>
+            Add info about binding to every endpoint
+            </summary>
+            <param name="serviceDescription"></param>
+            <param name="serviceHostBase"></param>
+        </member>
+        <member name="T:DiscoveryUtils.IDiscoveryRegistry">
+            <summary>
+             Interface for DiscoveryProxy that consider register/unregister services
+            </summary>
+        </member>
+        <member name="M:DiscoveryUtils.IDiscoveryRegistry.Register(System.String,System.String,System.Xml.Linq.XElement,DiscoveryUtils.ServiceModelEnum)">
+            <summary>
+             Register remote service in DiscoveryProxy
+            </summary>
+            <param name="contract">Full contract with namespace: http://tempuri.org/:ITestService </param>
+            <param name="uri">URI of remote service</param>
+            <param name="binding">XML representation of binding</param>
+            <param name="model">Type of service : SOAP, REST</param>
+        </member>
+        <member name="M:DiscoveryUtils.IDiscoveryRegistry.Unregister(System.String,System.String)">
+            <summary>
+             Unregister service from DiscoveryProxy
+            </summary>
+            <param name="contract">Full contract with namespace: http://tempuri.org/:ITestService </param>
+            <param name="uri">URI of remote service </param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Easis.Common.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Easis.Common.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.4.1/Workflow/FlowSystemService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://192.168.4.1/Workflow/FlowSystemService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://192.168.4.1/Workflow/FlowSystemService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/MongoDB.Bson" />
+  <xs:complexType name="JobRequest">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExecutionProperties" nillable="true" type="q1:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="FlowExecutionProperties" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Script" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScriptDataContext" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="JobRequest" nillable="true" type="tns:JobRequest" />
+  <xs:complexType name="JobDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorComment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorException" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExecutionContext" nillable="true" type="tns:ExecutionContext" />
+      <xs:element minOccurs="0" name="FinishedAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="InterpreterState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JobRequest" nillable="true" type="tns:JobRequest" />
+      <xs:element minOccurs="0" name="Nodes" nillable="true" type="tns:ArrayOfNodeDescription" />
+      <xs:element minOccurs="0" name="Outputs" nillable="true" type="tns:ArrayOfFileDescription" />
+      <xs:element minOccurs="0" name="PushedAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="StartedAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="State" type="tns:JobState" />
+      <xs:element minOccurs="0" name="Timestamp" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="VerboseErrorComment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WfId" type="ser:guid" />
+      <xs:element minOccurs="0" name="WorkflowStatus" type="tns:JobDescription.JobResultStatus" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="_id" type="q2:ObjectId" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="JobDescription" nillable="true" type="tns:JobDescription" />
+  <xs:complexType name="ExecutionContext">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExtraElements" nillable="true" type="q3:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TempUserCert" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExecutionContext" nillable="true" type="tns:ExecutionContext" />
+  <xs:complexType name="ArrayOfNodeDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NodeDescription" nillable="true" type="tns:NodeDescription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNodeDescription" nillable="true" type="tns:ArrayOfNodeDescription" />
+  <xs:complexType name="NodeDescription">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Children" nillable="true" type="q4:ArrayOfunsignedInt" />
+      <xs:element minOccurs="0" name="ErrorComment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorException" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InFiles" nillable="true" type="tns:ArrayOfFileDescription" />
+      <xs:element minOccurs="0" name="MethodName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OutFiles" nillable="true" type="tns:ArrayOfFileDescription" />
+      <xs:element minOccurs="0" name="PackageName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Parents" nillable="true" type="q5:ArrayOfunsignedInt" />
+      <xs:element minOccurs="0" name="RunInfo" nillable="true" type="tns:RunInfo" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StepId" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerboseErrorComment" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NodeDescription" nillable="true" type="tns:NodeDescription" />
+  <xs:complexType name="ArrayOfFileDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FileDescription" nillable="true" type="tns:FileDescription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFileDescription" nillable="true" type="tns:ArrayOfFileDescription" />
+  <xs:complexType name="FileDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileIdentifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NStorageId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StorageId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileDescription" nillable="true" type="tns:FileDescription" />
+  <xs:complexType name="RunInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ended" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Estimated" nillable="true" type="ser:duration" />
+      <xs:element minOccurs="0" name="ExternalId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NodeInfo" nillable="true" type="tns:ArrayOfNodeRunInfo" />
+      <xs:element minOccurs="0" name="ResourceInfo" nillable="true" type="tns:ResourceRunInfo" />
+      <xs:element minOccurs="0" name="Started" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RunInfo" nillable="true" type="tns:RunInfo" />
+  <xs:complexType name="ArrayOfNodeRunInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NodeRunInfo" nillable="true" type="tns:NodeRunInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNodeRunInfo" nillable="true" type="tns:ArrayOfNodeRunInfo" />
+  <xs:complexType name="NodeRunInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CoresUsed" type="xs:int" />
+      <xs:element minOccurs="0" name="NodeName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SupportedArchitectures" nillable="true" type="q6:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NodeRunInfo" nillable="true" type="tns:NodeRunInfo" />
+  <xs:complexType name="ResourceRunInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CoresCount" type="xs:int" />
+      <xs:element minOccurs="0" name="GeoCoordinates" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NodesTotal" type="xs:int" />
+      <xs:element minOccurs="0" name="ResourceDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResourceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResourceType" nillable="true" type="xs:string" />
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SupportedArchitectures" nillable="true" type="q7:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResourceRunInfo" nillable="true" type="tns:ResourceRunInfo" />
+  <xs:simpleType name="JobState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Created" />
+      <xs:enumeration value="Parsing" />
+      <xs:enumeration value="Parsed" />
+      <xs:enumeration value="Validating" />
+      <xs:enumeration value="Validated" />
+      <xs:enumeration value="DryRun" />
+      <xs:enumeration value="Active" />
+      <xs:enumeration value="Finished" />
+      <xs:enumeration value="Error" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="JobState" nillable="true" type="tns:JobState" />
+  <xs:simpleType name="JobDescription.JobResultStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="completed" />
+      <xs:enumeration value="partially_completed" />
+      <xs:enumeration value="failed" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="JobDescription.JobResultStatus" nillable="true" type="tns:JobDescription.JobResultStatus" />
+  <xs:complexType name="ArrayOfJobDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JobDescription" nillable="true" type="tns:JobDescription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfJobDescription" nillable="true" type="tns:ArrayOfJobDescription" />
+  <xs:complexType name="ArrayOfLongRunningTaskInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LongRunningTaskInfo" nillable="true" type="tns:LongRunningTaskInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLongRunningTaskInfo" nillable="true" type="tns:ArrayOfLongRunningTaskInfo" />
+  <xs:complexType name="LongRunningTaskInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CommandEndpoint" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="tns:NodeDescription" />
+      <xs:element minOccurs="0" name="PublishingEndpoint" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WfId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LongRunningTaskInfo" nillable="true" type="tns:LongRunningTaskInfo" />
+</xs:schema>

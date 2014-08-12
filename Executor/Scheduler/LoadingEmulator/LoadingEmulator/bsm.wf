@@ -1,0 +1,34 @@
+﻿#input
+hirlam1="bsm_files/hirlam_1h.zip"
+hirlam3="bsm_files/hirlam_3h.zip"
+hirlam4="bsm_files/hirlam_4h.zip"
+hirlam5="bsm_files/hirlam_5h.zip"
+hirlam6="bsm_files/hirlam_6h.zip"
+projects="bsm_files/Projects.zip"
+inControlPoints="bsm_files/controlPoints.in"
+measurementFile="bsm_files/Measurements.zip"
+swanFile="bsm_files/swan.zip"
+assFields="bsm_files/20070109-1200-00.txt"
+BSHFile="bsm_files/BSH.zip"
+
+#output
+
+#easyflow
+step MaskedFullBSM_1 runs bsm 
+ (
+ inMeasurement = measurementFile,
+ inHirlam = hirlam,
+ swan = swanFile,
+ inBSH = BSHFile,
+ useAssimilation = true,
+ useSWAN = true,
+ useBSH = true,
+ useOldProject = false,
+ useMask = false,
+ startCalcDate = "09/01/2007 12:00:00",
+ inAssFields = assFields,
+ inProject = projects,
+ controlPoints = inControlPoints,
+ deleteDirs = true,
+ ForecastSize = 6 
+)

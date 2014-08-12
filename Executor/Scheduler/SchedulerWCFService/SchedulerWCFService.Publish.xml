@@ -1,0 +1,96 @@
+<publishData>
+  <publishTarget publishUrl="\\192.168.4.11\c$\CLAVIRE\IIS\SchedulerService\">
+    <file relUrl="bin/NLog.config" publishTime="09/16/2011 15:55:06" />
+    <file relUrl="bin/Scheduler.pdb" publishTime="06/25/2012 19:15:26" />
+    <file relUrl="bin/NLog.xml" publishTime="07/17/2011 22:26:56" />
+    <file relUrl="bin/Newtonsoft.Json.Net35.pdb" publishTime="04/23/2011 12:29:32" />
+    <file relUrl="bin/apps.xml" publishTime="09/16/2011 17:07:42" />
+    <file relUrl="bin/SchedulerWCFService.dll.config" publishTime="05/04/2012 14:52:03" />
+    <file relUrl="bin/TimeMeter.dll" publishTime="06/25/2012 19:15:26" />
+    <file relUrl="bin/SchedulerWCFService.dll" publishTime="06/25/2012 19:15:27" />
+    <file relUrl="Web.config" publishTime="05/04/2012 14:52:03" />
+    <file relUrl="SchedulerWCFService.SchedulerService.svc" publishTime="06/25/2012 19:16:18" />
+    <file relUrl="bin/SchedulerWCFService.pdb" publishTime="06/25/2012 19:15:27" />
+    <file relUrl="bin/SchedulerCommon.pdb" publishTime="06/25/2012 19:15:25" />
+    <file relUrl="bin/NLog.dll" publishTime="07/17/2011 22:26:56" />
+    <file relUrl="bin/Newtonsoft.Json.Net35.dll" publishTime="04/23/2011 12:29:32" />
+    <file relUrl="bin/Scheduler.dll" publishTime="06/25/2012 19:15:26" />
+    <file relUrl="bin/SchedulerCommon.dll" publishTime="06/25/2012 19:15:25" />
+    <file relUrl="bin/TimeMeter.pdb" publishTime="06/25/2012 19:15:26" />
+    <file relUrl="bin/Newtonsoft.Json.Net35.xml" publishTime="04/23/2011 12:29:32" />
+  </publishTarget>
+  <publishTarget publishUrl="http://localhost:5556/Scheduler">
+    <file relUrl="bin/log.txt" publishTime="09/27/2011 16:26:21" />
+    <file relUrl="SchedulerWCFService.SchedulerService.svc" publishTime="04/23/2012 17:11:59" />
+    <file relUrl="bin/Scheduler.dll" publishTime="04/23/2012 16:18:29" />
+    <file relUrl="bin/Easis.Common.pdb" publishTime="12/12/2011 16:19:14" />
+    <file relUrl="bin/Easis.Common.xml" publishTime="12/12/2011 16:19:14" />
+    <file relUrl="bin/VManager.dll" publishTime="04/23/2012 16:18:28" />
+    <file relUrl="bin/VManager.pdb" publishTime="04/23/2012 16:18:28" />
+    <file relUrl="bin/NLog.dll" publishTime="07/17/2011 22:26:56" />
+    <file relUrl="bin/TimeMeter.pdb" publishTime="04/23/2012 16:18:28" />
+    <file relUrl="bin/TimeMeter.dll" publishTime="04/23/2012 16:18:28" />
+    <file relUrl="bin/SchedulerCommon.dll" publishTime="04/23/2012 16:18:27" />
+    <file relUrl="bin/NLog.config" publishTime="09/16/2011 15:55:06" />
+    <file relUrl="bin/IronRuby.Libraries.dll" publishTime="12/12/2011 16:19:14" />
+    <file relUrl="bin/apps.xml" publishTime="09/16/2011 17:07:42" />
+    <file relUrl="bin/NLog.xml" publishTime="07/17/2011 22:26:56" />
+    <file relUrl="bin/SchedulerWCFService.pdb" publishTime="04/23/2012 16:18:30" />
+    <file relUrl="bin/Newtonsoft.Json.Net35.xml" publishTime="04/23/2011 12:29:32" />
+    <file relUrl="bin/SchedulerCommon.pdb" publishTime="04/23/2012 16:18:27" />
+    <file relUrl="bin/Newtonsoft.Json.Net35.dll" publishTime="04/23/2011 12:29:32" />
+    <file relUrl="Web.config" publishTime="01/27/2012 13:51:05" />
+    <file relUrl="bin/IronRuby.dll" publishTime="12/12/2011 16:19:14" />
+    <file relUrl="bin/Easis.PackageBase.pdb" publishTime="01/09/2012 10:46:15" />
+    <file relUrl="bin/Scheduler.pdb" publishTime="04/23/2012 16:18:29" />
+    <file relUrl="bin/Easis.Common.dll" publishTime="12/12/2011 16:19:14" />
+    <file relUrl="bin/Newtonsoft.Json.Net35.pdb" publishTime="04/23/2011 12:29:32" />
+    <file relUrl="bin/SchedulerWCFService.dll.config" publishTime="01/27/2012 13:51:05" />
+    <file relUrl="bin/Easis.PackageBase.dll" publishTime="01/09/2012 10:46:15" />
+    <file relUrl="bin/SchedulerWCFService.dll" publishTime="04/23/2012 16:18:30" />
+  </publishTarget>
+  <publishTarget publishUrl="\\192.168.4.1\Share\Scheduler\">
+    <file relUrl="bin/log.txt" publishTime="09/27/2011 16:26:21" />
+    <file relUrl="SchedulerWCFService.SchedulerService.svc" publishTime="04/23/2012 16:18:40" />
+    <file relUrl="bin/Scheduler.dll" publishTime="04/23/2012 16:18:29" />
+    <file relUrl="bin/Easis.Common.pdb" publishTime="12/12/2011 16:19:14" />
+    <file relUrl="bin/Easis.Common.xml" publishTime="12/12/2011 16:19:14" />
+    <file relUrl="bin/VManager.dll" publishTime="04/23/2012 16:18:28" />
+    <file relUrl="bin/VManager.pdb" publishTime="04/23/2012 16:18:28" />
+    <file relUrl="bin/NLog.dll" publishTime="07/17/2011 23:26:56" />
+    <file relUrl="bin/TimeMeter.pdb" publishTime="04/23/2012 16:18:28" />
+    <file relUrl="bin/TimeMeter.dll" publishTime="04/23/2012 16:18:28" />
+    <file relUrl="bin/SchedulerCommon.dll" publishTime="04/23/2012 16:18:27" />
+    <file relUrl="bin/NLog.config" publishTime="09/16/2011 15:55:06" />
+    <file relUrl="bin/IronRuby.Libraries.dll" publishTime="12/12/2011 16:19:14" />
+    <file relUrl="bin/apps.xml" publishTime="09/16/2011 17:07:42" />
+    <file relUrl="bin/NLog.xml" publishTime="07/17/2011 23:26:56" />
+    <file relUrl="bin/SchedulerWCFService.pdb" publishTime="04/23/2012 16:18:30" />
+    <file relUrl="bin/Newtonsoft.Json.Net35.xml" publishTime="04/23/2011 13:29:32" />
+    <file relUrl="bin/SchedulerCommon.pdb" publishTime="04/23/2012 16:18:27" />
+    <file relUrl="bin/Newtonsoft.Json.Net35.dll" publishTime="04/23/2011 13:29:32" />
+    <file relUrl="Web.config" publishTime="01/27/2012 13:51:05" />
+    <file relUrl="bin/IronRuby.dll" publishTime="12/12/2011 16:19:14" />
+    <file relUrl="bin/Easis.PackageBase.pdb" publishTime="01/09/2012 10:46:15" />
+    <file relUrl="bin/Scheduler.pdb" publishTime="04/23/2012 16:18:29" />
+    <file relUrl="bin/Easis.Common.dll" publishTime="12/12/2011 16:19:14" />
+    <file relUrl="bin/Newtonsoft.Json.Net35.pdb" publishTime="04/23/2011 13:29:32" />
+    <file relUrl="bin/SchedulerWCFService.dll.config" publishTime="01/27/2012 13:51:05" />
+    <file relUrl="bin/Easis.PackageBase.dll" publishTime="01/09/2012 10:46:15" />
+    <file relUrl="bin/SchedulerWCFService.dll" publishTime="04/23/2012 16:18:30" />
+  </publishTarget>
+  <publishTarget publishUrl="ftp://192.168.4.1/Scheduler">
+    <file relUrl="bin/Common.dll" publishTime="07/08/2011 15:38:56" />
+    <file relUrl="bin/TimeMeter.dll" publishTime="07/08/2011 15:38:57" />
+    <file relUrl="bin/TimeMeter.pdb" publishTime="07/08/2011 15:38:56" />
+    <file relUrl="bin/apps.xml" publishTime="06/30/2011 15:18:24" />
+    <file relUrl="bin/Common.pdb" publishTime="07/08/2011 15:38:55" />
+    <file relUrl="SchedulerWCFService.SchedulerService.svc" publishTime="07/08/2011 15:39:01" />
+    <file relUrl="Web.config" publishTime="06/27/2011 20:27:45" />
+    <file relUrl="bin/SchedulerWCFService.dll.config" publishTime="06/27/2011 20:27:45" />
+    <file relUrl="bin/SchedulerWCFService.pdb" publishTime="07/08/2011 15:38:57" />
+    <file relUrl="bin/Scheduler.dll" publishTime="07/08/2011 15:38:57" />
+    <file relUrl="bin/SchedulerWCFService.dll" publishTime="07/08/2011 15:38:58" />
+    <file relUrl="bin/Scheduler.pdb" publishTime="07/08/2011 15:38:57" />
+  </publishTarget>
+</publishData>

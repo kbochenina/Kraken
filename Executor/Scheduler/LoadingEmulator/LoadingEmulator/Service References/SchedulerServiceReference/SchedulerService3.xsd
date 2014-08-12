@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TimeMeter" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TimeMeter" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.4.2/SchedulerService/SchedulerService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="EstimationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CalculationTime" type="xs:double" />
+      <xs:element minOccurs="0" name="Overheads" type="xs:double" />
+      <xs:element minOccurs="0" name="Parameters" nillable="true" type="tns:ArrayOfEstimationResult.ParameterValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EstimationResult" nillable="true" type="tns:EstimationResult" />
+  <xs:complexType name="ArrayOfEstimationResult.ParameterValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EstimationResult.ParameterValue" type="tns:EstimationResult.ParameterValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEstimationResult.ParameterValue" nillable="true" type="tns:ArrayOfEstimationResult.ParameterValue" />
+  <xs:complexType name="EstimationResult.ParameterValue">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InitialValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EstimationResult.ParameterValue" nillable="true" type="tns:EstimationResult.ParameterValue" />
+</xs:schema>

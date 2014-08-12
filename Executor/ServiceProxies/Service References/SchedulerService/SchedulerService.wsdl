@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SchedulerService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:58524/SchedulerService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:58524/SchedulerService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Common" />
+      <xsd:import schemaLocation="http://localhost:58524/SchedulerService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:58524/SchedulerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Scheduler" />
+      <xsd:import schemaLocation="http://localhost:58524/SchedulerService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:58524/SchedulerService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/TimeMeter" />
+      <xsd:import schemaLocation="http://localhost:58524/SchedulerService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Scheduler.Estimated" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISchedulerService_Reschedule_InputMessage">
+    <wsdl:part name="parameters" element="tns:Reschedule" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_Reschedule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RescheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_Reschedule_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q1:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_RescheduleEstimated_InputMessage">
+    <wsdl:part name="parameters" element="tns:RescheduleEstimated" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_RescheduleEstimated_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RescheduleEstimatedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_RescheduleEstimated_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q2:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_CreateTestWF_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTestWF" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_CreateTestWF_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTestWFResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_CreateTestWF_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q3:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_RescheduleUrgent_InputMessage">
+    <wsdl:part name="parameters" element="tns:RescheduleUrgent" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_RescheduleUrgent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RescheduleUrgentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_RescheduleUrgent_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q4:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_CreateUrgentTestWF_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUrgentTestWF" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_CreateUrgentTestWF_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUrgentTestWFResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_CreateUrgentTestWF_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q5:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetClusterNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClusterNames" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetClusterNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClusterNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetClusterNames_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q6:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetAppNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppNames" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetAppNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetAppNames_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q7:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetDefaultUHName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultUHName" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetDefaultUHName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultUHNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetDefaultUHName_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q8:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetUHNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUHNames" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetUHNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUHNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetUHNames_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q9:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_SetDefaultUHName_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetDefaultUHName" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_SetDefaultUHName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetDefaultUHNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_SetDefaultUHName_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q10:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetDefaultHName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultHName" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetDefaultHName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultHNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetDefaultHName_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q11:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetHNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHNames" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetHNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_GetHNames_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q12:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_SetDefaultHName_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetDefaultHName" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_SetDefaultHName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetDefaultHNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedulerService_SetDefaultHName_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q13:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:portType name="ISchedulerService">
+    <wsdl:operation name="Reschedule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScheduler/Reschedule" message="tns:ISchedulerService_Reschedule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScheduler/RescheduleResponse" message="tns:ISchedulerService_Reschedule_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScheduler/RescheduleErrorMessageFault" name="ErrorMessageFault" message="tns:ISchedulerService_Reschedule_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RescheduleEstimated">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScheduler/RescheduleEstimated" message="tns:ISchedulerService_RescheduleEstimated_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScheduler/RescheduleEstimatedResponse" message="tns:ISchedulerService_RescheduleEstimated_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScheduler/RescheduleEstimatedErrorMessageFault" name="ErrorMessageFault" message="tns:ISchedulerService_RescheduleEstimated_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTestWF">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScheduler/CreateTestWF" message="tns:ISchedulerService_CreateTestWF_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScheduler/CreateTestWFResponse" message="tns:ISchedulerService_CreateTestWF_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScheduler/CreateTestWFErrorMessageFault" name="ErrorMessageFault" message="tns:ISchedulerService_CreateTestWF_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RescheduleUrgent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScheduler/RescheduleUrgent" message="tns:ISchedulerService_RescheduleUrgent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScheduler/RescheduleUrgentResponse" message="tns:ISchedulerService_RescheduleUrgent_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScheduler/RescheduleUrgentErrorMessageFault" name="ErrorMessageFault" message="tns:ISchedulerService_RescheduleUrgent_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUrgentTestWF">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScheduler/CreateUrgentTestWF" message="tns:ISchedulerService_CreateUrgentTestWF_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScheduler/CreateUrgentTestWFResponse" message="tns:ISchedulerService_CreateUrgentTestWF_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScheduler/CreateUrgentTestWFErrorMessageFault" name="ErrorMessageFault" message="tns:ISchedulerService_CreateUrgentTestWF_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClusterNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScheduler/GetClusterNames" message="tns:ISchedulerService_GetClusterNames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScheduler/GetClusterNamesResponse" message="tns:ISchedulerService_GetClusterNames_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScheduler/GetClusterNamesErrorMessageFault" name="ErrorMessageFault" message="tns:ISchedulerService_GetClusterNames_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScheduler/GetAppNames" message="tns:ISchedulerService_GetAppNames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScheduler/GetAppNamesResponse" message="tns:ISchedulerService_GetAppNames_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScheduler/GetAppNamesErrorMessageFault" name="ErrorMessageFault" message="tns:ISchedulerService_GetAppNames_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultUHName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScheduler/GetDefaultUHName" message="tns:ISchedulerService_GetDefaultUHName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScheduler/GetDefaultUHNameResponse" message="tns:ISchedulerService_GetDefaultUHName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScheduler/GetDefaultUHNameErrorMessageFault" name="ErrorMessageFault" message="tns:ISchedulerService_GetDefaultUHName_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUHNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScheduler/GetUHNames" message="tns:ISchedulerService_GetUHNames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScheduler/GetUHNamesResponse" message="tns:ISchedulerService_GetUHNames_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScheduler/GetUHNamesErrorMessageFault" name="ErrorMessageFault" message="tns:ISchedulerService_GetUHNames_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultUHName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScheduler/SetDefaultUHName" message="tns:ISchedulerService_SetDefaultUHName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScheduler/SetDefaultUHNameResponse" message="tns:ISchedulerService_SetDefaultUHName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScheduler/SetDefaultUHNameErrorMessageFault" name="ErrorMessageFault" message="tns:ISchedulerService_SetDefaultUHName_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultHName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScheduler/GetDefaultHName" message="tns:ISchedulerService_GetDefaultHName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScheduler/GetDefaultHNameResponse" message="tns:ISchedulerService_GetDefaultHName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScheduler/GetDefaultHNameErrorMessageFault" name="ErrorMessageFault" message="tns:ISchedulerService_GetDefaultHName_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScheduler/GetHNames" message="tns:ISchedulerService_GetHNames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScheduler/GetHNamesResponse" message="tns:ISchedulerService_GetHNames_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScheduler/GetHNamesErrorMessageFault" name="ErrorMessageFault" message="tns:ISchedulerService_GetHNames_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultHName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScheduler/SetDefaultHName" message="tns:ISchedulerService_SetDefaultHName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScheduler/SetDefaultHNameResponse" message="tns:ISchedulerService_SetDefaultHName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScheduler/SetDefaultHNameErrorMessageFault" name="ErrorMessageFault" message="tns:ISchedulerService_SetDefaultHName_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISchedulerService" type="tns:ISchedulerService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Reschedule">
+      <soap:operation soapAction="http://tempuri.org/IScheduler/Reschedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RescheduleEstimated">
+      <soap:operation soapAction="http://tempuri.org/IScheduler/RescheduleEstimated" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTestWF">
+      <soap:operation soapAction="http://tempuri.org/IScheduler/CreateTestWF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RescheduleUrgent">
+      <soap:operation soapAction="http://tempuri.org/IScheduler/RescheduleUrgent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUrgentTestWF">
+      <soap:operation soapAction="http://tempuri.org/IScheduler/CreateUrgentTestWF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetClusterNames">
+      <soap:operation soapAction="http://tempuri.org/IScheduler/GetClusterNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppNames">
+      <soap:operation soapAction="http://tempuri.org/IScheduler/GetAppNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultUHName">
+      <soap:operation soapAction="http://tempuri.org/IScheduler/GetDefaultUHName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUHNames">
+      <soap:operation soapAction="http://tempuri.org/IScheduler/GetUHNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultUHName">
+      <soap:operation soapAction="http://tempuri.org/IScheduler/SetDefaultUHName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultHName">
+      <soap:operation soapAction="http://tempuri.org/IScheduler/GetDefaultHName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetHNames">
+      <soap:operation soapAction="http://tempuri.org/IScheduler/GetHNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultHName">
+      <soap:operation soapAction="http://tempuri.org/IScheduler/SetDefaultHName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SchedulerService">
+    <wsdl:port name="BasicHttpBinding_ISchedulerService" binding="tns:BasicHttpBinding_ISchedulerService">
+      <soap:address location="http://localhost:58524/SchedulerService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

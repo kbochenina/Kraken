@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Easis.BillingLibs" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Easis.BillingLibs" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.4.1/Billing/BillingService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/MongoDB.Bson" />
+  <xs:complexType name="ArrayOfHistoryRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HistoryRecord" nillable="true" type="tns:HistoryRecord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHistoryRecord" nillable="true" type="tns:ArrayOfHistoryRecord" />
+  <xs:complexType name="HistoryRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:double" />
+      <xs:element minOccurs="0" name="HistoryActionType" type="tns:HistoryAction" />
+      <xs:element minOccurs="0" name="Time" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WfId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HistoryRecord" nillable="true" type="tns:HistoryRecord" />
+  <xs:simpleType name="HistoryAction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Withdraw" />
+      <xs:enumeration value="Deposite" />
+      <xs:enumeration value="Reserve" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="HistoryAction" nillable="true" type="tns:HistoryAction" />
+  <xs:complexType name="RateInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="Id" type="q1:ObjectId" />
+      <xs:element minOccurs="0" name="PackageName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rate" type="xs:double" />
+      <xs:element minOccurs="0" name="ResourceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartTime" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RateInfo" nillable="true" type="tns:RateInfo" />
+</xs:schema>

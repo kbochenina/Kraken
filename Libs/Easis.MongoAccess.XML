@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Easis.MongoAccess</name>
+    </assembly>
+    <members>
+        <member name="T:Easis.Common.DbAccess.Mongo.MongoEntityWithGuidContractBase">
+            <summary>
+            <para>
+            Data contract for entities with id (for MongoDB).
+            </para>
+            <para>
+            It exposes two properties: Id and MongoId. The first is for DataContract serialization
+            while the second is for BSON serialization.
+            </para>
+            Both properties are changed simulatneously (if you change Id, MongId will change and vice
+            versa).
+            </summary>  
+        </member>
+        <member name="P:Easis.Common.DbAccess.Mongo.MongoEntityWithGuidContractBase.Id">
+            <summary>
+            Get or sets entity id in form of string (for web-methods).
+            You MUST set this property only with valid Guid string (Guid.ToString()).
+            </summary>
+        </member>
+        <member name="P:Easis.Common.DbAccess.Mongo.MongoEntityWithGuidContractBase.MongoId">
+            <summary>
+            Gets or sets id in form of Guid (for Mongo serialization).
+            </summary>        
+        </member>
+        <member name="T:Easis.Common.DbAccess.Mongo.MongoModule">
+            <summary>
+            Ninject module for MongoDB objects injection.
+            </summary>
+        </member>
+        <member name="M:Easis.Common.DbAccess.Mongo.MongoModule.Load">
+            <summary>
+            Loads the module into the kernel.
+            </summary>
+        </member>
+        <member name="T:Easis.Common.DbAccess.Mongo.MongoCollectionProvider">
+            <summary>
+            Provides access to MongoDB collections.
+            </summary>
+        </member>
+        <member name="T:Easis.Common.DbAccess.Mongo.IMongoCollectionProvider">
+            <summary>
+            Interface providing for MongoDB collections
+            </summary>
+        </member>
+        <member name="M:Easis.Common.DbAccess.Mongo.IMongoCollectionProvider.GetCollection``1(System.String,System.Boolean)">
+            <summary>
+             Returns MongoDB collection with specified name.<br/>
+             If collection doesn't exist it can create it if it's needed.
+            </summary>
+            <param name="collectionName">Collection name.</param>
+            <param name="createIfNotExist">Whether to create a collection if it doesn't exist.</param>
+            <typeparam name="TDocument">Type of the collection documents.</typeparam>
+            <returns>Requested collection.</returns>
+        </member>
+        <member name="M:Easis.Common.DbAccess.Mongo.IMongoCollectionProvider.GetCollection(System.String,System.Boolean)">
+            <summary>
+             Returns MongoDB collection with specified name.<br/>
+             If collection doesn't exist it can create it if it's needed.
+            </summary>
+            <param name="collectionName">Collection name.</param>
+            <param name="createIfNotExist">Whether to create a collection if it doesn't exist.</param>
+            <returns>Requested collection.</returns>
+        </member>
+        <member name="M:Easis.Common.DbAccess.Mongo.MongoCollectionProvider.Get``1(System.String,System.Boolean)">
+            <summary>
+             Returns MongoDB collection with specified name.<br/>
+             If collection doesn't exist it can create it if it's needed.
+            </summary>
+            <param name="collectionName">Collection name.</param>
+            <param name="createIfNotExist">Whether to create a collection if it doesn't exist.</param>
+            <typeparam name="TDocument">Type of the collection documents.</typeparam>
+            <returns>Requested collection.</returns>
+        </member>
+        <member name="M:Easis.Common.DbAccess.Mongo.MongoCollectionProvider.Get(System.String,System.Boolean)">
+            <summary>
+             Returns MongoDB collection with specified name.<br/>
+             If collection doesn't exist it can create it if it's needed.
+            </summary>
+            <param name="collectionName">Collection name.</param>
+            <param name="createIfNotExist">Whether to create a collection if it doesn't exist.</param>
+            <returns>Requested collection.</returns>
+        </member>
+    </members>
+</doc>

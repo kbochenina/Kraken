@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://escience.ifmo.ru/nano/services/" elementFormDefault="qualified" targetNamespace="http://escience.ifmo.ru/nano/services/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8740/Statistics?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CommonDataTypes.RExService.Service.Entity.Info" />
+  <xs:element name="GetAllTaskInfoStartedWith">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="taskId" type="xs:int" />
+        <xs:element minOccurs="0" name="dt" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTaskInfoStartedWithResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CommonDataTypes.RExService.Service.Entity.Info" minOccurs="0" name="GetAllTaskInfoStartedWithResult" nillable="true" type="q1:ArrayOfProcessStatInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllResourceInfoStartedWith">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dt" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllResourceInfoStartedWithResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAllResourceInfoStartedWithResult" nillable="true" type="tns:ArrayOfNodeInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfNodeInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NodeInfo" nillable="true" type="tns:NodeInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNodeInfo" nillable="true" type="tns:ArrayOfNodeInfo" />
+  <xs:complexType name="NodeInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiskAvailableFreeSpace" type="xs:long" />
+      <xs:element minOccurs="0" name="DiskUsage" type="xs:double" />
+      <xs:element minOccurs="0" name="MemAvailable" type="xs:double" />
+      <xs:element minOccurs="0" name="MemUsage" type="xs:double" />
+      <xs:element minOccurs="0" name="Net" type="xs:double" />
+      <xs:element minOccurs="0" name="Offline" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ProcUsage" type="xs:double" />
+      <xs:element minOccurs="0" name="SandBoxTotalSize" type="xs:long" />
+      <xs:element minOccurs="0" name="TimeSnapshot" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NodeInfo" nillable="true" type="tns:NodeInfo" />
+</xs:schema>

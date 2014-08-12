@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Eventing</name>
+    </assembly>
+    <members>
+        <member name="T:Eventing.TopicFilterDialect">
+            <summary>
+            filterBody может содержать несколько топиков через пробез запятую или точку с запятой
+            </summary>
+        </member>
+        <member name="T:Eventing.INotifiable">
+            <summary>
+            Interface for event sinks.
+            </summary>
+        </member>
+        <member name="M:Eventing.EventReportSerializer.UTF8ByteArrayToString(System.Byte[])">
+            <summary>
+            To convert a Byte Array of Unicode values (UTF-8 encoded) to a complete String.
+            </summary>
+            <param name="characters">Unicode Byte Array to be converted to String</param>
+            <returns>String converted from Unicode Byte Array</returns>
+        </member>
+        <member name="M:Eventing.EventReportSerializer.StringToUTF8ByteArray(System.String)">
+            <summary>
+            Converts the String to UTF8 Byte array and is used in De serialization
+            </summary>
+            <param name="pXmlString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eventing.EventReportSerializer.SerializeObject(System.Object,System.Type)">
+            <summary>
+            Serializes eventreport object into xml with utf8 encoding.
+            </summary>
+            <param name="pObject"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eventing.EventReportSerializer.DeserializeObject(System.String,System.Type)">
+            <summary>
+            Method to reconstruct an Object from XML string
+            </summary>
+            <param name="pXmlizedString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Eventing.XPathFilterDialect">
+            <summary>
+            TODO для одного события разбирается xml множество раз: попробовать вынести это наружу
+            </summary>
+        </member>
+    </members>
+</doc>

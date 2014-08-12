@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PackageInstallationService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PackageInstallationService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:complexType name="ArrayOfPackageInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PackageInfo" nillable="true" type="tns:PackageInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPackageInfo" nillable="true" type="tns:ArrayOfPackageInfo" />
+  <xs:complexType name="PackageInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PackageName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="VersionedInstances" nillable="true" type="q1:ArrayOfKeyValueOfstringArrayOfPackageInfo.NamedInstanceRLkjujRq" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PackageInfo" nillable="true" type="tns:PackageInfo" />
+  <xs:complexType name="ArrayOfPackageInfo.NamedInstance">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PackageInfo.NamedInstance" nillable="true" type="tns:PackageInfo.NamedInstance" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPackageInfo.NamedInstance" nillable="true" type="tns:ArrayOfPackageInfo.NamedInstance" />
+  <xs:complexType name="PackageInfo.NamedInstance">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Metadata" nillable="true" type="tns:PackageInfo.MetaData" />
+      <xs:element minOccurs="0" name="VersionName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PackageInfo.NamedInstance" nillable="true" type="tns:PackageInfo.NamedInstance" />
+  <xs:complexType name="PackageInfo.MetaData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FolderToInstall" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PackageInfo.MetaData" nillable="true" type="tns:PackageInfo.MetaData" />
+  <xs:complexType name="PackageInfo.PackageChoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FolderToInstall" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OSName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PackageName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VersionName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PackageInfo.PackageChoice" nillable="true" type="tns:PackageInfo.PackageChoice" />
+  <xs:complexType name="TicketResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FolderToInstall" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccessful" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NodeName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="OccuredException" nillable="true" type="q2:Exception" />
+      <xs:element minOccurs="0" name="PackageName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResourceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TicketId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VersionName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TicketResult" nillable="true" type="tns:TicketResult" />
+</xs:schema>

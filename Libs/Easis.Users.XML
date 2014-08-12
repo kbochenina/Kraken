@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Easis.Users</name>
+    </assembly>
+    <members>
+        <member name="T:Easis.Users.SafePassword">
+            <summary>
+            Class holds information needed for password checking
+            </summary>
+        </member>
+        <member name="M:Easis.Users.SafePassword.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Easis.Users.SafePassword.#ctor(System.String,Easis.Users.HashType)">
+            <summary>
+            Generate SafePassword from Ppassword string
+            </summary>
+            <param name="password">Password as clear text</param>
+            <param name="hashType">Hash-algorithms name</param>
+        </member>
+        <member name="M:Easis.Users.SafePassword.Compare(System.String)">
+            <summary>
+            Compares target password with safe version
+            </summary>
+            <returns>true if they are equal</returns>
+        </member>
+        <member name="M:Easis.Users.SafePassword.HashPassword(System.String,System.String,Easis.Users.HashType)">
+            <summary>
+            Хеширует пароль с солью с помощью алгоритма шифрования properties.CurrentHashAlgorithm
+            </summary>
+            <param name="password">Пароль</param>
+            <param name="salt">Соль</param>
+            <param name="hashType">Hash-Algorithm abbriviation</param>
+            <returns>Хеш, соответствующий паролю пользователя</returns>
+        </member>
+        <member name="M:Easis.Users.SafePassword.GenerateSalt(System.Int32)">
+            <summary>
+            Генерация соли для хранения хеша пароля. 
+            Соль - случайный набор символов, добавляемый к паролю при хешировании, преследует 2 цели:
+            1. Получение разных хешей от одниннаковых паролей
+            2. Усложнение подбор паролей грубой силой.
+            </summary>
+            <returns>Соль</returns>
+        </member>
+        <member name="P:Easis.Users.SafePassword.HashType">
+            <summary>
+            Keeps name of Hash-algorithm for password
+            </summary>
+        </member>
+        <member name="P:Easis.Users.SafePassword.Salt">
+            <summary>
+            Keeps salt for target password
+            </summary>
+        </member>
+        <member name="P:Easis.Users.SafePassword.HashedPassword">
+            <summary>
+            Keeps hashed value of string (password+salt)
+            </summary>
+        </member>
+        <member name="T:Easis.Users.HashType">
+            <summary>
+            Static class for hash functions representations
+            </summary>
+        </member>
+    </members>
+</doc>

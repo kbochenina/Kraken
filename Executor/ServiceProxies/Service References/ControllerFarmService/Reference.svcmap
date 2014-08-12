@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="717aa134-7b82-4864-8b11-d3a02648ea0f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="Common" />
+      <ReferencedAssembly AssemblyName="CommonDataTypes" />
+      <ReferencedAssembly AssemblyName="Easis.PackageBase" />
+      <ReferencedAssembly AssemblyName="IronRuby" />
+      <ReferencedAssembly AssemblyName="IronRuby.Libraries" />
+      <ReferencedAssembly AssemblyName="IronRuby.Libraries.Yaml" />
+      <ReferencedAssembly AssemblyName="Microsoft.CSharp" />
+      <ReferencedAssembly AssemblyName="Microsoft.Dynamic" />
+      <ReferencedAssembly AssemblyName="Microsoft.Scripting" />
+      <ReferencedAssembly AssemblyName="Microsoft.Scripting.Metadata" />
+      <ReferencedAssembly AssemblyName="MongoDB.Bson" />
+      <ReferencedAssembly AssemblyName="mscorlib" />
+      <ReferencedAssembly AssemblyName="NetLibrary" />
+      <ReferencedAssembly AssemblyName="PackageBase.Serializer" />
+      <ReferencedAssembly AssemblyName="Scheduler.TimeMeter" />
+      <ReferencedAssembly AssemblyName="SchedulerCommon" />
+      <ReferencedAssembly AssemblyName="System" />
+      <ReferencedAssembly AssemblyName="System.Core" />
+      <ReferencedAssembly AssemblyName="System.Data" />
+      <ReferencedAssembly AssemblyName="System.Data.DataSetExtensions" />
+      <ReferencedAssembly AssemblyName="System.Runtime.Serialization" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel.Channels" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel.Web" />
+      <ReferencedAssembly AssemblyName="System.Web" />
+      <ReferencedAssembly AssemblyName="System.Web.Services" />
+      <ReferencedAssembly AssemblyName="System.Xml" />
+      <ReferencedAssembly AssemblyName="System.Xml.Linq" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8701/ControllerFarmService/?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ControllerFarmService.wsdl" MetadataType="Wsdl" ID="80d5c57a-2699-4a83-b3ce-5a9bf607ba0b" SourceId="1" SourceUrl="http://localhost:8701/ControllerFarmService/?wsdl" />
+    <MetadataFile FileName="item.wsdl" MetadataType="Wsdl" ID="702807b7-2104-4fb2-ad35-2236e166cec8" SourceId="1" SourceUrl="http://localhost:8701/ControllerFarmService/?wsdl=wsdl0" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="cb856e76-8e47-4a57-9935-e5e86a4d30d4" SourceId="1" SourceUrl="http://localhost:8701/ControllerFarmService/?xsd=xsd3" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="57265b20-99b2-471d-9f5b-9659d51541d0" SourceId="1" SourceUrl="http://localhost:8701/ControllerFarmService/?xsd=xsd2" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="f7c3f2d5-df34-4817-849f-71cb0b0e70a5" SourceId="1" SourceUrl="http://localhost:8701/ControllerFarmService/?xsd=xsd1" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="08878913-b20f-417b-9391-1c8db6654512" SourceId="1" SourceUrl="http://localhost:8701/ControllerFarmService/?xsd=xsd0" />
+    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="4933b00c-a557-404e-95aa-4c1878fbb64c" SourceId="1" SourceUrl="http://localhost:8701/ControllerFarmService/?xsd=xsd7" />
+    <MetadataFile FileName="item5.xsd" MetadataType="Schema" ID="66df7a94-aec2-4bc9-9542-2bd9461e4f44" SourceId="1" SourceUrl="http://localhost:8701/ControllerFarmService/?xsd=xsd6" />
+    <MetadataFile FileName="item6.xsd" MetadataType="Schema" ID="74a5d63d-677b-4600-99bc-01f54ebff830" SourceId="1" SourceUrl="http://localhost:8701/ControllerFarmService/?xsd=xsd5" />
+    <MetadataFile FileName="item7.xsd" MetadataType="Schema" ID="4c693dac-a503-4fcf-afdc-e453155afc7d" SourceId="1" SourceUrl="http://localhost:8701/ControllerFarmService/?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

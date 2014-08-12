@@ -1,0 +1,966 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UmService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.4.2/UMService/UserManagementService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.4.2/UMService/UserManagementService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.4.2/UMService/UserManagementService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Clavire.Uri.Util" />
+      <xsd:import schemaLocation="http://192.168.4.2/UMService/UserManagementService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://192.168.4.2/UMService/UserManagementService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMService.ViewBean" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUmClient_CanAccess_InputMessage">
+    <wsdl:part name="parameters" element="tns:CanAccess" />
+  </wsdl:message>
+  <wsdl:message name="IUmClient_CanAccess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CanAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmClient_CanAccess_StringFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q1:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmClient_GetAccessible_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccessible" />
+  </wsdl:message>
+  <wsdl:message name="IUmClient_GetAccessible_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccessibleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmClient_GetAccessible_StringFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q2:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmClient_GetAccessibleFrom_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccessibleFrom" />
+  </wsdl:message>
+  <wsdl:message name="IUmClient_GetAccessibleFrom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccessibleFromResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmClient_GetAccessibleFrom_StringFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q3:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmClient_InitObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:InitObject" />
+  </wsdl:message>
+  <wsdl:message name="IUmClient_InitObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InitObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmClient_InitObject_StringFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q4:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetUsers_StringFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q5:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_IsPlatformuser_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsPlatformuser" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_IsPlatformuser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsPlatformuserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_IsPlatformuser_StringFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q6:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RegisterUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RegisterUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RegisterUser_StringFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q7:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RemoveUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUser" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RemoveUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RemoveUser_StringFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q8:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroups" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetGroups_StringFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q9:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RegisterGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterGroup" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RegisterGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RegisterGroup_StringFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q10:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RemoveGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveGroup" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RemoveGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RemoveGroup_StringFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q11:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_AddUserToGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserToGroup" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_AddUserToGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserToGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_AddUserToGroup_StringFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q12:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RemoveUserFromGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserFromGroup" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RemoveUserFromGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserFromGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RemoveUserFromGroup_StringFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q13:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetMembers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMembers" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetMembers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetMembers_StringFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q14:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_MemberOf_InputMessage">
+    <wsdl:part name="parameters" element="tns:MemberOf" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_MemberOf_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MemberOfResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_MemberOf_StringFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q15:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTypes" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetTypes_StringFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q16:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RegisterType_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterType" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RegisterType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RegisterType_StringFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q17:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RemoveType_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveType" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RemoveType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RemoveType_StringFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q18:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetAllRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRights" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetAllRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetAllRights_StringFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q19:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RegisterRight_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterRight" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RegisterRight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RegisterRight_StringFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q20:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RemoveRight_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveRight" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RemoveRight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RemoveRight_StringFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q21:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_AddTypePossibleRight_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTypePossibleRight" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_AddTypePossibleRight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTypePossibleRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_AddTypePossibleRight_StringFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q22:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RemoveTypePossibleRight_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveTypePossibleRight" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RemoveTypePossibleRight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveTypePossibleRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RemoveTypePossibleRight_StringFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q23:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetTypePossibleRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTypePossibleRights" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetTypePossibleRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTypePossibleRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetTypePossibleRights_StringFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q24:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetObjectsTree_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetObjectsTree" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetObjectsTree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetObjectsTreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetObjectsTree_StringFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q25:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RegisterObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterObject" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RegisterObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_RegisterObject_StringFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q26:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_DeleteObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteObject" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_DeleteObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_DeleteObject_StringFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q27:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetUserPersonalAcl_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPersonalAcl" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetUserPersonalAcl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPersonalAclResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetUserPersonalAcl_StringFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q28:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetGroupPersonalAcl_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupPersonalAcl" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetGroupPersonalAcl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupPersonalAclResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetGroupPersonalAcl_StringFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q29:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetUserInheritAcl_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInheritAcl" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetUserInheritAcl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInheritAclResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetUserInheritAcl_StringFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q30:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetGroupInheritAcl_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupInheritAcl" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetGroupInheritAcl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupInheritAclResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetGroupInheritAcl_StringFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q31:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetUserFullAcl_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserFullAcl" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetUserFullAcl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserFullAclResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_GetUserFullAcl_StringFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q32:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_AddtUserAcl_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddtUserAcl" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_AddtUserAcl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddtUserAclResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_AddtUserAcl_StringFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q33:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_AddGroupAcl_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddGroupAcl" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_AddGroupAcl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddGroupAclResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_AddGroupAcl_StringFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q34:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_DeleteUserAcl_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserAcl" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_DeleteUserAcl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserAclResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_DeleteUserAcl_StringFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q35:string" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_DeleteGroupAcl_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroupAcl" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_DeleteGroupAcl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroupAclResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUmManager_DeleteGroupAcl_StringFault_FaultMessage">
+    <wsdl:part xmlns:q36="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q36:string" />
+  </wsdl:message>
+  <wsdl:portType name="IUmClient">
+    <wsdl:operation name="CanAccess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmClient/CanAccess" message="tns:IUmClient_CanAccess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmClient/CanAccessResponse" message="tns:IUmClient_CanAccess_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmClient/CanAccessStringFault" name="StringFault" message="tns:IUmClient_CanAccess_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessible">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmClient/GetAccessible" message="tns:IUmClient_GetAccessible_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmClient/GetAccessibleResponse" message="tns:IUmClient_GetAccessible_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmClient/GetAccessibleStringFault" name="StringFault" message="tns:IUmClient_GetAccessible_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessibleFrom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmClient/GetAccessibleFrom" message="tns:IUmClient_GetAccessibleFrom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmClient/GetAccessibleFromResponse" message="tns:IUmClient_GetAccessibleFrom_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmClient/GetAccessibleFromStringFault" name="StringFault" message="tns:IUmClient_GetAccessibleFrom_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InitObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmClient/InitObject" message="tns:IUmClient_InitObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmClient/InitObjectResponse" message="tns:IUmClient_InitObject_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmClient/InitObjectStringFault" name="StringFault" message="tns:IUmClient_InitObject_StringFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IUmManager">
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/GetUsers" message="tns:IUmManager_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/GetUsersResponse" message="tns:IUmManager_GetUsers_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/GetUsersStringFault" name="StringFault" message="tns:IUmManager_GetUsers_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsPlatformuser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/IsPlatformuser" message="tns:IUmManager_IsPlatformuser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/IsPlatformuserResponse" message="tns:IUmManager_IsPlatformuser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/IsPlatformuserStringFault" name="StringFault" message="tns:IUmManager_IsPlatformuser_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/RegisterUser" message="tns:IUmManager_RegisterUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/RegisterUserResponse" message="tns:IUmManager_RegisterUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/RegisterUserStringFault" name="StringFault" message="tns:IUmManager_RegisterUser_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/RemoveUser" message="tns:IUmManager_RemoveUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/RemoveUserResponse" message="tns:IUmManager_RemoveUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/RemoveUserStringFault" name="StringFault" message="tns:IUmManager_RemoveUser_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/GetGroups" message="tns:IUmManager_GetGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/GetGroupsResponse" message="tns:IUmManager_GetGroups_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/GetGroupsStringFault" name="StringFault" message="tns:IUmManager_GetGroups_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/RegisterGroup" message="tns:IUmManager_RegisterGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/RegisterGroupResponse" message="tns:IUmManager_RegisterGroup_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/RegisterGroupStringFault" name="StringFault" message="tns:IUmManager_RegisterGroup_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/RemoveGroup" message="tns:IUmManager_RemoveGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/RemoveGroupResponse" message="tns:IUmManager_RemoveGroup_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/RemoveGroupStringFault" name="StringFault" message="tns:IUmManager_RemoveGroup_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/AddUserToGroup" message="tns:IUmManager_AddUserToGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/AddUserToGroupResponse" message="tns:IUmManager_AddUserToGroup_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/AddUserToGroupStringFault" name="StringFault" message="tns:IUmManager_AddUserToGroup_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserFromGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/RemoveUserFromGroup" message="tns:IUmManager_RemoveUserFromGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/RemoveUserFromGroupResponse" message="tns:IUmManager_RemoveUserFromGroup_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/RemoveUserFromGroupStringFault" name="StringFault" message="tns:IUmManager_RemoveUserFromGroup_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMembers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/GetMembers" message="tns:IUmManager_GetMembers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/GetMembersResponse" message="tns:IUmManager_GetMembers_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/GetMembersStringFault" name="StringFault" message="tns:IUmManager_GetMembers_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberOf">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/MemberOf" message="tns:IUmManager_MemberOf_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/MemberOfResponse" message="tns:IUmManager_MemberOf_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/MemberOfStringFault" name="StringFault" message="tns:IUmManager_MemberOf_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/GetTypes" message="tns:IUmManager_GetTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/GetTypesResponse" message="tns:IUmManager_GetTypes_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/GetTypesStringFault" name="StringFault" message="tns:IUmManager_GetTypes_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/RegisterType" message="tns:IUmManager_RegisterType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/RegisterTypeResponse" message="tns:IUmManager_RegisterType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/RegisterTypeStringFault" name="StringFault" message="tns:IUmManager_RegisterType_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/RemoveType" message="tns:IUmManager_RemoveType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/RemoveTypeResponse" message="tns:IUmManager_RemoveType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/RemoveTypeStringFault" name="StringFault" message="tns:IUmManager_RemoveType_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/GetAllRights" message="tns:IUmManager_GetAllRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/GetAllRightsResponse" message="tns:IUmManager_GetAllRights_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/GetAllRightsStringFault" name="StringFault" message="tns:IUmManager_GetAllRights_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterRight">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/RegisterRight" message="tns:IUmManager_RegisterRight_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/RegisterRightResponse" message="tns:IUmManager_RegisterRight_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/RegisterRightStringFault" name="StringFault" message="tns:IUmManager_RegisterRight_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRight">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/RemoveRight" message="tns:IUmManager_RemoveRight_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/RemoveRightResponse" message="tns:IUmManager_RemoveRight_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/RemoveRightStringFault" name="StringFault" message="tns:IUmManager_RemoveRight_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTypePossibleRight">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/AddTypePossibleRight" message="tns:IUmManager_AddTypePossibleRight_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/AddTypePossibleRightResponse" message="tns:IUmManager_AddTypePossibleRight_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/AddTypePossibleRightStringFault" name="StringFault" message="tns:IUmManager_AddTypePossibleRight_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTypePossibleRight">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/RemoveTypePossibleRight" message="tns:IUmManager_RemoveTypePossibleRight_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/RemoveTypePossibleRightResponse" message="tns:IUmManager_RemoveTypePossibleRight_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/RemoveTypePossibleRightStringFault" name="StringFault" message="tns:IUmManager_RemoveTypePossibleRight_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTypePossibleRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/GetTypePossibleRights" message="tns:IUmManager_GetTypePossibleRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/GetTypePossibleRightsResponse" message="tns:IUmManager_GetTypePossibleRights_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/GetTypePossibleRightsStringFault" name="StringFault" message="tns:IUmManager_GetTypePossibleRights_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetObjectsTree">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/GetObjectsTree" message="tns:IUmManager_GetObjectsTree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/GetObjectsTreeResponse" message="tns:IUmManager_GetObjectsTree_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/GetObjectsTreeStringFault" name="StringFault" message="tns:IUmManager_GetObjectsTree_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/RegisterObject" message="tns:IUmManager_RegisterObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/RegisterObjectResponse" message="tns:IUmManager_RegisterObject_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/RegisterObjectStringFault" name="StringFault" message="tns:IUmManager_RegisterObject_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/DeleteObject" message="tns:IUmManager_DeleteObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/DeleteObjectResponse" message="tns:IUmManager_DeleteObject_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/DeleteObjectStringFault" name="StringFault" message="tns:IUmManager_DeleteObject_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPersonalAcl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/GetUserPersonalAcl" message="tns:IUmManager_GetUserPersonalAcl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/GetUserPersonalAclResponse" message="tns:IUmManager_GetUserPersonalAcl_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/GetUserPersonalAclStringFault" name="StringFault" message="tns:IUmManager_GetUserPersonalAcl_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupPersonalAcl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/GetGroupPersonalAcl" message="tns:IUmManager_GetGroupPersonalAcl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/GetGroupPersonalAclResponse" message="tns:IUmManager_GetGroupPersonalAcl_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/GetGroupPersonalAclStringFault" name="StringFault" message="tns:IUmManager_GetGroupPersonalAcl_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInheritAcl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/GetUserInheritAcl" message="tns:IUmManager_GetUserInheritAcl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/GetUserInheritAclResponse" message="tns:IUmManager_GetUserInheritAcl_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/GetUserInheritAclStringFault" name="StringFault" message="tns:IUmManager_GetUserInheritAcl_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupInheritAcl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/GetGroupInheritAcl" message="tns:IUmManager_GetGroupInheritAcl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/GetGroupInheritAclResponse" message="tns:IUmManager_GetGroupInheritAcl_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/GetGroupInheritAclStringFault" name="StringFault" message="tns:IUmManager_GetGroupInheritAcl_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserFullAcl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/GetUserFullAcl" message="tns:IUmManager_GetUserFullAcl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/GetUserFullAclResponse" message="tns:IUmManager_GetUserFullAcl_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/GetUserFullAclStringFault" name="StringFault" message="tns:IUmManager_GetUserFullAcl_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddtUserAcl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/AddtUserAcl" message="tns:IUmManager_AddtUserAcl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/AddtUserAclResponse" message="tns:IUmManager_AddtUserAcl_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/AddtUserAclStringFault" name="StringFault" message="tns:IUmManager_AddtUserAcl_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGroupAcl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/AddGroupAcl" message="tns:IUmManager_AddGroupAcl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/AddGroupAclResponse" message="tns:IUmManager_AddGroupAcl_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/AddGroupAclStringFault" name="StringFault" message="tns:IUmManager_AddGroupAcl_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserAcl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/DeleteUserAcl" message="tns:IUmManager_DeleteUserAcl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/DeleteUserAclResponse" message="tns:IUmManager_DeleteUserAcl_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/DeleteUserAclStringFault" name="StringFault" message="tns:IUmManager_DeleteUserAcl_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroupAcl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUmManager/DeleteGroupAcl" message="tns:IUmManager_DeleteGroupAcl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUmManager/DeleteGroupAclResponse" message="tns:IUmManager_DeleteGroupAcl_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUmManager/DeleteGroupAclStringFault" name="StringFault" message="tns:IUmManager_DeleteGroupAcl_StringFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserManagementSOAPClient" type="tns:IUmClient">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CanAccess">
+      <soap:operation soapAction="http://tempuri.org/IUmClient/CanAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessible">
+      <soap:operation soapAction="http://tempuri.org/IUmClient/GetAccessible" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessibleFrom">
+      <soap:operation soapAction="http://tempuri.org/IUmClient/GetAccessibleFrom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InitObject">
+      <soap:operation soapAction="http://tempuri.org/IUmClient/InitObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserManagementSOAPManager" type="tns:IUmManager">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="IsPlatformuser">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/IsPlatformuser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUser">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/RemoveUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/GetGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterGroup">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/RegisterGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveGroup">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/RemoveGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToGroup">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/AddUserToGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserFromGroup">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/RemoveUserFromGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMembers">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/GetMembers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MemberOf">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/MemberOf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTypes">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/GetTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterType">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/RegisterType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveType">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/RemoveType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRights">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/GetAllRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterRight">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/RegisterRight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRight">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/RemoveRight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddTypePossibleRight">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/AddTypePossibleRight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTypePossibleRight">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/RemoveTypePossibleRight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTypePossibleRights">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/GetTypePossibleRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetObjectsTree">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/GetObjectsTree" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterObject">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/RegisterObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteObject">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/DeleteObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPersonalAcl">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/GetUserPersonalAcl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupPersonalAcl">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/GetGroupPersonalAcl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInheritAcl">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/GetUserInheritAcl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupInheritAcl">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/GetGroupInheritAcl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserFullAcl">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/GetUserFullAcl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddtUserAcl">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/AddtUserAcl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddGroupAcl">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/AddGroupAcl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserAcl">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/DeleteUserAcl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroupAcl">
+      <soap:operation soapAction="http://tempuri.org/IUmManager/DeleteGroupAcl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UmService">
+    <wsdl:port name="UserManagementSOAPClient" binding="tns:UserManagementSOAPClient">
+      <soap:address location="http://192.168.4.2/UMService/UserManagementService.svc/umSoapClient" />
+    </wsdl:port>
+    <wsdl:port name="UserManagementSOAPManager" binding="tns:UserManagementSOAPManager">
+      <soap:address location="http://192.168.4.2/UMService/UserManagementService.svc/umSoapManager" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

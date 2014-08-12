@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Eventing" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Eventing" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="DeliveryModeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PushMode" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DeliveryModeEnum" nillable="true" type="tns:DeliveryModeEnum" />
+  <xs:simpleType name="SubscriptionStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active" />
+      <xs:enumeration value="Paused" />
+      <xs:enumeration value="Canceled" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SubscriptionStatusEnum" nillable="true" type="tns:SubscriptionStatusEnum" />
+</xs:schema>

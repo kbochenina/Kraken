@@ -1,0 +1,6 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2013.08.13 10:57:18 =~=~=~=~=~=~=~=~=~=~=~=
+Event Log: Writing new session log (SSH packets mode) to file: D:\ClavireWorkspace\Farming\Debug.Temp\putty.log
+Event Log: Looking up host "192.168.0.9"
+Event Log: Connecting to 192.168.0.9 port 22
+Event Log: Failed to connect to 192.168.0.9: Network error: Connection timed out
+Event Log: Network error: Connection timed out

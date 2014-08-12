@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="983772d1-d628-440e-b01a-2ca99c776a3f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="Microsoft.CSharp" />
+      <ReferencedAssembly AssemblyName="mscorlib" />
+      <ReferencedAssembly AssemblyName="NLog" />
+      <ReferencedAssembly AssemblyName="ResourceBase" />
+      <ReferencedAssembly AssemblyName="System" />
+      <ReferencedAssembly AssemblyName="System.Configuration" />
+      <ReferencedAssembly AssemblyName="System.Core" />
+      <ReferencedAssembly AssemblyName="System.Data" />
+      <ReferencedAssembly AssemblyName="System.Drawing" />
+      <ReferencedAssembly AssemblyName="System.EnterpriseServices" />
+      <ReferencedAssembly AssemblyName="System.Runtime.Serialization" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel.Web" />
+      <ReferencedAssembly AssemblyName="System.Web" />
+      <ReferencedAssembly AssemblyName="System.Web.ApplicationServices" />
+      <ReferencedAssembly AssemblyName="System.Web.DynamicData" />
+      <ReferencedAssembly AssemblyName="System.Web.Entity" />
+      <ReferencedAssembly AssemblyName="System.Web.Extensions" />
+      <ReferencedAssembly AssemblyName="System.Web.Services" />
+      <ReferencedAssembly AssemblyName="System.Xml" />
+      <ReferencedAssembly AssemblyName="System.Xml.Linq" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.4.2/UMService/UserManagementService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UserManagementService.xsd" MetadataType="Schema" ID="dd63f0a4-dc10-4145-8412-025add958892" SourceId="1" SourceUrl="http://192.168.4.2/UMService/UserManagementService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UmService.wsdl" MetadataType="Wsdl" ID="e91ea572-ceba-4e11-8180-d97734a652fe" SourceId="1" SourceUrl="http://192.168.4.2/UMService/UserManagementService.svc?wsdl" />
+    <MetadataFile FileName="UserManagementService1.xsd" MetadataType="Schema" ID="dd26ec66-e2cd-4895-a2f6-534fac2d8844" SourceId="1" SourceUrl="http://192.168.4.2/UMService/UserManagementService.svc?xsd=xsd0" />
+    <MetadataFile FileName="UserManagementService.disco" MetadataType="Disco" ID="684f8504-f542-4e07-8f44-8e44a92f93ec" SourceId="1" SourceUrl="http://192.168.4.2/UMService/UserManagementService.svc?disco" />
+    <MetadataFile FileName="UserManagementService2.xsd" MetadataType="Schema" ID="ec00f739-9e29-4b60-9a01-68ce39932b56" SourceId="1" SourceUrl="http://192.168.4.2/UMService/UserManagementService.svc?xsd=xsd3" />
+    <MetadataFile FileName="UserManagementService3.xsd" MetadataType="Schema" ID="0dcf090f-73fb-40cf-81c6-3499904e0a12" SourceId="1" SourceUrl="http://192.168.4.2/UMService/UserManagementService.svc?xsd=xsd4" />
+    <MetadataFile FileName="UserManagementService4.xsd" MetadataType="Schema" ID="b377a9ce-e86e-40a4-9575-c3a65eb94d31" SourceId="1" SourceUrl="http://192.168.4.2/UMService/UserManagementService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

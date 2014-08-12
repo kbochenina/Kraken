@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0112ab79-3653-4060-8881-b911bff7f3f1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="Common" />
+      <ReferencedAssembly AssemblyName="CommonDataTypes" />
+      <ReferencedAssembly AssemblyName="Easis.PackageBase" />
+      <ReferencedAssembly AssemblyName="IronRuby" />
+      <ReferencedAssembly AssemblyName="IronRuby.Libraries" />
+      <ReferencedAssembly AssemblyName="IronRuby.Libraries.Yaml" />
+      <ReferencedAssembly AssemblyName="Microsoft.CSharp" />
+      <ReferencedAssembly AssemblyName="Microsoft.Dynamic" />
+      <ReferencedAssembly AssemblyName="Microsoft.Scripting" />
+      <ReferencedAssembly AssemblyName="Microsoft.Scripting.Metadata" />
+      <ReferencedAssembly AssemblyName="MongoDB.Bson" />
+      <ReferencedAssembly AssemblyName="mscorlib" />
+      <ReferencedAssembly AssemblyName="NetLibrary" />
+      <ReferencedAssembly AssemblyName="PackageBase.Serializer" />
+      <ReferencedAssembly AssemblyName="Scheduler.TimeMeter" />
+      <ReferencedAssembly AssemblyName="SchedulerCommon" />
+      <ReferencedAssembly AssemblyName="System" />
+      <ReferencedAssembly AssemblyName="System.Core" />
+      <ReferencedAssembly AssemblyName="System.Data" />
+      <ReferencedAssembly AssemblyName="System.Data.DataSetExtensions" />
+      <ReferencedAssembly AssemblyName="System.Runtime.Serialization" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel.Channels" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel.Web" />
+      <ReferencedAssembly AssemblyName="System.Web" />
+      <ReferencedAssembly AssemblyName="System.Web.Services" />
+      <ReferencedAssembly AssemblyName="System.Xml" />
+      <ReferencedAssembly AssemblyName="System.Xml.Linq" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8740/RExService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RExService.xsd" MetadataType="Schema" ID="f8e70b0f-780e-4add-8351-691e70982a9d" SourceId="1" SourceUrl="http://localhost:8740/RExService?xsd=xsd1" />
+    <MetadataFile FileName="RExService1.xsd" MetadataType="Schema" ID="275a06ae-11cc-4783-a158-7f05e5a802fa" SourceId="1" SourceUrl="http://localhost:8740/RExService?xsd=xsd0" />
+    <MetadataFile FileName="ExecuteService.wsdl" MetadataType="Wsdl" ID="0e243a9c-67e3-426e-a813-218c7f14e568" SourceId="1" SourceUrl="http://localhost:8740/RExService?wsdl" />
+    <MetadataFile FileName="RExService2.xsd" MetadataType="Schema" ID="760e9a27-7cba-40a3-886a-c65a2bf2544a" SourceId="1" SourceUrl="http://localhost:8740/RExService?xsd=xsd2" />
+    <MetadataFile FileName="RExService.disco" MetadataType="Disco" ID="3f0d1aad-74ee-4b1f-b544-08c179a30a80" SourceId="1" SourceUrl="http://localhost:8740/RExService?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

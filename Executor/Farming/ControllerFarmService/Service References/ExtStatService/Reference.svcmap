@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d8365825-3686-4ed9-9c81-6b010a97e470" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8740/Statistics" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Statistics1.xsd" MetadataType="Schema" ID="03393bd2-a5d4-486c-98eb-e4d3a5a3a64a" SourceId="1" SourceUrl="http://localhost:8740/Statistics?xsd=xsd2" />
+    <MetadataFile FileName="Statistics.disco" MetadataType="Disco" ID="2da9755b-069d-4140-abe6-dfa92fae27d3" SourceId="1" SourceUrl="http://localhost:8740/Statistics?disco" />
+    <MetadataFile FileName="Statistics.xsd" MetadataType="Schema" ID="02219ed5-7b78-419c-947e-659d6586c684" SourceId="1" SourceUrl="http://localhost:8740/Statistics?xsd=xsd0" />
+    <MetadataFile FileName="Statistics2.xsd" MetadataType="Schema" ID="e02725ca-5d38-4f5a-8bfc-21e0393d696e" SourceId="1" SourceUrl="http://localhost:8740/Statistics?xsd=xsd1" />
+    <MetadataFile FileName="Statistics.wsdl" MetadataType="Wsdl" ID="f5c202f8-3db4-4e11-87de-b64f9144b9e4" SourceId="1" SourceUrl="http://localhost:8740/Statistics?wsdl=wsdl0" />
+    <MetadataFile FileName="StatisticsService.wsdl" MetadataType="Wsdl" ID="47dce23d-9d92-45c2-a0e0-1d67bebeb83f" SourceId="1" SourceUrl="http://localhost:8740/Statistics?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

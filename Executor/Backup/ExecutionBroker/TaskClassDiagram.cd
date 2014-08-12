@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MITP.BriefTaskInfo">
+    <Position X="10" Y="5.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAgAEAAAAAAAAAAAAAAQAAgAAAgAAAAIAAAABAAAAAA=</HashCode>
+      <FileName>BriefTaskInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MITP.ExecutionBrokerService" BaseTypeListCollapsed="true">
+    <Position X="10" Y="0.75" Width="3.75" />
+    <Members>
+      <Method Name="Define" Hidden="true" />
+      <Method Name="MagicHappens" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIAEAAADQEAgAAAAAAAAoEAEAAAAAEQAACBAA=</HashCode>
+      <FileName>ExecutionBrokerService.svc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MITP.ResourceTotals">
+    <Position X="14" Y="0.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAQAAAABIAAAAAAAAAAAAAAAAAAQAQAAg=</HashCode>
+      <FileName>ResourceTotals.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MITP.NodeTotals">
+    <Position X="14" Y="3.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAQAAAAAQAAAAE=</HashCode>
+      <FileName>ResourceTotals.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MITP.Task">
+    <Position X="6.5" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAWEkIAAAAAIASIAACKAgIgIAEAAAABIBAAABgAAEQI=</HashCode>
+      <FileName>Task.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CurrentSchedule" />
+      <Property Name="State" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MITP.TaskSchedule">
+    <Position X="0.5" Y="2.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ABigAAAAAAAAAAACgAAAAAAIBAwAgAAAEAAAAAAAAAQ=</HashCode>
+      <FileName>TaskSchedule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MITP.TaskTimeMeasurement">
+    <Position X="0.5" Y="7.25" Width="5" />
+    <Members>
+      <Property Name="_overheads" Hidden="true" />
+      <Property Name="_overheadsActionCount" Hidden="true" />
+      <Method Name="RecalcWaitInQueueOverhead" Hidden="true" />
+      <Method Name="TaskTimeMeasurement" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAQDAAQAgAQAAGBABCIAhAAACAAAAQAAAAA=</HashCode>
+      <FileName>TaskTimeMeasurement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MITP.TaskDescription">
+    <Position X="3.75" Y="0.5" Width="2" />
+    <Members>
+      <Property Name="LaunchMode" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="LaunchMode" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="InputFiles" />
+      <Property Name="OutputFiles" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Struct Name="MITP.TaskFileDescription">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Struct>
+  <Enum Name="MITP.TaskTimeMetric">
+    <Position X="6.25" Y="9.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAQEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TaskTimeMeasurement.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MITP.TaskTimeOverheads">
+    <Position X="6.25" Y="7.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>BQAAAAAAAAAEAAAAAAAAAAAAAEAAAAAAAKAIAAJAAAA=</HashCode>
+      <FileName>TaskTimeMeasurement.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MITP.TaskState">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+  </Enum>
+  <Font Name="Tahoma" Size="9.75" />
+</ClassDiagram>

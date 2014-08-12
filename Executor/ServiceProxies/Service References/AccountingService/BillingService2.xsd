@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MongoDB.Bson" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MongoDB.Bson" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.4.1/Billing/BillingService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ObjectId">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="increment" type="xs:int" />
+      <xs:element name="machine" type="xs:int" />
+      <xs:element name="pid" type="xs:short" />
+      <xs:element name="timestamp" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ObjectId" nillable="true" type="tns:ObjectId" />
+</xs:schema>

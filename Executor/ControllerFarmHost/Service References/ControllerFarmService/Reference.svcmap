@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="353a1c5e-2ca8-4030-8829-aa6ae1304cee" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8701/ControllerFarmService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.wsdl" MetadataType="Wsdl" ID="5993cdcf-adb1-4e53-a35d-5db478bf68fd" SourceId="1" SourceUrl="http://localhost:8701/ControllerFarmService/?wsdl=wsdl0" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="a3d37cbd-050e-49b6-b83e-ea626cc92eb5" SourceId="1" SourceUrl="http://localhost:8701/ControllerFarmService/?xsd=xsd3" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="c34b1279-b0e2-4385-ac04-adb1f8abf485" SourceId="1" SourceUrl="http://localhost:8701/ControllerFarmService/?xsd=xsd2" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="d212f874-8284-4882-acb5-5f8378383379" SourceId="1" SourceUrl="http://localhost:8701/ControllerFarmService/?xsd=xsd1" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="f4842d67-548c-4205-83a9-1094bce7d971" SourceId="1" SourceUrl="http://localhost:8701/ControllerFarmService/?xsd=xsd0" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="059c46f1-184e-44d0-82be-6b3b0bbc7ca2" SourceId="1" SourceUrl="http://localhost:8701/ControllerFarmService/?disco" />
+    <MetadataFile FileName="ControllerFarmService.wsdl" MetadataType="Wsdl" ID="718b6936-25d1-4220-a3f5-863b3328d8e1" SourceId="1" SourceUrl="http://localhost:8701/ControllerFarmService/?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

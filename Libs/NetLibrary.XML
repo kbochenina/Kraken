@@ -1,0 +1,328 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:NetLibrary.TypedObjectRequest">
+            <summary>
+            In charge of types, version
+            </summary>
+        </member>
+        <member name="T:NetLibrary.StorageObjectRequest">
+            <summary>
+            In charge of id and path
+            </summary>
+        </member>
+        <member name="T:NetLibrary.Request">
+            <summary>
+            Basic request
+            </summary>
+        </member>
+        <member name="P:NetLibrary.Request.Verb">
+            <summary>
+            Verb used for http request
+            </summary>
+        </member>
+        <member name="T:NetLibrary.UploadResult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NetLibrary.Storage.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="storageUri">URL of storage core</param>
+            <param name="debugMode">is debug mode enabled (print Traces)</param>
+            <param name="secId">Security identifier</param>
+        </member>
+        <member name="M:NetLibrary.Storage.Execute(NetLibrary.Request)">
+            <summary>
+            Main helper for storage operations' invokation
+            throws StorageException
+            </summary>
+            <param name="request">Storage request</param>
+            <returns></returns>
+        </member>
+        <member name="M:NetLibrary.Storage.GetFileInformation(System.String,System.Int32)">
+            <summary>
+            Gets file info
+            </summary>
+            <param name="name"></param>
+            <param name="version">if -1 than gets the lastest</param>
+            <returns>List of file versions' information</returns>
+        </member>
+        <member name="M:NetLibrary.Storage.GetFileVersions(System.String)">
+            <summary>
+            Gets file versions
+            </summary>
+            <param name="name"></param>
+            <returns>List of file versions' information</returns>
+        </member>
+        <member name="M:NetLibrary.Storage.GetFileInformationById(System.String)">
+            <summary>
+            Gets file info
+            </summary>
+            <param name="fid"></param>
+            <returns>Only information about concrete version</returns>
+        </member>
+        <member name="M:NetLibrary.Storage.UploadFile(System.String,System.String)">
+            <summary>
+            Uplloads file to storage
+            </summary>
+            <param name="localfilename">Source FileName</param>
+            <param name="destpath">Path in remote storage</param>
+            <returns>File Id</returns>
+        </member>
+        <member name="M:NetLibrary.Storage.UploadFileLink(System.String,System.Int64)">
+            <summary>
+            Upload File as a link to agent
+            </summary>
+            <param name="destpath">Destination path</param>
+            <param name="size">Size of uploaded file</param>
+            <returns>UploadResponse</returns>
+        </member>
+        <member name="M:NetLibrary.Storage.UploadFileAsStream(System.IO.Stream,System.String)">
+            <summary>
+            closes stream on finish
+            </summary>
+            <param name="stream">Source stream</param>
+            <param name="destpath">Destination path</param>
+            <returns>File Id</returns>
+        </member>
+        <member name="M:NetLibrary.Storage.CreateUser(System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            Create user.
+            </summary>
+            <param name="username">Name of user</param>
+            <param name="id">id in external system</param>
+            <param name="quota">Quota per user</param>
+            <param name="tariff">Tariff per user</param>
+        </member>
+        <member name="M:NetLibrary.Storage.CreateGroup(System.String)">
+            <summary>
+            Create group.
+            </summary>
+            <param name="groupname">Name of group</param>
+        </member>
+        <member name="M:NetLibrary.Storage.GetUsersList">
+            <summary>
+            Get list of storage users.
+            </summary>
+            <returns>List of users</returns>
+        </member>
+        <member name="M:NetLibrary.Storage.MakeHardLink(System.String,System.String,System.Int32)">
+            <summary>
+            Creates hard link for file.
+            </summary>
+            <param name="linkPath">Path of link</param>
+            <param name="targetPath">File path</param>
+            <param name="targetFileversion">Version of file being linked</param>
+            <returns>Link file id</returns>
+        </member>
+        <member name="M:NetLibrary.Storage.MakeSymLink(System.String,System.String,System.Int32)">
+            <summary>
+            Creates soft (symbolic) link for file.
+            </summary>
+            <param name="linkPath">Path of link</param>
+            <param name="targetPath">File path</param>
+            <param name="targetFileversion">Version of file being linked</param>
+            <returns>Link file id</returns>
+        </member>
+        <member name="M:NetLibrary.Storage.DownloadFile(System.String,System.String,System.Int32)">
+            <summary>
+            Downloads file from storage and saves it to local FS
+            </summary>
+            <param name="targetPath">Path in storage file system</param>
+            <param name="localpath"></param>
+            <param name="version"> </param>
+            <returns>filesize</returns>
+        </member>
+        <member name="M:NetLibrary.Storage.DownloadFileLink(System.String,System.Int32)">
+            <summary>
+            Get link for future downloading file from storage
+            </summary>
+            <param name="targetPath">Path in storage file system</param>
+            <param name="version"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:NetLibrary.Storage.DownloadFileByIdLink(System.String)">
+            <summary>
+            Get link for future downloading file by id from storage
+            </summary>
+            <param name="fid">Storage file id</param>
+            <returns></returns>
+        </member>
+        <member name="M:NetLibrary.Storage.DownloadFileById(System.String,System.String)">
+            <summary>
+            Downloads file from storage and saves it to local FS
+            </summary>
+            <param name="fid">Storage file id</param>
+            <param name="localpath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NetLibrary.Storage.DownloadFile(NetLibrary.DownloadRequest,System.String)">
+            <summary>
+            Helper for two interface methods downloading stream.
+            Made for avoiding code CV 
+            </summary>
+            <param name="request"></param>
+            <param name="localpath"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:NetLibrary.Storage.DownloadRequestFileById(System.String)">
+            <summary>
+            Helper to create download request by file id
+            </summary>
+            <param name="fid"></param>
+            <returns>DownloadRequest</returns>
+        </member>
+        <member name="M:NetLibrary.Storage.DownloadRequestFile(System.String,System.Int32)">
+            <summary>
+            Helper to create download request by file name
+            </summary>
+            <param name="targetPath"></param>
+            <param name="version"></param>
+            <returns>DownloadRequest</returns>
+        </member>
+        <member name="M:NetLibrary.Storage.MakeDirectory(System.String)">
+            <summary>
+            Creating directory
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:NetLibrary.Storage.GetDirectoryList(System.String)">
+            <summary>
+            List directory
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:NetLibrary.Storage.RegisterRemoteResource(System.String,System.String,System.String,System.String,System.Int64,System.String,NetLibrary.RemoteResourceProtocols)">
+            <summary>
+            Register remote resource
+            </summary>
+            <param name="name"></param>
+            <param name="port"></param>
+            <param name="user"></param>
+            <param name="pwd"></param>
+            <param name="quota"></param>
+            <param name="comment"></param>
+            <param name="protocol"></param>
+        </member>
+        <member name="M:NetLibrary.Storage.ShowListRemoteResources(System.String,NetLibrary.RemoteResourceProtocols)">
+            <summary>
+            Show list registered remote resources
+            </summary>
+            <param name="host">Hostname ot ip of remote resource</param>
+            <param name="protocol">Protocol of connection to remote resource</param>
+            <returns>RemoteResourceInfo[]</returns>
+        </member>
+        <member name="M:NetLibrary.Storage.MountRemoteResource(System.String,System.String,NetLibrary.RemoteResourceProtocols,System.String,System.String)">
+            <summary>
+            Mount directory in storage to directory in remote resource
+            </summary>
+            <param name="user">Hostname ot ip of remote resource</param>
+            <param name="host">Hostname ot ip of remote resource</param>
+            <param name="protocol">Protocol of connection to remote resource</param>
+            <param name="localDir">Local directory in storage</param>
+            <param name="remoteDir">Remote directory on remote resource</param>
+            <returns>RemoteResourceInfo[]</returns>
+        </member>
+        <member name="M:NetLibrary.Storage.UnMountRemoteResource(System.String)">
+            <summary>
+            Unmount directory on remote resource
+            </summary>
+            <param name="localDir">Local directory (in storage) to which mount directory on remote resource</param>
+        </member>
+        <member name="M:NetLibrary.Storage.UnRegisterRemoteResource(System.String,System.String,NetLibrary.RemoteResourceProtocols)">
+            <summary>
+            Unregister remote resource
+            </summary>
+            <param name="user"></param>
+            <param name="host"></param>
+            <param name="protocol"></param>
+        </member>
+        <member name="M:NetLibrary.Storage.DownloadFileRemote(System.String)">
+            <summary>
+            Download file from remote resource to agent 
+            </summary>
+            <param name="localfilename"></param>
+        </member>
+        <member name="M:NetLibrary.Storage.UploadFileRemote(System.String)">
+            <summary>
+            Upload file from agent to remote resource 
+            </summary>
+            <param name="localfilename"></param>
+        </member>
+        <member name="M:NetLibrary.CoreExecuteResult.#ctor(NetLibrary.Request,NetLibrary.Response,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="response"></param>
+            <param name="exception"> </param>
+        </member>
+        <member name="P:NetLibrary.CoreExecuteResult.Response">
+            <summary>
+            Result of CoreExecuteAsync Method (Parsed from JSON)
+            </summary>
+        </member>
+        <member name="P:NetLibrary.CoreExecuteResult.Request">
+            <summary>
+            Initial reauest for CoreExecuteAsync
+            </summary>
+        </member>
+        <member name="P:NetLibrary.CoreExecuteResult.Exception">
+            <summary>
+              Gets or sets exception occured during download.
+            </summary>
+        </member>
+        <member name="P:NetLibrary.CoreExecuteResult.ResponseStream">
+            <summary>
+            Get stream which returned from data storage 
+            </summary>
+        </member>
+        <member name="P:NetLibrary.CoreExecuteResult.IsFault">
+            <summary>
+            Determines if result is incorrect
+            </summary>
+            <value> </value>
+        </member>
+        <member name="M:NetLibrary.StreamOpenResult.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="M:NetLibrary.StreamOpenResult.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="P:NetLibrary.FinishedEventArgs.Exception">
+            <summary>
+              Gets or sets exception occured during download.
+            </summary>
+        </member>
+        <member name="P:NetLibrary.FinishedEventArgs.RequestStream">
+            <summary>
+              Gets or sets target stream.
+            </summary>
+        </member>
+        <member name="P:NetLibrary.FinishedEventArgs.ResponseStream">
+            <summary>
+              Gets or sets source stream.
+            </summary>
+        </member>
+        <member name="T:NetLibrary.MetadataRequest">
+            <summary>
+            GET_METADATA
+            </summary>
+        </member>
+        <member name="P:NetLibrary.DeleteFileResult.Message">
+            <summary>
+            Message from core od DStorage
+            </summary>
+        </member>
+    </members>
+</doc>

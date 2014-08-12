@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="VManager" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:5666/VManager/VManagerService/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:5666/VManager/VManagerService/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Common" />
+      <xsd:import schemaLocation="http://localhost:5666/VManager/VManagerService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:5666/VManager/VManagerService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Common.VManager.DataTypes" />
+      <xsd:import schemaLocation="http://localhost:5666/VManager/VManagerService/?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IVManager_GetHosts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHosts" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_GetHosts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHostsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_GetHosts_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q1:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_AddHost_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddHost" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_AddHost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddHostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_AddHost_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q2:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_GetHostsMachines_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHostsMachines" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_GetHostsMachines_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHostsMachinesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_GetHostsMachines_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q3:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_GetMachineState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMachineState" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_GetMachineState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMachineStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_GetMachineState_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q4:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_ConnectToHost_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectToHost" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_ConnectToHost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectToHostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_ConnectToHost_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q5:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_DisconnectFromHost_InputMessage">
+    <wsdl:part name="parameters" element="tns:DisconnectFromHost" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_DisconnectFromHost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisconnectFromHostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_DisconnectFromHost_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q6:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_IsGuestOSRunning_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsGuestOSRunning" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_IsGuestOSRunning_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsGuestOSRunningResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_IsGuestOSRunning_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q7:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_StartMachine_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartMachine" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_StartMachine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartMachineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_StartMachine_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q8:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_RestartMachine_InputMessage">
+    <wsdl:part name="parameters" element="tns:RestartMachine" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_RestartMachine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RestartMachineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_RestartMachine_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q9:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_SuspendMachine_InputMessage">
+    <wsdl:part name="parameters" element="tns:SuspendMachine" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_SuspendMachine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SuspendMachineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_SuspendMachine_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q10:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_WakeMachine_InputMessage">
+    <wsdl:part name="parameters" element="tns:WakeMachine" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_WakeMachine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WakeMachineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_WakeMachine_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q11:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_StopMachine_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopMachine" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_StopMachine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopMachineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_StopMachine_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q12:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_GetDrivers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDrivers" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_GetDrivers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDriversResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVManager_GetDrivers_ErrorMessageFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/Common" name="detail" element="q13:ErrorMessage" />
+  </wsdl:message>
+  <wsdl:portType name="IVManager">
+    <wsdl:operation name="GetHosts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVManager/GetHosts" message="tns:IVManager_GetHosts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVManager/GetHostsResponse" message="tns:IVManager_GetHosts_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IVManager/GetHostsErrorMessageFault" name="ErrorMessageFault" message="tns:IVManager_GetHosts_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddHost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVManager/AddHost" message="tns:IVManager_AddHost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVManager/AddHostResponse" message="tns:IVManager_AddHost_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IVManager/AddHostErrorMessageFault" name="ErrorMessageFault" message="tns:IVManager_AddHost_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHostsMachines">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVManager/GetHostsMachines" message="tns:IVManager_GetHostsMachines_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVManager/GetHostsMachinesResponse" message="tns:IVManager_GetHostsMachines_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IVManager/GetHostsMachinesErrorMessageFault" name="ErrorMessageFault" message="tns:IVManager_GetHostsMachines_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVManager/GetMachineState" message="tns:IVManager_GetMachineState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVManager/GetMachineStateResponse" message="tns:IVManager_GetMachineState_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IVManager/GetMachineStateErrorMessageFault" name="ErrorMessageFault" message="tns:IVManager_GetMachineState_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConnectToHost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVManager/ConnectToHost" message="tns:IVManager_ConnectToHost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVManager/ConnectToHostResponse" message="tns:IVManager_ConnectToHost_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IVManager/ConnectToHostErrorMessageFault" name="ErrorMessageFault" message="tns:IVManager_ConnectToHost_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DisconnectFromHost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVManager/DisconnectFromHost" message="tns:IVManager_DisconnectFromHost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVManager/DisconnectFromHostResponse" message="tns:IVManager_DisconnectFromHost_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IVManager/DisconnectFromHostErrorMessageFault" name="ErrorMessageFault" message="tns:IVManager_DisconnectFromHost_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsGuestOSRunning">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVManager/IsGuestOSRunning" message="tns:IVManager_IsGuestOSRunning_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVManager/IsGuestOSRunningResponse" message="tns:IVManager_IsGuestOSRunning_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IVManager/IsGuestOSRunningErrorMessageFault" name="ErrorMessageFault" message="tns:IVManager_IsGuestOSRunning_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartMachine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVManager/StartMachine" message="tns:IVManager_StartMachine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVManager/StartMachineResponse" message="tns:IVManager_StartMachine_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IVManager/StartMachineErrorMessageFault" name="ErrorMessageFault" message="tns:IVManager_StartMachine_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RestartMachine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVManager/RestartMachine" message="tns:IVManager_RestartMachine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVManager/RestartMachineResponse" message="tns:IVManager_RestartMachine_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IVManager/RestartMachineErrorMessageFault" name="ErrorMessageFault" message="tns:IVManager_RestartMachine_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SuspendMachine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVManager/SuspendMachine" message="tns:IVManager_SuspendMachine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVManager/SuspendMachineResponse" message="tns:IVManager_SuspendMachine_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IVManager/SuspendMachineErrorMessageFault" name="ErrorMessageFault" message="tns:IVManager_SuspendMachine_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WakeMachine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVManager/WakeMachine" message="tns:IVManager_WakeMachine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVManager/WakeMachineResponse" message="tns:IVManager_WakeMachine_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IVManager/WakeMachineErrorMessageFault" name="ErrorMessageFault" message="tns:IVManager_WakeMachine_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopMachine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVManager/StopMachine" message="tns:IVManager_StopMachine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVManager/StopMachineResponse" message="tns:IVManager_StopMachine_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IVManager/StopMachineErrorMessageFault" name="ErrorMessageFault" message="tns:IVManager_StopMachine_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDrivers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVManager/GetDrivers" message="tns:IVManager_GetDrivers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVManager/GetDriversResponse" message="tns:IVManager_GetDrivers_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IVManager/GetDriversErrorMessageFault" name="ErrorMessageFault" message="tns:IVManager_GetDrivers_ErrorMessageFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IVManager" type="tns:IVManager">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetHosts">
+      <soap:operation soapAction="http://tempuri.org/IVManager/GetHosts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddHost">
+      <soap:operation soapAction="http://tempuri.org/IVManager/AddHost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetHostsMachines">
+      <soap:operation soapAction="http://tempuri.org/IVManager/GetHostsMachines" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineState">
+      <soap:operation soapAction="http://tempuri.org/IVManager/GetMachineState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConnectToHost">
+      <soap:operation soapAction="http://tempuri.org/IVManager/ConnectToHost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DisconnectFromHost">
+      <soap:operation soapAction="http://tempuri.org/IVManager/DisconnectFromHost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="IsGuestOSRunning">
+      <soap:operation soapAction="http://tempuri.org/IVManager/IsGuestOSRunning" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StartMachine">
+      <soap:operation soapAction="http://tempuri.org/IVManager/StartMachine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RestartMachine">
+      <soap:operation soapAction="http://tempuri.org/IVManager/RestartMachine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SuspendMachine">
+      <soap:operation soapAction="http://tempuri.org/IVManager/SuspendMachine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="WakeMachine">
+      <soap:operation soapAction="http://tempuri.org/IVManager/WakeMachine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StopMachine">
+      <soap:operation soapAction="http://tempuri.org/IVManager/StopMachine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrivers">
+      <soap:operation soapAction="http://tempuri.org/IVManager/GetDrivers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ErrorMessageFault">
+        <soap:fault use="literal" name="ErrorMessageFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VManager">
+    <wsdl:port name="BasicHttpBinding_IVManager" binding="tns:BasicHttpBinding_IVManager">
+      <soap:address location="http://localhost:5666/VManager/VManagerService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

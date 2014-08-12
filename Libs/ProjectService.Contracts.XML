@@ -1,0 +1,626 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProjectService.Contracts</name>
+    </assembly>
+    <members>
+<<<<<<< .mine
+        <member name="T:Easis.Services.Ui.Project.Contracts.DataReferenceOrigin">
+            <summary>
+             Data reference origin.
+            </summary>
+        </member>
+        <member name="F:Easis.Services.Ui.Project.Contracts.DataReferenceOrigin.Uploaded">
+            <summary>
+            Data was uploaded.
+            </summary>
+        </member>
+        <member name="F:Easis.Services.Ui.Project.Contracts.DataReferenceOrigin.Generated">
+            <summary>
+            Data was generated.
+            </summary>
+        </member>
+        <member name="T:Easis.Services.Ui.Project.Contracts.IProjectService">
+            <summary>
+            Project management service contract.
+            </summary>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.IProjectService.GetProjectIdsByUserId(System.String)">
+            <summary>
+            Returns ids for project of the specified user.
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.IProjectService.GetProjectsByUserId(System.String)">
+            <summary>
+            Returns the project data list for the specified user.
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.IProjectService.GetProjectDataById(System.String)">
+            <summary>
+            Returns project data by project id.
+            </summary>
+            <param name="projectId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.IProjectService.SaveProjectData(Easis.Services.Ui.Project.Contracts.ProjectEntry)">
+            <summary>
+            Updates project data.
+            </summary>
+            <param name="projectEntry"></param>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.IProjectService.DeleteProjectData(System.String)">
+            <summary>
+            Delets project data by project id.
+            </summary>
+            <param name="projectId"></param>
+        </member>
+=======
+        <member name="T:Easis.Services.Ui.Project.Contracts.UserEntry">
+            <summary>
+            Data contract for User object.
+            </summary>
+        </member>
+>>>>>>> .r3171
+        <member name="T:Easis.Services.Ui.Project.Contracts.NamedEntity">
+            <summary>
+            Data contract for entities exposing Name property.
+            </summary>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.NamedEntity.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            <param name="name">Name of the entity.</param>
+            </summary>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.NamedEntity.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.NamedEntity.Name">
+            <summary>
+            Gets or sets name of the entity.
+            </summary>
+        </member>
+        <member name="E:Easis.Services.Ui.Project.Contracts.NamedEntity.PropertyChanged">
+            <summary>
+            Occurs when a property value changes.
+            </summary>
+        </member>
+        <member name="T:Easis.Services.Ui.Project.Contracts.ActivityRunState">
+            <summary>
+            Activity run state.
+            </summary>
+        </member>
+        <member name="F:Easis.Services.Ui.Project.Contracts.ActivityRunState.NotRunned">
+            <summary>
+            Not yet runnned.
+            </summary>
+        </member>
+        <member name="F:Easis.Services.Ui.Project.Contracts.ActivityRunState.Running">
+            <summary>
+            Now rinning.
+            </summary>
+        </member>
+        <member name="F:Easis.Services.Ui.Project.Contracts.ActivityRunState.Succeeded">
+            <summary>
+            Finished successfully.
+            </summary>
+        </member>
+        <member name="F:Easis.Services.Ui.Project.Contracts.ActivityRunState.Failed">
+            <summary>
+            Finished with error.
+            </summary>
+        </member>
+        <member name="T:Easis.Services.Ui.Project.Contracts.ActivityEditingMode">
+            <summary>
+            Activity editing mode.
+            </summary>
+        </member>
+        <member name="F:Easis.Services.Ui.Project.Contracts.ActivityEditingMode.Script">
+            <summary>
+            Mode: editing script.
+            </summary>
+        </member>
+        <member name="F:Easis.Services.Ui.Project.Contracts.ActivityEditingMode.Template">
+            <summary>
+            Mode: selecting templates.
+            </summary>
+        </member>
+        <member name="F:Easis.Services.Ui.Project.Contracts.ActivityEditingMode.Quiz">
+            <summary>
+            Mode: taking a quiz.
+            </summary>
+        </member>
+        <member name="T:Easis.Services.Ui.Project.Contracts.UserEntry">
+            <summary>
+            Data contract for User object.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Easis.Services.Ui.Project.Contracts.UserEntry.#ctor(System.String)" -->
+        <member name="M:Easis.Services.Ui.Project.Contracts.UserEntry.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+<<<<<<< .mine
+=======
+        <member name="T:Easis.Services.Ui.Project.Contracts.DataReference">
+            <summary>
+             Data contract for data reference to storage.
+            </summary>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.DataReference.#ctor">
+            <summary>
+            </summary>
+        </member>
+>>>>>>> .r3171
+        <member name="M:Easis.Services.Ui.Project.Contracts.DataReference.#ctor(System.String)">
+            <summary>
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.DataReference.DataId">
+            <summary>
+            Gets or sets data id in storage.
+            </summary>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.DataReference.Origin">
+            <summary>
+             Gets or sets origin of the data.
+            </summary>
+        </member>
+        <member name="E:Easis.Services.Ui.Project.Contracts.DataReference.PropertyChanged">
+            <summary>
+            Occurs when a property value changes.
+            </summary>
+        </member>
+        <member name="T:Easis.Services.Ui.Project.Contracts.ProjectEntry">
+            <summary>
+            Data contract for project information.
+            </summary>
+        </member>
+        <member name="T:Easis.Services.Ui.Project.Contracts.ProjectTreeEntity">
+            <summary>
+            Data contract for objects of project tree.
+            </summary>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.ProjectTreeEntity.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            <param name="name">Name of the object.</param>
+            </summary>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.ProjectTreeEntity.CreatedAt">
+            <summary>
+            Gets or sets element creation DateTime.
+            </summary>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.ProjectEntry.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.ProjectEntry.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.ProjectEntry.UserId">
+            <summary>
+            Gets or sets owner user id (external).
+            </summary>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.ProjectEntry.Activities">
+            <summary>
+            Get or sets list of children activities.
+            </summary>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.ProjectEntry.Data">
+            <summary>
+            Gets or sets list of attached data.
+            </summary>
+        </member>
+<<<<<<< .mine
+        <member name="T:Easis.Services.Ui.Project.Contracts.FlowDefinition">
+=======
+        <member name="T:Easis.Services.Ui.Project.Contracts.DataReferenceOrigin">
+>>>>>>> .r3171
+            <summary>
+<<<<<<< .mine
+             Data contract for flow definition.
+=======
+             Data reference origin.
+>>>>>>> .r3171
+            </summary>
+        </member>
+<<<<<<< .mine
+        <member name="P:Easis.Services.Ui.Project.Contracts.FlowDefinition.ScriptText">
+=======
+        <member name="F:Easis.Services.Ui.Project.Contracts.DataReferenceOrigin.Uploaded">
+>>>>>>> .r3171
+            <summary>
+<<<<<<< .mine
+             Gets or sets script text.
+=======
+            Data was uploaded.
+>>>>>>> .r3171
+            </summary>
+        </member>
+<<<<<<< .mine
+        <member name="E:Easis.Services.Ui.Project.Contracts.FlowDefinition.PropertyChanged">
+=======
+        <member name="F:Easis.Services.Ui.Project.Contracts.DataReferenceOrigin.Generated">
+>>>>>>> .r3171
+            <summary>
+<<<<<<< .mine
+            Occurs when a property value changes.
+=======
+            Data was generated.
+>>>>>>> .r3171
+            </summary>
+        </member>
+<<<<<<< .mine
+        <member name="T:Easis.Services.Ui.Project.Contracts.ActivityRunEntry">
+=======
+        <member name="T:Easis.Services.Ui.Project.Contracts.FlowDataContext">
+>>>>>>> .r3171
+            <summary>
+<<<<<<< .mine
+             Data contract for activity run.
+=======
+             Data contract for flow data context.
+>>>>>>> .r3171
+            </summary>
+        </member>
+<<<<<<< .mine
+=======
+        <member name="M:Easis.Services.Ui.Project.Contracts.FlowDataContext.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.FlowDataContext.DataMap">
+            <summary>
+            Gets or sets data map: fileVariableName -> dataId.
+            </summary>
+        </member>
+>>>>>>> .r3171
+        <member name="T:Easis.Services.Ui.Project.Contracts.IAuthService">
+            <summary>Service for authentification
+            </summary>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.IAuthService.AddUser(System.String,System.String)">
+            <summary>
+            Addes user of system
+            </summary>
+            <param name="name">Name of user</param>
+            <param name="password">Password</param>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.IAuthService.GetUserDataByName(System.String)">
+            <summary>
+            Returns info about specified user
+            </summary>
+            <param name="name">Name of user</param>
+            <returns>Information about user</returns>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.IAuthService.GetUserDataById(System.Guid)">
+            <summary>
+            Returns info about specified user
+            </summary>
+            <param name="id">ID of user</param>
+            <returns>Information about user</returns>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.IAuthService.Validate(System.String,System.String)">
+            <summary>
+            Verifies if target user is existed in system
+            </summary>
+            <param name="name">Name of user</param>
+            <param name="password">Password</param>
+            <returns>True if user is existed</returns>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.IAuthService.Login(System.String,System.String)">
+            <summary>
+            Checks if user exists and return his entity (and changes 'LastVisit' value) or raise exception otherwise. 
+            </summary>
+            <param name="name">Name of user</param>
+            <param name="password">Password</param>
+            <returns>User entity</returns>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.IAuthService.GetUserList">
+            <summary>
+            Represent list of users in system
+            </summary>
+            <returns>List of users</returns>
+        </member>
+<<<<<<< .mine
+        <member name="M:Easis.Services.Ui.Project.Contracts.ActivityRunEntry.#ctor(System.String)">
+            <summary>
+            </summary>
+            <param name="name">Name of the run.</param>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.ActivityRunEntry.JobId">
+            <summary>
+            Jod id for this activity run.
+            </summary>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.ActivityRunEntry.NeedUpdate">
+            <summary>
+            Does this activity run still needs update from monitoring service (default = true).
+            </summary>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.ActivityRunEntry.RunState">
+            <summary>
+             Gets or sets activity run state;
+            </summary>
+        </member>
+        <member name="T:Easis.Services.Ui.Project.Contracts.ActivityEntry">
+            <summary>
+            Data contract for activity entry.
+            </summary>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.ActivityEntry.#ctor(System.String)">
+=======
+        <member name="T:Easis.Services.Ui.Project.Contracts.FlowDefinition">
+>>>>>>> .r3171
+            <summary>
+             Data contract for flow definition.
+            </summary>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.FlowDefinition.ScriptText">
+            <summary>
+             Gets or sets script text.
+            </summary>
+        </member>
+        <member name="E:Easis.Services.Ui.Project.Contracts.FlowDefinition.PropertyChanged">
+            <summary>
+            Occurs when a property value changes.
+            </summary>
+        </member>
+        <member name="T:Easis.Services.Ui.Project.Contracts.ActivityRunState">
+            <summary>
+            Activity run state.
+            </summary>
+        </member>
+<<<<<<< .mine
+        <member name="T:Easis.Services.Ui.Project.Contracts.IAuthService">
+            <summary>Service for authentification
+            </summary>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.IAuthService.AddUser(System.String,System.String)">
+=======
+        <member name="F:Easis.Services.Ui.Project.Contracts.ActivityRunState.NotRunned">
+>>>>>>> .r3171
+            <summary>
+<<<<<<< .mine
+            Addes user of system
+=======
+            Not yet runnned.
+>>>>>>> .r3171
+            </summary>
+            <param name="name">Name of user</param>
+            <param name="password">Password</param>
+        </member>
+<<<<<<< .mine
+        <member name="M:Easis.Services.Ui.Project.Contracts.IAuthService.GetUserDataByName(System.String)">
+=======
+        <member name="F:Easis.Services.Ui.Project.Contracts.ActivityRunState.Running">
+>>>>>>> .r3171
+            <summary>
+<<<<<<< .mine
+            Returns info about specified user
+=======
+            Now rinning.
+>>>>>>> .r3171
+            </summary>
+            <param name="name">Name of user</param>
+            <returns>Information about user</returns>
+        </member>
+<<<<<<< .mine
+        <member name="M:Easis.Services.Ui.Project.Contracts.IAuthService.GetUserDataById(System.Guid)">
+=======
+        <member name="F:Easis.Services.Ui.Project.Contracts.ActivityRunState.Succeeded">
+>>>>>>> .r3171
+            <summary>
+<<<<<<< .mine
+            Returns info about specified user
+=======
+            Finished successfully.
+>>>>>>> .r3171
+            </summary>
+            <param name="id">ID of user</param>
+            <returns>Information about user</returns>
+        </member>
+<<<<<<< .mine
+        <member name="M:Easis.Services.Ui.Project.Contracts.IAuthService.Validate(System.String,System.String)">
+            <summary>
+            Verifies if target user is existed in system
+            </summary>
+            <param name="name">Name of user</param>
+            <param name="password">Password</param>
+            <returns>True if user is existed</returns>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.IAuthService.Login(System.String,System.String)">
+            <summary>
+            Checks if user exists and return his entity (and changes 'LastVisit' value) or raise exception otherwise. 
+            </summary>
+            <param name="name">Name of user</param>
+            <param name="password">Password</param>
+            <returns>User entity</returns>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.IAuthService.GetUserList">
+            <summary>
+            Represent list of users in system
+            </summary>
+            <returns>List of users</returns>
+        </member>
+        <member name="T:Easis.Services.Ui.Project.Contracts.DataReference">
+=======
+        <member name="F:Easis.Services.Ui.Project.Contracts.ActivityRunState.Failed">
+>>>>>>> .r3171
+            <summary>
+            Finished with error.
+            </summary>
+        </member>
+        <member name="T:Easis.Services.Ui.Project.Contracts.ActivityEditingMode">
+            <summary>
+            Activity editing mode.
+            </summary>
+        </member>
+        <member name="F:Easis.Services.Ui.Project.Contracts.ActivityEditingMode.Script">
+            <summary>
+            Mode: editing script.
+            </summary>
+        </member>
+        <member name="F:Easis.Services.Ui.Project.Contracts.ActivityEditingMode.Template">
+            <summary>
+            Mode: selecting templates.
+            </summary>
+        </member>
+        <member name="F:Easis.Services.Ui.Project.Contracts.ActivityEditingMode.Quiz">
+            <summary>
+            Mode: taking a quiz.
+            </summary>
+        </member>
+        <member name="T:Easis.Services.Ui.Project.Contracts.IProjectService">
+            <summary>
+            Project management service contract.
+            </summary>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.IProjectService.GetProjectIdsByUserId(System.String)">
+            <summary>
+            Returns ids for project of the specified user.
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.IProjectService.GetProjectsByUserId(System.String)">
+            <summary>
+            Returns the project data list for the specified user.
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.IProjectService.GetProjectDataById(System.String)">
+            <summary>
+            Returns project data by project id.
+            </summary>
+            <param name="projectId"></param>
+            <returns></returns>
+        </member>
+<<<<<<< .mine
+=======
+        <member name="M:Easis.Services.Ui.Project.Contracts.IProjectService.SaveProjectData(Easis.Services.Ui.Project.Contracts.ProjectEntry)">
+            <summary>
+            Updates project data.
+            </summary>
+            <param name="projectEntry"></param>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.IProjectService.DeleteProjectData(System.String)">
+            <summary>
+            Delets project data by project id.
+            </summary>
+            <param name="projectId"></param>
+        </member>
+        <member name="T:Easis.Services.Ui.Project.Contracts.ActivityRunEntry">
+            <summary>
+             Data contract for activity run.
+            </summary>
+        </member>
+        <member name="T:Easis.Services.Ui.Project.Contracts.ActivityEntryBase">
+            <summary>
+            Base class for activity entries
+            </summary>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.ActivityEntryBase.MakeRun">
+            <summary>
+             Makes new run from this.
+            </summary>
+            <returns>New run.</returns>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.ActivityEntryBase.MakeActivity">
+            <summary>
+             Makes new activity from this.
+            </summary>
+            <returns>New activity.</returns>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.ActivityEntryBase.FlowDefinition">
+            <summary>
+            Gets or sets flow definition.
+            </summary>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.ActivityEntryBase.DataContext">
+            <summary>
+            Gets or sets flow data context.
+            </summary>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.ActivityEntryBase.Data">
+            <summary>
+            Gets or sets list of attached data.
+            </summary>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.ActivityRunEntry.#ctor(System.String)">
+            <summary>
+            </summary>
+            <param name="name">Name of the run.</param>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.ActivityRunEntry.JobId">
+            <summary>
+            Jod id for this activity run.
+            </summary>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.ActivityRunEntry.NeedUpdate">
+            <summary>
+            Does this activity run still needs update from monitoring service (default = true).
+            </summary>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.ActivityRunEntry.RunState">
+            <summary>
+             Gets or sets activity run state;
+            </summary>
+        </member>
+        <member name="T:Easis.Services.Ui.Project.Contracts.ActivityEntry">
+            <summary>
+            Data contract for activity entry.
+            </summary>
+        </member>
+        <member name="M:Easis.Services.Ui.Project.Contracts.ActivityEntry.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of ActivityEntry.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.ActivityEntry.Mode">
+            <summary>
+             Gets or sets mode of activity.
+            </summary>
+        </member>
+        <member name="P:Easis.Services.Ui.Project.Contracts.ActivityEntry.SelectedTemplate">
+            <summary>
+            Gets or sets selected template.
+            </summary>
+        </member>
+>>>>>>> .r3171
+        <member name="P:Easis.Services.Ui.Project.Contracts.ActivityEntry.Runs">
+            <summary>
+            Gets or sets colleciton of activity runs.
+            </summary>
+        </member>
+    </members>
+</doc>

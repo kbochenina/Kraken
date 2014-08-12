@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s0="http://tempuri.org/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" name="IntegratorService" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="GetClusterList">
+        <xs:complexType />
+      </xs:element>
+      <xs:complexType name="ArrayOfString">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="Code">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="CodeNotSet" />
+          <xs:enumeration value="OperationSuccess" />
+          <xs:enumeration value="GetClusterInfoFailed" />
+          <xs:enumeration value="GetClusterStateInfoFailed" />
+          <xs:enumeration value="ExecuteTaskFailed" />
+          <xs:enumeration value="CancelTaskFailed" />
+          <xs:enumeration value="GetTaskStateFailed" />
+          <xs:enumeration value="ReserveResourcesFailed" />
+          <xs:enumeration value="CancelReserveFailed" />
+          <xs:enumeration value="NullObject" />
+          <xs:enumeration value="ClusterIsNotConnected" />
+          <xs:enumeration value="CouldNotLoadConfigFile" />
+          <xs:enumeration value="CouldNotLoadParameterValue" />
+          <xs:enumeration value="CouldNotCreateObjForWorkingWithFTP" />
+          <xs:enumeration value="OperationFailed" />
+          <xs:enumeration value="ConfigError" />
+          <xs:enumeration value="RemotingActivateError" />
+          <xs:enumeration value="RemotingConnectError" />
+          <xs:enumeration value="InvalidClusterName" />
+          <xs:enumeration value="DBConnectionFailed" />
+          <xs:enumeration value="DBTransactionFailed" />
+          <xs:enumeration value="DBTransactionRollbackFailed" />
+          <xs:enumeration value="IncorrectTaskID" />
+          <xs:enumeration value="TaskWasExecuted" />
+          <xs:enumeration value="IncorrectArgument" />
+          <xs:enumeration value="CouldNotAddActiveTask" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="GetClusterListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="GetClusterListResult" type="s0:ArrayOfString" />
+            <xs:element minOccurs="1" maxOccurs="1" name="errorCode" type="s0:Code" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetClusterListWithPackage">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="package" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetClusterListWithPackageResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="GetClusterListWithPackageResult" type="s0:ArrayOfString" />
+            <xs:element minOccurs="1" maxOccurs="1" name="errorCode" type="s0:Code" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetClusterInfo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="clusterName" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ClusterInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Topology" type="s0:NetTopology" />
+          <xs:element minOccurs="1" maxOccurs="1" name="NumberOfNodes" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Node" type="s0:ArrayOfNodeInfo" />
+          <xs:element minOccurs="1" maxOccurs="1" name="ThroughputPlannerCluster" type="xs:double" />
+          <xs:element minOccurs="1" maxOccurs="1" name="LatencyPlannerCluster" type="xs:double" />
+          <xs:element minOccurs="1" maxOccurs="1" name="ThroughputClusterNode" type="xs:double" />
+          <xs:element minOccurs="1" maxOccurs="1" name="LatencyClusterNode" type="xs:double" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="NetTopology">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Star" />
+          <xs:enumeration value="Hypercube" />
+          <xs:enumeration value="CompleteGraph" />
+          <xs:enumeration value="Other" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="ArrayOfNodeInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="NodeInfo" nillable="true" type="s0:NodeInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="NodeInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="DNSName" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="RAMSize" type="xs:double" />
+          <xs:element minOccurs="1" maxOccurs="1" name="NumberOfCores" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="1" name="FrequencyOfCores" type="s0:ArrayOfDouble" />
+          <xs:element minOccurs="0" maxOccurs="1" name="PerformanceOfCores" type="s0:ArrayOfDouble" />
+          <xs:element minOccurs="0" maxOccurs="1" name="SoftList" type="s0:ArrayOfString" />
+          <xs:element minOccurs="0" maxOccurs="1" name="TaskID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfDouble">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="double" type="xs:double" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetClusterInfoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="GetClusterInfoResult" type="s0:ClusterInfo" />
+            <xs:element minOccurs="1" maxOccurs="1" name="errorCode" type="s0:Code" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetClusterStateInfo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="clusterName" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ClusterStateInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Node" type="s0:ArrayOfNodeStateInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfNodeStateInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="NodeStateInfo" nillable="true" type="s0:NodeStateInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="NodeStateInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="DNSName" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="TaskID" type="s0:ArrayOfString" />
+          <xs:element minOccurs="1" maxOccurs="1" name="ProcLoad" type="xs:double" />
+          <xs:element minOccurs="1" maxOccurs="1" name="FreeHDDSize" type="xs:double" />
+          <xs:element minOccurs="1" maxOccurs="1" name="FreeHDDPercent" type="xs:double" />
+          <xs:element minOccurs="1" maxOccurs="1" name="NetLoad" type="xs:double" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetClusterStateInfoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="GetClusterStateInfoResult" type="s0:ClusterStateInfo" />
+            <xs:element minOccurs="1" maxOccurs="1" name="errorCode" type="s0:Code" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetClusterStateInfoFast">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="clusterName" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetClusterStateInfoFastResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="GetClusterStateInfoFastResult" type="s0:ClusterStateInfo" />
+            <xs:element minOccurs="1" maxOccurs="1" name="errorCode" type="s0:Code" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateTask">
+        <xs:complexType />
+      </xs:element>
+      <xs:complexType name="TaskInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="TaskID" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="LocalTaskID" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="CommandLine" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ClusterName" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="UserName" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="NumberOfNodes" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="1" name="NumberOfCores" type="s0:ArrayOfInt" />
+          <xs:element minOccurs="1" maxOccurs="1" name="MaxExecutionTime" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="1" name="FTPPath" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="DeleteFTPTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" maxOccurs="1" name="StdinFileName" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="StdoutFileName" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="StderrFileName" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="EnvironmantVariable" type="s0:ArrayOfValueVariable" />
+          <xs:element minOccurs="1" maxOccurs="1" name="State" type="s0:TaskState" />
+          <xs:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="xs:int" />
+          <xs:element minOccurs="1" maxOccurs="1" name="StartTime" type="xs:dateTime" />
+          <xs:element minOccurs="1" maxOccurs="1" name="FinishTime" type="xs:dateTime" />
+          <xs:element minOccurs="1" maxOccurs="1" name="UsedTime" type="xs:double" />
+          <xs:element minOccurs="1" maxOccurs="1" name="UsedRAMSize" type="xs:double" />
+          <xs:element minOccurs="0" maxOccurs="1" name="AverageCoreLoad" type="s0:ArrayOfDouble" />
+          <xs:element minOccurs="0" maxOccurs="1" name="MaxCoreLoad" type="s0:ArrayOfDouble" />
+          <xs:element minOccurs="0" maxOccurs="1" name="MinCoreLoad" type="s0:ArrayOfDouble" />
+          <xs:element minOccurs="1" maxOccurs="1" name="ProcLoad" type="xs:double" />
+          <xs:element minOccurs="0" maxOccurs="1" name="PackageName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfInt">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="int" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfValueVariable">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ValueVariable" nillable="true" type="s0:ValueVariable" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ValueVariable">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Variable" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="TaskState">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Declare" />
+          <xs:enumeration value="Start" />
+          <xs:enumeration value="Execute" />
+          <xs:enumeration value="Finish" />
+          <xs:enumeration value="Cancel" />
+          <xs:enumeration value="Fail" />
+          <xs:enumeration value="Complete" />
+          <xs:enumeration value="FinishBeganCopyResult" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="CreateTaskResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="CreateTaskResult" type="s0:TaskInfo" />
+            <xs:element minOccurs="1" maxOccurs="1" name="errorCode" type="s0:Code" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateTaskReserveResources">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="clusterName" type="xs:string" />
+            <xs:element minOccurs="1" maxOccurs="1" name="reserveTime" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateTaskReserveResourcesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="CreateTaskReserveResourcesResult" type="s0:TaskInfo" />
+            <xs:element minOccurs="1" maxOccurs="1" name="errorCode" type="s0:Code" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReserveResources">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="taskID" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="clusterName" type="xs:string" />
+            <xs:element minOccurs="1" maxOccurs="1" name="reserveTime" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReserveResourcesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="ReserveResourcesResult" type="s0:ClusterStateInfo" />
+            <xs:element minOccurs="0" maxOccurs="1" name="taskInfo" type="s0:TaskInfo" />
+            <xs:element minOccurs="1" maxOccurs="1" name="errorCode" type="s0:Code" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CancelReserveResources">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="taskID" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CancelReserveResourcesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="errorCode" type="s0:Code" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ExecuteTask">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="taskInfo" type="s0:TaskInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ExecuteTaskResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="errorCode" type="s0:Code" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetTaskState">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="taskID" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetTaskStateResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="GetTaskStateResult" type="s0:TaskInfo" />
+            <xs:element minOccurs="1" maxOccurs="1" name="errorCode" type="s0:Code" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CancelTask">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="taskID" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CancelTaskResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="CancelTaskResult" type="s0:TaskInfo" />
+            <xs:element minOccurs="1" maxOccurs="1" name="errorCode" type="s0:Code" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TaskComplete">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="taskInfo" type="s0:TaskInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TaskCompleteResponse">
+        <xs:complexType />
+      </xs:element>
+      <xs:element name="GetActiveTaskList">
+        <xs:complexType />
+      </xs:element>
+      <xs:complexType name="ArrayOfTaskInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskInfo" nillable="true" type="s0:TaskInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetActiveTaskListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="GetActiveTaskListResult" type="s0:ArrayOfTaskInfo" />
+            <xs:element minOccurs="1" maxOccurs="1" name="errorCode" type="s0:Code" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="GetClusterListSoapIn">
+    <part name="parameters" element="s0:GetClusterList" />
+  </message>
+  <message name="GetClusterListSoapOut">
+    <part name="parameters" element="s0:GetClusterListResponse" />
+  </message>
+  <message name="GetClusterListWithPackageSoapIn">
+    <part name="parameters" element="s0:GetClusterListWithPackage" />
+  </message>
+  <message name="GetClusterListWithPackageSoapOut">
+    <part name="parameters" element="s0:GetClusterListWithPackageResponse" />
+  </message>
+  <message name="GetClusterInfoSoapIn">
+    <part name="parameters" element="s0:GetClusterInfo" />
+  </message>
+  <message name="GetClusterInfoSoapOut">
+    <part name="parameters" element="s0:GetClusterInfoResponse" />
+  </message>
+  <message name="GetClusterStateInfoSoapIn">
+    <part name="parameters" element="s0:GetClusterStateInfo" />
+  </message>
+  <message name="GetClusterStateInfoSoapOut">
+    <part name="parameters" element="s0:GetClusterStateInfoResponse" />
+  </message>
+  <message name="GetClusterStateInfoFastSoapIn">
+    <part name="parameters" element="s0:GetClusterStateInfoFast" />
+  </message>
+  <message name="GetClusterStateInfoFastSoapOut">
+    <part name="parameters" element="s0:GetClusterStateInfoFastResponse" />
+  </message>
+  <message name="CreateTaskSoapIn">
+    <part name="parameters" element="s0:CreateTask" />
+  </message>
+  <message name="CreateTaskSoapOut">
+    <part name="parameters" element="s0:CreateTaskResponse" />
+  </message>
+  <message name="CreateTaskReserveResourcesSoapIn">
+    <part name="parameters" element="s0:CreateTaskReserveResources" />
+  </message>
+  <message name="CreateTaskReserveResourcesSoapOut">
+    <part name="parameters" element="s0:CreateTaskReserveResourcesResponse" />
+  </message>
+  <message name="ReserveResourcesSoapIn">
+    <part name="parameters" element="s0:ReserveResources" />
+  </message>
+  <message name="ReserveResourcesSoapOut">
+    <part name="parameters" element="s0:ReserveResourcesResponse" />
+  </message>
+  <message name="CancelReserveResourcesSoapIn">
+    <part name="parameters" element="s0:CancelReserveResources" />
+  </message>
+  <message name="CancelReserveResourcesSoapOut">
+    <part name="parameters" element="s0:CancelReserveResourcesResponse" />
+  </message>
+  <message name="ExecuteTaskSoapIn">
+    <part name="parameters" element="s0:ExecuteTask" />
+  </message>
+  <message name="ExecuteTaskSoapOut">
+    <part name="parameters" element="s0:ExecuteTaskResponse" />
+  </message>
+  <message name="GetTaskStateSoapIn">
+    <part name="parameters" element="s0:GetTaskState" />
+  </message>
+  <message name="GetTaskStateSoapOut">
+    <part name="parameters" element="s0:GetTaskStateResponse" />
+  </message>
+  <message name="CancelTaskSoapIn">
+    <part name="parameters" element="s0:CancelTask" />
+  </message>
+  <message name="CancelTaskSoapOut">
+    <part name="parameters" element="s0:CancelTaskResponse" />
+  </message>
+  <message name="TaskCompleteSoapIn">
+    <part name="parameters" element="s0:TaskComplete" />
+  </message>
+  <message name="TaskCompleteSoapOut">
+    <part name="parameters" element="s0:TaskCompleteResponse" />
+  </message>
+  <message name="GetActiveTaskListSoapIn">
+    <part name="parameters" element="s0:GetActiveTaskList" />
+  </message>
+  <message name="GetActiveTaskListSoapOut">
+    <part name="parameters" element="s0:GetActiveTaskListResponse" />
+  </message>
+  <portType name="IntegratorServiceSoap">
+    <operation name="GetClusterList">
+      <input message="s0:GetClusterListSoapIn" />
+      <output message="s0:GetClusterListSoapOut" />
+    </operation>
+    <operation name="GetClusterListWithPackage">
+      <input message="s0:GetClusterListWithPackageSoapIn" />
+      <output message="s0:GetClusterListWithPackageSoapOut" />
+    </operation>
+    <operation name="GetClusterInfo">
+      <input message="s0:GetClusterInfoSoapIn" />
+      <output message="s0:GetClusterInfoSoapOut" />
+    </operation>
+    <operation name="GetClusterStateInfo">
+      <input message="s0:GetClusterStateInfoSoapIn" />
+      <output message="s0:GetClusterStateInfoSoapOut" />
+    </operation>
+    <operation name="GetClusterStateInfoFast">
+      <input message="s0:GetClusterStateInfoFastSoapIn" />
+      <output message="s0:GetClusterStateInfoFastSoapOut" />
+    </operation>
+    <operation name="CreateTask">
+      <input message="s0:CreateTaskSoapIn" />
+      <output message="s0:CreateTaskSoapOut" />
+    </operation>
+    <operation name="CreateTaskReserveResources">
+      <input message="s0:CreateTaskReserveResourcesSoapIn" />
+      <output message="s0:CreateTaskReserveResourcesSoapOut" />
+    </operation>
+    <operation name="ReserveResources">
+      <input message="s0:ReserveResourcesSoapIn" />
+      <output message="s0:ReserveResourcesSoapOut" />
+    </operation>
+    <operation name="CancelReserveResources">
+      <input message="s0:CancelReserveResourcesSoapIn" />
+      <output message="s0:CancelReserveResourcesSoapOut" />
+    </operation>
+    <operation name="ExecuteTask">
+      <input message="s0:ExecuteTaskSoapIn" />
+      <output message="s0:ExecuteTaskSoapOut" />
+    </operation>
+    <operation name="GetTaskState">
+      <input message="s0:GetTaskStateSoapIn" />
+      <output message="s0:GetTaskStateSoapOut" />
+    </operation>
+    <operation name="CancelTask">
+      <input message="s0:CancelTaskSoapIn" />
+      <output message="s0:CancelTaskSoapOut" />
+    </operation>
+    <operation name="TaskComplete">
+      <input message="s0:TaskCompleteSoapIn" />
+      <output message="s0:TaskCompleteSoapOut" />
+    </operation>
+    <operation name="GetActiveTaskList">
+      <input message="s0:GetActiveTaskListSoapIn" />
+      <output message="s0:GetActiveTaskListSoapOut" />
+    </operation>
+  </portType>
+  <portType name="IntegratorServiceSoap12">
+    <operation name="GetClusterList">
+      <input message="s0:GetClusterListSoapIn" />
+      <output message="s0:GetClusterListSoapOut" />
+    </operation>
+    <operation name="GetClusterListWithPackage">
+      <input message="s0:GetClusterListWithPackageSoapIn" />
+      <output message="s0:GetClusterListWithPackageSoapOut" />
+    </operation>
+    <operation name="GetClusterInfo">
+      <input message="s0:GetClusterInfoSoapIn" />
+      <output message="s0:GetClusterInfoSoapOut" />
+    </operation>
+    <operation name="GetClusterStateInfo">
+      <input message="s0:GetClusterStateInfoSoapIn" />
+      <output message="s0:GetClusterStateInfoSoapOut" />
+    </operation>
+    <operation name="GetClusterStateInfoFast">
+      <input message="s0:GetClusterStateInfoFastSoapIn" />
+      <output message="s0:GetClusterStateInfoFastSoapOut" />
+    </operation>
+    <operation name="CreateTask">
+      <input message="s0:CreateTaskSoapIn" />
+      <output message="s0:CreateTaskSoapOut" />
+    </operation>
+    <operation name="CreateTaskReserveResources">
+      <input message="s0:CreateTaskReserveResourcesSoapIn" />
+      <output message="s0:CreateTaskReserveResourcesSoapOut" />
+    </operation>
+    <operation name="ReserveResources">
+      <input message="s0:ReserveResourcesSoapIn" />
+      <output message="s0:ReserveResourcesSoapOut" />
+    </operation>
+    <operation name="CancelReserveResources">
+      <input message="s0:CancelReserveResourcesSoapIn" />
+      <output message="s0:CancelReserveResourcesSoapOut" />
+    </operation>
+    <operation name="ExecuteTask">
+      <input message="s0:ExecuteTaskSoapIn" />
+      <output message="s0:ExecuteTaskSoapOut" />
+    </operation>
+    <operation name="GetTaskState">
+      <input message="s0:GetTaskStateSoapIn" />
+      <output message="s0:GetTaskStateSoapOut" />
+    </operation>
+    <operation name="CancelTask">
+      <input message="s0:CancelTaskSoapIn" />
+      <output message="s0:CancelTaskSoapOut" />
+    </operation>
+    <operation name="TaskComplete">
+      <input message="s0:TaskCompleteSoapIn" />
+      <output message="s0:TaskCompleteSoapOut" />
+    </operation>
+    <operation name="GetActiveTaskList">
+      <input message="s0:GetActiveTaskListSoapIn" />
+      <output message="s0:GetActiveTaskListSoapOut" />
+    </operation>
+  </portType>
+  <binding name="IntegratorServiceSoap" type="s0:IntegratorServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="GetClusterList">
+      <soap:operation soapAction="http://tempuri.org/GetClusterList" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetClusterListWithPackage">
+      <soap:operation soapAction="http://tempuri.org/GetClusterListWithPackage" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetClusterInfo">
+      <soap:operation soapAction="http://tempuri.org/GetClusterInfo" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetClusterStateInfo">
+      <soap:operation soapAction="http://tempuri.org/GetClusterStateInfo" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetClusterStateInfoFast">
+      <soap:operation soapAction="http://tempuri.org/GetClusterStateInfoFast" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CreateTask">
+      <soap:operation soapAction="http://tempuri.org/CreateTask" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CreateTaskReserveResources">
+      <soap:operation soapAction="http://tempuri.org/CreateTaskReserveResources" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ReserveResources">
+      <soap:operation soapAction="http://tempuri.org/ReserveResources" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CancelReserveResources">
+      <soap:operation soapAction="http://tempuri.org/CancelReserveResources" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ExecuteTask">
+      <soap:operation soapAction="http://tempuri.org/ExecuteTask" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetTaskState">
+      <soap:operation soapAction="http://tempuri.org/GetTaskState" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CancelTask">
+      <soap:operation soapAction="http://tempuri.org/CancelTask" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="TaskComplete">
+      <soap:operation soapAction="http://tempuri.org/TaskComplete" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetActiveTaskList">
+      <soap:operation soapAction="http://tempuri.org/GetActiveTaskList" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="IntegratorServiceSoap12" type="s0:IntegratorServiceSoap12">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="GetClusterList">
+      <soap12:operation soapAction="http://tempuri.org/GetClusterList" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetClusterListWithPackage">
+      <soap12:operation soapAction="http://tempuri.org/GetClusterListWithPackage" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetClusterInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetClusterInfo" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetClusterStateInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetClusterStateInfo" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetClusterStateInfoFast">
+      <soap12:operation soapAction="http://tempuri.org/GetClusterStateInfoFast" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CreateTask">
+      <soap12:operation soapAction="http://tempuri.org/CreateTask" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CreateTaskReserveResources">
+      <soap12:operation soapAction="http://tempuri.org/CreateTaskReserveResources" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ReserveResources">
+      <soap12:operation soapAction="http://tempuri.org/ReserveResources" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CancelReserveResources">
+      <soap12:operation soapAction="http://tempuri.org/CancelReserveResources" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ExecuteTask">
+      <soap12:operation soapAction="http://tempuri.org/ExecuteTask" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetTaskState">
+      <soap12:operation soapAction="http://tempuri.org/GetTaskState" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CancelTask">
+      <soap12:operation soapAction="http://tempuri.org/CancelTask" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+    <operation name="TaskComplete">
+      <soap12:operation soapAction="http://tempuri.org/TaskComplete" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetActiveTaskList">
+      <soap12:operation soapAction="http://tempuri.org/GetActiveTaskList" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IntegratorService">
+    <port name="IntegratorServiceSoap" binding="s0:IntegratorServiceSoap">
+      <soap:address location="http://192.168.1.189/Integrator/IntegratorService.asmx" />
+    </port>
+    <port name="IntegratorServiceSoap12" binding="s0:IntegratorServiceSoap12">
+      <soap12:address location="http://192.168.1.189/Integrator/IntegratorService.asmx" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8740/FileService?xsd=xsd0" namespace="http://schemas.microsoft.com/Message" />
+  <xs:element name="FileStreamedMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/Message" name="Stream" type="q1:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FarmId" nillable="true" type="xs:string" />
+  <xs:element name="FileName" nillable="true" type="xs:string" />
+  <xs:element name="Id" nillable="true" type="xs:string" />
+  <xs:element name="ChunkedFileStreamedMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.microsoft.com/Message" name="Stream" type="q2:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChunkSize" type="xs:int" />
+  <xs:element name="FilePart" type="xs:int" />
+  <xs:element name="GetFileAsStream">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="path" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="taskId" type="xs:unsignedLong" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileAsStreamResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.microsoft.com/Message" name="GetFileAsStreamResult" type="q3:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileChunkAsStream">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fpath" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="taskId" type="xs:unsignedLong" />
+        <xs:element minOccurs="0" name="chunkNum" type="xs:int" />
+        <xs:element minOccurs="0" name="chunkSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileChunkAsStreamResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/Message" name="GetFileChunkAsStreamResult" type="q4:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MITP" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MITP" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8701/ControllerFarmService/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:8701/ControllerFarmService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="TaskRunContext">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Incarnation" nillable="true" type="tns:IncarnationParams" />
+      <xs:element minOccurs="0" name="NodesConfig" nillable="true" type="tns:ArrayOfNodeConfig" />
+      <xs:element minOccurs="0" name="TaskId" type="xs:unsignedLong" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskRunContext" nillable="true" type="tns:TaskRunContext" />
+  <xs:complexType name="IncarnationParams">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CanExpectMoreFiles" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CommandLine" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExpectedOutputFileNames" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="FilesToCopy" nillable="true" type="tns:ArrayOfTaskFileDescription" />
+      <xs:element minOccurs="0" name="PackageName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserCert" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IncarnationParams" nillable="true" type="tns:IncarnationParams" />
+  <xs:complexType name="ArrayOfTaskFileDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskFileDescription" type="tns:TaskFileDescription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaskFileDescription" nillable="true" type="tns:ArrayOfTaskFileDescription" />
+  <xs:complexType name="TaskFileDescription">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SlotName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StorageId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskFileDescription" nillable="true" type="tns:TaskFileDescription" />
+  <xs:complexType name="ArrayOfNodeConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NodeConfig" type="tns:NodeConfig" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNodeConfig" nillable="true" type="tns:ArrayOfNodeConfig" />
+  <xs:complexType name="NodeConfig">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cores" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="NodeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResourceName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NodeConfig" nillable="true" type="tns:NodeConfig" />
+  <xs:complexType name="TaskStateInfo">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ActionsDuration" nillable="true" type="q2:ArrayOfKeyValueOfstringduration" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ResourceConsuption" nillable="true" type="q3:ArrayOfKeyValueOfstringdouble" />
+      <xs:element minOccurs="0" name="State" type="tns:TaskState" />
+      <xs:element minOccurs="0" name="StateComment" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskStateInfo" nillable="true" type="tns:TaskStateInfo" />
+  <xs:simpleType name="TaskState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Defined" />
+      <xs:enumeration value="ReadyToExecute" />
+      <xs:enumeration value="Scheduled" />
+      <xs:enumeration value="Started" />
+      <xs:enumeration value="Aborted" />
+      <xs:enumeration value="Completed" />
+      <xs:enumeration value="Failed" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TaskState" nillable="true" type="tns:TaskState" />
+  <xs:complexType name="ArrayOfNodeStateInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NodeStateInfo" nillable="true" type="tns:NodeStateInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNodeStateInfo" nillable="true" type="tns:ArrayOfNodeStateInfo" />
+  <xs:complexType name="NodeStateInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:NodeStateResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CoresAvailable" type="xs:int" />
+          <xs:element minOccurs="0" name="CoresCount" type="xs:unsignedInt" />
+          <xs:element minOccurs="0" name="CoresReserved" type="xs:unsignedInt" />
+          <xs:element minOccurs="0" name="ResourceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TasksSubmissionLimit" type="xs:unsignedInt" />
+          <xs:element minOccurs="0" name="TasksSubmitted" type="xs:unsignedInt" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NodeStateInfo" nillable="true" type="tns:NodeStateInfo" />
+  <xs:complexType name="NodeStateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CoresUsed" type="xs:unsignedInt" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DynamicHardwareParams" nillable="true" type="q4:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="NodeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" type="tns:NodeState" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NodeStateResponse" nillable="true" type="tns:NodeStateResponse" />
+  <xs:simpleType name="NodeState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Available" />
+      <xs:enumeration value="Busy" />
+      <xs:enumeration value="Down" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NodeState" nillable="true" type="tns:NodeState" />
+</xs:schema>

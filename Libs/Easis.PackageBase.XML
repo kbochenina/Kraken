@@ -1,0 +1,3091 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Easis.PackageBase</name>
+    </assembly>
+    <members>
+        <member name="T:Easis.PackageBase.Types.TypedValue1">
+            <summary>
+            Class for holding immutable values.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.IConsistencyCheckable">
+            <summary>
+            Interface for classes providing checking theirs own consistency and
+            consistency of their children objects.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.IConsistencyCheckable.CheckConsistency">
+            <summary>
+            Checks consistency and throws an exception if the object is not in a consistent state.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypedValue1.Cast``1">
+            <summary>
+            Casts value to the specified type.
+            </summary>
+            <typeparam name="T">Type to cast to.</typeparam>
+            <returns>Casted value.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypedValue1.#ctor(Easis.PackageBase.Types.TypeDef,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypedValue1.CheckConsistency">
+            <summary>
+            Checks consistency and throw exception if the object is not in consistent state.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypedValue1.CreateVectorValue``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Creates new vector value.
+            </summary>
+            <param name="values">Values of the vector.</param>
+            <param name="fixedSize">Fixed size or 0 for infinite vector.</param>
+            <returns>TypedValue object.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypedValue1.CreateVectorValue``1(Easis.PackageBase.Types.TypeDef,System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Creates new vector value.
+            </summary>
+            <param name="elementType">Type of vector elements.</param>
+            <param name="values">Values of the vector.</param>
+            <param name="fixedSize">Fixed size or 0 for infinite vector.</param>
+            <returns>TypedValue object.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypedValue1.CreateSimpleValue(System.Object)">
+            <summary>
+            Creates new simple value (bool, int, double, string).
+            </summary>
+            <param name="value">Value (bool, int, double, string).</param>
+            <returns>TypedValue object.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypedValue1.Equals(Easis.PackageBase.Types.TypedValue1)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypedValue1.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.PackageBase.Types.TypedValue1.Value">
+            <summary>
+            Gets value.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.TypedValue1.Type">
+            <summary>
+            Gets value type.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.OutParamDef">
+            <summary>
+            Class for package output parameter definition.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.ParamDefBase">
+            <summary>
+            Base class for parameters definition.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.DefBase">
+            <summary>
+            Base class for all definitions (files, params and so on).
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.DisplayEntityBase">
+            <summary>
+            Base implementation of <see cref="T:Easis.PackageBase.Definition.IDisplayEntity"/>.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.IDisplayEntity">
+            <summary>
+            Interface for entities to be displayed somewhere.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IDisplayEntity.Name">
+            <summary>
+            Gets or sets the internal name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IDisplayEntity.DisplayName">
+            <summary>
+            Gets or sets the display name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IDisplayEntity.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.DisplayEntityBase.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.DisplayEntityBase.Name">
+            <summary>
+            Gets or sets internal name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.DisplayEntityBase.DisplayName">
+            <summary>
+            Gets or sets display name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.DisplayEntityBase.Description">
+            <summary>
+            Gets or sets description.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.IDef">
+            <summary>
+            Interface for package definitions.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.IPrettyPrintable">
+            <summary>
+            Interface for classes supporting pretty printing themselves.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.IPrettyPrintable.ToPrettyString(System.Int32)">
+            <summary>
+            Returns pretty formatted string object representation;
+            </summary>
+            <param name="level">Level of indentation.</param>
+            <returns>Pretty string.</returns>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.IDependent">
+            <summary>
+            Interface for definitions dependent on other definitions.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IDependent.Dependencies">
+            <summary>
+            Gets the dependencies list.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IDef.Visibility">
+            <summary>
+            Gets or sets the definition visibility.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IDef.Enabled">
+            <summary>
+            Gets or sets the definition enabled predicate.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.DefBase.CheckConsistency">
+            <summary>
+            Checks consistency and throw an exception if the object is not in a consistent state.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.DefBase.Son(System.Object)">
+            <summary>
+            Returns object.ToString() or <value>null</value> if the object is null.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.DefBase.ToPrettyString(System.Int32)">
+            <summary>
+            Returns pretty formatted string object representation;
+            </summary>
+            <param name="level">Level of indentation.</param>
+            <returns>Pretty string.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.DefBase.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.DefBase.Visibility">
+            <summary>
+            Gets or sets the definition visibility.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.DefBase.Enabled">
+            <summary>
+            Get or sets the predicate determining whether the definition is enabled under current circumstances.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.IParamDef">
+            <summary>
+            Interface for parameter definition.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.IParamDef.Validate(System.Object,Easis.PackageBase.Engine.DynamicContext)">
+            <summary>
+            Validates passed value against condition defined in validator.
+            </summary>
+            <param name="value">Value to validate.</param>
+            <param name="ctx">Dynamic context.</param>
+            <returns>If there's no validator, returns ValidationResult with true value.
+            If there's exception while validation, returns ValueValidationResult with
+            exception message in the Message property.</returns>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IParamDef.ValidationErrorMessage">
+            <summary>
+            Gets or sets the error message on validation error (default is null).
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IParamDef.Type">
+            <summary>
+            Gets or sets the parameter type.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IParamDef.Validator">
+            <summary>
+            Gets or sets the parameter validator.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IParamDef.HasValidator">
+            <summary>
+             Gets whether the ParamDef has a validator.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IParamDef.Evaluator">
+            <summary>
+            Gets or sets the parameter evaluator.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IParamDef.HasEvaluator">
+            <summary>
+             Gets whether the ParamDef has an evaluator.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.ParamDefBase.CheckConsistency">
+            <summary>
+            Checks consistency and throw exception if the object is not in consistent state.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.ParamDefBase.Validate(System.Object,Easis.PackageBase.Engine.DynamicContext)">
+            <summary>
+            Validates passed value against condition defined in validator.
+            </summary>
+            <param name="value">Value to validate.</param>
+            <param name="ctx">Context wrapper.</param>
+            <returns>If there's no validator, returns ValidationResult with true value.
+            If there's exception while validation, returns ValueValidationResult with
+            exception message in the Message property.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.ParamDefBase.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ParamDefBase.ValidationErrorMessage">
+            <summary>
+            Gets or sets error message on validation error.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ParamDefBase.Validator">
+            <summary>
+            Gets or sets parameter validator.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ParamDefBase.Type">
+            <summary>
+            Gets or sets parameter type.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ParamDefBase.OntologyUri">
+            <summary>
+            Gets or sets corresponding ontology uri.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ParamDefBase.Evaluator">
+            <summary>
+            Gets or sets param evaluator.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ParamDefBase.HasEvaluator">
+            <summary>
+             Gets whether the param has evaluator.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ParamDefBase.HasValidator">
+            <summary>
+             Gets whether the param has validator.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.IOutDef">
+            <summary>
+            Interface for output definitions.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IOutDef.Expected">
+            <summary>
+            Gets or sets the expected predicate.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.OutParamDef.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.OutParamDef.Expected">
+            <summary>
+            Gets or sets the expected predicate.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.OutFileDef">
+            <summary>
+            Class for output file definition.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.FileDefBase">
+            <summary>
+            Base class for package file definition.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.IFileDef">
+            <summary>
+            Interface for file definitions.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IFileDef.Path">
+            <summary>
+            Gets or sets the relative directory path for placing or looking for
+            the file in (default is an empty string).
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IFileDef.Assembler">
+            <summary>
+            Gets or sets the file assembler (default is null).
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IFileDef.HasExtractor">
+            <summary>
+             Gets whether the FileDef has an extractor.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IFileDef.HasAssembler">
+            <summary>
+            Gets whether the FileDef has a assembler.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IFileDef.Extractor">
+            <summary>
+            Gets or sets the file extractor (default is null).
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IFileDef.ExpectedName">
+            <summary>
+            Gets or sets the expected name for the file (ie. when package requires specific file name, eg. input.txt).
+            Default value is null (ie. package doesn't expect any specific name for the file).
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IFileDef.IsPackage">
+            <summary>
+            Gets whether the file is a real package input or output.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.FileDefBase.ToPrettyString(System.Int32)">
+            <summary>
+            Returns pretty formatted string object representation;
+            </summary>
+            <param name="level">Level of indentation.</param>
+            <returns>Pretty string.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.FileDefBase.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.FileDefBase.CheckConsistency">
+            <summary>
+            Checks consistency and throw exception if the object is not in consistent state.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.FileDefBase.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.FileDefBase.Path">
+            <summary>
+            Gets or sets relative directory path for placing or searching file in (default is empty string).
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.FileDefBase.Assembler">
+            <summary>
+            Gets or sets the file compiler (default is null).
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.FileDefBase.HasExtractor">
+            <summary>
+             Gets whether the filedef has extractor.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.FileDefBase.HasAssembler">
+            <summary>
+            Gets whether the fildef has compiler.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.FileDefBase.Extractor">
+            <summary>
+            Gets or sets file extractor (default is null).
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.FileDefBase.ExpectedName">
+            <summary>
+            Gets or sets expected name for the file (ie. when package requires specific file name, eg. input.txt).
+            Default value is null (ie. package doesn't expect any specific name for the file).
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.IOutFileDef">
+            <summary>
+            Interface for output file definitions.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.IFileMatcher">
+            <summary>
+            Interface for objects matching files.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.IFileMatcher.FileNameMatches(System.String)">
+            <summary>
+            Determines whether the file name matches the definition condition (using Path and ExpectedName).
+            </summary>
+            <param name="fileName">File name.</param>
+            <returns>Matches / doesn't match.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.OutFileDef.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.OutFileDef.FileNameMatches(System.String)">
+            <summary>
+            Determines whether the file name matches the definition condition.
+            </summary>
+            <param name="fileName">File name.</param>
+            <returns>Matches / doesn't match.</returns>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.OutFileDef.IsPackage">
+            <summary>
+            Gets whether the file is a real package input or output.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.ObjectEvaluator">
+            <summary>
+            Evaluates the value from the context.
+            </summary>
+            <param name="ctx">Compilation context.</param>
+            <returns>Evaluated value.</returns>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.TypedValues">
+            <summary>
+            Collection of typed values.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.TypedValues.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+            <filterpriority>1</filterpriority>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.TypedValues.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.TypedValues.Item(System.String)">
+            <summary>
+            Gets typed value by parameter name.
+            </summary>
+            <param name="paramName">Parameter name.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.ErrorType">
+            <summary>
+            Enum for error location.
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Engine.ErrorType.ParentNotSetError">
+            <summary>
+            Can't evaluate parameter: parent parameter not set.
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Engine.ErrorType.TypeError">
+            <summary>
+            Error in value type.
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Engine.ErrorType.ValidationError">
+            <summary>
+            Error of validation (value is not valid).
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Engine.ErrorType.Unknown">
+            <summary>
+            Unknown error.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.DependencyList">
+            <summary>
+            Class for representing definition dependency list.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Types.TypeDef">
+            <summary>
+            Base class for type definitions.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypeDef.CreateEnum(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates enum type with specified values.
+            </summary>
+            <param name="values">Values.</param>
+            <returns>EnumType instance.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypeDef.RealCanAssign(System.Type)">
+            <summary>
+            Determines whether value of passed CLR type can be assigned to the value of this type.
+            </summary>
+            <param name="type">Type definition.</param>
+            <returns>Can / can't.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypeDef.RealNormalizeCheckedValue(System.Object)">
+            <summary>
+            When overriden an descendants, casts the passed value to the stored type. It's assumed that the value is not null and has already been checked.
+            </summary>
+            <param name="value">Value to normalize.</param>
+            <returns>Normalized value.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypeDef.CanAssignType(Easis.PackageBase.Types.TypeDef)">
+            <summary>
+            Determines whether value of passed type can be assigned to the value of this type.
+            </summary>
+            <param name="type">Type definition.</param>
+            <returns>Can / can't.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypeDef.CanAssignType(System.Type)">
+            <summary>
+            Determines whether value of passed CLR type can be assigned to the value of this type.
+            </summary>
+            <param name="type">Type definition to check.</param>
+            <returns>Can / can't.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypeDef.Cast``1(System.Object)">
+            <summary>
+            Casts object to the specified type.
+            </summary>
+            <typeparam name="T">Type to cast to.</typeparam>
+            <param name="value">Value to cast.</param>
+            <returns>Casted value.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypeDef.CanAssign``1">
+            <summary>
+            Determines whether value of passed CLR type can be assigned to the value of this type.
+            </summary>
+            <typeparam name="T">Type to check.</typeparam>
+            <returns>Can / can't.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypeDef.CanAssignValue(System.Object)">
+            <summary>
+            Determines whether the passed value can be assigned to the value of this type.
+            </summary>
+            <param name="value">Value to check.</param>
+            <returns>Can / can't.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypeDef.GetTypeDef(System.Object)">
+            <summary>
+            Returns specific type definition for the passed object.
+            </summary>
+            <param name="value">Object.</param>
+            <returns>Type definition.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypeDef.GetAppropriateType(System.Type)">
+            <summary>
+            Returns specific type definition for the passed CLR type.
+            It returns:
+             * for int, short and long -- IntType;
+             * for double and float -- DoubleType;
+             * for string -- StringType.
+            
+            This method can never return EnumType as it must be defined by it's values each time.
+            </summary>
+            <param name="type">CLR type.</param>
+            <returns>Type definition.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypeDef.GetAppropriateType``1">
+            <summary>
+            Returns specific type definition for the passed type.
+            </summary>
+            <typeparam name="T">Type.</typeparam>
+            <returns>Type definition.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypeDef.Equals(Easis.PackageBase.Types.TypeDef)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypeDef.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Easis.PackageBase.Types.TypeDef.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.PackageBase.Types.TypeDef.IsNullable">
+            <summary>
+            Gets whether values of this type can contain null.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.TypeDef.Name">
+            <summary>
+            Gets type short name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.TypeDef.DisplayName">
+            <summary>
+            Gets type display name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.TypeDef.Description">
+            <summary>
+            Gets type textual description.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.TypeDef.Int">
+            <summary>
+            Gets IntType instance.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.TypeDef.Double">
+            <summary>
+            Gets DoubleType instance.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.TypeDef.String">
+            <summary>
+            Get StringType instance.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.TypeDef.Bool">
+            <summary>
+            Gets BoolType instance.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.TypeDef.DateTime">
+            <summary>
+            Gets DateTime instance.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.BoolType.Name">
+            <summary>
+            Gets type short name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.BoolType.DisplayName">
+            <summary>
+            Gets type display name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.BoolType.Description">
+            <summary>
+            Gets type textual description.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.BoolType.Instance">
+            <summary>
+            Returns a singleton instance of the BoolType class.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Tree.IGraphEdge`1">
+            <summary>
+            An interface for the tree edges.
+            </summary>
+            <typeparam name="TNode">Type of the node.</typeparam>
+        </member>
+        <member name="P:Easis.PackageBase.Tree.IGraphEdge`1.Source">
+            <summary>
+            Gets the source node of the edge.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Tree.IGraphEdge`1.Target">
+            <summary>
+            Gets the target node of the edge.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.DynamicContextWrapper">
+            <summary>
+            Dynamic wrapper for PackageEngineContext.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.DynamicContext">
+            <summary>
+            Class for dynamic context.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.DynamicContext.Create(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            
+            </summary>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.DynamicContext.Create(Easis.PackageBase.Engine.PackageEngineContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.DynamicContext.TryGetMember(System.Dynamic.GetMemberBinder,System.Object@)">
+            <summary>
+            Provides the implementation for operations that get member values. Classes derived from the <see cref="T:System.Dynamic.DynamicObject"/> class can override this method to specify dynamic behavior for operations such as getting a value for a property.
+            </summary>
+            <returns>
+            true if the operation is successful; otherwise, false. If this method returns false, the run-time binder of the language determines the behavior. (In most cases, a run-time exception is thrown.)
+            </returns>
+            <param name="binder">Provides information about the object that called the dynamic operation. The binder.Name property provides the name of the member on which the dynamic operation is performed. For example, for the Console.WriteLine(sampleObject.SampleProperty) statement, where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject"/> class, binder.Name returns "SampleProperty". The binder.IgnoreCase property specifies whether the member name is case-sensitive.</param><param name="result">The result of the get operation. For example, if the method is called for a property, you can assign the property value to <paramref name="result"/>.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.DynamicContext.TrySetMember(System.Dynamic.SetMemberBinder,System.Object)">
+            <summary>
+            Provides the implementation for operations that set member values. Classes derived from the <see cref="T:System.Dynamic.DynamicObject"/> class can override this method to specify dynamic behavior for operations such as setting a value for a property.
+            </summary>
+            <returns>
+            true if the operation is successful; otherwise, false. If this method returns false, the run-time binder of the language determines the behavior. (In most cases, a language-specific run-time exception is thrown.)
+            </returns>
+            <param name="binder">Provides information about the object that called the dynamic operation. The binder.Name property provides the name of the member to which the value is being assigned. For example, for the statement sampleObject.SampleProperty = "Test", where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject"/> class, binder.Name returns "SampleProperty". The binder.IgnoreCase property specifies whether the member name is case-sensitive.</param><param name="value">The value to set to the member. For example, for sampleObject.SampleProperty = "Test", where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject"/> class, the <paramref name="value"/> is "Test".</param>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.DynamicContext.Item(System.String)">
+            <summary>
+            Gets or sets specific data with name.
+            </summary>
+            <param name="name">Name for the data piece.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.DynamicContextWrapper.TryGetMember(System.Dynamic.GetMemberBinder,System.Object@)">
+            <summary>
+            Provides the implementation for operations that get member values. Classes derived from the <see cref="T:System.Dynamic.DynamicObject"/> class can override this method to specify dynamic behavior for operations such as getting a value for a property.
+            </summary>
+            <returns>
+            true if the operation is successful; otherwise, false. If this method returns false, the run-time binder of the language determines the behavior. (In most cases, a run-time exception is thrown.)
+            </returns>
+            <param name="binder">Provides information about the object that called the dynamic operation. The binder.Name property provides the name of the member on which the dynamic operation is performed. For example, for the Console.WriteLine(sampleObject.SampleProperty) statement, where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject"/> class, binder.Name returns "SampleProperty". The binder.IgnoreCase property specifies whether the member name is case-sensitive.</param><param name="result">The result of the get operation. For example, if the method is called for a property, you can assign the property value to <paramref name="result"/>.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.DynamicContextWrapper.TryInvokeMember(System.Dynamic.InvokeMemberBinder,System.Object[],System.Object@)">
+            <summary>
+            Provides the implementation for operations that invoke a member. Classes derived from the <see cref="T:System.Dynamic.DynamicObject"/> class can override this method to specify dynamic behavior for operations such as calling a method.
+            </summary>
+            <returns>
+            true if the operation is successful; otherwise, false. If this method returns false, the run-time binder of the language determines the behavior. (In most cases, a language-specific run-time exception is thrown.)
+            </returns>
+            <param name="binder">Provides information about the dynamic operation. The binder.Name property provides the name of the member on which the dynamic operation is performed. For example, for the statement sampleObject.SampleMethod(100), where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject"/> class, binder.Name returns "SampleMethod". The binder.IgnoreCase property specifies whether the member name is case-sensitive.</param><param name="args">The arguments that are passed to the object member during the invoke operation. For example, for the statement sampleObject.SampleMethod(100), where sampleObject is derived from the <see cref="T:System.Dynamic.DynamicObject"/> class, <paramref name="args[0]"/> is equal to 100.</param><param name="result">The result of the member invocation.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.DynamicContextWrapper.TrySetMember(System.Dynamic.SetMemberBinder,System.Object)">
+            <summary>
+            Provides the implementation for operations that set member values. Classes derived from the <see cref="T:System.Dynamic.DynamicObject"/> class can override this method to specify dynamic behavior for operations such as setting a value for a property.
+            </summary>
+            <returns>
+            true if the operation is successful; otherwise, false. If this method returns false, the run-time binder of the language determines the behavior. (In most cases, a language-specific run-time exception is thrown.)
+            </returns>
+            <param name="binder">Provides information about the object that called the dynamic operation. The binder.Name property provides the name of the member to which the value is being assigned. For example, for the statement sampleObject.SampleProperty = "Test", where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject"/> class, binder.Name returns "SampleProperty". The binder.IgnoreCase property specifies whether the member name is case-sensitive.</param><param name="value">The value to set to the member. For example, for sampleObject.SampleProperty = "Test", where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject"/> class, the <paramref name="value"/> is "Test".</param>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.DynamicContextWrapper.#ctor(Easis.PackageBase.Engine.PackageEngineContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.ScriptLevel.OldSchoolTemplateAssembler">
+            <summary>
+            Class for assembling files using old-scholl HPC-NASIS template system.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.ScriptLevel.TemplateAssembler">
+            <summary>
+            Base class for file assemblers from template.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.ScriptLevel.StringAssembler">
+            <summary>
+            Base class for file assemblers from string.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.IFileAssembler">
+            <summary>
+            Interface for file compilers.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.IFileAssembler.AssembleFile(System.IO.Stream,Easis.PackageBase.Definition.IFileDef,Easis.PackageBase.Engine.DynamicContext)">
+            <summary>
+            Compiles file and puts it into stream.
+            </summary>
+            <param name="stream">Stream to write to.</param>
+            <param name="fileDef">File definition that is compiled.</param>
+            <param name="ctx">Compilation context.</param>
+            <returns>Compiled file size.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.ScriptLevel.StringAssembler.AssembleFile(System.IO.Stream,Easis.PackageBase.Definition.IFileDef,Easis.PackageBase.Engine.DynamicContext)">
+            <summary>
+            Compiles file and puts it into stream.
+            </summary>
+            <param name="stream">Stream to write to.</param>
+            <param name="fileDef">File definition that is compiled.</param>
+            <param name="ctx">Compilation context.</param>
+        </member>
+        <member name="M:Easis.PackageBase.ScriptLevel.StringAssembler.Compile(Easis.PackageBase.Engine.DynamicContext)">
+            <summary>
+            Returns compiled string to be inserted into file.
+            </summary>
+            <param name="ctx">Dynamic context.</param>
+            <returns>Compiled string.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.ScriptLevel.TemplateAssembler.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.ScriptLevel.TemplateAssembler.#ctor(System.String)">
+            <summary>
+            Constructor with template.
+            </summary>
+            <param name="template">Template string.</param>
+        </member>
+        <member name="P:Easis.PackageBase.ScriptLevel.TemplateAssembler.Template">
+            <summary>
+            Gets or sets used template.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.ScriptLevel.OldSchoolTemplateAssembler.#ctor(System.String)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="template"></param>
+        </member>
+        <member name="M:Easis.PackageBase.ScriptLevel.OldSchoolTemplateAssembler.Compile(Easis.PackageBase.Engine.DynamicContext)">
+            <summary>
+            Returns compiled string to be inserted into file.
+            </summary>
+            <param name="ctx">Dynamic context.</param>
+            <returns>Compiled string.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.ScriptLevel.OldSchoolTemplateAssembler.CompileTemplate(Easis.PackageBase.Engine.DynamicContext)">
+            <summary>
+            Compiles using template.
+            </summary>
+            <param name="ctxDyn">Dynamic context.</param>
+            <returns>Compiled string.</returns>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.IInParamDef">
+            <summary>
+            Interface for input parameter definitions.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.IInDef">
+            <summary>
+            Interface for input package definitions.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IInDef.Required">
+            <summary>
+            Gets or sets the required predicate.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IInParamDef.Default">
+            <summary>
+            Gets or sets the default value of the parameter.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IInParamDef.HasDefault">
+            <summary>
+            Gets whether the parameter has the default value.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Common.DictionaryExtensions">
+            <summary>
+            Dictionary extensions.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Common.DictionaryExtensions.Clone``2(System.Collections.Generic.Dictionary{``0,``1})">
+            <summary>
+            Clones dictionary and all of it's elements (those implementing ICloneable are to be cloned).
+            </summary>
+            <param name="dict">Dictionary to clone.</param>
+            <typeparam name="T1">Key type.</typeparam>
+            <typeparam name="T2">Value type.</typeparam>
+            <returns>Cloned dictionary.</returns>
+        </member>
+        <member name="T:Easis.PackageBase.Types.ListType">
+            <summary>
+            Vector type.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Types.ListType.RealCanAssign(System.Type)">
+            <summary>
+            Determines whether value of passed CLR type can be assigned to the value of this type.
+            </summary>
+            <param name="type">Type definition.</param>
+            <returns>Can / can't.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.ListType.CanAssignType(Easis.PackageBase.Types.TypeDef)">
+            <summary>
+            Determines whether value of passed type can be assigned to the value of this type.
+            </summary>
+            <param name="type">Type definition.</param>
+            <returns>Can / can't.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.ListType.#ctor(Easis.PackageBase.Types.TypeDef)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Easis.PackageBase.Types.ListType"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Types.ListType.#ctor(Easis.PackageBase.Types.TypeDef,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Easis.PackageBase.Types.ListType"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Types.ListType.Equals(Easis.PackageBase.Types.ListType)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Types.ListType.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.PackageBase.Types.ListType.FixedSize">
+            <summary>
+            Gets fixed size of a vector. If FixedSize=0 vector is considered as infinite.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.ListType.ElementType">
+            <summary>
+            Gets typedef of vector elements.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.ListType.Name">
+            <summary>
+            Gets type short name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.ListType.DisplayName">
+            <summary>
+            Gets type display name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.ListType.Description">
+            <summary>
+            Gets type textual description.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Types.StringType.CanAssignType(Easis.PackageBase.Types.TypeDef)">
+            <summary>
+            Determines whether value of passed type can be assigned to the value of this type.
+            </summary>
+            <param name="type">Type definition.</param>
+            <returns>Can / can't.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.StringType.RealCanAssign(System.Type)">
+            <summary>
+            Determines whether value of passed CLR type can be assigned to the value of this type.
+            </summary>
+            <param name="type">Type definition.</param>
+            <returns>Can / can't.</returns>
+        </member>
+        <member name="P:Easis.PackageBase.Types.StringType.Name">
+            <summary>
+            Gets type short name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.StringType.DisplayName">
+            <summary>
+            Gets type display name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.StringType.Description">
+            <summary>
+            Gets type textual description.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.StringType.Instance">
+            <summary>
+            Returns a singleton instance of the StringType class.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Tree.GraphEdgeBase`1">
+            <summary>
+            Class for representing the edges of dependance tree.
+            </summary>
+            <typeparam name="TNode">Type of the node.</typeparam>
+        </member>
+        <member name="M:Easis.PackageBase.Tree.GraphEdgeBase`1.#ctor(`0,`0)">
+            <summary>
+            Constructor with source and target.
+            </summary>
+            <param name="source">Source node of the edge.</param>
+            <param name="target">Target node of the edge</param>
+        </member>
+        <member name="P:Easis.PackageBase.Tree.GraphEdgeBase`1.Source">
+            <summary>
+            Gets the source node of the edge.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Tree.GraphEdgeBase`1.Target">
+            <summary>
+            Gets the target node of the edge.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.PackageEngineMessageType">
+            <summary>
+            Compilation message type.
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Engine.PackageEngineMessageType.Info">
+            <summary>
+            Information message.
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Engine.PackageEngineMessageType.Warning">
+            <summary>
+            Warning message.
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Engine.PackageEngineMessageType.Error">
+            <summary>
+            Error message.
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Engine.PackageEngineMessageType.Fatal">
+            <summary>
+            Fatal error message.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.ScriptLevel.ContentAssembler">
+            <summary>
+            Class for assembling file from fixed content.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.ScriptLevel.ContentAssembler.#ctor(System.String)">
+            <summary>
+            Constructor with content.
+            </summary>
+            <param name="fileContent"></param>
+        </member>
+        <member name="M:Easis.PackageBase.ScriptLevel.ContentAssembler.Compile(Easis.PackageBase.Engine.DynamicContext)">
+            <summary>
+            Returns compiled string to be inserted into file.
+            </summary>
+            <param name="ctx">Dynamic context.</param>
+            <returns>Compiled string.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.IOutputFileManager.OutputFileOpenWrite(Easis.PackageBase.Definition.IOutFileDef,Easis.PackageBase.Engine.DynamicContext)">
+            <summary>
+            Opens stream for compiling input file in write mode (for assembling input file).
+            </summary>
+            <returns>Open stream.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.IOutputFileManager.OutputFileOpenRead(Easis.PackageBase.Definition.IOutFileDef,System.String,Easis.PackageBase.Engine.DynamicContext)">
+            <summary>
+            Opens stream for input file in read mode (for using input file as a source for another,
+            extracting values and so on).
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.IOutputFileManager.OutputFileCopy(Easis.PackageBase.Definition.IOutFileDef,System.String,Easis.PackageBase.Engine.DynamicContext)">
+            <summary>
+            Copies output file to datastorage.
+            </summary>
+            <param name="fileDef">File definition (can be null).</param>
+            <param name="filePath">File path to copy.</param>
+            <param name="ctx"></param>
+        </member>
+        <member name="T:Easis.PackageBase.ScriptLevel.StreamCopyHelper">
+            <summary>
+            Helper class for copying one stream to another.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.ScriptLevel.StreamCopyHelper.Copy(System.IO.Stream,System.IO.Stream,System.Int32)">
+            <summary>
+            Copies all bytes from source source to destination stream.<br/>
+            This method doesn't close streams: you should do it by yourself.
+            </summary>
+            <param name="source">Source stream.</param>
+            <param name="destination">Destination stream.</param>
+            <param name="bufferSize">Buffer size in bytes.</param>
+            <returns>Bytes copied.</returns>
+        </member>
+        <member name="P:Easis.PackageBase.Types.IntType.Name">
+            <summary>
+            Gets type short name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.IntType.DisplayName">
+            <summary>
+            Gets type display name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.IntType.Description">
+            <summary>
+            Gets type textual description.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.IntType.Instance">
+            <summary>
+            Returns a singleton instance of the IntType class.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Tree.Graph`2">
+            <summary>
+            Class for representing dependance tree.
+            </summary>
+            <typeparam name="TNode">Type of nodes.</typeparam>
+            <typeparam name="TEdge">Type of edges (must be IGraphEdge[TNode]).</typeparam>
+        </member>
+        <member name="M:Easis.PackageBase.Tree.Graph`2.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Tree.Graph`2.AddNode(`0)">
+            <summary>
+            Adds a <paramref name="node"/> to the tree if it's not there.
+            </summary>
+            <param name="node">The node to add.</param>
+            <exception cref="T:System.ArgumentException">Thrown on attempt of adding already exisiting node.</exception>
+        </member>
+        <member name="M:Easis.PackageBase.Tree.Graph`2.AddNodes(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Adds <paramref name="nodes"/> collection of nodes to the tree.
+            </summary>
+            <param name="nodes">Nodes collection.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="nodes"/> is null.</exception>
+        </member>
+        <member name="M:Easis.PackageBase.Tree.Graph`2.AddEdge(`1)">
+            <summary>
+            Adds <paramref name="edge"/> to the tree.
+            </summary>
+            <param name="edge">The edge to add.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when the <paramref name="edge"/> is null.</exception>
+        </member>
+        <member name="M:Easis.PackageBase.Tree.Graph`2.AddEdges(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Adds edges to the graph.
+            </summary>
+            <param name="edges">Edges to add.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Tree.Graph`2.AddEdgesAndNodes(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Adds edges and corresponding nodes if they don't exist.
+            </summary>
+            <param name="edges">Edges to add.</param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:Easis.PackageBase.Tree.Graph`2.HasNode(`0)">
+            <summary>
+            Returns whether the tree has the <paramref name="node"/>.
+            </summary>
+            <param name="node">The node to check.</param>
+            <returns>True if the node exists, false otherwise.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Tree.Graph`2.HasEdge(`0,`0)">
+            <summary>
+            Returns whether the tree has the edge from <paramref name="source"/> to <paramref name="target"/>.
+            </summary>
+            <param name="source"></param>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Easis.PackageBase.Tree.Graph`2.EqualityFunc">
+            <summary>
+            Gets or sets equality function for nodes.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Tree.Graph`2.Nodes">
+            <summary>
+            Gets IEnumerable of nodes.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Tree.Graph`2.Edges">
+            <summary>
+            Gets IEnumerable of edges.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.ModeDef">
+            <summary>
+            Top-level class for package definition.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.ModeDefBase">
+            <summary>
+             Package definition base class.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.ModeDefBase.CheckConsistency">
+            <summary>
+            Checks consistency and throws exception if the object is not in consistent state.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.ModeDefBase.ToPrettyString(System.Int32)">
+            <summary>
+            Returns pretty formatted string object representation;
+            </summary>
+            <param name="level">Level of indentation.</param>
+            <returns>Pretty string.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.ModeDefBase.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ModeDefBase.ModeQName">
+            <summary>
+            Gets or sets mode qualified name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ModeDefBase.CmdLineCompiler">
+            <summary>
+            Gets or sets cmd line compiler.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ModeDefBase.Version">
+            <summary>
+            Gets or sets version of the package.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ModeDefBase.Url">
+            <summary>
+            Gets or sets url of the package.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ModeDefBase.Vendor">
+            <summary>
+            Gets or sets vendor of the package.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ModeDefBase.License">
+            <summary>
+            Gets or sets license of the package.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ModeDefBase.DisplayName">
+            <summary>
+            Gets or sets display name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ModeDefBase.Description">
+            <summary>
+            Gets or sets description.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ModeDefBase.ParentMode">
+            <summary>
+            Gets parent mode name.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.ModeDef.CheckConsistency">
+            <summary>
+            Checks consistency and throws exception if the object is not in consistent state.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.ModeDef.ToPrettyString(System.Int32)">
+            <summary>
+            Returns pretty formatted string object representation;
+            </summary>
+            <param name="level">Level of indentation.</param>
+            <returns>Pretty string.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.ModeDef.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.ModeDef.#ctor(Easis.PackageBase.Definition.ModeQName,Easis.PackageBase.Definition.ModeQName)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="modeQName">Mode qualified name.</param>
+            <param name="parentModeQName">Parent mode qualified name.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.ModeDef.ParamStringsToObjects(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+             
+            </summary>
+            <param name="inParams"></param>
+            <returns></returns>
+            <exception cref="T:Easis.PackageBase.PackageCompilationException"></exception>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ModeDef.Defs">
+            <summary>
+            Gets or sets the list of package parameters definitions.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.Memory">
+            <summary>
+            Package compiler operative memory.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.Memory.ContainsVar(System.String)">
+            <summary>
+            Returns whether the memory contains var with specified <paramref name="name"/>.
+            </summary>
+            <param name="name">Var name to lookup.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when name is null.</exception>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.Memory.Item(System.String)">
+            <summary>
+            Gets the value of parameter (in or out) or file.
+            </summary>
+            <param name="name">Parameter name.</param>
+            <returns>Parameter value.</returns>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.Memory.Item(Easis.PackageBase.Definition.IDef)">
+            <summary>
+            Gets the value of parameter (in or out) or file.
+            </summary>
+            <param name="def">Definition to get memory entry for.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="def"/> is null.</exception>
+        </member>
+        <member name="T:Easis.PackageBase.ScriptLevel.BytesAssembler">
+            <summary>
+            Class for file assembling from bytes array.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.ScriptLevel.BytesAssembler.#ctor(System.Byte[])">
+            <summary>
+            Constructor with bytes.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.ScriptLevel.BytesAssembler.AssembleFile(System.IO.Stream,Easis.PackageBase.Definition.IFileDef,Easis.PackageBase.Engine.DynamicContext)">
+            <summary>
+            Compiles file and puts it into stream.
+            </summary>
+            <param name="stream">Stream to write to.</param>
+            <param name="fileDef">File definition that is compiled.</param>
+            <param name="ctx">Compilation context.</param>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.InterpreterDynamicContext">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.InterpreterDynamicContext.TryGetMember(System.Dynamic.GetMemberBinder,System.Object@)">
+            <summary>
+            Provides the implementation for operations that get member values. Classes derived from the <see cref="T:System.Dynamic.DynamicObject"/> class can override this method to specify dynamic behavior for operations such as getting a value for a property.
+            </summary>
+            <returns>
+            true if the operation is successful; otherwise, false. If this method returns false, the run-time binder of the language determines the behavior. (In most cases, a run-time exception is thrown.)
+            </returns>
+            <param name="binder">Provides information about the object that called the dynamic operation. The binder.Name property provides the name of the member on which the dynamic operation is performed. For example, for the Console.WriteLine(sampleObject.SampleProperty) statement, where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject"/> class, binder.Name returns "SampleProperty". The binder.IgnoreCase property specifies whether the member name is case-sensitive.</param><param name="result">The result of the get operation. For example, if the method is called for a property, you can assign the property value to <paramref name="result"/>.</param>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.DependencyGraphBase`2">
+            <summary>
+            Class for dependency Graph.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.DependencyGraphBase`2.DFS(`0,System.Func{`0,System.Collections.Generic.IEnumerable{`1}},System.Action{`0},System.Action{`0},System.Func{`0,System.Boolean},System.Func{`0,System.Boolean})">
+            <summary>
+            Performs DFS traversal.
+            </summary>
+            <param name="rootNode"></param>
+            <param name="onNodeStart"></param>
+            <param name="onNodeFinish"></param>
+            <param name="onCheckUseNode"></param>
+            <param name="onCheckExit"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.DependencyGraphBase`2.DFSTraversal">
+            <summary>
+            Class for edge of dependency Graph.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Tree.DFSTraversal`2">
+            <summary>
+            DFS traversal algorithm.
+            </summary>
+            <typeparam name="TNode">Node type.</typeparam>
+            <typeparam name="TEdge">Edge type.</typeparam>
+        </member>
+        <member name="M:Easis.PackageBase.Tree.DFSTraversal`2.#ctor(Easis.PackageBase.Tree.Graph{`0,`1},System.Boolean)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="graph">Graph to traverse.</param>
+            <param name="isBidirectional">Treat <paramref name="graph"/> as undirected.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="graph"/> is null.</exception>
+        </member>
+        <member name="M:Easis.PackageBase.Tree.DFSTraversal`2.Do(`0)">
+            <summary>
+            Performs DFS traversal.
+            </summary>
+            <param name="rootNode"></param>
+        </member>
+        <member name="P:Easis.PackageBase.Tree.DFSTraversal`2.NodeStart">
+            <summary>
+            Delegate on node processing start.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Tree.TopologicalSort`2">
+            <summary>
+            Class for performing topological sort on a Graph.
+            </summary>
+            <typeparam name="TNode">Node type.</typeparam>
+            <typeparam name="TEdge">Edge type.</typeparam>
+        </member>
+        <member name="M:Easis.PackageBase.Tree.TopologicalSort`2.#ctor(Easis.PackageBase.Tree.Graph{`0,`1})">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="graph">Graph to sort.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Tree.TopologicalSort`2.Sort">
+            <summary>
+            Makes topological sorting.
+            </summary>
+            <returns>Sorted list of nodes.</returns>
+        </member>
+        <member name="P:Easis.PackageBase.Types.DoubleType.Name">
+            <summary>
+            Gets type short name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.DoubleType.DisplayName">
+            <summary>
+            Gets type display name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.DoubleType.Description">
+            <summary>
+            Gets type textual description.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.DoubleType.Instance">
+            <summary>
+            Returns a singleton instance of the DoubleType class.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Types.DateTimeType">
+            <summary>
+             Class for date time type.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Types.DateTimeType.CanAssignType(Easis.PackageBase.Types.TypeDef)">
+            <summary>
+            Determines whether value of passed type can be assigned to the value of this type.
+            </summary>
+            <param name="type">Type definition.</param>
+            <returns>Can / can't.</returns>
+        </member>
+        <member name="P:Easis.PackageBase.Types.DateTimeType.Name">
+            <summary>
+            Gets type short name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.DateTimeType.DisplayName">
+            <summary>
+            Gets type display name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.DateTimeType.Description">
+            <summary>
+            Gets type textual description.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.DateTimeType.Instance">
+            <summary>
+             Gets an instance of DateTimeType.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.PackageBaseException">
+            <summary>
+            Base exception class for errors from package base.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.PackageBaseException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Exception"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.PackageBaseException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Exception"/> class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error. </param>
+        </member>
+        <member name="M:Easis.PackageBase.PackageBaseException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Exception"/> class with a specified error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception. </param><param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified. </param>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.PackageEngineMode">
+            <summary>
+            Enum for package assembling mode.
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Engine.PackageEngineMode.Compile">
+            <summary>
+            Really compile.
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Engine.PackageEngineMode.DryRun">
+            <summary>
+            Just check.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Client.IScriptFilesLoader">
+            <summary>
+            Interface for ruby script which enables library, text and binary loading from repository
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Client.IScriptFilesLoader.GetPackage(Easis.PackageBase.Client.PackageIdentifier)">
+            <summary>
+            ex: orca
+            </summary>
+            <param name="packageIdentifier"></param>
+            <returns>returns package def script</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Client.IScriptFilesLoader.GetLib(System.String)">
+            <summary>
+            ex: erb.rb
+            </summary>
+            <param name="name"></param>
+            <returns>lib script</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Client.IScriptFilesLoader.GetPackageFileAsText(Easis.PackageBase.Client.PackageIdentifier,System.String)">
+            <summary>
+            ex: for templatex
+            </summary>
+            <param name="packageName"></param>
+            <param name="textFilePath">ocra.template</param>
+            <returns>text of file</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Client.IScriptFilesLoader.GetPackageFileAsBin(Easis.PackageBase.Client.PackageIdentifier,System.String)">
+            <summary>
+            ex: for images
+            </summary>
+            <param name="packageIdentifier"></param>
+            <param name="textFilePath">img.png</param>
+            <returns>stream of file</returns>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.MemoryEntry">
+            <summary>
+            Class for holding memory entries.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.MemoryEntry.Unset">
+            <summary>
+            Unsets the definition's value.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.MemoryEntry.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="varName">Definition name.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.MemoryEntry.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.MemoryEntry.Equals(Easis.PackageBase.Engine.MemoryEntry)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.MemoryEntry.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.MemoryEntry.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.MemoryEntry.UserValue">
+            <summary>
+            Gets the user-set value.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.MemoryEntry.ErrorStatus">
+            <summary>
+            Gets the error status.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.MemoryEntry.IsParentError">
+            <summary>
+            Gets whether the memory entry is in parent error state.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.MemoryEntry.ParentErrorTrace">
+            <summary>
+            Gets the parent parameter in which error occured (null if no error).
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.MemoryEntry.ErrorType">
+            <summary>
+            Gets the error location.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.MemoryEntry.Message">
+            <summary>
+            Gets the string details for the current status.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.MemoryEntry.HasMessage">
+            <summary>
+            Gets whether the message for the status is present (not null).
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.MemoryEntry.IsError">
+            <summary>
+            Gets whether the entry is in error state.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.MemoryEntry.IsAnyErorr">
+            <summary>
+            Gets whether the entry has any error (normal or parent error).
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.MemoryEntry.VarName">
+            <summary>
+            Gets the var name for which this state is.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.MemoryEntry.IsEnabled">
+            <summary>
+            Gets whether the definition is enabled.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.MemoryEntry.IsRequiredOrExpected">
+            <summary>
+            Gets whether the definition is currently required (for inputs) or expected (for outputs).
+            False when !IsEnabled.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.MemoryEntry.IsSet">
+            <summary>
+            Gets whether the definition is set (false if !IsEnabled).
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.MemoryEntry.Value">
+            <summary>
+            Gets the value of definition.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.ErrorStatus">
+            <summary>
+            Enum for error status.
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Engine.ErrorStatus.Warning">
+            <summary>
+            Warning.
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Engine.ErrorStatus.Error">
+            <summary>
+            Error.
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Engine.ErrorStatus.Ok">
+            <summary>
+            Ok.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.DefDependencyGraph">
+            <summary>
+            Class for definitions dependency Graph.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.DefDependencyGraph.Item(System.String)">
+            <summary>
+            Gets node by its name.
+            </summary>
+            <param name="nodeName">Node name to search.</param>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.OutFileGroupDefBase">
+            <summary>
+             Base class for output file group definition.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.OutFileGroupDefBase.FileNameMatches(System.String)">
+            <summary>
+            Determines whether the file matches group condition.
+            </summary>
+            <param name="fileName">File name.</param>
+            <returns>Matches / doesn't match.</returns>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.ValueWithDispersion`1">
+            <summary>
+            Check IsSet
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.ModelEstimation">
+            <summary>
+            Estimation object. Is returned from package description (ruby code).
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.ModelEstimation.#ctor">
+            <summary>
+            Constructor creates all internal objects to reduce ruby code size
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ModelEstimation.CalculationTime">
+            <summary>
+            Time of calculation
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ModelEstimation.TotalOutputFileSize">
+            <summary>
+            Estimated summarized file size in bytes
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ModelEstimation.OutputFileSize">
+            <summary>
+            Estimated summarized file size in bytes
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ModelEstimation.ExtraValues">
+            <summary>
+            Estimated file size for all outputs
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.PackageCompilationException">
+            <summary>
+            Exception of package compilation.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.PackageCompilationException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Exception"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.PackageCompilationException.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Exception"/> class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error. </param>
+        </member>
+        <member name="M:Easis.PackageBase.PackageCompilationException.#ctor(System.String,System.Exception,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Exception"/> class with a specified error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception. </param><param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified. </param>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.PackageEngineResult">
+            <summary>
+            Package assembling result.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngineResult.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Easis.PackageBase.Engine.PackageEngineResult"/> class.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.PackageEngineResult.Messages">
+            <summary>
+            Returns compilation messages.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.PackageEngineResult.Succeeded">
+            <summary>
+            Gets whether the compilation succeded.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.ProcessResultProducer">
+            <summary>
+             Base class for classes supporting collecting execution provenance.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.ProcessResultProducer.GetLoggerName">
+            <summary>
+            Gets logger name for the class.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.ProcessResultProducer.Warn(System.String,System.String)">
+            <summary>
+            Produces warning message.
+            </summary>
+            <param name="warning">Warning message.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.ProcessResultProducer.Info(System.String,System.String)">
+            <summary>
+            Produces formatted warning message.
+            </summary>
+            <param name="warning">Warning message.</param>
+            <param name="params">Formatting params.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.ProcessResultProducer.WarnException(System.Exception,System.String)">
+            <summary>
+            Produces warning message based on exception.
+            </summary>
+            <param name="exception">Exception.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.ProcessResultProducer.Error(System.String,System.String)">
+            <summary>
+            Produces error message.
+            </summary>
+            <param name="message">Error message.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.ProcessResultProducer.ErrorException(System.Exception,System.String)">
+            <summary>
+            Produces error message based on exception.
+            </summary>
+            <param name="exception">Exception.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.ProcessResultProducer.Fatal(System.String,System.String)">
+            <summary>
+            Produces fatal error message.
+            </summary>
+            <param name="message">Error message.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.ProcessResultProducer.FatalException(System.Exception,System.String)">
+            <summary>
+            Produces error message based on exception.
+            </summary>
+            <param name="exception">Exception.</param>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.InParamDef">
+            <summary>
+            Class for package input parameter definition.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.InParamDef.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.InParamDef.CheckConsistency">
+            <summary>
+            Checks consistency and throw an exception if the object is not in a consistent state.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.InParamDef.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.InParamDef.Default">
+            <summary>
+            Gets or sets the parameter default value which is used when parameter is not presented.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.InParamDef.HasDefault">
+            <summary>
+            Gets whether the param has not-null default value.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.InParamDef.Required">
+            <summary>
+            Gets or sets required predicate for the parameter.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.Dependency">
+            <summary>
+            Class for dependencies between definitions.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.Dependency.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="defName">Definition name (on which depends).</param>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.Dependency.Equals(Easis.PackageBase.Definition.Dependency)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.Dependency.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.Dependency.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.Dependency.DefName">
+            <summary>
+            Gets definition name on which the current definition is dependent.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.Dependency.IsWeak">
+            <summary>
+            Gets whether the dependency is weak.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.Dependency.IsErrorTolerant">
+            <summary>
+            Gets whether the dependency is error tolerant.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.InFileDef">
+            <summary>
+            Class for input file definition.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.IInFileDef">
+            <summary>
+            Interface for input file definitions.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.PackageEngineState">
+            <summary>
+            State of the package compiler.
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Engine.PackageEngineState.Initial">
+            <summary>
+            Initial state after compiler creation.
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Engine.PackageEngineState.Prepared">
+            <summary>
+            State when compiler is ready to compile.
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Engine.PackageEngineState.CompiledParams">
+            <summary>
+            State when params compiled.
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Engine.PackageEngineState.CompiledFiles">
+            <summary>
+            State when files compiled.
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Engine.PackageEngineState.Error">
+            <summary>
+            State when error occured.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.PackageDefinitionException">
+            <summary>
+            Exception of package definition.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.PackageDefinitionException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Exception"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.PackageDefinitionException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Exception"/> class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error. </param>
+        </member>
+        <member name="M:Easis.PackageBase.PackageDefinitionException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Exception"/> class with a specified error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception. </param><param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified. </param>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.ValidationResult">
+            <summary>
+            Class for representing validation results.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.ValidationResult.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.ValidationResult.#ctor(System.Boolean,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.ValidationResult.Invalid(System.String)">
+            <summary>
+            Returns error validation result with passed message.
+            </summary>
+            <param name="message">Validation error message.</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ValidationResult.Message">
+            <summary>
+            Gets or sets message related to validation result.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ValidationResult.IsValid">
+            <summary>
+            Gets or sets whether validated value is correct.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ValidationResult.Valid">
+            <summary>
+            Returns correct validation result.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.FileAssemblerBase">
+            <summary>
+            Base class for file compilers.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.FileAssemblerBase.AssembleFile(System.IO.Stream,Easis.PackageBase.Definition.IFileDef,Easis.PackageBase.Engine.DynamicContext)">
+            <summary>
+            Compiles file and puts it into stream.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.FileAssemblerBase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.InterpreterContext">
+            <summary>
+            Class for passing user parameters for package compilation.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.InterpreterContext.CheckConsistency">
+            <summary>
+            Checks consistency and throw exception if the object is not in consistent state.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.InterpreterContext.Inputs">
+            <summary>
+            Gets or sets package inputs.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.IInputFileManager">
+            <summary>
+            Interface for externally handling files in PackageEngine.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.IInputFileManager.InputFileOpenWrite(Easis.PackageBase.Definition.IInFileDef,Easis.PackageBase.Engine.DynamicContext)">
+            <summary>
+            Opens stream for compiling input file in write mode (for assembling input file).
+            </summary>
+            <returns>Open stream.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.IInputFileManager.InputFileOpenRead(Easis.PackageBase.Definition.IInFileDef,Easis.PackageBase.Engine.ExternalFileDef,Easis.PackageBase.Engine.DynamicContext)">
+            <summary>
+            Opens stream for input file in read mode (for using input file as a source for another,
+            extracting values and so on).
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.IInputFileManager.InputFileCopy(Easis.PackageBase.Definition.IInFileDef,Easis.PackageBase.Engine.ExternalFileDef,Easis.PackageBase.Engine.DynamicContext)">
+            <summary>
+            Copies input file.
+            </summary>
+            <param name="fileDef">Input file definition.</param>
+            <param name="externalFileDef">ExternalFileDef for the file.</param>
+            <param name="ctx">Dynamic context.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.IModeDefResolver">
+            <summary>
+            Interface for resolving modes definitions.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.IModeDefResolver.ResolveMode(Easis.PackageBase.Definition.ModeQName)">
+            <summary>
+            Resolves mode by qualified name.
+            </summary>
+            <param name="modeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.IModeDefResolver.CanResolveMode(Easis.PackageBase.Definition.ModeQName)">
+            <summary>
+            Returns whether the passed qualified name can be resolved.
+            </summary>
+            <param name="modeName">Mode qualified name.</param>
+            <returns>True if the mode can be resolved, and false otherwise.</returns>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.IFileExtractor">
+            <summary>
+            Interface for file extractors.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.IFileExtractor.Extract(System.IO.Stream)">
+            <summary>
+            Extracts file contents.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.IFileExtractor.Format">
+            <summary>
+            Gets format for the extractor.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Client.IPackageRepository">
+            <summary>
+            Interface for external clients
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.CmdLineDef">
+            <summary>
+            Definition for command line.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.CmdLineDef.CheckConsistency">
+            <summary>
+            Checks consistency and throw exception if the object is not in consistent state.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.CmdLineDef.ToPrettyString(System.Int32)">
+            <summary>
+            Returns pretty formatted string object representation;
+            </summary>
+            <param name="level">Level of indentation.</param>
+            <returns>Pretty string.</returns>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.CmdLineDef.Compiler">
+            <summary>
+            Gets or sets the cmd line compiler.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.ExternalFileDef">
+            <summary>
+            Class for external defining the file passed by the user.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.ExternalFileDef.FileName">
+            <summary>
+            Gets or sets file name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.ExternalFileDef.Size">
+            <summary>
+            Gets or sets file size.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.ExternalFileDef.Locator">
+            <summary>
+            Gets or sets file storage locator.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.CompiledModeDef">
+            <summary>
+            Class for parameter set.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.CompiledModeDef.GetInContract">
+            <summary>
+            Gets contract for the mode.
+            </summary>
+            <returns>IEnumerable of contract input definitions.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.CompiledModeDef.GetInContractCore">
+            <summary>
+            Returns the contract core: param defs for which enabledness doesn't depend on other definitions.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.CompiledModeDef.GetInContractAux">
+            <summary>
+            Returns not GetInContractCore().
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.CompiledModeDef.GetInInternals">
+            <summary>
+            Returns input internals.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.CompiledModeDef.CheckConsistency">
+            <summary>
+            Checks consistency and throw exception if the object is not in consistent state.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.CompiledModeDef.#ctor(Easis.PackageBase.Definition.ModeQName,Easis.PackageBase.Definition.ModeQName)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="modeQName">Mode qualified name.</param>
+            <param name="parentModeQName">Parent mode qualified name.</param>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.CompiledModeDef.Defs">
+            <summary>
+            Gets all definitions dictionary.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.CompiledModeDef.DependencyGraph">
+            <summary>
+            Gets dependency graph.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Client.PackageIdentifier.#ctor(System.String)">
+            <summary>
+            ORCA#1.3.5
+            </summary>
+            <param name="initStr"></param>
+        </member>
+        <member name="P:Easis.PackageBase.Client.PackageIdentifier.Version">
+            <summary>
+            not set if null
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.DependencyGraphBuilder">
+            <summary>
+            Class for building the dependency graph with nodes topologically sorted.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.DependencyGraphBuilder.#ctor(System.Collections.Generic.IEnumerable{Easis.PackageBase.Definition.IDef})">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="defs">Definitions to build depedency graph from.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="defs"/> is null</exception>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.DependencyGraphBuilder.Build">
+            <summary>
+            Returns built dependency graph.
+            </summary>
+            <returns>Built dependency graph.</returns>
+            <exception cref="T:Easis.PackageBase.PackageCompilationException"></exception>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.DependencyEdge`1">
+            <summary>
+            Class for dependency edge.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.DependencyEdge`1.#ctor(`0,`0)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="source">Source node.</param>
+            <param name="target">Target node.</param>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.DependencyEdge`1.IsImplicit">
+            <summary>
+            Gets or sets whether the edge is implicit.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.DependencyEdge`1.IsWeak">
+            <summary>
+            Gets whether the dependency is weak.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.DependencyEdge`1.IsErrorTolerant">
+            <summary>
+            Gets whether the dependency is error tolerant.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.DefVisibility">
+            <summary>
+            Definition visibility enumeration.
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Definition.DefVisibility.Internal">
+            <summary>
+            Definition is for internal use only.
+            </summary>
+        </member>
+        <member name="F:Easis.PackageBase.Definition.DefVisibility.Contract">
+            <summary>
+            Definition is publicly visible.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.DictionaryDynamicContext">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.DictionaryDynamicContext.#ctor(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            
+            </summary>
+            <param name="values"></param>
+        </member>
+        <member name="T:Easis.PackageBase.IndentBuilder">
+            <summary>
+            Builder class for pretty strings.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.IndentBuilder.Indent(System.Int32)">
+            <summary>
+            Increases indentation.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.IndentBuilder.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.IndentBuilder.Add(System.String,System.Object[])">
+            <summary>
+            Adds new line and formats it with passed arguments using string.Format.
+            </summary>
+            <param name="s">Format string.</param>
+            <param name="args">Arguments.</param>
+        </member>
+        <member name="M:Easis.PackageBase.IndentBuilder.Add(System.String)">
+            <summary>
+            Adds new line.
+            </summary>
+            <param name="s">String.</param>
+        </member>
+        <member name="M:Easis.PackageBase.IndentBuilder.AddNoIndent(System.String,System.Boolean)">
+            <summary>
+            Adds new string without indentation.
+            </summary>
+            <param name="s">String.</param>
+            <param name="appendLine">Append endline symbol at the end.</param>
+        </member>
+        <member name="M:Easis.PackageBase.IndentBuilder.ToString">
+            <summary>
+            Returns build string.
+            </summary>
+            <returns>Pretty string.</returns>
+        </member>
+        <member name="T:Easis.PackageBase.ScriptLevel.ScriptFilesLoaderWrapper">
+            <summary>
+            wrapper for security reasons
+            facade for DSL scripts
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Common.StringObjectDictionary">
+            <summary>
+            Class for holding params.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Common.StringObjectDictionary.CheckConsistency">
+            <summary>
+            Checks consistency and throw exception if the object is not in consistent state.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Common.EnumerableExtensions">
+            <summary>
+            Enumerable extensions.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Common.EnumerableExtensions.OfExactType``1(System.Collections.IEnumerable)">
+            <summary>
+            Filters elements of an IEnumerable based on a specified type strictly comparing types.
+            </summary>
+            <param name="enumerable">The IEnumerable whose elements to filter.</param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.PackageBase.Common.EnumerableExtensions.OfExactTypeWhere``1(System.Collections.IEnumerable,System.Func{``0,System.Boolean})">
+            <summary>
+            Filters elements of an IEnumerable based on a specified type strictly comparing types.
+            </summary>
+            <param name="enumerable">The IEnumerable whose elements to filter.</param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.PackageEngineMessage">
+            <summary>
+            Package compilation message.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngineMessage.#ctor(System.String,Easis.PackageBase.Engine.PackageEngineMessageType,System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngineMessage.#ctor(System.String,Easis.PackageBase.Engine.PackageEngineMessageType,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngineMessage.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.PackageEngineMessage.Exception">
+            <summary>
+            Gets exception attached to message.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.PackageEngineMessage.ElementName">
+            <summary>
+            Gets the package base element name in which the message occured.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.PackageEngineMessage.Message">
+            <summary>
+            Gets or sets message.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.PackageEngineMessage.Type">
+            <summary>
+            Gets or sets message type.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Indenter.GetIndent(System.Int32)">
+            <summary>
+            Gets indentation string.
+            </summary>
+            <param name="level">Indentation level.</param>
+            <returns>Indentation string.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Indenter.Indent(System.Int32,System.String)">
+            <summary>
+            Returns indented string.
+            </summary>
+            <param name="level">Level of indentation.</param>
+            <param name="str">Source string.</param>
+            <returns>Indented string.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Indenter.Indent(System.Int32,System.String,System.Object[])">
+            <summary>
+            Returns indented string and formats it using string.Format and passed args.
+            </summary>
+            <param name="level">Level of indentation.</param>
+            <param name="str">Source format string.</param>
+            <param name="args">Format arguments.</param>
+            <returns>Indented string.</returns>
+        </member>
+        <member name="T:Easis.PackageBase.Common.DirectoryChecker">
+            <summary>
+            Helper class for checking directory names.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Common.DirectoryChecker.IsCorrectRelativePath(System.String)">
+            <summary>
+            Retursn whether the passed path is a correct relative path.
+            </summary>
+            <param name="path">Relative directory path.</param>
+            <returns>Correct / not correct.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Common.DirectoryChecker.IsCorrectFileName(System.String)">
+            <summary>
+            Returns whether the passed filename is correct clean file name.
+            </summary>
+            <param name="expectedName">File name to check.</param>
+            <returns>Correct / not correct.</returns>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.StringEvaluator">
+            <summary>
+            Evaluates the string value from the context.
+            </summary>
+            <param name="ctx">Dynamic context.</param>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.EstimatorDelegate">
+            <summary>
+            
+            </summary>
+            <param name="ctx"></param>
+            <param name="exec"></param>
+            <param name="coef"></param>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.ValueValidator">
+            <summary>
+            Delegate for validating values.
+            </summary>
+            <param name="value">Value to validate.</param>
+            <param name="ctx">Context of package compilation (it can be null if value is checked separately, eg. in UI).</param>
+            <returns>Validation result.</returns>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.Definitions">
+            <summary>
+            Class for holding definitions.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.Definitions.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Easis.PackageBase.Definition.Definitions"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.Definitions.#ctor(System.Collections.Generic.IEnumerable{Easis.PackageBase.Definition.IDef})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Easis.PackageBase.Definition.Definitions"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.Definitions.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+            <filterpriority>1</filterpriority>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.Definitions.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.Definitions.CheckConsistency">
+            <summary>
+            Checks consistency and throws an exception if the object is not in a consistent state.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.Definitions.ToPrettyString(System.Int32)">
+            <summary>
+            Returns pretty formatted string object representation;
+            </summary>
+            <param name="level">Level of indentation.</param>
+            <returns>Pretty string.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.Definitions.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.Definitions.Item(System.String)">
+            <summary>
+            Gets definition with passed name.
+            </summary>
+            <param name="name">Definition name.</param>
+            <returns>Definition.</returns>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.Definitions.Outs">
+            <summary>
+            Gets an IEnumerable of output definitions.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.Definitions.Ins">
+            <summary>
+            Gets an IEnumerabled of input definitions.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.Definitions.Defs">
+            <summary>
+            Gets or sets definitions as IEnumerable (use it for initialization and plain enumerating).
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.PackageEngine">
+            <summary>
+            Class for handling inputs and outputs for the package.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngine.#ctor(Easis.PackageBase.Engine.CompiledModeDef)">
+            <summary>
+            Constructor with <paramref name="compiledMode"/> and new engine context.
+            </summary>
+            <param name="compiledMode">Compiled mode definition.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="compiledMode"/> is null.</exception>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngine.#ctor(Easis.PackageBase.Engine.CompiledModeDef,Easis.PackageBase.Engine.PackageEngineContext)">
+            <summary>
+            Constructor with compiled mode definition and engine context.
+            </summary>
+            <param name="compiledMode">Compiled mode definition.</param>
+            <param name="ctx">Package engine context.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="ctx"/> or <paramref name="compiledMode"/> is null.</exception>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngine.GetEnabledInDefs">
+            <summary>
+            Returns an IEnumerable of enabled inputs.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngine.GetEnabledOutDefs">
+            <summary>
+            Returns an IEnumerable of enabled outputs.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngine.GetEnabledContractInsSetByUser(Easis.PackageBase.Engine.PackageEngineContext)">
+            <summary>
+            Get all enabled user inputs actually set.
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngine.TrySetParam(Easis.PackageBase.Engine.PackageEngineContext,Easis.PackageBase.Engine.TreeUpdateParams,Easis.PackageBase.Definition.IDef,System.Object)">
+            <summary>
+            Tries to set param <paramref name="inputDef"/> with value <paramref name="value"/>.
+            </summary>
+            <param name="ctx"></param>
+            <param name="settings"></param>
+            <param name="inputDef">Input def to set param for.</param>
+            <param name="value">Value to set.</param>
+            <exception cref="T:Easis.PackageBase.PackageCompilationException"></exception>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngine.IsReadyToRun">
+            <summary>
+            Returns whether the package with current input is able to run.
+            </summary>
+            <returns>True if ready, false otherwise.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngine.GetPreparedInputsAndCheck">
+            <summary>
+            Returns prepared package inputs.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngine.PrepareInputs(Easis.PackageBase.Engine.IInputFileManager)">
+            <summary>
+            Prepares inputs for run and returns changed memory entries.
+            </summary>
+            <returns>Changed memory entries.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngine.ProcessOutputs(System.Collections.Generic.IEnumerable{System.String},Easis.PackageBase.Engine.IOutputFileManager)">
+            <summary>
+            Processes outputs and returns changed memory entries.
+            </summary>
+            <returns>Changed memory entries.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngine.UpdateContractParams(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Sets users params, updates the dependency graph and returns changed memory entries.
+            </summary>
+            <param name="params">User contract parameters.</param>
+            <returns>Chaged memory entries.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngine.TryCopyFile(Easis.PackageBase.Engine.PackageEngineContext,Easis.PackageBase.Engine.TreeUpdateParams,Easis.PackageBase.Definition.IFileDef)">
+            <summary>
+            If file def is null it's treated as an output file.
+            </summary>
+            <param name="ctx"></param>
+            <param name="settings"></param>
+            <param name="fileDef"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngine.TryCopyFile(Easis.PackageBase.Engine.PackageEngineContext,Easis.PackageBase.Engine.TreeUpdateParams,Easis.PackageBase.Engine.ExternalFileDef,Easis.PackageBase.Definition.IInFileGroup)">
+            <summary>
+            If file def is null it's treated as an output file.
+            </summary>
+            <param name="ctx"></param>
+            <param name="settings"></param>
+            <param name="fileDef"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngine.CanEstimate">
+            <summary>
+            Returns whether the package work time can be estimated.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngine.Estimate(System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Estimates package working time.
+            </summary>
+            <param name="execParams"></param>
+            <param name="coeffs"></param>
+            <returns>null if there was error while estimation</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngine.ParseStringToObject(System.String,Easis.PackageBase.Definition.IParamDef)">
+            <summary>
+            Tries to convert string value to object value using param definition.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <param name="def">Definition.</param>
+            <returns>Converted value.</returns>
+            <exception cref="T:System.FormatException">Thrown when value can't be converted to the type of <paramref name="def"/>.</exception>
+            <exception cref="T:System.NotSupportedException">Thrown when attempting to convert to a not yet supported type.</exception>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.PackageEngine.Ctx">
+            <summary>
+            Gets package compilation context.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.PackageEngine.IsActive">
+            <summary>
+            Gets whether the package compilation is in progress.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.RegexpOutFileGroupDef">
+            <summary>
+            Class for output files group definition based in regexps.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.RegexpOutFileGroupDef.#ctor(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.RegexpOutFileGroupDef.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            </summary>
+            <param name="conditions"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.RegexpOutFileGroupDef.FileNameMatches(System.String)">
+            <summary>
+            Determines whether the file matches group condition.
+            </summary>
+            <param name="fileName">File name.</param>
+            <returns>Matches / doesn't match.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.RegexpOutFileGroupDef.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.RegexpOutFileGroupDef.CheckConsistency">
+            <summary>
+            Checks consistency and throw exception if the object is not in consistent state.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.RegexpOutFileGroupDef.ToPrettyString(System.Int32)">
+            <summary>
+            Returns pretty formatted string object representation;
+            </summary>
+            <param name="level">Level of indentation.</param>
+            <returns>Pretty string.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.RegexpOutFileGroupDef.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.Models">
+            <summary>
+            Class for holding models;
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.Models.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.Models.Estimator">
+            <summary>
+            Gets or sets estimator.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.Models.DefaultCoeffs">
+            <summary>
+            Gets or sets default coefficients.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.Models.HasEstimator">
+            <summary>
+            Returns whether the models section has estimator.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.DynamicContextPredicate">
+            <summary>
+            Delegate for functions returning boolean using values from dynamic context.
+            </summary>
+            <param name="ctx">Dynamic context.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Easis.PackageBase.Common.StringObjectDictionaryDynamicWrapper.TryGetIndex(System.Dynamic.GetIndexBinder,System.Object[],System.Object@)">
+            <summary>
+            Provides the implementation for operations that get a value by index. Classes derived from the <see cref="T:System.Dynamic.DynamicObject"/> class can override this method to specify dynamic behavior for indexing operations.
+            </summary>
+            <returns>
+            true if the operation is successful; otherwise, false. If this method returns false, the run-time binder of the language determines the behavior. (In most cases, a run-time exception is thrown.)
+            </returns>
+            <param name="binder">Provides information about the operation. </param><param name="indexes">The indexes that are used in the operation. For example, for the sampleObject[3] operation in C# (sampleObject(3) in Visual Basic), where sampleObject is derived from the DynamicObject class, <paramref name="indexes[0]"/> is equal to 3.</param><param name="result">The result of the index operation.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Common.StringObjectDictionaryDynamicWrapper.TrySetIndex(System.Dynamic.SetIndexBinder,System.Object[],System.Object)">
+            <summary>
+            Provides the implementation for operations that set a value by index. Classes derived from the <see cref="T:System.Dynamic.DynamicObject"/> class can override this method to specify dynamic behavior for operations that access objects by a specified index.
+            </summary>
+            <returns>
+            true if the operation is successful; otherwise, false. If this method returns false, the run-time binder of the language determines the behavior. (In most cases, a language-specific run-time exception is thrown.
+            </returns>
+            <param name="binder">Provides information about the operation. </param><param name="indexes">The indexes that are used in the operation. For example, for the sampleObject[3] = 10 operation in C# (sampleObject(3) = 10 in Visual Basic), where sampleObject is derived from the <see cref="T:System.Dynamic.DynamicObject"/> class, <paramref name="indexes[0]"/> is equal to 3.</param><param name="value">The value to set to the object that has the specified index. For example, for the sampleObject[3] = 10 operation in C# (sampleObject(3) = 10 in Visual Basic), where sampleObject is derived from the <see cref="T:System.Dynamic.DynamicObject"/> class, <paramref name="value"/> is equal to 10.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Common.StringObjectDictionaryDynamicWrapper.TryGetMember(System.Dynamic.GetMemberBinder,System.Object@)">
+            <summary>
+            Provides the implementation for operations that get member values. Classes derived from the <see cref="T:System.Dynamic.DynamicObject"/> class can override this method to specify dynamic behavior for operations such as getting a value for a property.
+            </summary>
+            <returns>
+            true if the operation is successful; otherwise, false. If this method returns false, the run-time binder of the language determines the behavior. (In most cases, a run-time exception is thrown.)
+            </returns>
+            <param name="binder">Provides information about the object that called the dynamic operation. The binder.Name property provides the name of the member on which the dynamic operation is performed. For example, for the Console.WriteLine(sampleObject.SampleProperty) statement, where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject"/> class, binder.Name returns "SampleProperty". The binder.IgnoreCase property specifies whether the member name is case-sensitive.</param><param name="result">The result of the get operation. For example, if the method is called for a property, you can assign the property value to <paramref name="result"/>.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Common.StringObjectDictionaryDynamicWrapper.TrySetMember(System.Dynamic.SetMemberBinder,System.Object)">
+            <summary>
+            Provides the implementation for operations that set member values. Classes derived from the <see cref="T:System.Dynamic.DynamicObject"/> class can override this method to specify dynamic behavior for operations such as setting a value for a property.
+            </summary>
+            <returns>
+            true if the operation is successful; otherwise, false. If this method returns false, the run-time binder of the language determines the behavior. (In most cases, a language-specific run-time exception is thrown.)
+            </returns>
+            <param name="binder">Provides information about the object that called the dynamic operation. The binder.Name property provides the name of the member to which the value is being assigned. For example, for the statement sampleObject.SampleProperty = "Test", where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject"/> class, binder.Name returns "SampleProperty". The binder.IgnoreCase property specifies whether the member name is case-sensitive.</param><param name="value">The value to set to the member. For example, for sampleObject.SampleProperty = "Test", where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject"/> class, the <paramref name="value"/> is "Test".</param>
+        </member>
+        <member name="M:Easis.PackageBase.Types.EnumType.CanAssignValue(System.Object)">
+            <summary>
+            Determines whether the passed value can be assigned to the value of this type.
+            </summary>
+            <param name="value">Value to check.</param>
+            <returns>Can / can't.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.EnumType.CanAssignType(Easis.PackageBase.Types.TypeDef)">
+            <summary>
+            Determines whether value of passed type can be assigned to the value of this type.
+            </summary>
+            <param name="type">Type definition.</param>
+            <returns>Can / can't.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.EnumType.RealCanAssign(System.Type)">
+            <summary>
+            Determines whether value of passed CLR type can be assigned to the value of this type.
+            </summary>
+            <param name="type">Type definition.</param>
+            <returns>Can / can't.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.EnumType.ContainsValue(System.String)">
+            <summary>
+            Determines whether enum contains passed value.
+            </summary>
+            <param name="value">Value to check.</param>
+            <returns>Contains / not contains.</returns>
+        </member>
+        <member name="M:Easis.PackageBase.Types.EnumType.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Easis.PackageBase.Types.EnumType"/> class.
+            </summary>
+            
+            <exception cref="T:System.ArgumentException">
+            Thrown when: values is null, values contains no values, 
+            values contains at least one null value, values contains at least two duplicate values.
+            </exception>
+            
+            <param name="values">Values of enum.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Types.EnumType.Equals(Easis.PackageBase.Types.EnumType)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Types.EnumType.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.PackageBase.Types.EnumType.Name">
+            <summary>
+            Gets type short name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.EnumType.DisplayName">
+            <summary>
+            Gets type display name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.EnumType.Description">
+            <summary>
+            Gets type textual description.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Types.EnumType.Values">
+            <summary>
+            Gets enum values.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.CmdLineDelegate">
+            <summary>
+            Delegate for compiling command line from dynamic context.
+            </summary>
+            <param name="ctx"></param>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.PackageEngineContext">
+            <summary>
+            Class for package compilation context.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngineContext.#ctor(Easis.PackageBase.Engine.PackageEngineContext)">
+            <summary>
+            Enables derived types to initialize a new instance of the <see cref="T:System.Dynamic.DynamicObject"/> type.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.PackageEngineContext.#ctor">
+            <summary>
+            Enables derived types to initialize a new instance of the <see cref="T:System.Dynamic.DynamicObject"/> type.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.PackageEngineContext.Memory">
+            <summary>
+            Gets engine memory.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.PackageEngineContext.Result">
+            <summary>
+            Gets compilation result (even if compilation not completed).
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Engine.PackageEngineContext.Mode">
+            <summary>
+            Gets package assembling mode.
+            </summary>
+        </member>
+        <member name="T:Easis.PackageBase.Engine.ModeCompiler">
+            <summary>
+            Paramset compiler.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.ModeCompiler.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Easis.PackageBase.Engine.ModeCompiler"/> class.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Engine.ModeCompiler.Compile(Easis.PackageBase.Definition.ModeQName,Easis.PackageBase.Engine.IModeDefResolver,Easis.PackageBase.Engine.CompiledModeDef@)">
+            <summary>
+            Compiles paramset using interpreter context.
+            </summary>
+            <param name="modeDefResolver">Mode resolver (returnes mode definition by ModeQName).</param>
+            <param name="compiledModeDef">Compiled paramset.</param>
+            <param name="modeToCompile">Mode to compile.</param>
+        </member>
+        <member name="T:Easis.PackageBase.Definition.ModeQName">
+            <summary>
+            Class representing mode's qualified name.
+            </summary>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.ModeQName.#ctor(System.String,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="packageName">Package name.</param>
+            <param name="modeName">Mode name.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="packageName"/> is null</exception>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.ModeQName.Equals(Easis.PackageBase.Definition.ModeQName)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.</param>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.ModeQName.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Easis.PackageBase.Definition.ModeQName.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ModeQName.PackageName">
+            <summary>
+            Gets the package name.
+            </summary>
+        </member>
+        <member name="P:Easis.PackageBase.Definition.ModeQName.ModeName">
+            <summary>
+            Gets mode name.
+            </summary>
+        </member>
+    </members>
+</doc>

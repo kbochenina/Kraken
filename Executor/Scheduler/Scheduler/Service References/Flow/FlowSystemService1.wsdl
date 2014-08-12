@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://escience.ifmo.ru/easis/workflows/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://escience.ifmo.ru/easis/workflows/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://escience.ifmo.ru/easis/workflows/Imports">
+      <xsd:import schemaLocation="http://192.168.4.1/Workflow/FlowSystemService.svc?xsd=xsd0" namespace="http://escience.ifmo.ru/easis/eventing" />
+      <xsd:import schemaLocation="http://192.168.4.1/Workflow/FlowSystemService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.4.1/Workflow/FlowSystemService.svc?xsd=xsd2" namespace="http://escience.ifmo.ru/easis/workflows/" />
+      <xsd:import schemaLocation="http://192.168.4.1/Workflow/FlowSystemService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Easis.Common.DataContracts" />
+      <xsd:import schemaLocation="http://192.168.4.1/Workflow/FlowSystemService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://192.168.4.1/Workflow/FlowSystemService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/MongoDB.Bson" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFlowSystemService_Notify_InputMessage">
+    <wsdl:part xmlns:q1="http://escience.ifmo.ru/easis/eventing" name="parameters" element="q1:Notify" />
+  </wsdl:message>
+  <wsdl:message name="IFlowSystemService_Notify_OutputMessage">
+    <wsdl:part xmlns:q2="http://escience.ifmo.ru/easis/eventing" name="parameters" element="q2:NotifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowSystemService_PushJob_InputMessage">
+    <wsdl:part name="parameters" element="tns:PushJob" />
+  </wsdl:message>
+  <wsdl:message name="IFlowSystemService_PushJob_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PushJobResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowSystemService_Control_InputMessage">
+    <wsdl:part name="parameters" element="tns:Control" />
+  </wsdl:message>
+  <wsdl:message name="IFlowSystemService_Control_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowSystemService_GetJobDescription_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobDescription" />
+  </wsdl:message>
+  <wsdl:message name="IFlowSystemService_GetJobDescription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowSystemService_GetJobDescriptions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobDescriptions" />
+  </wsdl:message>
+  <wsdl:message name="IFlowSystemService_GetJobDescriptions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobDescriptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFlowSystemService_GetLongRunningTasks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLongRunningTasks" />
+  </wsdl:message>
+  <wsdl:message name="IFlowSystemService_GetLongRunningTasks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLongRunningTasksResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFlowSystemService">
+    <wsdl:operation name="Notify">
+      <wsdl:input wsaw:Action="http://escience.ifmo.ru/easis/eventing/Notify" message="tns:IFlowSystemService_Notify_InputMessage" />
+      <wsdl:output wsaw:Action="http://escience.ifmo.ru/easis/eventing/INotifiable/NotifyResponse" message="tns:IFlowSystemService_Notify_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PushJob">
+      <wsdl:input wsaw:Action="http://escience.ifmo.ru/easis/workflows/PushJob" message="tns:IFlowSystemService_PushJob_InputMessage" />
+      <wsdl:output wsaw:Action="http://escience.ifmo.ru/easis/workflows/IFlowSystemService/PushJobResponse" message="tns:IFlowSystemService_PushJob_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Control">
+      <wsdl:input wsaw:Action="http://escience.ifmo.ru/easis/workflows/Control" message="tns:IFlowSystemService_Control_InputMessage" />
+      <wsdl:output wsaw:Action="http://escience.ifmo.ru/easis/workflows/IFlowSystemService/ControlResponse" message="tns:IFlowSystemService_Control_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobDescription">
+      <wsdl:input wsaw:Action="http://escience.ifmo.ru/easis/workflows/GetJobDescription" message="tns:IFlowSystemService_GetJobDescription_InputMessage" />
+      <wsdl:output wsaw:Action="http://escience.ifmo.ru/easis/workflows/IFlowSystemService/GetJobDescriptionResponse" message="tns:IFlowSystemService_GetJobDescription_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobDescriptions">
+      <wsdl:input wsaw:Action="http://escience.ifmo.ru/easis/workflows/GetJobDescriptions" message="tns:IFlowSystemService_GetJobDescriptions_InputMessage" />
+      <wsdl:output wsaw:Action="http://escience.ifmo.ru/easis/workflows/IFlowSystemService/GetJobDescriptionsResponse" message="tns:IFlowSystemService_GetJobDescriptions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLongRunningTasks">
+      <wsdl:input wsaw:Action="http://escience.ifmo.ru/easis/workflows/GetLongRunningTasks" message="tns:IFlowSystemService_GetLongRunningTasks_InputMessage" />
+      <wsdl:output wsaw:Action="http://escience.ifmo.ru/easis/workflows/IFlowSystemService/GetLongRunningTasksResponse" message="tns:IFlowSystemService_GetLongRunningTasks_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a39c215f-11d1-4186-b0a7-c1c07e7af876" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.4.1/Workflow/FlowSystemService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FlowSystemService.xsd" MetadataType="Schema" ID="9bb78ad7-4d5d-49ce-bd7b-41daaf9b594f" SourceId="1" SourceUrl="http://192.168.4.1/Workflow/FlowSystemService.svc?xsd=xsd4" />
+    <MetadataFile FileName="FlowSystemService1.xsd" MetadataType="Schema" ID="f4d7668c-33fb-4436-b58f-3741369d82a7" SourceId="1" SourceUrl="http://192.168.4.1/Workflow/FlowSystemService.svc?xsd=xsd5" />
+    <MetadataFile FileName="FlowSystemService2.xsd" MetadataType="Schema" ID="117fe38e-232d-4b4e-99d4-99979018ccfd" SourceId="1" SourceUrl="http://192.168.4.1/Workflow/FlowSystemService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FlowSystemService3.xsd" MetadataType="Schema" ID="12b92cd7-29f6-488e-a3f1-8b0d9ff71ca9" SourceId="1" SourceUrl="http://192.168.4.1/Workflow/FlowSystemService.svc?xsd=xsd1" />
+    <MetadataFile FileName="FlowSystemService.wsdl" MetadataType="Wsdl" ID="c97d17f5-6114-4553-a098-c6566ec84962" SourceId="1" SourceUrl="http://192.168.4.1/Workflow/FlowSystemService.svc?wsdl" />
+    <MetadataFile FileName="FlowSystemService4.xsd" MetadataType="Schema" ID="07be8baa-6274-4688-93a7-9247e756c634" SourceId="1" SourceUrl="http://192.168.4.1/Workflow/FlowSystemService.svc?xsd=xsd2" />
+    <MetadataFile FileName="FlowSystemService5.xsd" MetadataType="Schema" ID="c47a57cc-0522-492b-920e-a8dcb384df4a" SourceId="1" SourceUrl="http://192.168.4.1/Workflow/FlowSystemService.svc?xsd=xsd3" />
+    <MetadataFile FileName="FlowSystemService1.wsdl" MetadataType="Wsdl" ID="c6d4e534-3e2b-45d0-8eb8-60ed0683f64b" SourceId="1" SourceUrl="http://192.168.4.1/Workflow/FlowSystemService.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

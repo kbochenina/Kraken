@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Common.VManager.DataTypes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Common.VManager.DataTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:5666/VManager/VManagerService/?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:5666/VManager/VManagerService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfHost">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Host" nillable="true" type="tns:Host" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHost" nillable="true" type="tns:ArrayOfHost" />
+  <xs:complexType name="Host">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsConnected" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Host" nillable="true" type="tns:Host" />
+  <xs:complexType name="HostConnectionParams">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Parameters" nillable="true" type="q1:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HostConnectionParams" nillable="true" type="tns:HostConnectionParams" />
+  <xs:complexType name="ArrayOfMachine">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Machine" nillable="true" type="tns:Machine" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMachine" nillable="true" type="tns:ArrayOfMachine" />
+  <xs:complexType name="Machine">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" type="tns:MachineState" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Machine" nillable="true" type="tns:Machine" />
+  <xs:simpleType name="MachineState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="STOPPED" />
+      <xs:enumeration value="RUNNING" />
+      <xs:enumeration value="SUSPENDED" />
+      <xs:enumeration value="TRANSITONED" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MachineState" nillable="true" type="tns:MachineState" />
+</xs:schema>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="\\192.168.4.11\c$\CLAVIRE\IIS\SchedulerService" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Web.config" publishTime="07/02/2012 15:39:39" />
+    <file relUrl="bin/Scheduler.pdb" publishTime="07/02/2012 15:39:27" />
+    <file relUrl="bin/NLog.xml" publishTime="07/17/2011 22:26:56" />
+    <file relUrl="bin/Newtonsoft.Json.Net35.pdb" publishTime="04/23/2011 12:29:32" />
+    <file relUrl="bin/SchedulerWCFService.pdb" publishTime="07/02/2012 15:39:27" />
+    <file relUrl="bin/TimeMeter.dll" publishTime="07/02/2012 15:39:26" />
+    <file relUrl="SchedulerService.svc" publishTime="05/04/2012 15:00:49" />
+    <file relUrl="bin/SchedulerService.pdb" publishTime="07/02/2012 15:39:28" />
+    <file relUrl="bin/SchedulerWCFService.dll" publishTime="07/02/2012 15:39:27" />
+    <file relUrl="bin/SchedulerCommon.pdb" publishTime="07/02/2012 15:39:26" />
+    <file relUrl="bin/NLog.dll" publishTime="07/17/2011 22:26:56" />
+    <file relUrl="bin/SchedulerService.dll" publishTime="07/02/2012 15:39:28" />
+    <file relUrl="bin/Newtonsoft.Json.Net35.dll" publishTime="04/23/2011 12:29:32" />
+    <file relUrl="bin/Scheduler.dll" publishTime="07/02/2012 15:39:27" />
+    <file relUrl="bin/SchedulerCommon.dll" publishTime="07/02/2012 15:39:26" />
+    <file relUrl="bin/TimeMeter.pdb" publishTime="07/02/2012 15:39:26" />
+    <file relUrl="bin/Newtonsoft.Json.Net35.xml" publishTime="04/23/2011 12:29:32" />
+  </publishProfile>
+</publishData>

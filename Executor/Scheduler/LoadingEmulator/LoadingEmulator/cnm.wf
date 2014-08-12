@@ -1,0 +1,26 @@
+﻿#input
+f1="cnm_files/f1.in"
+
+#output
+
+#easyflow
+
+step Step1 runs cnm(
+     in_format="short",
+	 inDataFile=f1
+);
+
+step Step2 runs cnm after Step1(
+     in_format="short",
+	 inDataFile=sweep[f1,f1,f1]
+);
+
+step Step3 runs cnm after Step2(
+     in_format="short",
+	 inDataFile=f1
+);
+
+step Step4 runs cnm after Step3(
+     in_format="short",
+	 inDataFile=f1
+);
