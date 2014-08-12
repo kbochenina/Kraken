@@ -94,6 +94,7 @@ namespace SchedulerService
             try
             {
                 var wfs = ConstructWorkflows(workflow).ToList();
+                PrintWorkflowsToLog(wfs);
 
                 var result = new LaunchPlan();
 
@@ -127,17 +128,29 @@ namespace SchedulerService
                                 _scheduledWfs[wf.Item1].Plan.Where(t => t.WFid == wf.Item1 && ids.Contains(t.Id)));
                         }
                     }
+                    logger.Info("Current plan after already scheduled wf's addition");
+                    PrintLaunchPlanToLog(result);
+
 
                     var tosched = wfs.Where(wf => !_scheduledWfs.ContainsKey(wf.Item1)).ToArray();
 
                     if (tosched.Count() > 0)
                     {
+                        logger.Info(string.Format("toshed.Count() = {0}", tosched.Count()));
                         var tasks = tosched.First().Item3;
+                        logger.Info(string.Format("WF ID:{0}", tosched.First().Item1));
+                        logger.Info("Tasks to sched:");
+                        foreach (var estTasks in tasks)
+                        {
+                            logger.Info(string.Format("Task ID:{0}", estTasks.Id));
+                        }
+
                         if (tasks.Count() > 0)
                         {
                             var ests = tasks.First().Estimations;
-                          
+                                                        
                             ResourceEstimation[] estimations = null;
+
                             if (ests.Count() >= tosched.Count())
                             {
                                 estimations = ests.Take(tosched.Count()).ToArray();
@@ -156,8 +169,10 @@ namespace SchedulerService
 
                             for (int i = 0; i < tosched.Count(); ++i)
                             {
-                                var activeestimated = processUnscheduledWfsSeq(wfs, estimations[i]);
+                                logger.Info(string.Format("Attempt # {0}",i+1));
+                                var activeestimated = processUnscheduledWfsSeq(wfs[i], estimations[i]);
                                 result.Plan.AddRange(activeestimated);
+                                PrintLaunchPlanToLog(result);
                             }   
                         }
                     }     
@@ -204,6 +219,32 @@ namespace SchedulerService
             }
             logger.Info("===============Current resulted Plan End===============");
         }
+
+        private void PrintWorkflowsToLog(IEnumerable<Tuple<string, IEnumerable<ActiveEstimatedTask>, IEnumerable<EstimatedTask>, IEnumerable<TasksDepenendency>>> wfs)
+        {
+            logger.Info("==============Workflows information===============");
+            foreach (var wf in wfs)
+            {
+                var str = string.Format("WF ID:{0}", wf.Item1);
+                logger.Info(str);
+                logger.Info("Active tasks");
+                foreach (var activeTasks in wf.Item2)
+                {
+                    str = string.Format("Task ID:{0}", activeTasks.Id);
+                    logger.Info(str);
+                    str = string.Format("Task destination:{0}", activeTasks.Estimation.Destination.NodeNames[0]);
+                    logger.Info(str);
+                }
+                logger.Info("Estimated tasks");
+                foreach (var estTasks in wf.Item3)
+                {
+                    str = string.Format("Task ID:{0}", estTasks.Id);
+                    logger.Info(str);
+                }
+            }
+            logger.Info("===============End of workflows information===============");
+        }
+
 
         public string GetDefaultUHName()
         {
@@ -347,12 +388,12 @@ namespace SchedulerService
             return result;
         }
 
-        private List<ActiveEstimatedTask> processUnscheduledWfsSeq(IEnumerable<Tuple<string, IEnumerable<ActiveEstimatedTask>, IEnumerable<EstimatedTask>, IEnumerable<TasksDepenendency>>> wfs, ResourceEstimation est)
+        private List<ActiveEstimatedTask> processUnscheduledWfsSeq(Tuple<string, IEnumerable<ActiveEstimatedTask>, IEnumerable<EstimatedTask>, IEnumerable<TasksDepenendency>> wf, ResourceEstimation est)
         {
             var result = new List<ActiveEstimatedTask>();
 
-            foreach (var wf in wfs)
-            {
+           // foreach (var wf in wfs)
+            //{
                 // Should be empty, i.e. we mustn't get here if we have a wf with active tasks
                 var runningOrScheduledTasks = wf.Item2;
                 var notScheduledTasks = wf.Item3;
@@ -396,7 +437,7 @@ namespace SchedulerService
                 }).ToList();
 
                 result.AddRange(schedTasks);
-            }
+           // }
             return result;
         }
 
