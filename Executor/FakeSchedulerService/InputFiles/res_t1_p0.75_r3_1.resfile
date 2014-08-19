@@ -1,0 +1,11 @@
+Processors count = 3
+Types count = 1
+Type 1 (3 processors)
+Processor 1 2
+30  50
+170  200
+Processor 2 2
+45  65
+115  125
+Processor 3 1
+140  200
