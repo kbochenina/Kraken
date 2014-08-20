@@ -128,9 +128,14 @@ namespace SchedulerService
                             result.Plan.AddRange(
                                 _scheduledWfs[wf.Item1].Plan.Where(t => t.WFid == wf.Item1 && ids.Contains(t.Id)));
                         }
+                        foreach (var task in wf.Item2){
+                            logger.Info("Task ID: " + task.Id.ToString() + " state: " + task.State.ToString());
+                        }
                     }
+                    logger.Info("Scheduled WFs count: " + _scheduledWfs.Count());
                     logger.Info("Current plan after already scheduled wf's addition");
                     PrintLaunchPlanToLog(result);
+                    if (wfs.Count == _scheduledWfs.Count) return result;
 
                     try
                     {
@@ -160,50 +165,32 @@ namespace SchedulerService
 
                     // (wf.Item1, wfId)
                     Dictionary<string, int> wfIDs = new Dictionary<string, int>();
-                    // for each wf : global task ID, local task ID
-                    var taskIDs = new List<Dictionary<ulong, ulong>>();
+                    
                     int id = 0;
                     foreach (var wf in tosched)
                     {
                         wfIDs.Add(wf.Item1, id++);
-                        ulong minGlobalTaskID = ulong.MaxValue;
-                        foreach (var task in wf.Item3)
-                        {
-                            if (task.Id < minGlobalTaskID)
-                                minGlobalTaskID = task.Id;
-                        }
-                        var wfTaskIDs = new Dictionary<ulong, ulong>();
-                        foreach (var task in wf.Item3)
-                        {
-                            wfTaskIDs.Add(task.Id, task.Id - minGlobalTaskID);
-                        }
-                        taskIDs.Add(wfTaskIDs);
                     }
 
-                    foreach (var wf in tosched)
-                    {
-                        logger.Info(wf.Item1 + " " + wfIDs[wf.Item1]);
-                        foreach (var task in wf.Item3)
-                        {
-                            logger.Info(taskIDs[wfIDs[wf.Item1]][task.Id]);
-                        }
-                    }
+                    //foreach (var wf in tosched)
+                    //{
+                    //    logger.Info(wf.Item1 + " " + wfIDs[wf.Item1]);
+                    //}
 
                     // wfId, (taskId1, nodeId1), ..., (taskIdN, nodeIdN) for all WFs to be scheduled
                     var schedule = new Dictionary<int, List<Tuple<int, int>>>();
 
                     ReadScheduleFromFile(ref schedule);
 
-                    foreach (var wf in schedule)
-                    {
-                        logger.Info("Workflow " + wf.Key + " ");
-                        foreach (var task in wf.Value)
-                        {
-                            logger.Info("Task " + task.Item1 + " Node " + task.Item2);
-                        }
-                    }
-
-                    
+                    //foreach (var wf in schedule)
+                    //{
+                    //    logger.Info("Wf id: " + wf.Key);
+                    //    foreach (var task in wf.Value)
+                    //    {
+                    //        logger.Info("Task id: " + task.Item1 + " node index: " + task.Item2);
+                    //    }
+                    //}
+                                        
                     foreach (var wf in tosched){
                         var tasks = wf.Item3;
                         ResourceEstimation [] estimations = null;
@@ -213,12 +200,15 @@ namespace SchedulerService
                             ResourceEstimation estimation = new ResourceEstimation();
                            
                             var wfID = wfIDs[wf.Item1];
-                            var localTaskID = Convert.ToInt32(taskIDs[wfID][task.Id]);
-                            var taskNode = schedule[wfID][localTaskID];
-                            var nodeIndex = taskNode.Item2;
+                            
+                            var localTaskID = int.Parse(task.Parameters["id"]) - 1;
+                            //logger.Info("Task WFID:", localTaskID);
+                            var taskNode = schedule[wfID].Where(t => t.Item1 == localTaskID);
+                            var nodeIndex = taskNode.First().Item2;
 
-                            logger.Info("Wf ID:" + wfID.ToString() + " localTaskID: " + localTaskID.ToString() +
-                                " nodeIndex: " + nodeIndex.ToString());
+
+                            //logger.Info("Wf ID:" + wfID.ToString() + " localTaskID: " + localTaskID.ToString() +
+                            //    " nodeIndex: " + nodeIndex.ToString());
 
                             try
                             {
@@ -233,9 +223,23 @@ namespace SchedulerService
                         }
                         try
                         {
+                            var wfResult = new LaunchPlan();
                             var activeestimated = processUnscheduledWfsSeq(wf, estimations);
+                            foreach (var task in result.Plan)
+                            {
+                                task.State = TaskScheduler.TaskState.LAUNCHED;
+                            }
+                            foreach (var task in wfResult.Plan)
+                            {
+                                task.State = TaskScheduler.TaskState.LAUNCHED;
+                            }
+                            //logger.Info("Activeestimated: " + activeestimated.Count);
                             result.Plan.AddRange(activeestimated);
-                            PrintLaunchPlanToLog(result);
+                            wfResult.Plan.AddRange(activeestimated);
+                            //PrintLaunchPlanToLog(result);
+                           
+                            if (!_scheduledWfs.ContainsKey(wf.Item1)) 
+                                _scheduledWfs.Add(wf.Item1, wfResult);
                         }
                         catch (Exception ex)
                         {
@@ -245,76 +249,11 @@ namespace SchedulerService
                         
                     }
 
-                    //if (tosched.Count() > 0)
-                    //{
-                    //    var tasks = tosched.First().Item3;
-                    //    logger.Info(string.Format("WF ID:{0}", tosched.First().Item1));
-                    //    logger.Info("Tasks to sched:");
-                    //    foreach (var estTasks in tasks)
-                    //    {
-                    //        logger.Info(string.Format("Task ID:{0}", estTasks.Id));
-                    //    }
-
-                    //    if (tasks.Count() > 0)
-                    //    {
-                    //        var ests = tasks.First().Estimations;
-                            
-                    //        ResourceEstimation[] estimations = null;
-
-                    //        if (ests.Count() >= tosched.Count())
-                    //        {
-                    //            estimations = ests.Take(tosched.Count()).ToArray();
-                    //        }
-                    //        else
-                    //        {
-                    //            estimations = new ResourceEstimation[tosched.Count()];
-                    //            for (int i = 0; i < estimations.Count(); ++i)
-                    //            {
-                    //                estimations[i] = ests[0];
-                    //            }
- 
-                    //        }
-
-                    //        //foreach (var est in estimations)
-                    //        //{
-                    //        //    foreach (var node in est.Resource.Nodes)
-                    //        //    {
-                    //        //        s += node.DNSName + " ";
-                    //        //    }
-                    //        //}
-
-                    //        //logger.Info("Estimations:");
-                    //        //logger.Info(s);
-
-                    //        for (int i = 0; i < tosched.Count(); ++i)
-                    //        {
-                    //            logger.Info(string.Format("Attempt # {0}",i+1));
-                    //            var activeestimated = processUnscheduledWfsSeq(wfs[i], estimations[i]);
-                    //            result.Plan.AddRange(activeestimated);
-                    //            PrintLaunchPlanToLog(result);
-                    //        }   
-                    //    }
-                    //}     
 
                 }
 
-                
 
-
-
-                foreach (var task in result.Plan)
-                {
-                    task.State = TaskScheduler.TaskState.LAUNCHED;
-                }
-
-                foreach (var wf in wfs)
-                {
-                    if (!_scheduledWfs.ContainsKey(wf.Item1))
-                    {
-                        _scheduledWfs.Add(wf.Item1, result);
-                    }
-                }
-
+                logger.Info("Scheduled WFs count after scheduling: " + _scheduledWfs.Count());
                 PrintLaunchPlanToLog(result);
 
                 return result;
@@ -593,52 +532,57 @@ namespace SchedulerService
                 var dependencies = wf.Item4;
 
                 List<ActiveEstimatedTask> schedTasks = null;
-                schedTasks = new List<ActiveEstimatedTask>(notScheduledTasks.Count());
+                schedTasks = new List<ActiveEstimatedTask>();
                 
                 int localTaskID = 0;
-                ulong minGlobalTaskID = ulong.MaxValue;
 
-                foreach (var task in schedTasks)
+                try
                 {
-                    if (task.Id < minGlobalTaskID)
-                        minGlobalTaskID = task.Id;
-                }
 
-                foreach (var task in schedTasks)
-                {
-                    localTaskID = Convert.ToInt32(task.Id - minGlobalTaskID);
-                    ActiveEstimatedTask taskToAdd = new ActiveEstimatedTask();
-                    taskToAdd.ApplicationName = task.ApplicationName;
-                    taskToAdd.WFid = task.WFid;
-                    taskToAdd.Id = task.Id;
-                    taskToAdd.IsUrgent = false;
-                    taskToAdd.Parameters = new Dictionary<string, string>(task.Parameters);
-                    //This state must be the same for all tasks. Correct conversion will be done in ExecutionBroker
-                    taskToAdd.State = TaskScheduler.TaskState.LAUNCHED;
-                    taskToAdd.Estimation = new ActiveEstimation()
+                    foreach (var task in notScheduledTasks)
                     {
-                        Destination = new LaunchDestination()
+                        localTaskID = Convert.ToInt32(task.Parameters["id"]) - 1;
+                        //logger.Info("Local task id: " + localTaskID);
+                        //logger.Info(" NodeName: " + est[localTaskID].Resource.Nodes[0].DNSName);
+                        ActiveEstimatedTask taskToAdd = new ActiveEstimatedTask();
+                        taskToAdd.ApplicationName = task.ApplicationName;
+                        taskToAdd.WFid = task.WFid;
+                        taskToAdd.Id = task.Id;
+                        taskToAdd.IsUrgent = false;
+                        taskToAdd.Parameters = new Dictionary<string, string>(task.Parameters);
+                        //This state must be the same for all tasks. Correct conversion will be done in ExecutionBroker
+                        taskToAdd.State = TaskScheduler.TaskState.LAUNCHED;
+                        taskToAdd.Estimation = new ActiveEstimation()
                         {
-                            ResourceName = est[localTaskID].Resource.Name,
-                            NodeNames = new string[] { est[localTaskID].Resource.Nodes[0].DNSName }
-                        },
-                        Resource = new Resource()
-                        {
-                            Name = est[localTaskID].Resource.Name,
+                            Destination = new LaunchDestination()
+                            {
+                                ResourceName = est[localTaskID].Resource.Name,
+                                NodeNames = new string[] { est[localTaskID].Resource.Nodes[0].DNSName }
+                            },
+                            Resource = new Resource()
+                            {
+                                Name = est[localTaskID].Resource.Name,
 
-                            Nodes = new Node[] { est[localTaskID].Resource.Nodes[0] },
+                                Nodes = new Node[] { est[localTaskID].Resource.Nodes[0] },
 
-                            Parameters = task.Parameters,
-                        },
+                                Parameters = task.Parameters,
+                            },
 
-                        LaunchTime = est[localTaskID].Result.CalculationTime,
+                            LaunchTime = est[localTaskID].Result.CalculationTime,
 
-                        Result = est[localTaskID].Result
-                    };
-                    schedTasks[localTaskID] = taskToAdd;
+                            Result = est[localTaskID].Result
+                        };
+                        schedTasks.Add(taskToAdd);
+                    }
+                    result.AddRange(schedTasks);
+                    //logger.Info("Scheduled tasks count: " + schedTasks.Count);
+                   
                 }
-                
-
+                catch (Exception ex)
+                {
+                    logger.ErrorException("Exception in processUnscheduledWfsSeq", ex);
+                } 
+                return result;
                 //var schedTasks = notScheduledTasks.Select(task => new ActiveEstimatedTask()
                 //{
 
@@ -676,9 +620,7 @@ namespace SchedulerService
                 //    },
                 //}).ToList();
 
-                result.AddRange(schedTasks);
-           // }
-            return result;
+                
         }
 
         private List<ActiveEstimatedTask> processScheduledWfs(IEnumerable<Tuple<IEnumerable<ActiveEstimatedTask>, IEnumerable<EstimatedTask>, IEnumerable<TasksDepenendency>>> wfs)
