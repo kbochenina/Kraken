@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Configuration;
 using System.IO;
 using System.Linq;
@@ -120,22 +121,61 @@ namespace SchedulerService
                 }
                 else
                 {
+                    //logger.Info("Wf ids: ");
                     foreach (var wf in wfs)
                     {
+                        // if workflow was already scheduled, copy previous schedule
                         if (_scheduledWfs.ContainsKey(wf.Item1))
                         {
                             var ids = wf.Item3.Select(t => t.Id);
                             result.Plan.AddRange(
                                 _scheduledWfs[wf.Item1].Plan.Where(t => t.WFid == wf.Item1 && ids.Contains(t.Id)));
                         }
-                        foreach (var task in wf.Item2){
-                            logger.Info("Task ID: " + task.Id.ToString() + " state: " + task.State.ToString());
-                        }
+                        logger.Info(wf.Item1);
                     }
+
+                    List<string> keysToRemove = new List<string>();
+
+                    // if workflow was already scheduled, but it is not active now (actually, it means that it is finished)
+                    // we remove it from the list
+                   // logger.Info("Scheduled wf ids: ");
+                    foreach (var scheduled in _scheduledWfs)
+                    {
+                        //logger.Info(scheduled.Key);
+                        var ids = wfs.Select(w => w.Item1 == scheduled.Key);
+                        
+                        if (!ids.Contains(true))
+                            keysToRemove.Add(scheduled.Key);
+                    }
+
+                    //logger.Info("Keys to remove: ");
+                    foreach (var key in keysToRemove)
+                    {
+                        //logger.Info(key);
+                        _scheduledWfs.Remove(key);
+                    }
+
                     logger.Info("Scheduled WFs count: " + _scheduledWfs.Count());
                     logger.Info("Current plan after already scheduled wf's addition");
                     PrintLaunchPlanToLog(result);
                     if (wfs.Count == _scheduledWfs.Count) return result;
+
+                    var tosched = wfs.Where(wf => !_scheduledWfs.ContainsKey(wf.Item1)).ToArray();
+
+                    // (wf.Item1, wfId)
+                    Dictionary<string, int> wfIDs = new Dictionary<string, int>();
+
+                    int id = 0;
+                    foreach (var wf in tosched)
+                    {
+                        wfIDs.Add(wf.Item1, id++);
+                    }
+
+                    // generating *.dax files for each unscheduled wf
+                    for (int i = 0; i < tosched.Length; i++ )
+                    {
+                        GenerateWorkflowInfo(ref tosched[i], wfIDs[tosched[i].Item1]);
+                    }
 
                     try
                     {
@@ -152,25 +192,14 @@ namespace SchedulerService
                         proc.WaitForExit();
                         var exitCode = proc.ExitCode;
                         logger.Info("Scheduler was exit with code " + exitCode.ToString());
-                        logger.Info("Output: " + output);
-                        logger.Info("Error: " + error);
+                        //logger.Info("Output: " + output);
+                        //logger.Info("Error: " + error);
                     }
                     catch (Exception e)
                     {
                         logger.Info("WFSched exception: " + e.Message);
                     }
 
-
-                    var tosched = wfs.Where(wf => !_scheduledWfs.ContainsKey(wf.Item1)).ToArray();
-
-                    // (wf.Item1, wfId)
-                    Dictionary<string, int> wfIDs = new Dictionary<string, int>();
-                    
-                    int id = 0;
-                    foreach (var wf in tosched)
-                    {
-                        wfIDs.Add(wf.Item1, id++);
-                    }
 
                     //foreach (var wf in tosched)
                     //{
@@ -334,6 +363,87 @@ namespace SchedulerService
             }
             
             
+        }
+
+        private void GenerateWorkflowInfo(ref Tuple<string, IEnumerable<ActiveEstimatedTask>, IEnumerable<EstimatedTask>, IEnumerable<TasksDepenendency>> wf, int index)
+        {
+            string fullPathToFile = ConfigurationManager.AppSettings["SchedPath"];
+            
+            try
+            {
+                fullPathToFile += "\\InputFiles";
+                if (!Directory.Exists(fullPathToFile))
+                    Directory.CreateDirectory(fullPathToFile);
+                fullPathToFile += "\\wfset";
+                if (!Directory.Exists(fullPathToFile))
+                    Directory.CreateDirectory(fullPathToFile);
+                string wfFileName = "workflow_" + index.ToString() + ".dat";
+                StreamWriter wfFile = new StreamWriter(fullPathToFile + "\\" + wfFileName);
+                DateTime dt = DateTime.Now;
+                wfFile.WriteLine("<!-- Generated: " + dt.ToString() + " -->");
+                int jobCount =  wf.Item3.Count();
+                wfFile.WriteLine("Job count = " + jobCount);
+
+                Dictionary<ulong, int> taskIDs = new Dictionary<ulong, int>();
+                foreach (var task in wf.Item3)
+                {
+                    taskIDs.Add(task.Id, Convert.ToInt32(task.Parameters["id"]));
+                }
+
+
+                wfFile.WriteLine();
+                // logger.Info(" <!-- Part 1:  Dependencies -->");
+                wfFile.WriteLine(" <!-- Part 1:  Dependencies -->");
+                wfFile.WriteLine();
+
+                int [,] dep = new int [jobCount, jobCount];
+                for (int i = 0; i < jobCount; i++){
+                    for (int j = 0; j < jobCount; j++)
+                        dep[i,j] = 0;
+                }
+
+                foreach (var dependency in wf.Item4){
+                    //logger.Info ("Provider id: " + dependency.ProviderId.ToString() + " , consumerID: " + dependency.ConsumerId.ToString());
+                    int provider = taskIDs[dependency.ProviderId] - 1;
+                    int consumer = taskIDs[dependency.ConsumerId] - 1;
+                    dep[provider, consumer] = 1;
+                }
+
+                for (int i = 0; i < jobCount; i++)
+                {
+                    for (int j = 0; j < jobCount; j++)
+                        wfFile.Write(dep[i, j].ToString() + " ");
+                    wfFile.Write("\n");
+                }
+
+                wfFile.WriteLine();
+                wfFile.WriteLine(" <!-- Part 2:  Execution times -->");
+                //logger.Info(" <!-- Part 2:  Execution times -->");
+                wfFile.WriteLine();
+
+                Dictionary<int, double> execTimes = new Dictionary<int,double>();
+
+                foreach (var task in wf.Item3)
+                {
+                    //logger.Info(task.Parameters["id"] + " " + task.Parameters["execTime"]);
+                    execTimes.Add(Convert.ToInt32(task.Parameters["id"]), 
+                        double.Parse(task.Parameters["execTime"], System.Globalization.CultureInfo.InvariantCulture));
+                }
+
+                var list = execTimes.Keys.ToList();
+                list.Sort();
+
+                foreach (var key in list)
+                {
+                    wfFile.WriteLine(key.ToString() + " "  + execTimes[key].ToString());
+                }
+
+                wfFile.Close();
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorException("GenerateDAX() exception. " + ex.Message, ex);
+            }
         }
 
         private void PrintLaunchPlanToLog(LaunchPlan plan)

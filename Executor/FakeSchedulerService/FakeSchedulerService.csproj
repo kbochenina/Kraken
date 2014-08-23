@@ -84,8 +84,6 @@
     <Content Include="NLog.config" />
     <Content Include="InputFiles\aggComm.dat" />
     <Content Include="InputFiles\res_t1_p0.75_r3_1.resfile" />
-    <Content Include="InputFiles\wfset\dag_1.dax" />
-    <Content Include="InputFiles\wfset\dag_2.dax" />
     <None Include="Properties\PublishProfiles\123.pubxml" />
     <None Include="Properties\PublishProfiles\iis_local.pubxml" />
     <None Include="Properties\PublishProfiles\to_zip.pubxml" />
