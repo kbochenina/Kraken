@@ -157,13 +157,28 @@ namespace SchedulerService
                 foreach (var key in keysToRemove)
                 {
                     //logger.Info(key);
-                    _scheduledWfs.Remove(key);
+                    if (_scheduledWfs.ContainsKey(key)) 
+                        _scheduledWfs.Remove(key);
                     logger.Info("_scheduledWF success");
-                    wfIDs.Remove(key);
-                    logger.Info("wfIDs success");
-                    schedule.Remove(wfIDs[key]);
+                    
+                    if (schedule.ContainsKey(wfIDs[key]))
+                        schedule.Remove(wfIDs[key]);
                     logger.Info("schedule success");
 
+                    int wfID = wfIDs[key];
+
+                    // find all tasks of workflow to remove
+                    var tasks = taskIDs.Where(t => t.Value.Item1 == wfID);
+                    foreach (var toRemove in tasks)
+                    {
+                        taskIDs.Remove(toRemove.Key);
+                    }
+
+                    if (wfIDs.ContainsKey(key))
+                        wfIDs.Remove(key);
+                    logger.Info("wfIDs success");
+
+                    
                 }
             }
             catch (Exception ex)
@@ -178,6 +193,8 @@ namespace SchedulerService
             try
             {
                 var wfs = ConstructWorkflows(workflow).ToList();
+                DeleteFinishedWorkflows(ref wfs);
+
                 if (scheduledWfCount == 0)
                 {
                     PrintWorkflowsToLog(wfs);
@@ -364,7 +381,7 @@ namespace SchedulerService
                     
                 }
 
-                logger.Info("Current plan: " + _scheduledWfs.Count());
+                //logger.Info("Current plan: " + _scheduledWfs.Count());
                 PrintLaunchPlanToLog(result);
 
                 return result;
@@ -381,21 +398,20 @@ namespace SchedulerService
         {
             logger.Info("UpdateTaskStatus() was called");
             //logger.Info("Active estimated:");
-            foreach (var wf in wfResults)
-            {
-                foreach (var task in wf.Value.Item2)
-                    logger.Info("Wf id: " + task.WFid + " task id: " + task.Parameters["id"]);
-            }
-            foreach (var node in nodeQueues)
-            {
-                logger.Info("Node queue key " + node.Key);
-            }
+            //foreach (var wf in wfResults)
+            //{
+            //    foreach (var task in wf.Value.Item2)
+            //        logger.Info("Wf id: " + task.WFid + " task id: " + task.Parameters["id"]);
+            //}
+            //foreach (var node in nodeQueues)
+            //{
+            //    logger.Info("Node queue key " + node.Key);
+            //}
             try
             {
                 // for all nodes
                 foreach ( var node in nodeCurrent.ToList() )
                 {
-                    logger.Info("Next node: ");
                     var nodeId = node.Key;
                     logger.Info("Node id: " + nodeId.ToString());
                     // if node is free
@@ -409,19 +425,36 @@ namespace SchedulerService
                             var task = nodeQueues[node.Key].First();
                             int wfId = task.Item1, taskId = task.Item2;
                             logger.Info("Wf id: " + wfId.ToString() + " Task id: " + taskId.ToString());
-                            string wfKey = wfIDs.FirstOrDefault(wf => wf.Value == wfId).Key;
+                            
+                            var wfKeyPair = wfIDs.FirstOrDefault(wf => wf.Value == wfId);
+                            logger.Info("Key pair : success");
+
+                            string wfKey = wfKeyPair.Key;
+                            logger.Info("wfKey = " + wfKey);
+
+                            if (!wfIDs.ContainsKey(wfKey))
+                                  logger.Info("Key is not presented in wf id's");
+
                             var taskToChange = wfResults[wfKey].Item2.Where(t => t.WFid == wfKey && t.Parameters["id"] == taskId.ToString()).ToList();
+                            logger.Info("Task to change success");
                             if (taskToChange.Count == 0)
                                 logger.Info("UpdateTaskStatus(). Cannot find task " + taskId.ToString() + " of workflow " + wfId.ToString() + " in active estimated tasks");
+
 
                             if (IsParentsFinished(taskToChange.First().Id, wfResults[wfKey].Item1))
                             {
                                 // change the status of the task
                                 taskToChange.First().State = TaskScheduler.TaskState.LAUNCHED;
+                                if (!nodeCurrent.ContainsKey(nodeId))
+                                    logger.Info("Node current does not contain nodeId " + nodeId.ToString());
                                 // set task as executed on the node
                                 nodeCurrent[nodeId] = new Tuple<int, int>(wfId, taskId);
+                                logger.Info("Node current success");
+                                if (!nodeQueues.ContainsKey(nodeId))
+                                    logger.Info("Node current does not contain nodeId " + nodeId.ToString());
                                 // remove task from waiting list for this node
                                 nodeQueues[nodeId].RemoveAt(0);
+                                logger.Info("Node queues success");
                                 logger.Info("UpdateTaskStatus(). Task " + taskId.ToString() + " of workflow " + wfId.ToString() + " status was changed to LAUNCHED");
                             }
                             else
@@ -440,29 +473,56 @@ namespace SchedulerService
 
         private bool IsParentsFinished(ulong globalTaskId, IEnumerable<Scheduler.Estimated.TasksDepenendency> dep)
         {
-            var parentsGlobalIds = dep.Where(t => t.ConsumerId == globalTaskId);
-
-            // if it is initial task
-            if (parentsGlobalIds.Count() == 0)
-                return true;
-
-            foreach (var parent in parentsGlobalIds)
+            try
             {
-                int wfId = taskIDs[globalTaskId].Item1, taskId = taskIDs[globalTaskId].Item2;
-                var task = finishedTasks.Where(t => t.Item1 == wfId && t.Item2 == taskId);
-                // if any parent is not finished yet
-                if (task.Count() == 0)
+                var parentsGlobalIds = dep.Where(t => t.ConsumerId == globalTaskId);
+
+                // if it is initial task
+                if (parentsGlobalIds.Count() == 0)
+                    return true;
+                PrintTaskIDs();
+                string toLog = "Parents: ";
+                foreach (var parent in parentsGlobalIds)
                 {
-                     return false;
+                    logger.Info("Parent.ProviderId:" + parent.ProviderId);
+                    int wfId = taskIDs[parent.ProviderId].Item1, taskId = taskIDs[parent.ProviderId].Item2;
+                    toLog += "(" + wfId.ToString() + ", " + taskId.ToString() + ") ";
                 }
+                logger.Info(toLog);
+                foreach (var parent in parentsGlobalIds)
+                {
+                    int wfId = taskIDs[parent.ProviderId].Item1, taskId = taskIDs[parent.ProviderId].Item2;
+                    var task = finishedTasks.Where(t => t.Item1 == wfId && t.Item2 == taskId);
+
+                    // if any parent is not finished yet
+                    if (task.Count() == 0)
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
             }
-            return true;
-            
+            catch (Exception ex)
+            {
+                logger.ErrorException("IsParentsFinished() exception. " + ex.Message, ex);
+                return false;
+            }
+        }
+
+        private void PrintTaskIDs()
+        {
+            foreach (var task in taskIDs)
+            {
+                string str = "(" + task.Key + ", (" + task.Value.Item1 + ", " + task.Value.Item2 + ")";
+                logger.Info(str);
+            }
         }
 
         private void DeleteFinishedTasksFromQueues(ref List<Tuple<string, IEnumerable<ActiveEstimatedTask>, IEnumerable<EstimatedTask>, IEnumerable<TasksDepenendency>>>wfs){
             try
             {
+               
                 foreach (var currentTask in nodeCurrent.ToList())
                 {
                     // if there is a task executed on this node
@@ -470,9 +530,9 @@ namespace SchedulerService
                     {
                         int wfId = currentTask.Value.Item1,
                             taskId = currentTask.Value.Item2;
-                        logger.Info("wfId " + wfId.ToString() + " taskId " + taskId.ToString());
+                       
                         string wfKey = wfIDs.FirstOrDefault(x => x.Value == wfId).Key;
-                        logger.Info("wfKey: ", wfKey);
+                        
                         // if current task is in ActiveEstimated tasks, it is not finished yet
                         // else we should delete it from queues
                         var currentWf = wfs.Where(wf => wf.Item1 == wfKey).ToList();
@@ -481,25 +541,31 @@ namespace SchedulerService
                         var activeTasks = currentWf.First().Item2;
                         
                         var foundTask = activeTasks.Where(task => task.Parameters["id"] == taskId.ToString()).ToList();
-                        logger.Info("I LUV CLAVIRE");
+                        
                         if (foundTask.Count == 0)
                         {
                             int nodeId = currentTask.Key;
                             // remove current task from current node
                             nodeCurrent[nodeId] = null;
-
+                           
+                            //logger.Info("Node current of " + nodeId.ToString() + " was nulled");
                             finishedTasks.Add(new Tuple<int, int>(wfId, taskId));
 
                             var taskToRemove = taskIDs.Where(t => t.Value.Item1 == wfId && t.Value.Item2 == taskId).ToList();
-                     
-                            taskIDs.Remove(taskToRemove.First().Key);
+                            if (taskToRemove.Count == 0)
+                            {
+                                logger.Info("Task " + taskId + " of workflow " + wfId +" was not found");
+                            }
+
+                            //taskIDs.Remove(taskToRemove.First().Key);
 
                             logger.Info("DeleteFinishedTasksFromQueues(). Task " + taskId.ToString() + " of workflow " + wfId.ToString() +
                                 " was finished on " + currentTask.Key.ToString());
-                            logger.Info("DeleteFinishedTasksFromQueues(). Task " + foundTask.First().Id.ToString() + " was removed from taskIds");
+                            //logger.Info("DeleteFinishedTasksFromQueues(). Task " + taskId.ToString() + " was removed from taskIds");
                         }
                     }
                 }
+               
             }
             catch (Exception ex)
             {
