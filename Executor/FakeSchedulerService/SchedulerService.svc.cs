@@ -48,11 +48,16 @@ namespace SchedulerService
         // (globalTaskId, (wfId, taskId))
         private Dictionary<ulong, Tuple<int, int>> taskIDs;
 
-        // dateTime of previous call of RescheduleEstimated() 
-        private DateTime prevCall;
+        // dateTime of first call of RescheduleEstimated() 
+        private DateTime firstCall;
+
+        private bool isFirstActive = false;
 
         // Holds information about if task was in the list of active tasks
         private Dictionary<ulong, bool> wasActive;
+
+        // (nodeIndex, (windowStartTime1, windowEndTime1),..., (windowStartTimeN, windowEndTimeN))
+        private Dictionary<int, List<Tuple<int, int>>> windows = new Dictionary<int,List<Tuple<int,int>>>();
 
         public SchedulerService()
         {
@@ -193,17 +198,91 @@ namespace SchedulerService
             }
         }
 
+        private void ReadWindows()
+        {
+            string pathToInputFolder = ConfigurationManager.AppSettings["SchedPath"] + "\\InputFiles";
+            try
+            {
+                string[] files = Directory.GetFiles(pathToInputFolder, "res*");
+                if (files.Count() != 1)
+                {
+                    logger.Info("ReadWindows() error. Wrong count of resource files: " + files.Count().ToString());
+                }
+                StreamReader res = new StreamReader(files.First());
+                string s = "";
+                while (!s.Contains("Processor "))
+                {
+                    s = res.ReadLine();
+                    //logger.Info(s);
+                }
+                int nodeId = 1;
+                windows.Add(nodeId, new List<Tuple<int,int>>());
+
+                while (!res.EndOfStream)
+                {
+                    s = res.ReadLine();
+                    //logger.Info(s);
+                    if (s.Contains("Processor "))
+                    {
+                        nodeId++;
+                        windows.Add(nodeId, new List<Tuple<int,int>>());
+                    }
+                    else
+                    {
+                        string[] args = s.Split();
+                        //logger.Info("Args[0]:" + args[0]);
+                        //logger.Info("Args[2]:" + args[2]);
+                        int start = Int32.Parse(args[0]),
+                            end = Int32.Parse(args[2]);
+                        windows[nodeId].Add(new Tuple<int, int>(start, end));
+
+                    }
+                }
+                foreach (var node in windows)
+                {
+                    logger.Info("Node index: " + node.Key.ToString());
+                    foreach (var window in node.Value)
+                    {
+                        logger.Info("(" + window.Item1.ToString() + ", " + window.Item2.ToString() + ")");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorException("ReadWindows() error. " + ex.Message, ex);
+            }
+        }
+
+        private void CheckFirstActive(ref List<Tuple<string, IEnumerable<ActiveEstimatedTask>, IEnumerable<EstimatedTask>, IEnumerable<TasksDepenendency>>> wfs)
+        {
+            foreach (var wf in wfs)
+            {
+                if (wf.Item2.Count() != 0)
+                {
+                    isFirstActive = true;
+                    firstCall = DateTime.Now;
+                    return;
+                }
+            }
+        }
+
         public Scheduler.Estimated.LaunchPlan RescheduleEstimated(Scheduler.Estimated.EstimatedWorkflow workflow)
         {
             logger.Debug(string.Format(debugPrefixNameString, "RescheduleEstimated"));
+            
             try
             {
                 var wfs = ConstructWorkflows(workflow).ToList();
-                
+
+                if (!isFirstActive)
+                    CheckFirstActive(ref wfs);
+
                 DeleteFinishedWorkflows(ref wfs);
 
                 if (scheduledWfCount == 0)
                 {
+                    //firstCall = DateTime.Now;
+                    ReadWindows();
                     PrintActiveToLog(wfs);
                     PrintEstimatedToLog(wfs);
                     // wfId, (taskId1, nodeId1, startTime), ..., (taskIdN, nodeIdN, startTime) for all WFs to be scheduled
@@ -228,7 +307,7 @@ namespace SchedulerService
                     taskIDs = new Dictionary<ulong, Tuple<int, int>>();
                     // clear from previous runs
                     _scheduledWfs.Clear();
-                    prevCall = DateTime.Now;
+                    
                     wasActive = new Dictionary<ulong, bool>();
                     foreach (var wf in wfs)
                     {
@@ -237,6 +316,7 @@ namespace SchedulerService
                     }
                  }
 
+                
                 PrintActiveToLog(wfs);
                 SetActive(ref wfs);
                 //PrintEstimatedToLog(wfs);
@@ -379,29 +459,17 @@ namespace SchedulerService
                                 logger.ErrorException("Exception in processUnscheduledWFsSeq", ex);
                             }
                         }
-                    }
+                        
+                 
+                      }
+
+                    if (isFirstActive) 
+                        logger.Info("Current time: " + GetTime());
+
                     // update status
                     UpdateTaskStatus(ref wfResults);
 
-                    // experiment
-                    //Dictionary<string, List<ActiveEstimatedTask>> toExecBroker = new Dictionary<string, List<ActiveEstimatedTask>>();
-                    //foreach (var wf in wfResults)
-                    //{
-                    //    toExecBroker.Add(wf.Key, new List<ActiveEstimatedTask>());
-                        
-                    //    for (int i = 0; i < wf.Value.Item2.Count; i++)
-                    //    {
-                    //        if (wf.Value.Item2[i].State == TaskScheduler.TaskState.LAUNCHED)
-                    //        {
-                    //            ActiveEstimatedTask toAdd = new ActiveEstimatedTask(wf.Value.Item2[i]);
-                    //            toExecBroker[wf.Key].Add(toAdd);
-                    //            //wf.Value.Item2[i].State = TaskScheduler.TaskState.SCHEDULED;
-                    //        }
-                    //    }
-                       
-                    //}
-
-                    //PrintNodeQueues();
+                    
                     SetStatusToFinishedTasks(ref wfResults);
 
                     foreach (var wf in wfResults)
@@ -409,16 +477,7 @@ namespace SchedulerService
                         var wfResult = new LaunchPlan();
                         wfResult.Plan.AddRange(wf.Value.Item2);
                         result.Plan.AddRange(wf.Value.Item2);
-                        //result.Plan.AddRange(toExecBroker[wf.Key]);
-
-                        //foreach (var task in wf.Value.Item2)
-                        //{
-                        //    task.State = TaskScheduler.TaskState.SCHEDULED;
-                        //}
-
-                        //wfResult.Plan.AddRange(wf.Value.Item2);
-                        //result.Plan.AddRange(wf.Value.Item2);
-                        
+                                               
                         if (_scheduledWfs.ContainsKey(wf.Key))
                         {
                             _scheduledWfs[wf.Key] = wfResult;
@@ -439,7 +498,7 @@ namespace SchedulerService
                     logger.Info(wf.Item1 + " active: " + wf.Item2.Count() + " estimated: " + wf.Item3.Count());
                 }
 
-                prevCall = DateTime.Now;
+                //prevCall = DateTime.Now;
 
                 return result;
             }
@@ -522,7 +581,7 @@ namespace SchedulerService
                     var nodeId = node.Key;
                     //logger.Info("Node id: " + nodeId.ToString());
                     // if node is free
-                    if (node.Value == null)
+                    if (node.Value == null && !isNodeBusy(nodeId))
                     {
                         //logger.Info("Node is free");
                         // if there is task waiting for destination
@@ -576,6 +635,35 @@ namespace SchedulerService
             {
                 logger.ErrorException("UpdateTaskStatus() exception. " + ex.Message, ex);
             }
+        }
+
+        private bool isNodeBusy(int nodeIndex)
+        {
+            bool result = false;
+            try
+            {
+                //logger.Info("isNodeBusy() called. Node index = " + nodeIndex.ToString());
+                int currentTime = GetTime();
+                logger.Info("Current time: " + currentTime.ToString());
+                foreach (var window in windows[nodeIndex])
+                {
+                    if (window.Item1 <= currentTime && window.Item2 >= currentTime)
+                    {
+                        result = true;
+                        logger.Info("Node " + nodeIndex.ToString() + " is busy, currentTime = " + currentTime.ToString() +
+                            " in window (" + window.Item1.ToString() + " , " + window.Item2.ToString() + ")");
+                        return result;
+                    }
+                }
+
+                
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorException("isNodeBusy() error. " + ex.Message, ex);
+            }
+
+            return result;
         }
 
         private bool IsParentsFinished(ulong globalTaskId, IEnumerable<Scheduler.Estimated.TasksDepenendency> dep)
@@ -696,18 +784,17 @@ namespace SchedulerService
             }
         }
 
-        private bool CheckTime()
+        private int GetTime()
         {
             DateTime now = DateTime.Now;
             int hours = now.Hour, minutes = now.Minute, seconds = now.Second,
-                prevHours = prevCall.Hour, prevMinutes = prevCall.Minute, prevSeconds = prevCall.Second;
-            int schedLatency = Int32.Parse(ConfigurationManager.AppSettings["SchedLatency"]);
+                firstHours = firstCall.Hour, firstMinutes = firstCall.Minute, firstSeconds = firstCall.Second;
+            
             int nowSec = hours * 3600 + minutes * 60 + seconds,
-                prevSec = prevHours * 3600 + prevMinutes * 60 + prevSeconds;
-            logger.Info("Time between calls: " + (nowSec - prevSec).ToString());
-            if (nowSec - prevSec < schedLatency)
-                return false;
-            else return true;
+                firstSec = firstHours * 3600 + firstMinutes * 60 + firstSeconds;
+            int currentTime = nowSec - firstSec;
+            logger.Info("Current time: " + (nowSec - firstSec).ToString());
+            return currentTime;
         }
 
         private void AddSchedWfToQueues(ref Dictionary<int, List<Tuple<int, int, int>>> schedule, ref List<int> schedWFIds){
