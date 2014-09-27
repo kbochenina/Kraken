@@ -82,11 +82,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="NLog.config" />
+    <Content Include="InputFiles\wfset\workflow_0.dat" />
+    <Content Include="InputFiles\wfset\workflow_1.dat" />
     <Content Include="InputFiles\aggComm.dat" />
-    <Content Include="InputFiles\res_t1_p0.75_r3_1.resfile" />
     <None Include="Properties\PublishProfiles\123.pubxml" />
     <None Include="Properties\PublishProfiles\iis_local.pubxml" />
     <None Include="Properties\PublishProfiles\to_zip.pubxml" />
+    <Content Include="InputFiles\res_t1_p0.75_r15_1.resfile" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

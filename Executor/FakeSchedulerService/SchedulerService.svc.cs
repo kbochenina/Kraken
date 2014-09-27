@@ -39,11 +39,14 @@ namespace SchedulerService
          // (wf.Item1, wfId)
         private Dictionary<string, int> wfIDs;
 
+        // (wf.Item1, tasksCount)
+        private Dictionary<string, int> tasksCount = new Dictionary<string,int>();
+
         // (nodeId, (wfId, currentTaskId)) - we suppose that one node can execute only one task at time!!!
         private Dictionary<int, Tuple<int, int>> nodeCurrent;
 
         // (wfId, taskId)
-        private List<Tuple<int, int>> finishedTasks;
+        private List<Tuple<int, int>> finishedTasks = new List<Tuple<int,int>>();
 
         // (globalTaskId, (wfId, taskId))
         private Dictionary<ulong, Tuple<int, int>> taskIDs;
@@ -152,44 +155,65 @@ namespace SchedulerService
             {
                 List<string> keysToRemove = new List<string>();
 
+                
                 // if workflow was already scheduled, but it is not active now (actually, it means that it is finished)
                 // we remove it from the list
                 // logger.Info("Scheduled wf ids: ");
                 foreach (var scheduled in _scheduledWfs)
                 {
-                    //logger.Info(scheduled.Key);
-                    var ids = wfs.Select(w => w.Item1 == scheduled.Key);
-
-                    if (!ids.Contains(true))
+                    // find count of finished tasks
+                    var finished = finishedTasks.Select(w => w.Item1 == wfIDs[scheduled.Key]).ToList();
+                    int finishedCount = 0;
+                    foreach (var v in finished)
+                    {
+                        if (v) finishedCount++;
+                    }
+                    
+                    // if count of finished tasks is equal to total tasks count
+                    if (finishedCount == tasksCount[scheduled.Key])
                         keysToRemove.Add(scheduled.Key);
+                    else
+                    {
+                        //logger.Info(scheduled.Key);
+                        var ids = wfs.Select(w => w.Item1 == scheduled.Key);
+
+                        if (!ids.Contains(true))
+                            keysToRemove.Add(scheduled.Key);
+                        // delete tasks
+
+                    }
                 }
 
-                //logger.Info("Keys to remove: ");
-                foreach (var key in keysToRemove)
+               
+               // logger.Info("Keys to remove: ");
+                for (int i = 0; i < keysToRemove.Count; i++ )
                 {
+                    var key = keysToRemove[i];
+                    //logger.Info("Key to remove: " + key);
                     //logger.Info(key);
-                    if (_scheduledWfs.ContainsKey(key)) 
+                    if (_scheduledWfs.ContainsKey(key))
                         _scheduledWfs.Remove(key);
-                    logger.Info("_scheduledWF success");
-                    
+                    //logger.Info("_scheduledWF success");
+
                     if (schedule.ContainsKey(wfIDs[key]))
                         schedule.Remove(wfIDs[key]);
-                    logger.Info("schedule success");
+                    //logger.Info("schedule success");
 
                     int wfID = wfIDs[key];
 
                     // find all tasks of workflow to remove
-                    var tasks = taskIDs.Where(t => t.Value.Item1 == wfID);
-                    foreach (var toRemove in tasks)
+                    var tasks = taskIDs.Where(t => t.Value.Item1 == wfID).ToList();
+                    for (var j = 0; j < tasks.Count(); j++ )
                     {
-                        taskIDs.Remove(toRemove.Key);
+                        var keyToRemove = tasks[j].Key;
+                        taskIDs.Remove(keyToRemove);
                     }
 
                     if (wfIDs.ContainsKey(key))
                         wfIDs.Remove(key);
                     logger.Info("wfIDs success");
 
-                    
+
                 }
             }
             catch (Exception ex)
@@ -230,8 +254,8 @@ namespace SchedulerService
                     else
                     {
                         string[] args = s.Split();
-                        //logger.Info("Args[0]:" + args[0]);
-                        //logger.Info("Args[2]:" + args[2]);
+                        logger.Info("Args[0]:" + args[0]);
+                        logger.Info("Args[2]:" + args[2]);
                         int start = Int32.Parse(args[0]),
                             end = Int32.Parse(args[2]);
                         windows[nodeId].Add(new Tuple<int, int>(start, end));
@@ -257,7 +281,8 @@ namespace SchedulerService
         {
             foreach (var wf in wfs)
             {
-                if (wf.Item2.Count() != 0)
+                //if (wf.Item3.Count() != tasksCount[wf.Item1])
+                if (!isFirstActive)
                 {
                     isFirstActive = true;
                     firstCall = DateTime.Now;
@@ -274,11 +299,10 @@ namespace SchedulerService
             {
                 var wfs = ConstructWorkflows(workflow).ToList();
 
-                if (!isFirstActive)
-                    CheckFirstActive(ref wfs);
+                
 
-                DeleteFinishedWorkflows(ref wfs);
-
+                //DeleteFinishedWorkflows(ref wfs);
+               
                 if (scheduledWfCount == 0)
                 {
                     //firstCall = DateTime.Now;
@@ -300,42 +324,49 @@ namespace SchedulerService
                     for (int i = 1; i <= nodesCount; i++)
                     {
                         nodeCurrent.Add(i, null);
+                        nodeQueues.Add(i, new List<Tuple<int, int, int>>());
                     }
                         // (wfId, taskId)
-                        finishedTasks = new List<Tuple<int, int>>();
+                       
                     // (wfId, taskId)
                     taskIDs = new Dictionary<ulong, Tuple<int, int>>();
                     // clear from previous runs
                     _scheduledWfs.Clear();
-                    
+
                     wasActive = new Dictionary<ulong, bool>();
                     foreach (var wf in wfs)
                     {
+                        if (!tasksCount.ContainsKey(wf.Item1))
+                            tasksCount.Add(wf.Item1, wf.Item3.Count());
                         foreach (var task in wf.Item3)
+                        {
                             wasActive.Add(task.Id, false);
+                        }
                     }
                  }
 
-                
+               
+
                 PrintActiveToLog(wfs);
                 SetActive(ref wfs);
                 //PrintEstimatedToLog(wfs);
 
                 var result = new LaunchPlan();
 
-                logger.Info("RescheduleEstimated(). Keys of scheduled workflows: ");
-                foreach (var wf in _scheduledWfs)
-                {
-                    logger.Info("Workflow " + wf.Key);
-                }
-
+                
                 if (ConfigurationManager.AppSettings["SchedMethod"] == "second"){
                     
+                    //DeleteFinishedTasksFromQueues(ref wfs);
+                    //logger.Info("DeleteFinishedTasksFromQueues() ended");
                     DeleteFinishedTasksFromQueues(ref wfs);
                     logger.Info("DeleteFinishedTasksFromQueues() ended");
                     DeleteFinishedWorkflows(ref wfs);
                     logger.Info("DeleteFinishedWorkflows() ended");
-
+                    logger.Info("RescheduleEstimated(). Keys of scheduled workflows: ");
+                    foreach (var wf in _scheduledWfs)
+                    {
+                        logger.Info("Workflow " + wf.Key);
+                    }
                     
                     // (wfKey, wfDep, wfActiveEstimated)
                     var wfResults = new Dictionary<string, Tuple<IEnumerable<Scheduler.Estimated.TasksDepenendency>, List<ActiveEstimatedTask>>>();
@@ -435,7 +466,9 @@ namespace SchedulerService
                                 var localTaskID = int.Parse(task.Parameters["id"]) - 1;
                                 //logger.Info("Task WFID:", localTaskID);
                                 var taskNode = schedule[wfID].Where(t => t.Item1 == localTaskID);
+                                logger.Info("Before: wfID " + wfID + " localTaskID: " + localTaskID);
                                 var nodeIndex = taskNode.First().Item2;
+                                logger.Info("After");
 
 
                                 try
@@ -472,20 +505,27 @@ namespace SchedulerService
                     
                     SetStatusToFinishedTasks(ref wfResults);
 
-                    foreach (var wf in wfResults)
+                    try
                     {
-                        var wfResult = new LaunchPlan();
-                        wfResult.Plan.AddRange(wf.Value.Item2);
-                        result.Plan.AddRange(wf.Value.Item2);
-                                               
-                        if (_scheduledWfs.ContainsKey(wf.Key))
+                        foreach (var wf in wfResults)
                         {
-                            _scheduledWfs[wf.Key] = wfResult;
+                            var wfResult = new LaunchPlan();
+                            wfResult.Plan.AddRange(wf.Value.Item2);
+                            result.Plan.AddRange(wf.Value.Item2);
+
+                            if (_scheduledWfs.ContainsKey(wf.Key))
+                            {
+                                _scheduledWfs[wf.Key] = wfResult;
+                            }
+                            else
+                            {
+                                _scheduledWfs.Add(wf.Key, wfResult);
+                            }
                         }
-                        else
-                        {
-                            _scheduledWfs.Add(wf.Key, wfResult);
-                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.ErrorException("Add final plan error. " + ex.Message, ex);
                     }
                     
                 }
@@ -499,6 +539,9 @@ namespace SchedulerService
                 }
 
                 //prevCall = DateTime.Now;
+
+                if (!isFirstActive)
+                    CheckFirstActive(ref wfs);
 
                 return result;
             }
@@ -520,7 +563,10 @@ namespace SchedulerService
                     int wfId = finTask.Item1, taskId = finTask.Item2;
                     var wfKeys = wfIDs.Where(w => w.Value == wfId);
                     if (wfKeys.Count() == 0)
-                        logger.Info("SetStatusToFinishedTasks() error. Cannot find wfkey for workflow id " + wfId.ToString());
+                    {
+                        //logger.Info("SetStatusToFinishedTasks() error. Cannot find wfkey for workflow id " + wfId.ToString());
+                        continue;
+                    }
                     string wfKey = wfKeys.First().Key;
                     var taskList = wfResults[wfKey].Item2;
                     var globalTaskIds = taskIDs.Where(t => t.Value.Item1 == wfId && t.Value.Item2 == taskId);
@@ -584,6 +630,11 @@ namespace SchedulerService
                     if (node.Value == null && !isNodeBusy(nodeId))
                     {
                         //logger.Info("Node is free");
+                        if (!nodeQueues.ContainsKey(nodeId))
+                        {
+                            PrintNodeQueues();
+                            logger.Info("Node current does not contain nodeId " + nodeId.ToString());
+                        }
                         // if there is task waiting for destination
                         if (nodeQueues[node.Key].Count != 0)
                         {
@@ -615,9 +666,6 @@ namespace SchedulerService
                                     logger.Info("Node current does not contain nodeId " + nodeId.ToString());
                                 // set task as executed on the node
                                 nodeCurrent[nodeId] = new Tuple<int, int>(wfId, taskId);
-                                //logger.Info("Node current success");
-                                if (!nodeQueues.ContainsKey(nodeId))
-                                    logger.Info("Node current does not contain nodeId " + nodeId.ToString());
                                 // remove task from waiting list for this node
                                 nodeQueues[nodeId].RemoveAt(0);
                                 //logger.Info("Node queues success");
@@ -747,13 +795,35 @@ namespace SchedulerService
                         // if current task is in ActiveEstimated tasks, it is not finished yet
                         // else we should delete it from queues
                         var currentWf = wfs.Where(wf => wf.Item1 == wfKey).ToList();
+                        bool isWFFinished = false,
+                            isLaunchedNotInActive = false,
+                            isLaunchedNotInActiveAndEstimated = false;
                         if (currentWf.Count == 0)
-                            logger.Info("DeleteFinishedTasksFromQueues(). Workflow " + wfId.ToString() + " (key " + wfKey + ") was not found in a list of workflows");
-                        var activeTasks = currentWf.First().Item2;
-                        
-                        var foundTask = activeTasks.Where(task => task.Parameters["id"] == taskId.ToString()).ToList();
-                        
-                        if (foundTask.Count == 0 && wasActive[globalTaskId] == true)// && CheckTime())
+                        {
+                            //logger.Info("DeleteFinishedTasksFromQueues(). Workflow " + wfId.ToString() + " (key " + wfKey + ") was not found in a list of workflows");
+                            isWFFinished = true;
+
+                        }
+                        else
+                        {
+                            var activeTasks = currentWf.First().Item2;
+
+                            var foundTask = activeTasks.Where(task => task.Parameters["id"] == taskId.ToString()).ToList();
+
+                            isLaunchedNotInActive = (foundTask.Count == 0 && wasActive[globalTaskId] == true);
+                            isLaunchedNotInActiveAndEstimated = false;
+
+                            if (!isLaunchedNotInActive)
+                            {
+                                // second case - when task was not in active list
+                                // in this case wasActive status = false, but it is neither in active nor in estimated lists
+                                var estimatedTasks = currentWf.First().Item3;
+                                var foundEstimatedTask = estimatedTasks.Where(task => task.Parameters["id"] == taskId.ToString()).ToList();
+                                if (foundTask.Count == 0 && foundEstimatedTask.Count == 0)
+                                    isLaunchedNotInActiveAndEstimated = true;
+                            }
+                        }
+                        if (isLaunchedNotInActive || isLaunchedNotInActiveAndEstimated || isWFFinished)// && CheckTime())
                         {
                             int nodeId = currentTask.Key;
                             // remove current task from current node
@@ -761,12 +831,6 @@ namespace SchedulerService
                            
                             //logger.Info("Node current of " + nodeId.ToString() + " was nulled");
                             finishedTasks.Add(new Tuple<int, int>(wfId, taskId));
-
-                            var taskToRemove = taskIDs.Where(t => t.Value.Item1 == wfId && t.Value.Item2 == taskId).ToList();
-                            if (taskToRemove.Count == 0)
-                            {
-                                logger.Info("Task " + taskId + " of workflow " + wfId +" was not found");
-                            }
 
                             //taskIDs.Remove(taskToRemove.First().Key);
 
@@ -977,7 +1041,9 @@ namespace SchedulerService
 
                 foreach (var key in list)
                 {
-                    wfFile.WriteLine(key.ToString() + " "  + execTimes[key].ToString());
+                    string execTime = execTimes[key].ToString();
+                    execTime = execTime.Replace(',', '.');
+                    wfFile.WriteLine(key.ToString() + " "  + execTime);
                 }
 
                 wfFile.Close();

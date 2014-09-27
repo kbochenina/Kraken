@@ -1,0 +1,25 @@
+Processors count = 15
+Types count = 1
+Type 1 (15 processors)
+Processor 1 2
+30  50
+170  200
+Processor 2 2
+45  65
+115  125
+Processor 3 1
+140  200
+Processor 4 2
+25  40
+60  80
+Processor 5 0
+Processor 6 0
+Processor 7 0
+Processor 8 0
+Processor 9 0
+Processor 10 0
+Processor 11 0
+Processor 12 0
+Processor 13 0
+Processor 14 0
+Processor 15 0
