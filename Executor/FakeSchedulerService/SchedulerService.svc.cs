@@ -552,7 +552,7 @@ namespace SchedulerService
 
         }
 
-        // set status to SCHEDULED to finished tasks
+        // remove finished tasks from wfResults
         private void SetStatusToFinishedTasks(ref Dictionary<string, Tuple<IEnumerable<Scheduler.Estimated.TasksDepenendency>, List<ActiveEstimatedTask>>> wfResults)
         {
             try
@@ -680,7 +680,7 @@ namespace SchedulerService
                                     nodeQueues[nodeId].RemoveAt(taskIndex);
                                     taskWasAssigned = true;
                                     //logger.Info("Node queues success");
-                                    //logger.Info("UpdateTaskStatus(). Task " + taskId.ToString() + " of workflow " + wfId.ToString() + " status was changed to LAUNCHED");
+                                    logger.Info("UpdateTaskStatus(). Task " + taskId.ToString() + " of workflow " + wfId.ToString() + " status was changed to LAUNCHED");
                                 }
                                 else
                                 {
@@ -692,6 +692,15 @@ namespace SchedulerService
                                 }
                             }
                         }
+                    }
+                }
+                PrintNodeQueues();
+                foreach (var node in nodeCurrent)
+                {
+                    logger.Info(node.Key);
+                    if (node.Value != null)
+                    {
+                        logger.Info("(" + node.Value.Item1 + ", " + node.Value.Item2 + ")");
                     }
                 }
             }
@@ -1031,6 +1040,8 @@ namespace SchedulerService
                     dep[provider, consumer] = 1;
                 }
 
+                logger.Info("Dep finished");
+
                 for (int i = 0; i < jobCount; i++)
                 {
                     for (int j = 0; j < jobCount; j++)
@@ -1061,7 +1072,7 @@ namespace SchedulerService
                     execTime = execTime.Replace(',', '.');
                     wfFile.WriteLine(key.ToString() + " "  + execTime);
                 }
-
+                logger.Info("Exec times finished");
                 wfFile.Close();
             }
             catch (Exception ex)
