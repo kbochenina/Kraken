@@ -168,7 +168,6 @@ namespace SchedulerService
                     {
                         if (v) finishedCount++;
                     }
-                    
                     // if count of finished tasks is equal to total tasks count
                     if (finishedCount == tasksCount[scheduled.Key])
                         keysToRemove.Add(scheduled.Key);
@@ -211,7 +210,7 @@ namespace SchedulerService
 
                     if (wfIDs.ContainsKey(key))
                         wfIDs.Remove(key);
-                    logger.Info("wfIDs success");
+                    //logger.Info("wfIDs success");
 
 
                 }
@@ -254,22 +253,22 @@ namespace SchedulerService
                     else
                     {
                         string[] args = s.Split();
-                        logger.Info("Args[0]:" + args[0]);
-                        logger.Info("Args[2]:" + args[2]);
+                        //logger.Info("Args[0]:" + args[0]);
+                        //logger.Info("Args[2]:" + args[2]);
                         int start = Int32.Parse(args[0]),
                             end = Int32.Parse(args[2]);
                         windows[nodeId].Add(new Tuple<int, int>(start, end));
 
                     }
                 }
-                foreach (var node in windows)
-                {
-                    logger.Info("Node index: " + node.Key.ToString());
-                    foreach (var window in node.Value)
-                    {
-                        logger.Info("(" + window.Item1.ToString() + ", " + window.Item2.ToString() + ")");
-                    }
-                }
+                //foreach (var node in windows)
+                //{
+                //    logger.Info("Node index: " + node.Key.ToString());
+                //    foreach (var window in node.Value)
+                //    {
+                //        logger.Info("(" + window.Item1.ToString() + ", " + window.Item2.ToString() + ")");
+                //    }
+                //}
             }
             catch (Exception ex)
             {
@@ -301,7 +300,7 @@ namespace SchedulerService
 
                 
 
-                //DeleteFinishedWorkflows(ref wfs);
+                DeleteFinishedWorkflows(ref wfs);
                
                 if (scheduledWfCount == 0)
                 {
@@ -362,11 +361,11 @@ namespace SchedulerService
                     logger.Info("DeleteFinishedTasksFromQueues() ended");
                     DeleteFinishedWorkflows(ref wfs);
                     logger.Info("DeleteFinishedWorkflows() ended");
-                    logger.Info("RescheduleEstimated(). Keys of scheduled workflows: ");
-                    foreach (var wf in _scheduledWfs)
-                    {
-                        logger.Info("Workflow " + wf.Key);
-                    }
+                    //logger.Info("RescheduleEstimated(). Keys of scheduled workflows: ");
+                    //foreach (var wf in _scheduledWfs)
+                    //{
+                    //    logger.Info("Workflow " + wf.Key);
+                    //}
                     
                     // (wfKey, wfDep, wfActiveEstimated)
                     var wfResults = new Dictionary<string, Tuple<IEnumerable<Scheduler.Estimated.TasksDepenendency>, List<ActiveEstimatedTask>>>();
@@ -383,7 +382,7 @@ namespace SchedulerService
                      }
 
 
-                    logger.Info("Scheduled WFs count: " + _scheduledWfs.Count());
+                    //logger.Info("Scheduled WFs count: " + _scheduledWfs.Count());
                     //logger.Info("Current plan after already scheduled wf's addition");
 
                     //PrintLaunchPlanToLog(result);
@@ -419,7 +418,7 @@ namespace SchedulerService
                         // generating *.dat files for each unscheduled wf
                         for (int i = 0; i < tosched.Length; i++)
                         {
-                            logger.Info("To sched key: {0}", tosched[i].Item1);
+                            //logger.Info("To sched key: {0}", tosched[i].Item1);
                             GenerateWorkflowInfo(ref tosched[i], wfIDs[tosched[i].Item1], i);
                         }
 
@@ -466,9 +465,9 @@ namespace SchedulerService
                                 var localTaskID = int.Parse(task.Parameters["id"]) - 1;
                                 //logger.Info("Task WFID:", localTaskID);
                                 var taskNode = schedule[wfID].Where(t => t.Item1 == localTaskID);
-                                logger.Info("Before: wfID " + wfID + " localTaskID: " + localTaskID);
+                                //logger.Info("Before: wfID " + wfID + " localTaskID: " + localTaskID);
                                 var nodeIndex = taskNode.First().Item2;
-                                logger.Info("After");
+                                //logger.Info("After");
 
 
                                 try
@@ -496,8 +495,7 @@ namespace SchedulerService
                  
                       }
 
-                    if (isFirstActive) 
-                        logger.Info("Current time: " + GetTime());
+                    
 
                     // update status
                     UpdateTaskStatus(ref wfResults);
@@ -529,10 +527,11 @@ namespace SchedulerService
                     }
                     
                 }
-
-                logger.Info("Current plan: " + _scheduledWfs.Count());
+                if (isFirstActive)
+                    logger.Info("Current time: " + GetTime());
+                //logger.Info("Current plan: " + _scheduledWfs.Count());
                 PrintLaunchPlanToLog(result);
-                logger.Info("Workflows tasks count");
+                //logger.Info("Workflows tasks count");
                 foreach (var wf in wfs)
                 {
                     logger.Info(wf.Item1 + " active: " + wf.Item2.Count() + " estimated: " + wf.Item3.Count());
@@ -567,7 +566,10 @@ namespace SchedulerService
                         //logger.Info("SetStatusToFinishedTasks() error. Cannot find wfkey for workflow id " + wfId.ToString());
                         continue;
                     }
+                    
                     string wfKey = wfKeys.First().Key;
+                    if (!wfResults.ContainsKey(wfKey))
+                        continue;
                     var taskList = wfResults[wfKey].Item2;
                     var globalTaskIds = taskIDs.Where(t => t.Value.Item1 == wfId && t.Value.Item2 == taskId);
                     if (globalTaskIds.Count() == 0)
@@ -625,6 +627,7 @@ namespace SchedulerService
                 foreach ( var node in nodeCurrent.ToList() )
                 {
                     var nodeId = node.Key;
+                    logger.Info("Node # " + node.Key);
                     //logger.Info("Node id: " + nodeId.ToString());
                     // if node is free
                     if (node.Value == null && !isNodeBusy(nodeId))
@@ -638,42 +641,55 @@ namespace SchedulerService
                         // if there is task waiting for destination
                         if (nodeQueues[node.Key].Count != 0)
                         {
-                            //logger.Info("Node queue is not empty");
-                            var task = nodeQueues[node.Key].First();
-                            int wfId = task.Item1, taskId = task.Item2;
-                            //logger.Info("Wf id: " + wfId.ToString() + " Task id: " + taskId.ToString());
-                            
-                            var wfKeyPair = wfIDs.FirstOrDefault(wf => wf.Value == wfId);
-                            //logger.Info("Key pair : success");
+                            bool taskWasAssigned = false,
+                                taskCannotBeAssigned = false;
 
-                            string wfKey = wfKeyPair.Key;
-                            //logger.Info("wfKey = " + wfKey);
+                            int taskIndex = 0;
 
-                            if (!wfIDs.ContainsKey(wfKey))
-                                  logger.Info("Key is not presented in wf id's");
-
-                            var taskToChange = wfResults[wfKey].Item2.Where(t => t.WFid == wfKey && t.Parameters["id"] == taskId.ToString()).ToList();
-                            //logger.Info("Task to change success");
-                            if (taskToChange.Count == 0)
-                                logger.Info("UpdateTaskStatus(). Cannot find task " + taskId.ToString() + " of workflow " + wfId.ToString() + " in active estimated tasks");
-
-
-                            if (IsParentsFinished(taskToChange.First().Id, wfResults[wfKey].Item1))
+                            while (!taskWasAssigned && !taskCannotBeAssigned)
                             {
-                                // change the status of the task
-                                taskToChange.First().State = TaskScheduler.TaskState.LAUNCHED;
-                                if (!nodeCurrent.ContainsKey(nodeId))
-                                    logger.Info("Node current does not contain nodeId " + nodeId.ToString());
-                                // set task as executed on the node
-                                nodeCurrent[nodeId] = new Tuple<int, int>(wfId, taskId);
-                                // remove task from waiting list for this node
-                                nodeQueues[nodeId].RemoveAt(0);
-                                //logger.Info("Node queues success");
-                                //logger.Info("UpdateTaskStatus(). Task " + taskId.ToString() + " of workflow " + wfId.ToString() + " status was changed to LAUNCHED");
-                            }
-                            else
-                            {
-                                logger.Info("Parents are not finished");
+                                //logger.Info("Node queue is not empty");
+                                var task = nodeQueues[node.Key][taskIndex];
+                                int wfId = task.Item1, taskId = task.Item2;
+                                //logger.Info("Wf id: " + wfId.ToString() + " Task id: " + taskId.ToString());
+
+                                var wfKeyPair = wfIDs.FirstOrDefault(wf => wf.Value == wfId);
+                                //logger.Info("Key pair : success");
+
+                                string wfKey = wfKeyPair.Key;
+                                //logger.Info("wfKey = " + wfKey);
+
+                                if (!wfIDs.ContainsKey(wfKey))
+                                    logger.Info("Key is not presented in wf id's");
+
+                                var taskToChange = wfResults[wfKey].Item2.Where(t => t.WFid == wfKey && t.Parameters["id"] == taskId.ToString()).ToList();
+                                //logger.Info("Task to change success");
+                                if (taskToChange.Count == 0)
+                                    logger.Info("UpdateTaskStatus(). Cannot find task " + taskId.ToString() + " of workflow " + wfId.ToString() + " in active estimated tasks");
+
+
+                                if (IsParentsFinished(taskToChange.First().Id, wfResults[wfKey].Item1))
+                                {
+                                    // change the status of the task
+                                    taskToChange.First().State = TaskScheduler.TaskState.LAUNCHED;
+                                    if (!nodeCurrent.ContainsKey(nodeId))
+                                        logger.Info("Node current does not contain nodeId " + nodeId.ToString());
+                                    // set task as executed on the node
+                                    nodeCurrent[nodeId] = new Tuple<int, int>(wfId, taskId);
+                                    // remove task from waiting list for this node
+                                    nodeQueues[nodeId].RemoveAt(taskIndex);
+                                    taskWasAssigned = true;
+                                    //logger.Info("Node queues success");
+                                    //logger.Info("UpdateTaskStatus(). Task " + taskId.ToString() + " of workflow " + wfId.ToString() + " status was changed to LAUNCHED");
+                                }
+                                else
+                                {
+                                    logger.Info("Parents are not finished");
+
+                                    taskIndex++;
+                                    if (taskIndex == nodeQueues[node.Key].Count())
+                                        taskCannotBeAssigned = true;
+                                }
                             }
                         }
                     }
@@ -788,8 +804,7 @@ namespace SchedulerService
                             taskId = currentTask.Value.Item2;
 
                         var global = taskIDs.Where(t => t.Value.Item1 == wfId && t.Value.Item2 == taskId);
-                        ulong globalTaskId = global.First().Key;
-
+                        
                         string wfKey = wfIDs.FirstOrDefault(x => x.Value == wfId).Key;
                         
                         // if current task is in ActiveEstimated tasks, it is not finished yet
@@ -806,6 +821,7 @@ namespace SchedulerService
                         }
                         else
                         {
+                            ulong globalTaskId = global.First().Key;
                             var activeTasks = currentWf.First().Item2;
 
                             var foundTask = activeTasks.Where(task => task.Parameters["id"] == taskId.ToString()).ToList();
@@ -840,7 +856,7 @@ namespace SchedulerService
                         }
                     }
                 }
-               
+               // PrintNodeQueues();
             }
             catch (Exception ex)
             {
@@ -857,7 +873,7 @@ namespace SchedulerService
             int nowSec = hours * 3600 + minutes * 60 + seconds,
                 firstSec = firstHours * 3600 + firstMinutes * 60 + firstSeconds;
             int currentTime = nowSec - firstSec;
-            logger.Info("Current time: " + (nowSec - firstSec).ToString());
+            //logger.Info("Current time: " + (nowSec - firstSec).ToString());
             return currentTime;
         }
 
